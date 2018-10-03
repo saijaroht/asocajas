@@ -1,0 +1,5 @@
+C:\Asocajas\Asocajas\Asocajas\bin\Asocajas.dll
+C:\Asocajas\Asocajas\Asocajas\bin\Asocajas.pdb
+C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.csprojResolveAssemblyReference.cache
+C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.dll
+C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
