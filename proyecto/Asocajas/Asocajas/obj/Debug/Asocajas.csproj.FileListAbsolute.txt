@@ -3,3 +3,8 @@ C:\Asocajas\Asocajas\Asocajas\bin\Asocajas.pdb
 C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.csprojResolveAssemblyReference.cache
 C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.dll
 C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.pdb
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.csprojResolveAssemblyReference.cache
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb

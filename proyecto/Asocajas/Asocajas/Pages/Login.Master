@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="Asocajas.Pages.Login1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../Scripts/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="banner">
+            <center><img src="../Scripts/Images/logo_asocajas.png"></center>
+        </div>
+    <div>
+        <asp:ContentPlaceHolder ID="TitlePage" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <br />
+        <br />
+        <br />
+    </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+                
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        
+            <footer class="container-fluid bg-4 text-center">
+                <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
+            </footer>
+       
+    </form>
+</body>
+</html>

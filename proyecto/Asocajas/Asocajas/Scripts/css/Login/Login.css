@@ -1,0 +1,20 @@
+﻿body {
+    max-width:100%;
+}
+
+  
+  .bg-4 { 
+      background-color: #2f2f2f;
+      color: #fff;
+  }
+.container-fluid {
+    background-color: #F7F6F6  ;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color:black;
+    border:1px solid black;
+}
+ 
+
+  
