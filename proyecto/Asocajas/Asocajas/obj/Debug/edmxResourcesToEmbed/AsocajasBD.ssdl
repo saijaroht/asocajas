@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AsocajasBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AsocajasBDModelStoreContainer">
+    <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.Store.LTLogApp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.Store.LTLogConsultasAni" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.Store.LTLogEventos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RCCF" EntityType="AsocajasBDModel.Store.RCCF" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RRole" EntityType="AsocajasBDModel.Store.RRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.Store.RRptaAsocajas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.Store.RRptaRnec" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RUsuario" EntityType="AsocajasBDModel.Store.RUsuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_LTLogConsultasAni_RCcf" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RCcf">
+      <End Role="RCCF" EntitySet="RCCF" />
+      <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LTLogConsultasAni_RRptaAsocajas" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RRptaAsocajas">
+      <End Role="RRptaAsocajas" EntitySet="RRptaAsocajas" />
+      <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LTLogConsultasAni_RRptaRnec" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RRptaRnec">
+      <End Role="RRptaRnec" EntitySet="RRptaRnec" />
+      <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LTLogConsultasAni_RUsuario" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RUsuario">
+      <End Role="RUsuario" EntitySet="RUsuario" />
+      <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RUsuario_RCcf" Association="AsocajasBDModel.Store.FK_RUsuario_RCcf">
+      <End Role="RCCF" EntitySet="RCCF" />
+      <End Role="RUsuario" EntitySet="RUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RUsuario_RRole" Association="AsocajasBDModel.Store.FK_RUsuario_RRole">
+      <End Role="RRole" EntitySet="RRole" />
+      <End Role="RUsuario" EntitySet="RUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LTLogApp">
+    <Key>
+      <PropertyRef Name="IdLogApp" />
+    </Key>
+    <Property Name="IdLogApp" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="GUID" Type="varchar" MaxLength="250" />
+    <Property Name="AppName" Type="varchar" MaxLength="250" />
+    <Property Name="WebServiceName" Type="varchar" MaxLength="250" />
+    <Property Name="MethodName" Type="varchar" MaxLength="250" />
+    <Property Name="MethodNameUI" Type="varchar" MaxLength="250" />
+    <Property Name="UserName" Type="varchar" MaxLength="250" />
+    <Property Name="UserMachineInfo" Type="varchar" MaxLength="250" />
+    <Property Name="ServerIP" Type="varchar" MaxLength="250" />
+    <Property Name="Data" Type="varchar" MaxLength="4000" />
+    <Property Name="ErrorMessage" Type="varchar" MaxLength="250" />
+    <Property Name="Source" Type="varchar" MaxLength="250" />
+    <Property Name="Method" Type="varchar" MaxLength="250" />
+    <Property Name="ErrorType" Type="varchar" MaxLength="250" />
+    <Property Name="Trace" Type="varchar" MaxLength="4000" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LTLogConsultasAni">
+    <Key>
+      <PropertyRef Name="IdConsulta" />
+    </Key>
+    <Property Name="IdConsulta" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FechaConsulta" Type="datetime" Nullable="false" />
+    <Property Name="Nuip" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Origen" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="FechaInicia" Type="datetime" Nullable="false" />
+    <Property Name="FechaFin" Type="datetime" Nullable="false" />
+    <Property Name="Duracion" Type="int" Nullable="false" />
+    <Property Name="IdCcf" Type="int" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="IdRptaRnec" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="IdRptaAsocajas" Type="varchar" Nullable="false" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="LTLogEventos">
+    <Key>
+      <PropertyRef Name="IdLogEvento" />
+    </Key>
+    <Property Name="IdLogEvento" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FechaEvento" Type="datetime" Nullable="false" />
+    <Property Name="Evento" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Usuario" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="RCCF">
+    <Key>
+      <PropertyRef Name="IdCcf" />
+    </Key>
+    <Property Name="IdCcf" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nit" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="120" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MaquinaCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FechaActualizacion" Type="datetime" />
+    <Property Name="UsuarioActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="MaquinaActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RRole">
+    <Key>
+      <PropertyRef Name="IdRole" />
+    </Key>
+    <Property Name="IdRole" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MaquinaCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FechaActualizacion" Type="datetime" />
+    <Property Name="UsuarioActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="MaquinaActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RRptaAsocajas">
+    <Key>
+      <PropertyRef Name="IdRptaAsocajas" />
+    </Key>
+    <Property Name="IdRptaAsocajas" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="RptaAsocajas" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RRptaRnec">
+    <Key>
+      <PropertyRef Name="IdRptaRnec" />
+    </Key>
+    <Property Name="IdRptaRnec" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="RptaRnec" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RUsuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Vigencia" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="IdCcf" Type="int" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+    <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MaquinaCreacion" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="FechaActualizacion" Type="datetime" />
+    <Property Name="UsuarioActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="MaquinaActualizacion" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LTLogConsultasAni_RCcf">
+    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="0..1" />
+    <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RCCF">
+        <PropertyRef Name="IdCcf" />
+      </Principal>
+      <Dependent Role="LTLogConsultasAni">
+        <PropertyRef Name="IdCcf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LTLogConsultasAni_RRptaAsocajas">
+    <End Role="RRptaAsocajas" Type="AsocajasBDModel.Store.RRptaAsocajas" Multiplicity="1" />
+    <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RRptaAsocajas">
+        <PropertyRef Name="IdRptaAsocajas" />
+      </Principal>
+      <Dependent Role="LTLogConsultasAni">
+        <PropertyRef Name="IdRptaAsocajas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LTLogConsultasAni_RRptaRnec">
+    <End Role="RRptaRnec" Type="AsocajasBDModel.Store.RRptaRnec" Multiplicity="1" />
+    <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RRptaRnec">
+        <PropertyRef Name="IdRptaRnec" />
+      </Principal>
+      <Dependent Role="LTLogConsultasAni">
+        <PropertyRef Name="IdRptaRnec" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LTLogConsultasAni_RUsuario">
+    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="0..1" />
+    <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="LTLogConsultasAni">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RUsuario_RCcf">
+    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="0..1" />
+    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RCCF">
+        <PropertyRef Name="IdCcf" />
+      </Principal>
+      <Dependent Role="RUsuario">
+        <PropertyRef Name="IdCcf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RUsuario_RRole">
+    <End Role="RRole" Type="AsocajasBDModel.Store.RRole" Multiplicity="1" />
+    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RRole">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="RUsuario">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

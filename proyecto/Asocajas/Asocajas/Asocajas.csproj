@@ -75,6 +75,7 @@
       <LastGenOutput>AsocajasBD.cs</LastGenOutput>
     </Content>
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\RegistroUsuarios.aspx" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\Login\Login.css" />
     <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="Pages\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistroUsuarios.aspx.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistroUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RCCF.cs">
