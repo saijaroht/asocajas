@@ -5,5 +5,5 @@
     <h4 class="text-center"><u><b>Servicio Digital de Validacion de Identidad</b></u></h4>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    holaa
+    
 </asp:Content>
