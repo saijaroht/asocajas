@@ -7,54 +7,61 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
      <form>
   <div class="panel panel-default">
-            <div class="panel-body form-horizontal payment-form">   
-              <div class="input-group">
-                <span class="input-group-addon">Nombre<i class=""></i></span>
-                <input id="txtNombre" type="text" class="form-control" name="Nombre" placeholder="Nombre">
-              </div>
-                   <br />
-                 <div class="input-group">
-                <span class="input-group-addon">Apellido<i class=""></i></span>
-                <input id="txtApellido" type="text" class="form-control" name="Apellido" placeholder="Apellido">
-              </div>
-                   <br />
-                 <div class="input-group">
-                <span class="input-group-addon">usuario<i class=""></i></span>
-                <input id="txtUsuario" type="text" class="form-control" name="Usuario" placeholder="Usuario">
-              </div>
-                   <br />
-                <div class="input-group">
-                    <span class="input-group-addon">Nombre CCF<i class=""></i></span>
-                    <div class="col-sm-9">
-                        <select id="ddCCF" class="form-control">
-                        </select>
-                    </div>
-                </div>
-                   <br />
-                <div class="input-group">
-                    <span class="input-group-addon">Estado<i class=""></i></span>
-                    <div class="col-sm-9">
-                        <select id="ddEstado" class="form-control">
-                        </select>
-                    </div>
-                </div>
-                   <br />
-                <div class="input-group">
-                    <span class="input-group-addon">Tipo de usuario<i class=""></i></span>
-                    <div class="col-sm-9">
-                        <select id="ddTipoUsuario" class="form-control">
-                        </select>
-                    </div>
-                </div>
-                   <br />
-                 
-               <div class="form-group">
-                <label>Fecha Desde:</label>
-                <input type="text" placeholder="DD/MM/YYYY" class="form-control" name="txtFechaInicioRecordatorio" id="txtFechaInicioRecordatorio">
-              </div>
+            <div class="panel-body form-horizontal payment-form">  
               
-                   
-  </div>
+                <div class="row">               
+                      <div class="input-group">
+                            <span class="input-group-addon">Nombre<i class=""></i></span>
+                            <input id="txtNombre" type="text" class="form-control" name="Nombre" placeholder="Nombre"> 
+                      </div>
+                 </div>
+                 <div class="row">   
+                      <div class="input-group">
+                        <span class="input-group-addon">Apellido<i class=""></i></span>
+                        <input id="txtApellido" type="text" class="form-control" name="Apellido" placeholder="Apellido">
+                      </div>
+                 </div>
+                    <div class="row">   
+                         <div class="input-group">
+                        <span class="input-group-addon">usuario<i class=""></i></span>
+                        <input id="txtUsuario" type="text" class="form-control" name="Usuario" placeholder="Usuario">
+                      </div>
+                     </div>
+                 <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">Nombre CCF<i class=""></i></span>
+                            <div class="col-sm-9">
+                                <select id="ddCCF" class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">Estado<i class=""></i></span>
+                            <div class="col-sm-9">
+                                <select id="ddEstado" class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                      </div>
+                  <div class="row">
+                        <div class="input-group">
+                            <span class="input-group-addon">Tipo de usuario<i class=""></i></span>
+                            <div class="col-sm-9">
+                                <select id="ddTipoUsuario" class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                     </div>
+                   <div class="row">
+                       <div class="input-group">
+                        <span class="input-group-addon">Fecha Desde <i class=""></i></span>
+                        <input type="text" placeholder="DD/MM/YYYY" class="form-control" name="txtFechaInicioRecordatorio" id="txtFechaInicioRecordatorio">
+                      </div>
+                 </div>
+              </div>      
+         </div>
       </div>
 </form>
 </asp:Content>
