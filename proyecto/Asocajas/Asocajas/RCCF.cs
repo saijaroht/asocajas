@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class RCCF
+    public partial class RCCF : EntityBase
     {
         public RCCF()
         {

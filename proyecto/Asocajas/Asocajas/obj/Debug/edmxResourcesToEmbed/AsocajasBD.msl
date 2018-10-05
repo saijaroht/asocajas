@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AsocajasBDModelStoreContainer" CdmEntityContainer="AsocajasBDEntities">
+    <EntitySetMapping Name="LTLogApp">
+      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
+        <MappingFragment StoreEntitySet="LTLogApp">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+          <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ServerIP" ColumnName="ServerIP" />
+          <ScalarProperty Name="UserMachineInfo" ColumnName="UserMachineInfo" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MethodNameUI" ColumnName="MethodNameUI" />
+          <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+          <ScalarProperty Name="WebServiceName" ColumnName="WebServiceName" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LTLogConsultasAni">
+      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
+        <MappingFragment StoreEntitySet="LTLogConsultasAni">
+          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
+          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Nuip" ColumnName="Nuip" />
+          <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
+          <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LTLogEventos">
+      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
+        <MappingFragment StoreEntitySet="LTLogEventos">
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
+          <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RCCF">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RCCF">
+        <MappingFragment StoreEntitySet="RCCF">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RRole">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RRole">
+        <MappingFragment StoreEntitySet="RRole">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RRptaAsocajas">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RRptaAsocajas">
+        <MappingFragment StoreEntitySet="RRptaAsocajas">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
+          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RRptaRnec">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RRptaRnec">
+        <MappingFragment StoreEntitySet="RRptaRnec">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
+          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUsuario">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
+        <MappingFragment StoreEntitySet="RUsuario">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
