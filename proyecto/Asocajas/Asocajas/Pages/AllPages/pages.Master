@@ -7,9 +7,20 @@
     <title></title>
     <link href="../../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css"/>
+    <link href="../../Scripts/css/bootstrap-toggle.min.css" rel="stylesheet">
     
     <script src="../../Scripts/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/bootstrap-toggle.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/Helper.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/bootstrap-filestyle.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/bootstrap-dialog.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/jquery.linq-vsdoc.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/jquery.linq.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/jquery.linq.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/linq-vsdoc.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/linq.js" type="text/javascript"></script>
+    <script src="../../Scripts/Scripts/linq.min.js" type="text/javascript"></script>
    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
