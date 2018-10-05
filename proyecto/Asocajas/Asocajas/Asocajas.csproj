@@ -119,15 +119,27 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecordarClave.aspx" />
     <Content Include="Pages\RegistroUsuarios.aspx" />
+    <Content Include="Scripts\css\bootstrap-toggle.min.css" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\Login\Login.css" />
     <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\icomoon.svg" />
     <Content Include="Scripts\Images\logo_asocajas.png" />
+    <Content Include="Scripts\Javascript\Helper.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
+    <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
+    <Content Include="Scripts\Scripts\bootstrap-dialog.min.js" />
+    <Content Include="Scripts\Scripts\bootstrap-filestyle.min.js" />
+    <Content Include="Scripts\Scripts\bootstrap-toggle.min.js" />
     <Content Include="Scripts\Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Scripts\jquery-3.2.1.min.js" />
+    <None Include="Scripts\Scripts\jquery.linq-vsdoc.js" />
+    <Content Include="Scripts\Scripts\jquery.linq.js" />
+    <Content Include="Scripts\Scripts\jquery.linq.min.js" />
+    <None Include="Scripts\Scripts\linq-vsdoc.js" />
+    <Content Include="Scripts\Scripts\linq.js" />
+    <Content Include="Scripts\Scripts\linq.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
