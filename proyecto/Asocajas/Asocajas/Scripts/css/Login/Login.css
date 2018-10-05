@@ -1,5 +1,7 @@
-﻿body {
-    max-width:100%;
+﻿html, body {
+    height: 100%;
+    width:98%;
+
 }
 
   
@@ -7,7 +9,7 @@
       background-color: #2f2f2f;
       color: #fff;
   }
-.container-fluid {
+    .footer {
     background-color: #F7F6F6  ;
     position: absolute;
     bottom: 0;

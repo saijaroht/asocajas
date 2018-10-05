@@ -114,7 +114,11 @@
       <DependentUpon>AsocajasBD.edmx</DependentUpon>
       <LastGenOutput>AsocajasBD.cs</LastGenOutput>
     </Content>
+<<<<<<< HEAD
     <Content Include="Global.asax" />
+=======
+    <Content Include="Pages\AllPages\Inicio.aspx" />
+>>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
     <Content Include="Pages\Login.aspx" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\Login\Login.css" />
@@ -160,6 +164,13 @@
     </Compile>
     <Compile Include="LTLogEventos.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllPages\pages.Master.cs">
       <DependentUpon>pages.Master</DependentUpon>
