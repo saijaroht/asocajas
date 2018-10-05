@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class RUsuario
+    public partial class RUsuario : EntityBase
     {
         public RUsuario()
         {

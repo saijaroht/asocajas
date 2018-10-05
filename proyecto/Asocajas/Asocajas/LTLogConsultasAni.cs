@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class LTLogConsultasAni
+    public partial class LTLogConsultasAni : EntityBase
     {
         public long IdConsulta { get; set; }
         public System.DateTime FechaConsulta { get; set; }
