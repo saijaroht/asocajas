@@ -7,9 +7,10 @@
     <title></title>
     <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css" />
-
-    <script src="../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    
     <script src="../Scripts/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
