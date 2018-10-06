@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b84836529a85434fbc264fe47ef65328" Name="Diagram1">
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" ManuallyRouted="false" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" ManuallyRouted="false" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" ManuallyRouted="false" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" ManuallyRouted="false" />
-        <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" ManuallyRouted="false" />
-        <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="6.8347162561652786" PointY="1.3308341062305653" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="10.768401162125358" PointY="28.147109268301683" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="4.4495363461084363" PointY="10.61746593314105" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="8.9211741503892341" PointY="21.262930760748187" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="8.29034787616243" PointY="19.290479579610043" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="8.7772123817248335" PointY="15.649518526927343" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="11.890488004260924" PointY="19.102152535273763" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="0.092648321805823747" PointY="23.968524705603961" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" />
+        <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
+        <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

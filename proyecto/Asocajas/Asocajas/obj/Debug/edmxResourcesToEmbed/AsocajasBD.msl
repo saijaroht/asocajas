@@ -5,8 +5,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
         <MappingFragment StoreEntitySet="LTLogApp">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
           <ScalarProperty Name="Trace" ColumnName="Trace" />
           <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
@@ -25,7 +23,6 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="GUID" ColumnName="GUID" />
@@ -43,10 +40,7 @@
           <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
           <ScalarProperty Name="Trace" ColumnName="Trace" />
           <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -54,8 +48,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
         <MappingFragment StoreEntitySet="LTLogConsultasAni">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
           <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -68,7 +60,6 @@
           <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
           <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
           <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
           <ScalarProperty Name="Nuip" ColumnName="Nuip" />
@@ -80,10 +71,7 @@
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
           <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -91,24 +79,18 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
         <MappingFragment StoreEntitySet="LTLogEventos">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Evento" ColumnName="Evento" />
           <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
           <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
           <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
           <ScalarProperty Name="Evento" ColumnName="Evento" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -116,8 +98,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.RCCF">
         <MappingFragment StoreEntitySet="RCCF">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
@@ -129,7 +109,6 @@
           <ScalarProperty Name="Nit" ColumnName="Nit" />
           <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
           <ScalarProperty Name="Nit" ColumnName="Nit" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -140,10 +119,7 @@
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -151,8 +127,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.RRole">
         <MappingFragment StoreEntitySet="RRole">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
@@ -164,7 +138,6 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -175,10 +148,7 @@
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -186,11 +156,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.RRptaAsocajas">
         <MappingFragment StoreEntitySet="RRptaAsocajas">
 <<<<<<< HEAD
-          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
-          <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
           <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
@@ -199,7 +164,6 @@
           <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -207,11 +171,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.RRptaRnec">
         <MappingFragment StoreEntitySet="RRptaRnec">
 <<<<<<< HEAD
-          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
-          <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
           <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
@@ -220,7 +179,6 @@
           <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -228,8 +186,6 @@
       <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
         <MappingFragment StoreEntitySet="RUsuario">
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
@@ -246,7 +202,6 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
 =======
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -262,10 +217,7 @@
           <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
           <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-<<<<<<< HEAD
-=======
 >>>>>>> 921ad3160797230b6a329713c2b4a25f984f2ec5
->>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

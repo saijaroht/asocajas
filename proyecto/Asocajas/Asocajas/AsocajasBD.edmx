@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AsocajasBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AsocajasBDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="AsocajasBDModelStoreContainer">
           <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.Store.LTLogApp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.Store.LTLogConsultasAni" store:Type="Tables" Schema="dbo" />
@@ -225,8 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AsocajasBDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -268,39 +267,39 @@
           <Key>
             <PropertyRef Name="IdLogApp" />
           </Key>
-          <Property Name="IdLogApp" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="GUID" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="AppName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="WebServiceName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="MethodName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="MethodNameUI" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="UserName" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="UserMachineInfo" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="ServerIP" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Data" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
-          <Property Name="ErrorMessage" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Source" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Method" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="ErrorType" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Trace" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Type="Int64" Name="IdLogApp" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GUID" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AppName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="WebServiceName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MethodName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MethodNameUI" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UserName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UserMachineInfo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ServerIP" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Data" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ErrorMessage" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Source" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Method" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ErrorType" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Trace" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="LTLogConsultasAni">
           <Key>
             <PropertyRef Name="IdConsulta" />
           </Key>
-          <Property Name="IdConsulta" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="FechaConsulta" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Nuip" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="Origen" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="FechaInicia" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Duracion" Type="Int32" Nullable="false" />
-          <Property Name="IdCcf" Type="Int32" />
-          <Property Name="IdUsuario" Type="Int32" />
-          <Property Name="IdRptaRnec" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="IdRptaAsocajas" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Type="Int64" Name="IdConsulta" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FechaConsulta" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Nuip" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Origen" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaInicia" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="Duracion" Nullable="false" />
+          <Property Type="Int32" Name="IdCcf" />
+          <Property Type="Int32" Name="IdUsuario" />
+          <Property Type="String" Name="IdRptaRnec" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdRptaAsocajas" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" FromRole="LTLogConsultasAni" ToRole="RCCF" />
           <NavigationProperty Name="RRptaAsocajas" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" FromRole="LTLogConsultasAni" ToRole="RRptaAsocajas" />
           <NavigationProperty Name="RRptaRnec" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" FromRole="LTLogConsultasAni" ToRole="RRptaRnec" />
@@ -310,26 +309,26 @@
           <Key>
             <PropertyRef Name="IdLogEvento" />
           </Key>
-          <Property Name="IdLogEvento" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="FechaEvento" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Evento" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="Usuario" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Type="Int64" Name="IdLogEvento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FechaEvento" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Evento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Usuario" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RCCF">
           <Key>
             <PropertyRef Name="IdCcf" />
           </Key>
-          <Property Name="IdCcf" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Nit" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" Unicode="false" FixedLength="false" />
-          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
-          <Property Name="UsuarioActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Type="Int32" Name="IdCcf" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nit" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaActualizacion" Precision="3" />
+          <Property Type="String" Name="UsuarioActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" FromRole="RCCF" ToRole="LTLogConsultasAni" />
           <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_RUsuario_RCcf" FromRole="RCCF" ToRole="RUsuario" />
         </EntityType>
@@ -337,62 +336,62 @@
           <Key>
             <PropertyRef Name="IdRole" />
           </Key>
-          <Property Name="IdRole" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
-          <Property Name="UsuarioActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Type="Int32" Name="IdRole" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaActualizacion" Precision="3" />
+          <Property Type="String" Name="UsuarioActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_RUsuario_RRole" FromRole="RRole" ToRole="RUsuario" />
         </EntityType>
         <EntityType Name="RRptaAsocajas">
           <Key>
             <PropertyRef Name="IdRptaAsocajas" />
           </Key>
-          <Property Name="IdRptaAsocajas" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="RptaAsocajas" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Type="String" Name="IdRptaAsocajas" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RptaAsocajas" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" FromRole="RRptaAsocajas" ToRole="LTLogConsultasAni" />
         </EntityType>
         <EntityType Name="RRptaRnec">
           <Key>
             <PropertyRef Name="IdRptaRnec" />
           </Key>
-          <Property Name="IdRptaRnec" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="RptaRnec" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Type="String" Name="IdRptaRnec" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RptaRnec" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" FromRole="RRptaRnec" ToRole="LTLogConsultasAni" />
         </EntityType>
         <EntityType Name="RUsuario">
           <Key>
             <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="IdUsuario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Vigencia" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="IdCcf" Type="Int32" />
-          <Property Name="IdRole" Type="Int32" Nullable="false" />
-          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaCreacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
-          <Property Name="UsuarioActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="MaquinaActualizacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Vigencia" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdCcf" />
+          <Property Type="Int32" Name="IdRole" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaActualizacion" Precision="3" />
+          <Property Type="String" Name="UsuarioActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" FromRole="RUsuario" ToRole="LTLogConsultasAni" />
           <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_RUsuario_RCcf" FromRole="RUsuario" ToRole="RCCF" />
           <NavigationProperty Name="RRole" Relationship="AsocajasBDModel.FK_RUsuario_RRole" FromRole="RUsuario" ToRole="RRole" />
         </EntityType>
         <Association Name="FK_LTLogConsultasAni_RCcf">
-          <End Role="RCCF" Type="AsocajasBDModel.RCCF" Multiplicity="0..1" />
-          <End Role="LTLogConsultasAni" Type="AsocajasBDModel.LTLogConsultasAni" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RCCF" Role="RCCF" Multiplicity="0..1" />
+          <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RCCF">
               <PropertyRef Name="IdCcf" />
@@ -403,8 +402,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LTLogConsultasAni_RRptaAsocajas">
-          <End Role="RRptaAsocajas" Type="AsocajasBDModel.RRptaAsocajas" Multiplicity="1" />
-          <End Role="LTLogConsultasAni" Type="AsocajasBDModel.LTLogConsultasAni" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RRptaAsocajas" Role="RRptaAsocajas" Multiplicity="1" />
+          <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RRptaAsocajas">
               <PropertyRef Name="IdRptaAsocajas" />
@@ -415,8 +414,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LTLogConsultasAni_RRptaRnec">
-          <End Role="RRptaRnec" Type="AsocajasBDModel.RRptaRnec" Multiplicity="1" />
-          <End Role="LTLogConsultasAni" Type="AsocajasBDModel.LTLogConsultasAni" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RRptaRnec" Role="RRptaRnec" Multiplicity="1" />
+          <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RRptaRnec">
               <PropertyRef Name="IdRptaRnec" />
@@ -427,8 +426,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LTLogConsultasAni_RUsuario">
-          <End Role="RUsuario" Type="AsocajasBDModel.RUsuario" Multiplicity="0..1" />
-          <End Role="LTLogConsultasAni" Type="AsocajasBDModel.LTLogConsultasAni" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
+          <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RUsuario">
               <PropertyRef Name="IdUsuario" />
@@ -439,8 +438,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RUsuario_RCcf">
-          <End Role="RCCF" Type="AsocajasBDModel.RCCF" Multiplicity="0..1" />
-          <End Role="RUsuario" Type="AsocajasBDModel.RUsuario" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RCCF" Role="RCCF" Multiplicity="0..1" />
+          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RCCF">
               <PropertyRef Name="IdCcf" />
@@ -451,8 +450,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RUsuario_RRole">
-          <End Role="RRole" Type="AsocajasBDModel.RRole" Multiplicity="1" />
-          <End Role="RUsuario" Type="AsocajasBDModel.RUsuario" Multiplicity="*" />
+          <End Type="AsocajasBDModel.RRole" Role="RRole" Multiplicity="1" />
+          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RRole">
               <PropertyRef Name="IdRole" />
@@ -462,7 +461,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -471,122 +470,122 @@
           <EntitySetMapping Name="LTLogApp">
             <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
               <MappingFragment StoreEntitySet="LTLogApp">
-                <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="GUID" ColumnName="GUID" />
-                <ScalarProperty Name="AppName" ColumnName="AppName" />
-                <ScalarProperty Name="WebServiceName" ColumnName="WebServiceName" />
-                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
-                <ScalarProperty Name="MethodNameUI" ColumnName="MethodNameUI" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserMachineInfo" ColumnName="UserMachineInfo" />
-                <ScalarProperty Name="ServerIP" ColumnName="ServerIP" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="Method" ColumnName="Method" />
-                <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
-                <ScalarProperty Name="Trace" ColumnName="Trace" />
                 <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Trace" ColumnName="Trace" />
+                <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="ServerIP" ColumnName="ServerIP" />
+                <ScalarProperty Name="UserMachineInfo" ColumnName="UserMachineInfo" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MethodNameUI" ColumnName="MethodNameUI" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="WebServiceName" ColumnName="WebServiceName" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LTLogConsultasAni">
             <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
               <MappingFragment StoreEntitySet="LTLogConsultasAni">
-                <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
-                <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
-                <ScalarProperty Name="Nuip" ColumnName="Nuip" />
-                <ScalarProperty Name="Origen" ColumnName="Origen" />
-                <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
-                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
                 <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
+                <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Nuip" ColumnName="Nuip" />
+                <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
+                <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LTLogEventos">
             <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
               <MappingFragment StoreEntitySet="LTLogEventos">
-                <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
-                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
-                <ScalarProperty Name="Evento" ColumnName="Evento" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
+                <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RCCF">
             <EntityTypeMapping TypeName="AsocajasBDModel.RCCF">
               <MappingFragment StoreEntitySet="RCCF">
-                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-                <ScalarProperty Name="Nit" ColumnName="Nit" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
-                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
-                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
-                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Nit" ColumnName="Nit" />
+                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RRole">
             <EntityTypeMapping TypeName="AsocajasBDModel.RRole">
               <MappingFragment StoreEntitySet="RRole">
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
-                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
-                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
-                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RRptaAsocajas">
             <EntityTypeMapping TypeName="AsocajasBDModel.RRptaAsocajas">
               <MappingFragment StoreEntitySet="RRptaAsocajas">
-                <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
-                <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="RptaAsocajas" ColumnName="RptaAsocajas" />
+                <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RRptaRnec">
             <EntityTypeMapping TypeName="AsocajasBDModel.RRptaRnec">
               <MappingFragment StoreEntitySet="RRptaRnec">
-                <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
-                <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="RptaRnec" ColumnName="RptaRnec" />
+                <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RUsuario">
             <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
               <MappingFragment StoreEntitySet="RUsuario">
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
-                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
-                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
-                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

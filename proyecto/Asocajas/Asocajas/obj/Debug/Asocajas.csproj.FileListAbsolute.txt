@@ -29,10 +29,3 @@ C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.Cors.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.WebHost.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.pdb
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.dll
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.xml
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.csprojResolveAssemblyReference.cache
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
-C:\Nueva carpeta\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
