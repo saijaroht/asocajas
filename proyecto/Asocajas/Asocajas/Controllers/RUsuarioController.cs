@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Asocajas;
+using HelperGeneral;
 
 namespace Asocajas.Controllers
 {
@@ -34,7 +35,7 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
-            rsuario.Password = HelperGeneral.Encrypt(rsuario.Password, true);
+            rsuario.Password = HelperGeneral.Encrypt(HelperGeneral.RandomPass(), true);
             var obj = this.objDb.Add(rsuario);
             return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
         }

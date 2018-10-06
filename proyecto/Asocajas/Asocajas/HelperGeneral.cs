@@ -10,6 +10,16 @@ namespace Asocajas
 {
     public class HelperGeneral
     {
+
+        public static string RandomPass()
+        {
+            int longitud = 7;
+            Guid miGuid = Guid.NewGuid();
+            string token = Convert.ToBase64String(miGuid.ToByteArray());
+            token = token.Replace("=", "").Replace("+", "");
+            return token.Substring(0, longitud);
+        }
+
         public static string Encrypt(string toEncrypt, bool useHashing)
         {
             byte[] keyArray;
