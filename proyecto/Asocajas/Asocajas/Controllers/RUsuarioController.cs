@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Asocajas;
 
 namespace Asocajas.Controllers
 {
@@ -17,6 +18,14 @@ namespace Asocajas.Controllers
             return Ok(obj);
         }
 
+
+        public IHttpActionResult GetExistUser(string user, string password)
+        {
+            password = HelperGeneral.Encrypt(password, true);
+            var obj = this.objDb.Get(o => o.Usuario == user && o.Password == password).ToList();
+            return Ok(obj);
+        }
+
         public IHttpActionResult GetRUsuarioById(int idUsuario)
         {
             var obj = this.objDb.Get(o => o.IdUsuario == idUsuario).ToList();
@@ -25,6 +34,7 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
+            rsuario.Password = HelperGeneral.Encrypt(rsuario.Password, true);
             var obj = this.objDb.Add(rsuario);
             return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
         }
