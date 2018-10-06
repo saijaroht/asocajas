@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class RRptaAsocajas
+    public partial class RRptaAsocajas : EntityBase
     {
         public RRptaAsocajas()
         {

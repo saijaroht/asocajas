@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class LTLogEventos
+    public partial class LTLogEventos : EntityBase
     {
         public long IdLogEvento { get; set; }
         public System.DateTime FechaEvento { get; set; }

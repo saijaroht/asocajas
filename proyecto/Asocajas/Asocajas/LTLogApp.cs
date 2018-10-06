@@ -12,7 +12,7 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class LTLogApp
+    public partial class LTLogApp : EntityBase
     {
         public long IdLogApp { get; set; }
         public string Type { get; set; }
