@@ -116,6 +116,7 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
+    <Content Include="Pages\CambioContrasena.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\RecordarClave.aspx" />
     <Content Include="Pages\RegistroUsuarios.aspx" />
@@ -126,6 +127,7 @@
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\icomoon.svg" />
     <Content Include="Scripts\Images\logo_asocajas.png" />
+    <Content Include="Scripts\Javascript\CambioContrasena.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
@@ -198,6 +200,12 @@
     </Compile>
     <Compile Include="Pages\AllPages\pages.Master.designer.cs">
       <DependentUpon>pages.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CambioContrasena.aspx.cs">
+      <DependentUpon>CambioContrasena.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CambioContrasena.aspx.designer.cs">
+      <DependentUpon>CambioContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
