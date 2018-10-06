@@ -9,20 +9,18 @@ using System.Web.Http.Cors;
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class LTLogAppController : BaseController<LTLogApp>
+    public class LTLogEventosController : BaseController<LTLogEventos>
     {
-
-        public IHttpActionResult GetLTLogApp()
+        public IHttpActionResult GetLTLogEventos()
         {
             var obj = this.objDb.Get().ToList();
             return Ok(obj);
         }
 
-        public IHttpActionResult PostLTLogApp(LTLogApp lTLogApp)
+        public IHttpActionResult PostLTLogEventos(LTLogEventos lTLogEventos)
         {
-            var obj = this.objDb.Add(lTLogApp);
-            return CreatedAtRoute("DefaultApi", new { id = lTLogApp.IdLogApp }, lTLogApp);
-        }
-
+            var obj = this.objDb.Add(lTLogEventos);
+            return CreatedAtRoute("DefaultApi", new { id = lTLogEventos.IdLogEvento }, lTLogEventos);
+        }   
     }
 }

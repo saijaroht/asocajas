@@ -162,6 +162,13 @@
     <Compile Include="BusinessBase.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LTLogAppController.cs" />
+    <Compile Include="Controllers\LTLogConsultasAniController.cs" />
+    <Compile Include="Controllers\LTLogEventosController.cs" />
+    <Compile Include="Controllers\RCCFController.cs" />
+    <Compile Include="Controllers\RRoleController.cs" />
+    <Compile Include="Controllers\RRptaAsocajasController.cs" />
+    <Compile Include="Controllers\RRptaRnecController.cs" />
+    <Compile Include="Controllers\RUsuarioController.cs" />
     <Compile Include="DataResult.cs" />
     <Compile Include="Entidades\EntityBase.cs" />
     <Compile Include="Entidades\Parciales.cs" />
@@ -207,12 +214,14 @@
     </Compile>
     <Compile Include="Pages\RecordarClave.aspx.cs">
       <DependentUpon>RecordarClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\RecordarClave.aspx.designer.cs">
       <DependentUpon>RecordarClave.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\RegistroUsuarios.aspx.designer.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
