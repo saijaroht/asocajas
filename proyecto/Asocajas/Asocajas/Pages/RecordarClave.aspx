@@ -7,7 +7,7 @@
    <u><center><b> Servicio digital de validación de identidad</b></center></u>
     <br>
     
-            <H4><center>Desde esta pantalla podra solicitar la modificación de la contraseña.<br>
+            <H4><center>Desde esta pantalla podra solicitar la modificación de la contraseña.<br><br>
               Introducciendo el login de ususario se enviará un mensaje a su cuenta de correo.</center>
             </H4>
         
