@@ -29,5 +29,3 @@ C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.Cors.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.WebHost.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.xml
