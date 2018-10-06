@@ -43,7 +43,11 @@
                      <div class="form-group">
                         <label class="col-sm-4 control-label styleLabel">Estado:</label>
                         <div class="col-sm-8">
-                            <input class="form-control styleinput" id="txtEstado" type="text" placeholder="Estado">
+                          
+                            <select class="form-control styleinput" name="cboEstado" id="cboEstado">
+                                <option value="">Seleccione...</option>
+                            </select>
+                        
                         </div>
                     </div>
 
