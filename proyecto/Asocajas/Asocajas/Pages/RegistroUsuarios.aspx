@@ -3,7 +3,7 @@
     <script src="../Scripts/Javascript/RegistroUsuarios.js"type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
-    <h4 class="text-center"><u><b>Servicio Digital de Validacion de Identidad</b></u></h4>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
     <div class="row">
@@ -76,7 +76,7 @@
         <div class="col-sm-2"></div>
     </div>
 
-    <div class="container">
+   <%-- <div class="container">
     <div class="row">
         <div class='col-sm-6'>
             <div class="form-group">
@@ -88,11 +88,11 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
+      <%--  <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker();
             });
-        </script>
+        </script>--%>
     </div>
-</div>
+</div>--%>
 </asp:Content>
