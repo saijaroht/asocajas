@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AsocajasBD.Context.tt">
+      <publishTime>10/04/2018 14:43:35</publishTime>
+    </File>
+    <File Include="AsocajasBD.edmx.diagram">
+      <publishTime>10/06/2018 14:04:16</publishTime>
+    </File>
+    <File Include="AsocajasBD.tt">
+      <publishTime>10/05/2018 14:32:26</publishTime>
+    </File>
+    <File Include="bin/Asocajas.dll">
+      <publishTime>10/06/2018 17:15:18</publishTime>
+    </File>
+    <File Include="bin/Asocajas.pdb">
+      <publishTime>10/06/2018 17:15:17</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/04/2018 16:17:30</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/04/2018 16:17:30</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/04/2018 16:27:16</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>10/04/2018 16:28:31</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>10/04/2018 16:27:17</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>10/04/2018 16:28:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>10/04/2018 16:29:22</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>10/04/2018 16:52:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>10/04/2018 16:27:17</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>10/04/2018 16:27:17</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/05/2018 09:12:21</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/04/2018 16:52:32</publishTime>
+    </File>
+    <File Include="Pages/AllPages/Inicio.aspx">
+      <publishTime>10/05/2018 15:01:18</publishTime>
+    </File>
+    <File Include="Pages/AllPages/pages.Master">
+      <publishTime>10/06/2018 14:08:02</publishTime>
+    </File>
+    <File Include="Pages/CambioContrasena.aspx">
+      <publishTime>10/06/2018 11:51:25</publishTime>
+    </File>
+    <File Include="Pages/Login.aspx">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Pages/Login.Master">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Pages/PagesIngrid/Gestion_Usuarios.aspx">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Pages/PagesIngrid/MenuIngrid.Master">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Pages/PagesIngrid/Web.sitemap">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Pages/RecordarClave.aspx">
+      <publishTime>10/06/2018 11:51:25</publishTime>
+    </File>
+    <File Include="Pages/RegistroUsuarios.aspx">
+      <publishTime>10/06/2018 17:02:03</publishTime>
+    </File>
+    <File Include="Scripts/css/bootstrap-toggle.min.css">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/css/bootstrap.min.css">
+      <publishTime>10/06/2018 13:33:57</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/css/fontawesome-all.css">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/css/style.css">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/images/cover4.jpg">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/images/user.svg">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/Login.css">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-brands-400.eot">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-brands-400.svg">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-brands-400.ttf">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-brands-400.woff">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-brands-400.woff2">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-regular-400.eot">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-regular-400.svg">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-regular-400.ttf">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-regular-400.woff">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-regular-400.woff2">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-solid-900.eot">
+      <publishTime>10/06/2018 12:48:31</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-solid-900.svg">
+      <publishTime>10/06/2018 12:48:32</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-solid-900.ttf">
+      <publishTime>10/06/2018 12:48:32</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-solid-900.woff">
+      <publishTime>10/06/2018 12:48:32</publishTime>
+    </File>
+    <File Include="Scripts/css/Login/webfonts/fa-solid-900.woff2">
+      <publishTime>10/06/2018 12:48:32</publishTime>
+    </File>
+    <File Include="Scripts/fonts/Demonized.ttf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/diploma.otf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/fontawesome-webfont.eot">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/fontawesome-webfont.svg">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/fontawesome-webfont.ttf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/fontawesome-webfont.woff">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/fontawesome-webfont.woff2">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/FontAwesome.otf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/icomoon.eot">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/icomoon.svg">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/fonts/icomoon.ttf">
+      <publishTime>10/04/2018 14:20:20</publishTime>
+    </File>
+    <File Include="Scripts/fonts/icomoon.woff">
+      <publishTime>10/04/2018 14:20:20</publishTime>
+    </File>
+    <File Include="Scripts/fonts/OrangeBlossoms.ttf">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/Images/logo_asocajas.png">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/Javascript/CambioContrasena.js">
+      <publishTime>10/06/2018 11:51:25</publishTime>
+    </File>
+    <File Include="Scripts/Javascript/Helper.js">
+      <publishTime>10/06/2018 13:33:26</publishTime>
+    </File>
+    <File Include="Scripts/Javascript/RecordarClave.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Javascript/RegistroUsuarios.js">
+      <publishTime>10/06/2018 15:13:49</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/bootstrap-dialog.min.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/bootstrap-filestyle.min.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/bootstrap-toggle.min.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/bootstrap.min.js">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/jquery-3.2.1.min.js">
+      <publishTime>10/04/2018 14:20:19</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/jquery.linq.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/jquery.linq.min.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/linq.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Scripts/Scripts/linq.min.js">
+      <publishTime>10/05/2018 17:41:08</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/06/2018 17:19:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

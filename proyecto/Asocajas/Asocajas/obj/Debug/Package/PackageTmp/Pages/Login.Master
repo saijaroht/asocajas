@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="Asocajas.Pages.Login1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+   <%-- <link href="../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css" />--%>
+    <link href="../Scripts/css/Login/css/style.css" rel="stylesheet" />
+    <link href="../Scripts/css/Login/css/fontawesome-all.css" rel="stylesheet" />
+ 
+
+    <script src="../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+=======
+    <link href="../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css" />
+    
+>>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
+    <script src="../Scripts/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+ 
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="banner" class="container">
+            <div class="imgbanner"><img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
+        </div>
+        <h1 class="text-center titleLoguin">Servicio digital de validación de identidad</h1>
+    <div>
+        <asp:ContentPlaceHolder ID="TitlePage" runat="server">
+        
+        </asp:ContentPlaceHolder>
+       
+    </div>
+         <div class="container">
+        <div class="row">
+           
+            <div class="col-md-12">
+                <asp:ContentPlaceHolder ID="ContentBody" runat="server">
+                
+                </asp:ContentPlaceHolder>
+            </div>            
+        </div>
+<<<<<<< HEAD
+         </div>
+     <footer>
+        <p class="copyright-agileinfo"> Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
+    </footer>  
+=======
+
+        
+        
+            <footer class="footer bg-4 text-center">
+                <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
+            </footer>
+>>>>>>> 57cf389f02d8fac9440d86ed1927cf7c2106571c
+       
+    </form>
+</body>
+</html>
