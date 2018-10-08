@@ -38,9 +38,9 @@
                         <label class="col-sm-4 control-label styleLabel">Nombre CCF:</label>
                         <div class="col-sm-8">
                              <select class="form-control styleinput" name="cboNombreCCF" id="cboNombreCCF">
-                                <option value="">Seleccione...</option>
+                             
                             </select>
-                            <
+                            
                         </div>
                     </div>
 

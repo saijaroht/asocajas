@@ -1,7 +1,21 @@
 ﻿$(document).ready(function () {
-    CargarFechaInicioFechaFin('txtFechadecaducidad');
+    //CargarFechaInicioFechaFin('txtFechadecaducidad');
+    cargaAdicionales()
+
 
 });
+function cargaAdicionales()
+{
+    debugger;
+    consumirServicio(ServiceUrl + "RCCF/GetRCCF", null, function (data) {
+        $("#cboNombreCCF").append('<option value="0">Seleccione...</option>');
+        $.each(data, function (i, val) {
+            $("#cboNombreCCF").append('<option value = "' + val.IdCcf + '">' + val.Nombre + '</option>');
+        });
+    }, null, function (dataError) {
+       
+    });
+}
 
 function ValidaUsuario() {
     debugger;
