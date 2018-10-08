@@ -6,6 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
 
+    <script src="../Scripts/Javascript/Login.js" type="text/javascript"></script>
   
     
     <!--<form>
@@ -40,20 +41,22 @@
         <form>
             <div class="">
             <div class="w3l-form-group">
-        
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Usuario" required="required" />
+                    <input type="email" class="form-control" placeholder="Usuario@ejemplo.com" required="required" id="txtUsuario" />
                 </div>
             </div>
             <div class=" w3l-form-group">          
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="email" class="form-control" placeholder="Contraseña" required="required" />
+                    <input type="password" class="form-control" placeholder="Contraseña" required="required" id="txtContrasena" />
                 </div>
             </div>
             <div class="forgot">
                 <a href="#">Olvide mi contraseña</a>                
+            </div>
+            <div class=" w3l-form-group">          
+                
             </div>
             <button type="submit">Iniciar sesión</button>
                 <div class="g-recaptcha" data-sitekey="6Ld9pHMUAAAAAG4AuiALeiKAPgNkNxgae6QR-otq"></div>
