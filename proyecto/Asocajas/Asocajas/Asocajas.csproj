@@ -189,6 +189,7 @@
       <DependentUpon>AsocajasBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="BusinessBase.cs" />
+    <Compile Include="Common.Supertype\ICamposAuditoria.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LTLogAppController.cs" />
     <Compile Include="Controllers\LTLogConsultasAniController.cs" />
@@ -330,6 +331,7 @@
     <Compile Include="RUsuario.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Login.Master" />
