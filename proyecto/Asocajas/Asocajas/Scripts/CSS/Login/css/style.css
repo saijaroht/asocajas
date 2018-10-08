@@ -560,3 +560,14 @@ div#custom-search-input span.input-group-btn {
     height: 260px;
     padding:5mm;
 }
+
+.thVertical{
+    background-color:#E6E6E6;
+        width: 49%;
+}
+
+
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid black;
+}
