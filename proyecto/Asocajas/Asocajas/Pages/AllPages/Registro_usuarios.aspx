@@ -30,7 +30,7 @@
                 <div class="form-group">
                         <label class="col-sm-4 control-label styleLabel">Usuario:</label>
                         <div class="col-sm-8">
-                            <input class="form-control styleinput" id="txtUsuario" type="text" placeholder="Usuario">
+                            <input class="form-control styleinput" id="txtUsuario" type="email" placeholder="Usuario">
                         </div>
                     </div>
 

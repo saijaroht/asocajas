@@ -38,8 +38,8 @@ function GuardarUsuario() {
 
     var item = {
        
-        Nombre: $('#txtNombre').val(),
-        Apellido: $('#txtApellido').val(),
+        Nombre: $('#txtNombres').val(),
+        Apellido: $('#txtApellidos').val(),
         Usuario: $('#txtUsuario').val(),
         Vigencia: $('#txtFechadecaducidad').val(),
         Estado: 1,
