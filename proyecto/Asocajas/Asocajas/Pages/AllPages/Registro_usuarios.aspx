@@ -59,7 +59,7 @@
                         <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
                         <div class="col-sm-8">
                             <select class="form-control styleinput" name="cboTipodeusuario" id="cboTipodeusuario">
-                                <option value="">Seleccione...</option>
+                                
                             </select>
                         </div>
                     </div>
