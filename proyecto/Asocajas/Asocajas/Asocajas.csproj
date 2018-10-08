@@ -158,6 +158,7 @@
     <Content Include="Scripts\css\Login\webfonts\fa-solid-900.ttf" />
     <Content Include="Scripts\css\Login\webfonts\fa-solid-900.woff" />
     <Content Include="Scripts\css\Login\webfonts\fa-solid-900.woff2" />
+    <None Include="Properties\PublishProfiles\ANI.pubxml" />
     <None Include="Scripts\Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\Scripts\jquery.linq.js" />
     <Content Include="Scripts\Scripts\jquery.linq.min.js" />
