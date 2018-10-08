@@ -518,12 +518,16 @@ div#custom-search-input span.input-group-btn {
       color: #fff;
   }
     .footer {
-    background-color: #F7F6F6  ;
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    width: 100%;
+    background-color: #F7F6F6;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
     color:black;
     border:1px solid black;
+    
+
+
 }
  
 

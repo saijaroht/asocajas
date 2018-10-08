@@ -43,16 +43,20 @@
             </div>            
         </div>
          </div>
-     <footer class="footer">
-        <p class="copyright-agileinfo"> Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
-    </footer>  
 
+        <br />
+        <br />
+     
+
+        <footer class="">
+        <p class="copyright-agileinfo"> Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
+    </footer> 
         
-        
-            <%--<footer class="footer bg-4 text-center">
-                <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
+           <%-- <footer class="footer bg-4 text-center">
+                <p >Copyright &copy; ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
             </footer>--%>
        
     </form>
+     
 </body>
 </html>
