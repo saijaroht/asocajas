@@ -115,7 +115,11 @@
       <LastGenOutput>AsocajasBD.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Pages\AllPages\Cambio_Clave.aspx" />
+    <Content Include="Pages\AllPages\Consulta_Documentos.aspx" />
+    <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
+    <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\CambioContrasena.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\PagesIngrid\Gestion_Usuarios.aspx" />
@@ -210,6 +214,27 @@
     <Compile Include="LTLogEventos.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AllPages\Cambio_Clave.aspx.cs">
+      <DependentUpon>Cambio_Clave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Cambio_Clave.aspx.designer.cs">
+      <DependentUpon>Cambio_Clave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consulta_Documentos.aspx.cs">
+      <DependentUpon>Consulta_Documentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consulta_Documentos.aspx.designer.cs">
+      <DependentUpon>Consulta_Documentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Gestion_Usuarios.aspx.cs">
+      <DependentUpon>Gestion_Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Gestion_Usuarios.aspx.designer.cs">
+      <DependentUpon>Gestion_Usuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AllPages\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +248,13 @@
     </Compile>
     <Compile Include="Pages\AllPages\pages.Master.designer.cs">
       <DependentUpon>pages.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Registro_usuarios.aspx.cs">
+      <DependentUpon>Registro_usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Registro_usuarios.aspx.designer.cs">
+      <DependentUpon>Registro_usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CambioContrasena.aspx.cs">
       <DependentUpon>CambioContrasena.aspx</DependentUpon>

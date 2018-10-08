@@ -25,7 +25,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                        <label for="" class="labelText">Captcha</label>
                         <div id="recaptcha"></div>
-                        <!-- <input type="text" id="txtcaptcha" style="display:none;color:red" />-->
+                        <!-- <input type="text" id="txtcaptcha" style="display:none;color:red" />
                         <label id="lblvalidacioncaptcha" style="display: none; color: red">El Captcha es requerido!</label>
                         <label id="lblvalidacioncaptchaok" style="display: none; color: green">Captcha completado! </label>
                     </div>
