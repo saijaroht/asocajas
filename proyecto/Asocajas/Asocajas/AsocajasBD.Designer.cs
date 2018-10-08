@@ -1,4 +1,4 @@
-﻿// Default code generation is disabled for model 'C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\AsocajasBD.edmx'. 
+﻿// Default code generation is disabled for model 'C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\AsocajasBD.edmx'. 
 // To enable default code generation, change the value of the 'Code Generation Strategy' designer
 // property to an alternate value. This property is available in the Properties Window when the model is
 // open in the designer.

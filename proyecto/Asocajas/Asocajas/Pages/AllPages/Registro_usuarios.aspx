@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Registro_usuarios.aspx.cs" Inherits="Asocajas.Pages.AllPages.Registro_usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Scripts/Javascript/RegistroUsuarios.js"type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
@@ -36,7 +37,10 @@
                  <div class="form-group">
                         <label class="col-sm-4 control-label styleLabel">Nombre CCF:</label>
                         <div class="col-sm-8">
-                            <input class="form-control styleinput" id="txtNombreCCF" type="text" placeholder="Nombre CCF">
+                             <select class="form-control styleinput" name="cboNombreCCF" id="cboNombreCCF">
+                             
+                            </select>
+                            
                         </div>
                     </div>
 
@@ -44,8 +48,8 @@
                         <label class="col-sm-4 control-label styleLabel">Estado:</label>
                         <div class="col-sm-8">
                           
-                            <select class="form-control styleinput" name="cboEstado" id="cboEstado">
-                                <option value="">Seleccione...</option>
+                            <select class="form-control styleinput" name="cboEstado" id="cboEstado" disabled>
+                                <option value="1">Activo</option>
                             </select>
                         
                         </div>
@@ -88,7 +92,7 @@
         </div>
         <div class="col-sm-8"></div>
           <div class="col-sm-2">
-              <button type="button" class="btn btn-primary">Guardar</button>
+              <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
            </div>
     </div>
 
