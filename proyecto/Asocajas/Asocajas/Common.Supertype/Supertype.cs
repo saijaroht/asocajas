@@ -400,6 +400,8 @@ namespace Supertype
                         (entity as ICamposAuditoria).MaquinaCreacion = Utility.GetUserMachineInfo(MachineInfo);
                         if (!string.IsNullOrEmpty(user))
                             (entity as ICamposAuditoria).UsuarioCreacion = user;
+                        else
+                            (entity as ICamposAuditoria).UsuarioCreacion = Utility.GetUserMachineInfo(MachineInfo, true);
                     }
                     //SetValue(entity, "FechaCreacion", DateTime.Now);
                     //SetValue(entity, "UsuarioCreacion", currentContextInfo.IdUser + "|" + currentContextInfo.User);
@@ -412,6 +414,9 @@ namespace Supertype
                         (entity as ICamposAuditoria).MaquinaActualizacion = Utility.GetUserMachineInfo(MachineInfo);
                         if (!string.IsNullOrEmpty(user))
                             (entity as ICamposAuditoria).UsuarioActualizacion = user;
+                        else
+                            (entity as ICamposAuditoria).UsuarioActualizacion = Utility.GetUserMachineInfo(MachineInfo, true);
+
                     }
                     //SetValue(entity, "FechaActualizacion", DateTime.Now);
                     ////SetValue(entity, "UsuarioActualizacion", currentContextInfo.IdUser + "|" + currentContextInfo.User);

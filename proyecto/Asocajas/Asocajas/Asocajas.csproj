@@ -120,11 +120,8 @@
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
-    <Content Include="Pages\CambioContrasena.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\PagesIngrid\Gestion_Usuarios.aspx" />
-    <Content Include="Pages\RecordarClave.aspx" />
-    <Content Include="Pages\RegistroUsuarios.aspx" />
     <Content Include="Scripts\css\bootstrap-toggle.min.css" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\Login\css\fontawesome-all.css" />
@@ -140,6 +137,7 @@
     <Content Include="Scripts\fonts\icomoon.svg" />
     <Content Include="Scripts\Images\logo_asocajas.png" />
     <Content Include="Scripts\Javascript\CambioContrasena.js" />
+    <Content Include="Scripts\Javascript\Login.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
@@ -164,6 +162,7 @@
     <Content Include="Scripts\css\Login\webfonts\fa-solid-900.woff2" />
     <None Include="Properties\PublishProfiles\ANI.pubxml" />
     <None Include="Scripts\Scripts\jquery.linq-vsdoc.js" />
+    <Content Include="Scripts\Scripts\jquery-ui.js" />
     <Content Include="Scripts\Scripts\jquery.linq.js" />
     <Content Include="Scripts\Scripts\jquery.linq.min.js" />
     <None Include="Scripts\Scripts\linq-vsdoc.js" />
@@ -258,13 +257,6 @@
     <Compile Include="Pages\AllPages\Registro_usuarios.aspx.designer.cs">
       <DependentUpon>Registro_usuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CambioContrasena.aspx.cs">
-      <DependentUpon>CambioContrasena.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\CambioContrasena.aspx.designer.cs">
-      <DependentUpon>CambioContrasena.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,20 +284,6 @@
     </Compile>
     <Compile Include="Pages\PagesIngrid\MenuIngrid.Master.designer.cs">
       <DependentUpon>MenuIngrid.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\RecordarClave.aspx.cs">
-      <DependentUpon>RecordarClave.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\RecordarClave.aspx.designer.cs">
-      <DependentUpon>RecordarClave.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\RegistroUsuarios.aspx.cs">
-      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\RegistroUsuarios.aspx.designer.cs">
-      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common.Supertype\LinqExtensions.cs" />

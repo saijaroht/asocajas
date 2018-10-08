@@ -308,7 +308,7 @@ namespace Asocajas.Utilities
         /// </summary>
         /// <param name="MachineInfo"></param>
         /// <returns></returns>
-        public static string GetUserMachineInfo(string MachineInfo = null)
+        public static string GetUserMachineInfo(string MachineInfo = null, bool IsNameMachine = false)
         {
             if (System.Web.HttpContext.Current == null)
                 return string.IsNullOrEmpty(MachineInfo) ? "CONETXT NULO" : MachineInfo;
@@ -316,7 +316,7 @@ namespace Asocajas.Utilities
             {
                 return string.IsNullOrEmpty(MachineInfo) ? "REQUEST NULO" : MachineInfo;
             }
-            return System.Web.HttpContext.Current.Request.GetUserMachineInfo();
+            return System.Web.HttpContext.Current.Request.GetUserMachineInfo(IsNameMachine);
         }
         /// <summary>
         /// 
@@ -324,21 +324,25 @@ namespace Asocajas.Utilities
         /// <param name="request"></param>
         /// <param name="MachineInfo"></param>
         /// <returns></returns>
-        public static string GetUserMachineInfo(this HttpRequest request, string MachineInfo = null)
+        public static string GetUserMachineInfo(this HttpRequest request, bool IsNameMachine = false, string MachineInfo = null)
         {
-
             if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
             {
                 return null;
             }
-
             IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-
-            var hostmi = host
-                .AddressList
-                .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
-            return hostmi.ToString();
-
+            if (IsNameMachine)
+            {
+                var hostmi = host.HostName;
+                return hostmi.ToString();
+            }
+            else
+            {
+                var hostmi = host
+                    .AddressList
+                    .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+                return hostmi.ToString();
+            }
 
             //if (request == null)
             //{
