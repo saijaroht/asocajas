@@ -326,20 +326,34 @@ namespace Asocajas.Utilities
         /// <returns></returns>
         public static string GetUserMachineInfo(this HttpRequest request, string MachineInfo = null)
         {
-            if (request == null)
-            {
-                return string.IsNullOrEmpty(MachineInfo) ? "REQUEST NULO" : MachineInfo;
-            }
-            string userMachine = string.Empty;
-            var REMOTE_ADDR = request.ServerVariables["REMOTE_ADDR"];
-            var REMOTE_HOST = request.ServerVariables["REMOTE_HOST"];
-            var REMOTE_PORT = request.ServerVariables["REMOTE_PORT"];
-            if (REMOTE_ADDR == REMOTE_HOST)
-                userMachine = REMOTE_HOST + (string.IsNullOrEmpty(REMOTE_PORT) ? string.Empty : ":" + REMOTE_PORT);
-            else
-                userMachine = REMOTE_HOST + "|" + REMOTE_ADDR + (string.IsNullOrEmpty(REMOTE_PORT) ? string.Empty : ":" + REMOTE_PORT);
 
-            return userMachine;
+            if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+            {
+                return null;
+            }
+
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+
+            var hostmi = host
+                .AddressList
+                .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+            return hostmi.ToString();
+
+
+            //if (request == null)
+            //{
+            //    return string.IsNullOrEmpty(MachineInfo) ? "REQUEST NULO" : MachineInfo;
+            //}
+            //string userMachine = string.Empty;
+            //var REMOTE_ADDR = request.ServerVariables["REMOTE_ADDR"];
+            //var REMOTE_HOST = request.ServerVariables["REMOTE_HOST"];
+            //var REMOTE_PORT = request.ServerVariables["REMOTE_PORT"];
+            //if (REMOTE_ADDR == REMOTE_HOST)
+            //    userMachine = REMOTE_HOST + (string.IsNullOrEmpty(REMOTE_PORT) ? string.Empty : ":" + REMOTE_PORT);
+            //else
+            //    userMachine = REMOTE_HOST + "|" + REMOTE_ADDR + (string.IsNullOrEmpty(REMOTE_PORT) ? string.Empty : ":" + REMOTE_PORT);
+
+            //return userMachine;
         }
         public static string GetMachineName()
         {
