@@ -3,21 +3,29 @@
 
 });
 
+function ValidaUsuario() {
+
+    var campos = ["txtNombre,txtApellido,txtUsuario,txtFechadecaducidad,cboEstado,cboTipodeusuario"];
+    if (validarcampos(campos)) {
+        GuardarUsuario();
+    }
+}
 function GuardarUsuario() {
+
     var item = {
-        IdUsuario: 0,
+       
         Nombre: $('#txtNombre').val(),
-        Usuario: 0,
-        Password: 0,
-        Vigencia: 0,
-        Estado: 0,
-        IdCcf: 0,
-        IdRole: 0,
+        Apellido: $('#txtApellido').val(),
+        Usuario: $('#txtUsuario').val(),
+        Vigencia: $('#txtFechadecaducidad').val(),
+        Estado: $('#cboEstado').val(),
+        IdCcf: 1,
+        IdRole: $('#cboTipodeusuario').val(),
     }
 
     consumirServicio(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
 
     }, null, function (dataError) {
-
+        alert("ingreso de forma satisfactoria");
     });
 }
