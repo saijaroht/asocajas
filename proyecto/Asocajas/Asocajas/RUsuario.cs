@@ -21,6 +21,7 @@ namespace Asocajas
     
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Usuario { get; set; }
         public string Password { get; set; }
         public System.DateTime Vigencia { get; set; }
@@ -34,7 +35,6 @@ namespace Asocajas
         public string UsuarioActualizacion { get; set; }
         public string MaquinaActualizacion { get; set; }
         public bool Activo { get; set; }
-        public string Apellido { get; set; }
     
         public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public virtual RCCF RCCF { get; set; }

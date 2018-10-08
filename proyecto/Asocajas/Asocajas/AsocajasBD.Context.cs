@@ -29,11 +29,11 @@ namespace Asocajas
         public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public DbSet<LTLogEventos> LTLogEventos { get; set; }
         public DbSet<RCCF> RCCF { get; set; }
+        public DbSet<RDatoBasico> RDatoBasico { get; set; }
         public DbSet<RRole> RRole { get; set; }
         public DbSet<RRptaAsocajas> RRptaAsocajas { get; set; }
         public DbSet<RRptaRnec> RRptaRnec { get; set; }
-        public DbSet<RUsuario> RUsuario { get; set; }
-        public DbSet<RDatoBasico> RDatoBasico { get; set; }
         public DbSet<RTipoDatoBasico> RTipoDatoBasico { get; set; }
+        public DbSet<RUsuario> RUsuario { get; set; }
     }
 }
