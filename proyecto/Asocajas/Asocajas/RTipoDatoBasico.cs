@@ -11,7 +11,7 @@ namespace Asocajas
 {
     using System;
     using System.Collections.Generic;
-    
+    using Asocajas.Common.Supertype;
     public partial class RTipoDatoBasico : EntityBase
     {
         public int IdTipoDatoBasico { get; set; }
