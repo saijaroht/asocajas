@@ -552,7 +552,7 @@ div#custom-search-input span.input-group-btn {
     background-color: rgb(48, 147, 199)!important;
     background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133))!important;
     border-radius: 10px;
-    width: 100%;
+    
 }
 
 .BordeDiv{
@@ -570,4 +570,16 @@ div#custom-search-input span.input-group-btn {
 
 .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
     border: 1px solid black;
+}
+
+.modal-content{
+    border: 1px solid black;
+    border-radius: 12px;
+   
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: azure;
+    display: none;
 }

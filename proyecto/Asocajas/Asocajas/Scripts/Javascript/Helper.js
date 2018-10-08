@@ -451,3 +451,86 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
         }
     })
 }
+
+
+function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, FuncionCancelar, NombreAceptar, NombreCancelar) {
+    switch (TipoMensaje) {
+        case "AceptarCancelar":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    icon: 'glyphicon glyphicon-send',
+                    label: NombreAceptar || 'Aceptar',
+                    cssClass: 'btn-primary',
+                    autospin: true,
+                    action: function (dialogRef) {
+                        dialogRef.enableButtons(false);
+                        dialogRef.setClosable(false);
+                        dialogRef.getModalBody().html('Espere un momento por favor...');
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
+                        }
+                        else {
+                            setTimeout(function () {
+                                dialogRef.close();
+                            }, 3000);
+                        }
+                    }
+                }, {
+                    label: NombreCancelar || 'Cancelar',
+                    action: function (dialogRef) {
+                        if (FuncionCancelar) {
+                            FuncionCancelar(dialogRef);
+                        } else {
+                            dialogRef.close();
+                        }
+                    }
+                }]
+            });
+            break;
+        case "Alerta":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    label: 'Aceptar',
+                    action: function (dialogRef) {
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
+                        } else {
+                            dialogRef.close();
+                        }
+                    }
+                }]
+            });
+            break;
+
+        case "SoloMensaje":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: true,
+                title: TituloMensaje,
+                //buttons: [{
+                //    closable: true,
+                //    cssClass: 'btn-primary',
+                //    label: 'Aceptar',
+                //    action: function (dialogRef) {
+                //        if (FuncionAceptar) {
+                //            FuncionAceptar(dialogRef);
+                //        } else {
+                //            dialogRef.close();
+                //        }
+                //    }
+                //}]
+            
+              
+                
+               
+            });
+            break;
+    
+    }
+}

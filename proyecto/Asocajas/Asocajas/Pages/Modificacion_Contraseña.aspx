@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Login.Master" AutoEventWireup="true" CodeBehind="Modificacion_Contraseña.aspx.cs" Inherits="Asocajas.Pages.Modificacion_Contraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../Scripts/Javascript/Modificacion_Contraseña.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
@@ -28,7 +29,7 @@
                  <div class="col-md-6">
                   </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary" onclick="">Solicitar</button>
+                    <button type="button" class="btn btn-primary" onclick="oprimirbtn()">Solicitar</button>
                 </div>
             </div>
     </div>
@@ -39,6 +40,9 @@
     <br />
     <br />
     <br />
+
+
+    
 
 
 
