@@ -37,5 +37,7 @@ namespace Asocajas
     {
         [NotMapped]
         public string PkName { get; set; }
+
+        public object[] PkValue { get; set; }
     }
 }

@@ -189,11 +189,13 @@
       <DependentUpon>AsocajasBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="BusinessBase.cs" />
+    <Compile Include="Common.Supertype\ICamposAuditoria.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LTLogAppController.cs" />
     <Compile Include="Controllers\LTLogConsultasAniController.cs" />
     <Compile Include="Controllers\LTLogEventosController.cs" />
     <Compile Include="Controllers\RCCFController.cs" />
+    <Compile Include="Controllers\RDatoBasicoController.cs" />
     <Compile Include="Controllers\RRoleController.cs" />
     <Compile Include="Controllers\RRptaAsocajasController.cs" />
     <Compile Include="Controllers\RRptaRnecController.cs" />
@@ -311,6 +313,9 @@
     <Compile Include="RCCF.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="RDatoBasico.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="RRole.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
@@ -320,9 +325,13 @@
     <Compile Include="RRptaRnec.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="RTipoDatoBasico.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="RUsuario.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pages\Login.Master" />

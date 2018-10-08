@@ -7,6 +7,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Supertype.Extensions;
+using Asocajas.Common.Supertype;
+using Asocajas.Utilities;
+using Asocajas;
 
 namespace Supertype
 {
@@ -24,8 +27,17 @@ namespace Supertype
     public class SuperType<TEntity> : IDisposable where TEntity : class
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public string MachineInfo { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         protected DbContext context = null;
+
         DbSet<TEntity> objectSet = null;
+
         //protected CurrentContextInfo currentContextInfo = null;
         /// <summary>
         /// 
@@ -53,7 +65,11 @@ namespace Supertype
                 CreateContext(value);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="setAduditFields"></param>
         protected virtual void CreateContext(DbContext context,
           bool setAduditFields = true)
         {
@@ -102,10 +118,20 @@ namespace Supertype
         /// Updates a record
         /// </summary>
         /// <param name="entity">Data entity</param>
-        public virtual TEntity Update(TEntity entity)
+        public virtual TEntity Update(TEntity entity, string user = null, bool find = true)
         {
             if (this.SetAduditFields)
                 SetAuditingValues(entity, CrudActions.Update);
+
+            if (find)
+            {
+                TEntity _entity = this.Find((entity as EntityBase).PkValue);
+                context.Entry<TEntity>(_entity).State = EntityState.Detached;
+                (entity as ICamposAuditoria).FechaCreacion = (_entity as ICamposAuditoria).FechaCreacion;
+                (entity as ICamposAuditoria).UsuarioCreacion = (_entity as ICamposAuditoria).UsuarioCreacion;
+                (entity as ICamposAuditoria).MaquinaCreacion = (_entity as ICamposAuditoria).MaquinaCreacion;
+            }
+
             context.Entry<TEntity>(entity).State = EntityState.Modified;
             context.SaveChanges();
             return entity;
@@ -357,7 +383,7 @@ namespace Supertype
         /// <param name="entity">entidad</param>
         /// <param name="crudAction">Accion de Crud a ejecutar</param>
         /// <returns></returns>
-        public virtual TEntity SetAuditingValues(TEntity entity, CrudActions crudAction)
+        public virtual TEntity SetAuditingValues(TEntity entity, CrudActions crudAction, string user = null)
         {
             Type type = null;
             if (typeof(TEntity).Name != "Object")
@@ -365,6 +391,33 @@ namespace Supertype
             else
                 type = entity.GetType();
 
+            switch (crudAction)
+            {
+                case CrudActions.Insert:
+                    if (entity is ICamposAuditoria)
+                    {
+                        (entity as ICamposAuditoria).FechaCreacion = DateTime.Now;
+                        (entity as ICamposAuditoria).MaquinaCreacion = Utility.GetUserMachineInfo(MachineInfo);
+                        if (!string.IsNullOrEmpty(user))
+                            (entity as ICamposAuditoria).UsuarioCreacion = user;
+                    }
+                    //SetValue(entity, "FechaCreacion", DateTime.Now);
+                    //SetValue(entity, "UsuarioCreacion", currentContextInfo.IdUser + "|" + currentContextInfo.User);
+                    //SetValue(entity, "MaquinaCreacion", System.Web.HttpContext.Current.Request.GetUserMachineInfo());
+                    break;
+                case CrudActions.Update:
+                    if (entity is ICamposAuditoria)
+                    {
+                        (entity as ICamposAuditoria).FechaActualizacion = DateTime.Now;
+                        (entity as ICamposAuditoria).MaquinaActualizacion = Utility.GetUserMachineInfo(MachineInfo);
+                        if (!string.IsNullOrEmpty(user))
+                            (entity as ICamposAuditoria).UsuarioActualizacion = user;
+                    }
+                    //SetValue(entity, "FechaActualizacion", DateTime.Now);
+                    ////SetValue(entity, "UsuarioActualizacion", currentContextInfo.IdUser + "|" + currentContextInfo.User);
+                    //SetValue(entity, "MaquinaActualizacion", System.Web.HttpContext.Current.Request.GetUserMachineInfo());
+                    break;
+            }
             //switch (crudAction)
             //{
             //    case CrudActions.Insert:
@@ -381,12 +434,22 @@ namespace Supertype
             return entity;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
+        public virtual TEntity Find(params object[] keyValues)
+        {
+            return this.ObjectSet.Find(keyValues);
 
+        }
         #region
 
 
 
         #endregion
+
 
     }
 }

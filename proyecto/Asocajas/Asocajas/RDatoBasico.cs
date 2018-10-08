@@ -12,17 +12,13 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     using Asocajas.Common.Supertype;
-    public partial class RCCF : EntityBase
+    public partial class RDatoBasico : EntityBase
     {
-        public RCCF()
-        {
-            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
-            this.RUsuario = new HashSet<RUsuario>();
-        }
-    
-        public int IdCcf { get; set; }
-        public string Nit { get; set; }
-        public string Nombre { get; set; }
+        public long IdDatoBasico { get; set; }
+        public Nullable<long> IdDatoBasicoPadre { get; set; }
+        public int IdTipoDatoBasico { get; set; }
+        public string Descripcion { get; set; }
+        public string Code { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public string MaquinaCreacion { get; set; }
@@ -30,8 +26,5 @@ namespace Asocajas
         public string UsuarioActualizacion { get; set; }
         public string MaquinaActualizacion { get; set; }
         public bool Activo { get; set; }
-    
-        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
-        public virtual ICollection<RUsuario> RUsuario { get; set; }
     }
 }

@@ -30,7 +30,7 @@
                 <div class="form-group">
                         <label class="col-sm-4 control-label styleLabel">Usuario:</label>
                         <div class="col-sm-8">
-                            <input class="form-control styleinput" id="txtUsuario" type="text" placeholder="Usuario">
+                            <input class="form-control styleinput" id="txtUsuario" type="email" placeholder="Usuario">
                         </div>
                     </div>
 
@@ -48,8 +48,8 @@
                         <label class="col-sm-4 control-label styleLabel">Estado:</label>
                         <div class="col-sm-8">
                           
-                            <select class="form-control styleinput" name="cboEstado" id="cboEstado">
-                                <option value="">Seleccione...</option>
+                            <select class="form-control styleinput" name="cboEstado" id="cboEstado" disabled>
+                                <option value="1">Activo</option>
                             </select>
                         
                         </div>
@@ -59,7 +59,7 @@
                         <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
                         <div class="col-sm-8">
                             <select class="form-control styleinput" name="cboTipodeusuario" id="cboTipodeusuario">
-                                <option value="">Seleccione...</option>
+                                
                             </select>
                         </div>
                     </div>
