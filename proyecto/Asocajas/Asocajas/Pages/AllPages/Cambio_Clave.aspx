@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-7">
-            <b><h4>Cambiar Contraseña</h4></b>
+            <h4><b>Cambiar Contraseña</b></h4>
             <br />
             <p> Es consultante y es la primera vez que se loguea. Por razonez de seguridad por favor cambie su contraseña.</p>
         </div>

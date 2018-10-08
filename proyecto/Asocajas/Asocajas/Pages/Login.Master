@@ -6,7 +6,6 @@
 <head runat="server">
     <title></title>
     <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-   <%-- <link href="../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css" />--%>
     <link href="../Scripts/css/Login/css/style.css" rel="stylesheet" />
     <link href="../Scripts/css/Login/css/fontawesome-all.css" rel="stylesheet" />
  
@@ -26,7 +25,7 @@
         <div id="banner" class="container">
             <div class="imgbanner"><img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
         </div>
-        <h1 class="text-center titleLoguin">Servicio digital de validación de identidad</h1>
+        <h1 class="text-center titleLoguin"><u><b>Servicio digital de validación de identidad</b><u></h1>
     <div>
         <asp:ContentPlaceHolder ID="TitlePage" runat="server">
         
@@ -52,9 +51,6 @@
         <p class="copyright-agileinfo"> Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
     </footer> 
         
-           <%-- <footer class="footer bg-4 text-center">
-                <p >Copyright &copy; ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
-            </footer>--%>
        
     </form>
      

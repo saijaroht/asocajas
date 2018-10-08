@@ -8,7 +8,6 @@
     <link href="../../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/css/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/css/Login/css/style.css" rel="stylesheet" />
-   <%-- <link href="../../Scripts/css/Login/Login.css" rel="stylesheet" type="text/css"/>--%>
     <link href="../../Scripts/css/Login/css/fontawesome-all.css" rel="stylesheet" />
     <link href="../../Scripts/css/bootstrap-toggle.min.css" rel="stylesheet">
     
@@ -99,7 +98,7 @@
                          </a>
                     <ul class="dropdown-menu">                       
                          <li class="menu-item ">
-                            <a href="#">Cambiar Clave</a>
+                            <a href="Cambio_Clave.aspx">Cambiar Clave</a>
                         </li>
                         <li class="menu-item ">
                             <a href="#">Cerrar Sesión</a>
