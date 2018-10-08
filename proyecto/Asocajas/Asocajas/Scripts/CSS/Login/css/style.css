@@ -533,11 +533,26 @@ div#custom-search-input span.input-group-btn {
 }
   
 .styleinput{
-    width: 70%;
+    width: 100%;
     margin-left: auto;
     border:1px solid black;
 }
 
 .styleLabel{
     text-align: -webkit-left!important;
+}
+
+.btn-primary {
+    color: #fff;
+    border-color: #2e6da4;
+    background-color: rgb(48, 147, 199)!important;
+    background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133))!important;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.BordeDiv{
+    border:1px solid;
+    height: 260px;
+    padding:5mm;
 }
