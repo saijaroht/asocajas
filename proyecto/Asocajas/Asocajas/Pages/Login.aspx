@@ -49,7 +49,7 @@
             <div class=" w3l-form-group">          
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="email" class="form-control" placeholder="Correo" required="required" />
+                    <input type="email" class="form-control" placeholder="Contraseña" required="required" />
                 </div>
             </div>
             <div class="forgot">

@@ -4,8 +4,8 @@
 });
 
 function ValidaUsuario() {
-
-    var campos = ["txtNombre,txtApellido,txtUsuario,txtFechadecaducidad,cboEstado,cboTipodeusuario"];
+    debugger;
+    var campos = ["txtNombres","txtApellidos","txtUsuario","txtFechadecaducidad","cboEstado","cboTipodeusuario"];
     if (validarcampos(campos)) {
         GuardarUsuario();
     }
