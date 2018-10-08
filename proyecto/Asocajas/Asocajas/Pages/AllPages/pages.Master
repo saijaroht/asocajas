@@ -28,18 +28,14 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div id="banner">
-        <center><img src="../../Scripts/Images/logo_asocajas.png"></center>
-    </div>
 
-      <div>
-        <asp:ContentPlaceHolder ID="TitlePage" runat="server">
-        
-        </asp:ContentPlaceHolder>
-        <br/>
-    </div>
+    <form id="form2" runat="server">
+        <div id="banner" class="container">
+            <div class="imgbanner"> 
+                <img src="../../Scripts/Images/logo_asocajas.png" class="img-responsive"/></div>
+        </div>
+        <h1 class="text-center titleLoguin"><b><u>Servicio digital de validación de identidad</b></u></h1>
 
-   
         <div class="container">
             <div id="menuGenral">
              <div class="navbar navbar-default" role="navigation">
@@ -118,19 +114,31 @@
            
             
        </div>
-       
-       
-     <div>
-        <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="TitlePage" runat="server">
         
         </asp:ContentPlaceHolder>
-        <br/>
+        
     </div>
-    
+         <div class="container">
+        <div class="row">
+           
+            <div class="col-md-12">
+                <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+                
+                </asp:ContentPlaceHolder>
+            </div>            
+        </div>
+         </div>
+        <footer class="footer bg-4 text-center">
+            <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
+        </footer>
 
-    <footer class="footer bg-4 text-center">
-        <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
-    </footer>
-
+    </form>
+ 
 </body>
 </html>
+
+
+
+
