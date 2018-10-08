@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    //CargarFechaInicioFechaFin('txtFechadecaducidad');
+    CargarFechaInicioFechaFin('txtFechadecaducidad');
     cargaAdicionales()
 
 

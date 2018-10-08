@@ -7,7 +7,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
 
     <script src="../Scripts/Javascript/Login.js" type="text/javascript"></script>
-  
+    <%--<script src="https://www.google.com/recaptcha/api.js" ></script>--%>
+
     
     <!--<form>
   <div class="input-group">
@@ -56,10 +57,10 @@
                 <a href="#">Olvide mi contraseña</a>                
             </div>
             <div class=" w3l-form-group">          
-                
+                <%--<div class="recaptcha"></div>--%>
+                <%--<div class="g-recaptcha" data-sitekey="6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0"></div>--%>
             </div>
             <button type="submit">Iniciar sesión</button>
-                <div class="g-recaptcha" data-sitekey="6Ld9pHMUAAAAAG4AuiALeiKAPgNkNxgae6QR-otq"></div>
            </div>
         </form>
         
