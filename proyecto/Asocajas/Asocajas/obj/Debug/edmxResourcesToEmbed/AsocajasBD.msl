@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AsocajasBDModelStoreContainer" CdmEntityContainer="AsocajasBDEntities">
+    <FunctionImportMapping FunctionImportName="SendMail" FunctionName="AsocajasBDModel.Store.SendMail" />
     <EntitySetMapping Name="LTLogApp">
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
         <MappingFragment StoreEntitySet="LTLogApp">

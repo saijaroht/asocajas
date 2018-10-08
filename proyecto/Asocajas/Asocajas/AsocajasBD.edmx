@@ -259,11 +259,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SendMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Asunto" Type="nvarchar" Mode="In" />
+          <Parameter Name="Html" Type="nvarchar(max)" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AsocajasBDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AsocajasBDEntities" p1:LazyLoadingEnabled="true">
+          <FunctionImport Name="SendMail">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Asunto" Mode="In" Type="String" />
+            <Parameter Name="Html" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.LTLogApp" />
           <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.LTLogConsultasAni" />
           <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
@@ -535,6 +545,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AsocajasBDModelStoreContainer" CdmEntityContainer="AsocajasBDEntities">
+          <FunctionImportMapping FunctionImportName="SendMail" FunctionName="AsocajasBDModel.Store.SendMail" />
           <EntitySetMapping Name="LTLogApp">
             <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
               <MappingFragment StoreEntitySet="LTLogApp">

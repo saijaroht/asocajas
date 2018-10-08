@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b84836529a85434fbc264fe47ef65328" Name="Diagram1">
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="5.8658376847700389" PointY="10.510976200229942" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="11.875814074592579" PointY="3.7531572299791303" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="4.6927204414702581" PointY="10.820175697477616" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="2.2547818209299733" PointY="28.650220437278143" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RDatoBasico" Width="1.5" PointX="1.6635093231049876" PointY="2.3866646896985659" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="9.1667037704804457" PointY="24.012976001954161" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="4.7092037781650218" PointY="11.147102972095414" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="0.53913284118246885" PointY="13.298762893909013" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RTipoDatoBasico" Width="1.5" PointX="2.7336431009385933" PointY="1.0418057446562712" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="0.885692267159788" PointY="29.096362097699362" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="7.040627385974223" PointY="10.913504173473225" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="9.5054978437281665" PointY="21.326816717780577" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="9.815049339931015" PointY="7.5910939460578808" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="4.1585411206626057" PointY="1.8595886090116522" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RDatoBasico" Width="1.5" PointX="11.0296840942603" PointY="18.58204736680819" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="4.4323797581868156" PointY="18.365354099481067" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="7.7400134148728164" PointY="24.941821899703619" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="8.3353878596496713" PointY="21.000633249525276" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RTipoDatoBasico" Width="1.5" PointX="3.1236543688567613" PointY="21.601004998013845" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="7.6679336017314039" PointY="17.268764563495651" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />

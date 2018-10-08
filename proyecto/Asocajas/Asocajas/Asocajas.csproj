@@ -276,6 +276,7 @@
     </Compile>
     <Compile Include="Pages\Modificacion_Contraseña.aspx.cs">
       <DependentUpon>Modificacion_Contraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Modificacion_Contraseña.aspx.designer.cs">
       <DependentUpon>Modificacion_Contraseña.aspx</DependentUpon>

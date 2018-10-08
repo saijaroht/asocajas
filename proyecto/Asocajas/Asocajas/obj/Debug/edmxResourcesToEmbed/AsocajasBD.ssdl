@@ -254,4 +254,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SendMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Asunto" Type="nvarchar" Mode="In" />
+    <Parameter Name="Html" Type="nvarchar(max)" Mode="In" />
+  </Function>
 </Schema>

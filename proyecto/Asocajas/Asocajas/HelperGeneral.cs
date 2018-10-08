@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -111,6 +112,42 @@ namespace Asocajas
             tdes.Clear();
             //return the Clear decrypted TEXT
             return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+        public static bool SendMail(string Para, string asunto, string html)
+        {
+            try
+            {
+
+                using (var ctx = new AsocajasBDEntities())
+                {
+                    var Email = new SqlParameter
+                    {
+                        ParameterName = "Email",
+                        Value = Para
+                    };
+
+                    var Asunto = new SqlParameter
+                    {
+                        ParameterName = "Asunto",
+                        Value = asunto
+                    };
+
+                    var Html = new SqlParameter
+                    {
+                        ParameterName = "Html",
+                        Value = html
+                    };
+                    var exec = ctx.Database.SqlQuery<RUsuario>("exec SendMail @Email,@Asunto,@Html ", Email, Asunto, Html).ToList<RUsuario>();
+                    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
