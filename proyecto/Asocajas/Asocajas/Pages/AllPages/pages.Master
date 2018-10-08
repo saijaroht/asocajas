@@ -97,10 +97,10 @@
                          </a>
                     <ul class="dropdown-menu">                       
                          <li class="menu-item ">
-                            <a href="#">Log excepciones</a>
+                            <a href="#">Cambiar Clave</a>
                         </li>
                         <li class="menu-item ">
-                            <a href="#">Desempeño plataforma</a>
+                            <a href="#">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -130,6 +130,8 @@
             </div>            
         </div>
          </div>
+        <br />
+        <br />
         <footer class="footer bg-4 text-center">
             <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
         </footer>

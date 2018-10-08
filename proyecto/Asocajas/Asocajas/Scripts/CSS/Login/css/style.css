@@ -519,7 +519,7 @@ div#custom-search-input span.input-group-btn {
   }
     .footer {
     background-color: #F7F6F6  ;
-    position: absolute;
+    /*position: absolute;*/
     /*bottom: 0;*/
     width: 100%;
     color:black;
