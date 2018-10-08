@@ -15,6 +15,16 @@ function cargaAdicionales()
     }, null, function (dataError) {
        
     });
+    consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
+        $("#cboTipodeusuario").append('<option value="0">Seleccione...</option>');
+        $.each(data, function (i, val) {
+            $("#cboTipodeusuario").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
+        });
+    }, null, function (dataError) {
+
+    });
+    
+    
 }
 
 function ValidaUsuario() {
@@ -32,14 +42,14 @@ function GuardarUsuario() {
         Apellido: $('#txtApellido').val(),
         Usuario: $('#txtUsuario').val(),
         Vigencia: $('#txtFechadecaducidad').val(),
-        Estado: $('#cboEstado').val(),
-        IdCcf: 1,
-        IdRole: $('#cboTipodeusuario').val(),
+        Estado: 1,
+        IdCcf: $('#cboTipodeusuario').val(),
+        IdRole: $('#cboNombreCCF').val(),
     }
 
-    consumirServicio(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
+    SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
+        alert("ingreso de forma satisfactoria");
 
     }, null, function (dataError) {
-        alert("ingreso de forma satisfactoria");
     });
 }

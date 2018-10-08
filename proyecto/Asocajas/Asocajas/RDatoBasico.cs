@@ -12,21 +12,13 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     
-    public partial class RUsuario : EntityBase
+    public partial class RDatoBasico : EntityBase
     {
-        public RUsuario()
-        {
-            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
-        }
-    
-        public int IdUsuario { get; set; }
-        public string Nombre { get; set; }
-        public string Usuario { get; set; }
-        public string Password { get; set; }
-        public System.DateTime Vigencia { get; set; }
-        public string Estado { get; set; }
-        public Nullable<int> IdCcf { get; set; }
-        public int IdRole { get; set; }
+        public long IdDatoBasico { get; set; }
+        public Nullable<long> IdDatoBasicoPadre { get; set; }
+        public int IdTipoDatoBasico { get; set; }
+        public string Descripcion { get; set; }
+        public string Code { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public string MaquinaCreacion { get; set; }
@@ -34,10 +26,5 @@ namespace Asocajas
         public string UsuarioActualizacion { get; set; }
         public string MaquinaActualizacion { get; set; }
         public bool Activo { get; set; }
-        public string Apellido { get; set; }
-    
-        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
-        public virtual RCCF RCCF { get; set; }
-        public virtual RRole RRole { get; set; }
     }
 }

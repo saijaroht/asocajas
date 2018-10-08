@@ -48,8 +48,8 @@
                         <label class="col-sm-4 control-label styleLabel">Estado:</label>
                         <div class="col-sm-8">
                           
-                            <select class="form-control styleinput" name="cboEstado" id="cboEstado">
-                                <option value="">Seleccione...</option>
+                            <select class="form-control styleinput" name="cboEstado" id="cboEstado" disabled>
+                                <option value="1">Activo</option>
                             </select>
                         
                         </div>

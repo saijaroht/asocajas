@@ -33,5 +33,7 @@ namespace Asocajas
         public DbSet<RRptaAsocajas> RRptaAsocajas { get; set; }
         public DbSet<RRptaRnec> RRptaRnec { get; set; }
         public DbSet<RUsuario> RUsuario { get; set; }
+        public DbSet<RDatoBasico> RDatoBasico { get; set; }
+        public DbSet<RTipoDatoBasico> RTipoDatoBasico { get; set; }
     }
 }
