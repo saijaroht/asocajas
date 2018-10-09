@@ -17,6 +17,17 @@ namespace Asocajas.Controllers
         public IHttpActionResult GetRUsuario()
         {
             var obj = this.objDb.Get().ToList();
+            using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
+            {
+                using (BusinessBase<RRole> objRRole = new BusinessBase<RRole>())
+                {
+                    foreach (var item in obj)
+                    {
+                        item.RCCF = objRCCF.Get(o => o.IdCcf == item.IdCcf).FirstOrDefault();
+                        item.RRole = objRRole.Get(o => o.IdRole == item.IdRole).FirstOrDefault();
+                    }
+                }
+            }
             return Ok(obj);
         }
 
