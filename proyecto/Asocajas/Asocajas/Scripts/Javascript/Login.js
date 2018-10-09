@@ -41,6 +41,7 @@ function ValidaUsuario()
             ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
         }
         else {
+
             window.location.href = "AllPages/Inicio.aspx";
         }
 
