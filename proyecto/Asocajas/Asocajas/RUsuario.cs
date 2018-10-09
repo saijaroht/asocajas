@@ -11,8 +11,8 @@ namespace Asocajas
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class RUsuario : EntityBase
+    using Asocajas.Common.Supertype;
+    public partial class RUsuario : EntityBase, ICamposAuditoria
     {
         public RUsuario()
         {

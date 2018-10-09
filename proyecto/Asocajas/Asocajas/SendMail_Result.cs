@@ -10,7 +10,6 @@
 namespace Asocajas
 {
     using System;
-    
     public partial class SendMail_Result
     {
         public int IdUsuario { get; set; }
