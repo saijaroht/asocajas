@@ -22,8 +22,17 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult GetExistUser(string user, string password)
         {
-            password = Utility.TripleDES(password, true);
-            var obj = this.objDb.Get(o => o.Usuario == user && o.Password == password).ToList();
+            //password = Utility.TripleDES(password, true);
+            var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
+            if (obj.Count() > 0)
+            {
+                var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
+                if (password != linqEmails)
+                {
+                    obj = new List<RUsuario>();
+                }
+            }
+
             return Ok(obj);
         }
 

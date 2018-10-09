@@ -60,7 +60,7 @@
                 <%--<div class="recaptcha"></div>--%>
                 <%--<div class="g-recaptcha" data-sitekey="6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0"></div>--%>
             </div>
-            <button type="submit" onclick="ValidaUsuario()">Iniciar sesión</button>
+            <button type="submit" onclick="ValidaUsuario(); return false;">Iniciar sesión</button>
            </div>
         </form>
         

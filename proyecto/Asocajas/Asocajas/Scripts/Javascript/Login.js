@@ -36,7 +36,7 @@ var recaptchaCallback = function () {
 function ValidaUsuario()
 {
     debugger;
-    consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user='" + $("#txtUsuario").val() + "'&password='" + $("#txtContrasena").val()+"'", null, function (data) {
+    consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
         
         $.each(data, function (i, val) {
             alert("Entro")
