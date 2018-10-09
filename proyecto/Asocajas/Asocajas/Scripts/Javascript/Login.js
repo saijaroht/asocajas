@@ -37,11 +37,17 @@ function ValidaUsuario()
 {
     debugger;
     consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
-        
+        i = 0;
         $.each(data, function (i, val) {
-            alert("Entro")
+            i = i + 1;
+
         });
-    }, null, function (dataError) {
-        alert("Usuario o contraseña equivicos")
-    });
+    }, null, function (dataError) { });
+
+    if (i == 0)
+    {
+        ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
+       
+    }
+
 }
