@@ -37,17 +37,14 @@ function ValidaUsuario()
 {
     debugger;
     consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
-        i = 0;
-        $.each(data, function (i, val) {
-            i = i + 1;
+        if (data.length == 0) {
+            ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
+        }
+        else {
+            window.location.href = "AllPages/Inicio.aspx";
+        }
 
-        });
     }, null, function (dataError) { });
 
-    if (i == 0)
-    {
-        ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
-       
-    }
 
 }
