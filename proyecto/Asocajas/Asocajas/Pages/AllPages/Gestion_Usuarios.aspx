@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Gestion_Usuarios.aspx.cs" Inherits="Asocajas.Pages.AllPages.Gestion_Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Scripts/Javascript/Gestion_Usuarios.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
     
@@ -48,9 +49,9 @@
                 <th></th>
                 <th></th>
                    </thead>
-    <tbody>
+    <tbody id="tbodyGestionUsuarios">
     
-    <tr>
+  <%--  <tr>
     <td><input type="checkbox" class="checkthis" /></td>
     <td>Mohsin</td>
     <td>Irshad</td>
@@ -91,7 +92,7 @@
     <td class="hidden"><p data-placement="top" data-toggle="tooltip" title="open"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
      <td><p data-placement="top" data-toggle="tooltip" title="closes"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></button></p></td>
  </tr>
-    
+    --%>
         
     </tbody>
         
