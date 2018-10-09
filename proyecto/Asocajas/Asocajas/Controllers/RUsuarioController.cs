@@ -55,6 +55,7 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
+            var maquina = Utility.GetUserHostName();
             if (this.objDb.Get().Where(o => o.Usuario == rsuario.Usuario).Count() == 0)
             {
                 var randomPass = HelperGeneral.RandomPass();
