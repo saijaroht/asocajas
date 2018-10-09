@@ -26,6 +26,9 @@ function cargaAdicionales()
     
     
 }
+function cancelar() {
+    window.location.href = "Gestion_Usuarios.aspx";
+}
 
 function ValidaUsuario() {
     debugger;
