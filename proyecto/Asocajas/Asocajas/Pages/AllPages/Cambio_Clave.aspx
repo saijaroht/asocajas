@@ -4,6 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
+
+
+
+
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-7">
@@ -63,6 +67,8 @@
             <button type="button" class="btn btn-primary">Aceptar</button>
         </div>
     </div>
+
+
 
   
 </asp:Content>
