@@ -50,8 +50,8 @@ namespace Asocajas.Controllers
                 var randomPass = HelperGeneral.RandomPass();
                 rsuario.Password = Utility.TripleDES(randomPass, true);
                 //var decypt = Utility.TripleDES(rsuario.Password, false);
+                this.IEnviarEmail(rsuario, randomPass);
                 var obj = this.objDb.Add(rsuario);
-                bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Cambio de Contraseña</h1>en el siguente link podra realizar el cambio de contraseña");
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
             else
@@ -64,6 +64,44 @@ namespace Asocajas.Controllers
 
         }
 
+        private void IEnviarEmail(RUsuario rsuario, string randomPass)
+        {
+
+            string MensajeCorreo = "<table width='80%' border='0'>";
+            MensajeCorreo += "<tbody>";
+            MensajeCorreo += "                    <tr>";
+            MensajeCorreo += "                        <td colspan='2'></td>";
+            MensajeCorreo += "                    </tr>";
+            MensajeCorreo += "                    <tr>";
+            MensajeCorreo += "                        <td >Usuario creado</td>";
+            MensajeCorreo += "                    </tr>";
+            MensajeCorreo += "                    <tr>";
+            MensajeCorreo += "                        <td colspan='2'>";
+            MensajeCorreo += "                        <p>El administrador de Consulta ANI de Asocajas ha creado un usuario para Usted, antes depoder acceder al sistema por primera vez, es imprescindible activar la cuenta registrada. Para ello acceda a la siguiente dirección:</p>";
+            MensajeCorreo += "                        <a href='http://localhost:25500/Pages/Login.aspx'>http://localhost:25500/Pages/Login.aspx</a>";
+            MensajeCorreo += "                        <br>";
+            MensajeCorreo += "                        <p>Usuario: <strong>" + Convert.ToString(rsuario.Usuario) + "</strong><br>";
+            MensajeCorreo += "                        Contraseña: <strong>" + randomPass + "</strong><br>";
+            MensajeCorreo += "                        <br>";
+            MensajeCorreo += "                       <p>Esta clave es temporal, cuando interese debe asignar una nueva clave que debe cumplir con las siguientes condiciones, mínimo 8 caracteres, contener minúsculas y mayúsculas, mínimo un carácter especial, mínimo un número.</p>";
+            MensajeCorreo += "                        </td>";
+            MensajeCorreo += "                    </tr>";
+            MensajeCorreo += "                     <tr>";
+            MensajeCorreo += "                       <td  colspan='2'></td>";
+            MensajeCorreo += "                   </tr>";
+            MensajeCorreo += "                   <tr>";
+            MensajeCorreo += "                       <td colspan='2'>";
+            MensajeCorreo += "                       <p>Cordialmente,<br>";
+            MensajeCorreo += "                       <strong>Consultas ANI</strong></p>";
+            MensajeCorreo += "                       </td>";
+            MensajeCorreo += "                   </tr>";
+            MensajeCorreo += "               </tbody>";
+            MensajeCorreo += "           </table>";
+
+            bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", MensajeCorreo);
+            //bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Usuario Creado</h1>en el siguente link podra realizar el cambio de contraseña");
+
+        }
         
     }
 }
