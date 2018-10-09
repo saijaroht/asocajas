@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Asocajas.Pages.AllPages
+namespace Asocajas.Pages
 {
-    public partial class CambioContrasena : System.Web.UI.Page
+    public partial class Modificacion_Contraseña : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

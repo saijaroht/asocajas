@@ -584,6 +584,7 @@ div#custom-search-input span.input-group-btn {
       background-color: #2f2f2f;
       color: #fff;
   }
+<<<<<<< HEAD
     /*.footer {
     background-color: #F7F6F6  ;
     position: absolute;
@@ -592,6 +593,20 @@ div#custom-search-input span.input-group-btn {
     color:black;
     border:1px solid black;
 }*/
+=======
+    .footer {
+    background-color: #F7F6F6;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+    color:black;
+    border:1px solid black;
+    
+
+
+}
+>>>>>>> 2ceda1b7efaf61f3518f92781b6f889f33673d5e
  
 
 .panelPadding{
@@ -615,7 +630,7 @@ div#custom-search-input span.input-group-btn {
     background-color: rgb(48, 147, 199)!important;
     background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133))!important;
     border-radius: 10px;
-    width: 100%;
+    
 }
 
 .BordeDiv{
@@ -624,6 +639,7 @@ div#custom-search-input span.input-group-btn {
     padding:5mm;
 }
 
+<<<<<<< HEAD
 
 /**************RECUAPERAR CONTRASEÑA****************/
 
@@ -636,4 +652,27 @@ div#custom-search-input span.input-group-btn {
 
 .RecordarContrasena div#btninfo {
     margin-top: 30px;
+=======
+.thVertical{
+    background-color:#E6E6E6;
+        width: 49%;
+}
+
+
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid black;
+}
+
+.modal-content{
+    border: 1px solid black;
+    border-radius: 12px;
+   
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: azure;
+    display: none;
+>>>>>>> 2ceda1b7efaf61f3518f92781b6f889f33673d5e
 }

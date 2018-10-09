@@ -13,7 +13,9 @@ footer {
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
 
-  
+    <script src="../Scripts/Javascript/Login.js" type="text/javascript"></script>
+    <%--<script src="https://www.google.com/recaptcha/api.js" ></script>--%>
+
     
     <!--<form>
   <div class="input-group">
@@ -47,23 +49,25 @@ footer {
         <form>
             <div class="">
             <div class="w3l-form-group">
-        
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Usuario" required="required" />
+                    <input type="email" class="form-control" placeholder="Usuario@ejemplo.com" required="required" id="txtUsuario" />
                 </div>
             </div>
             <div class=" w3l-form-group">          
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="email" class="form-control" placeholder="Correo" required="required" />
+                    <input type="password" class="form-control" placeholder="Contraseña" required="required" id="txtContrasena" />
                 </div>
             </div>
             <div class="forgot">
                 <a href="#">Olvide mi contraseña</a>                
             </div>
-            <button type="submit">Iniciar sesión</button>
-                <div class="g-recaptcha" data-sitekey="6Ld9pHMUAAAAAG4AuiALeiKAPgNkNxgae6QR-otq"></div>
+            <div class=" w3l-form-group">          
+                <%--<div class="recaptcha"></div>--%>
+                <%--<div class="g-recaptcha" data-sitekey="6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0"></div>--%>
+            </div>
+            <button type="submit" onclick="ValidaUsuario(); return false;">Iniciar sesión</button>
            </div>
         </form>
         

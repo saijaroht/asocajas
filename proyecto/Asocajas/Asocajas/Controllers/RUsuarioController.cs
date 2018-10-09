@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Asocajas;
+using Asocajas.Utilities;
 
 namespace Asocajas.Controllers
 {
@@ -21,8 +22,17 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult GetExistUser(string user, string password)
         {
-            password = HelperGeneral.Encrypt(password, true);
-            var obj = this.objDb.Get(o => o.Usuario == user && o.Password == password).ToList();
+            //password = Utility.TripleDES(password, true);
+            var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
+            if (obj.Count() > 0)
+            {
+                var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
+                if (password != linqEmails)
+                {
+                    obj = new List<RUsuario>();
+                }
+            }
+
             return Ok(obj);
         }
 
@@ -34,9 +44,14 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
-            rsuario.Password = HelperGeneral.Encrypt(HelperGeneral.RandomPass(), true);
+            var randomPass=HelperGeneral.RandomPass();
+            rsuario.Password = Utility.TripleDES(randomPass, true);
+            //var decypt = Utility.TripleDES(rsuario.Password, false);
             var obj = this.objDb.Add(rsuario);
+            bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Cambio de Contraseña</h1>en el siguente link podra realizar el cambio de contraseña");
             return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
         }
+
+        
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Asocajas.Pages.AllPages
+namespace Asocajas.Pages
 {
 
 
-    public partial class CambioContrasena
+    public partial class Modificacion_Contraseña
     {
     }
 }

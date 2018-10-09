@@ -1,11 +1,35 @@
 ﻿$(document).ready(function () {
     CargarFechaInicioFechaFin('txtFechadecaducidad');
+    cargaAdicionales()
+
 
 });
+function cargaAdicionales()
+{
+    debugger;
+    consumirServicio(ServiceUrl + "RCCF/GetRCCF", null, function (data) {
+        $("#cboNombreCCF").append('<option value="0">Seleccione...</option>');
+        $.each(data, function (i, val) {
+            $("#cboNombreCCF").append('<option value = "' + val.IdCcf + '">' + val.Nombre + '</option>');
+        });
+    }, null, function (dataError) {
+       
+    });
+    consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
+        $("#cboTipodeusuario").append('<option value="0">Seleccione...</option>');
+        $.each(data, function (i, val) {
+            $("#cboTipodeusuario").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
+        });
+    }, null, function (dataError) {
+
+    });
+    
+    
+}
 
 function ValidaUsuario() {
-
-    var campos = ["txtNombre,txtApellido,txtUsuario,txtFechadecaducidad,cboEstado,cboTipodeusuario"];
+    debugger;
+    var campos = ["txtNombres","txtApellidos","txtUsuario","txtFechadecaducidad","cboEstado","cboTipodeusuario"];
     if (validarcampos(campos)) {
         GuardarUsuario();
     }
@@ -14,18 +38,18 @@ function GuardarUsuario() {
 
     var item = {
        
-        Nombre: $('#txtNombre').val(),
-        Apellido: $('#txtApellido').val(),
+        Nombre: $('#txtNombres').val(),
+        Apellido: $('#txtApellidos').val(),
         Usuario: $('#txtUsuario').val(),
         Vigencia: $('#txtFechadecaducidad').val(),
-        Estado: $('#cboEstado').val(),
-        IdCcf: 1,
-        IdRole: $('#cboTipodeusuario').val(),
+        Estado: 1,
+        IdCcf: $('#cboTipodeusuario').val(),
+        IdRole: $('#cboNombreCCF').val(),
     }
 
-    consumirServicio(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
+    SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
+        alert("ingreso de forma satisfactoria");
 
     }, null, function (dataError) {
-        alert("ingreso de forma satisfactoria");
     });
 }

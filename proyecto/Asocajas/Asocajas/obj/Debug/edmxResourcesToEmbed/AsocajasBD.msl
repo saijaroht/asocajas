@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AsocajasBDModelStoreContainer" CdmEntityContainer="AsocajasBDEntities">
+    <FunctionImportMapping FunctionImportName="SendMail" FunctionName="AsocajasBDModel.Store.SendMail" />
     <EntitySetMapping Name="LTLogApp">
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
         <MappingFragment StoreEntitySet="LTLogApp">
@@ -68,6 +69,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RDatoBasico">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RDatoBasico">
+        <MappingFragment StoreEntitySet="RDatoBasico">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoDatoBasico" ColumnName="IdTipoDatoBasico" />
+          <ScalarProperty Name="IdDatoBasicoPadre" ColumnName="IdDatoBasicoPadre" />
+          <ScalarProperty Name="IdDatoBasico" ColumnName="IdDatoBasico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RRole">
       <EntityTypeMapping TypeName="AsocajasBDModel.RRole">
         <MappingFragment StoreEntitySet="RRole">
@@ -102,6 +121,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RTipoDatoBasico">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RTipoDatoBasico">
+        <MappingFragment StoreEntitySet="RTipoDatoBasico">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoDatoBasico" ColumnName="IdTipoDatoBasico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RUsuario">
       <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
         <MappingFragment StoreEntitySet="RUsuario">
@@ -118,6 +152,7 @@
           <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
         </MappingFragment>

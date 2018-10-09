@@ -208,11 +208,23 @@ function validateText(control) {
                 else {
                     var Passwords = document.querySelectorAll('input[type=password]');
                     if (Passwords.length == 1) {
-                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "") {
+                        var valueInput = $("#" + control.id).val();
+                        //var lowerCaseLetters = /[a-z]/g;
+                        //var upperCaseLetters = /[A-Z]/g;
+                        //var numbers = /[0-9]/g;
+                        //var errorText = true;
+                        //if (!valueInput.match(lowerCaseLetters) || !valueInput.match(upperCaseLetters) || !valueInput.match(numbers) || !valueInput.match(numbers) || !(valueInput.length >= 8)) {
+                        //    errorText = false;
+                        //}
+
+                        var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*[()/&%$#]/;
+
+                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "" || !regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8)) {
                             div.removeClass("has-success");
                             $("#glypcn" + control.id).remove();
                             div.addClass("has-error has-feedback");
                             div.append('<span id="glypcn' + control.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>');
+                            //AddTextErrorToInput(control, "La contraseña debe tener ");
                             return false;
                         }
                         else {
@@ -438,4 +450,87 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
 
         }
     })
+}
+
+
+function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, FuncionCancelar, NombreAceptar, NombreCancelar) {
+    switch (TipoMensaje) {
+        case "AceptarCancelar":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    icon: 'glyphicon glyphicon-send',
+                    label: NombreAceptar || 'Aceptar',
+                    cssClass: 'btn-primary',
+                    autospin: true,
+                    action: function (dialogRef) {
+                        dialogRef.enableButtons(false);
+                        dialogRef.setClosable(false);
+                        dialogRef.getModalBody().html('Espere un momento por favor...');
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
+                        }
+                        else {
+                            setTimeout(function () {
+                                dialogRef.close();
+                            }, 3000);
+                        }
+                    }
+                }, {
+                    label: NombreCancelar || 'Cancelar',
+                    action: function (dialogRef) {
+                        if (FuncionCancelar) {
+                            FuncionCancelar(dialogRef);
+                        } else {
+                            dialogRef.close();
+                        }
+                    }
+                }]
+            });
+            break;
+        case "Alerta":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    label: 'Aceptar',
+                    action: function (dialogRef) {
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
+                        } else {
+                            dialogRef.close();
+                        }
+                    }
+                }]
+            });
+            break;
+
+        case "SoloMensaje":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: true,
+                title: TituloMensaje,
+                //buttons: [{
+                //    closable: true,
+                //    cssClass: 'btn-primary',
+                //    label: 'Aceptar',
+                //    action: function (dialogRef) {
+                //        if (FuncionAceptar) {
+                //            FuncionAceptar(dialogRef);
+                //        } else {
+                //            dialogRef.close();
+                //        }
+                //    }
+                //}]
+            
+              
+                
+               
+            });
+            break;
+    
+    }
 }

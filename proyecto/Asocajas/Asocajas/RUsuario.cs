@@ -11,7 +11,7 @@ namespace Asocajas
 {
     using System;
     using System.Collections.Generic;
-    
+    using Asocajas.Common.Supertype;
     public partial class RUsuario : EntityBase
     {
         public RUsuario()
@@ -21,6 +21,7 @@ namespace Asocajas
     
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
         public string Usuario { get; set; }
         public string Password { get; set; }
         public System.DateTime Vigencia { get; set; }
