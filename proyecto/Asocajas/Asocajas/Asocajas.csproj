@@ -121,15 +121,19 @@
     <Content Include="Pages\AllPages\Inicio.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\LogsEventos.aspx" />
     <Content Include="Pages\Modificacion_Contraseña.aspx" />
     <Content Include="Pages\PagesIngrid\Gestion_Usuarios.aspx" />
     <Content Include="Scripts\css\bootstrap-toggle.min.css" />
     <Content Include="Scripts\css\bootstrap.min.css" />
+    <Content Include="Scripts\css\jquery-ui.css" />
     <Content Include="Scripts\css\Login\css\fontawesome-all.css" />
     <Content Include="Scripts\css\Login\css\style.css" />
     <Content Include="Scripts\css\Login\images\cover4.jpg" />
     <Content Include="Scripts\css\Login\images\user.svg" />
     <Content Include="Scripts\css\Login\Login.css" />
+    <Content Include="Scripts\css\Login\tables\bootstrap-editable.css" />
+    <Content Include="Scripts\css\Login\tables\bootstrap-table.min.css" />
     <Content Include="Scripts\css\Login\webfonts\fa-brands-400.svg" />
     <Content Include="Scripts\css\Login\webfonts\fa-regular-400.svg" />
     <Content Include="Scripts\css\Login\webfonts\fa-solid-900.svg" />
@@ -138,8 +142,8 @@
     <Content Include="Scripts\fonts\icomoon.svg" />
     <Content Include="Scripts\Images\logo_asocajas.png" />
     <Content Include="Scripts\Javascript\CambioContrasena.js" />
-    <Content Include="Scripts\Javascript\Login.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
+    <Content Include="Scripts\Javascript\Login.js" />
     <Content Include="Scripts\Javascript\Modificacion_Contraseña.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
@@ -170,6 +174,11 @@
     <None Include="Scripts\Scripts\linq-vsdoc.js" />
     <Content Include="Scripts\Scripts\linq.js" />
     <Content Include="Scripts\Scripts\linq.min.js" />
+    <Content Include="Scripts\Scripts\tables\bootstrap-table-editable.js" />
+    <Content Include="Scripts\Scripts\tables\bootstrap-table-export.js" />
+    <Content Include="Scripts\Scripts\tables\bootstrap-table-filter-control.js" />
+    <Content Include="Scripts\Scripts\tables\bootstrap-table.js" />
+    <Content Include="Scripts\Scripts\tables\tableExport.js" />
     <Content Include="Services\Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -274,6 +283,13 @@
     <Compile Include="Pages\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LogsEventos.aspx.cs">
+      <DependentUpon>LogsEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LogsEventos.aspx.designer.cs">
+      <DependentUpon>LogsEventos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Modificacion_Contraseña.aspx.cs">
       <DependentUpon>Modificacion_Contraseña.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -317,6 +333,9 @@
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
     <Compile Include="RUsuario.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SendMail_Result.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Services\Servicios.aspx.cs">

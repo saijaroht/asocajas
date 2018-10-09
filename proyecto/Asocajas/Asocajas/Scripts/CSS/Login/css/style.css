@@ -49,6 +49,17 @@ div#banner img {
     margin: 0 auto;
 }
 
+.panel.panel-default {
+    -webkit-border-radius: 0px;
+    -o-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -webkit-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+    float: left;
+}
+
 /***********GENERALES********************/
 
 p.w3l-register-p {
@@ -200,8 +211,20 @@ footer {
 
 /*-- /responsive design --*/
 
-@media (max-width:768px) {
-    
+@media (max-width:767px) {
+  div#menuGenral  ul.nav.navbar-nav {
+    margin: 0px;
+        float: left !important;
+}
+  div#menuGenral .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+}
+
+ div#menuGenral  ul#identuser {
+    width: 100%;
+    float: left;
+    display: block;
+}
 }
 
 @media (max-width:667px) {
@@ -461,10 +484,54 @@ div#userIng {
     background-repeat: no-repeat
 }
 
+
+div#menuGenral .navbar-toggle {
+   
+    margin-right: 0px; 
+   
+}
+
+div#menuGenral .navbar {
+    position: relative;
+    min-height: 36px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+div#menuGenral .navbar-default .navbar-toggle {
+    border-color: #ddd;
+    margin: 0px;
+}
+
+div#menuGenral .navbar-default {
+    background-color: #f8f8f8;
+    border-color: #fff;
+    background-color: rgb(48, 147, 199);
+    background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133));
+}
+
+div#menuGenral .navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
 /****************TABLAS********************/
 table {
     box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
 }
+
+.table-responsive.Autoheight tbody {
+    height: 377px;
+    overflow-y: auto;
+  
+}
+
+.table-responsive.Autoheight fixed-table-body { 
+    height: 377px;
+    overflow-y: auto;
+  
+}
+
+
 
 .encabezadoTable {
     float: left;
@@ -517,6 +584,16 @@ div#custom-search-input span.input-group-btn {
       background-color: #2f2f2f;
       color: #fff;
   }
+<<<<<<< HEAD
+    /*.footer {
+    background-color: #F7F6F6  ;
+    position: absolute;
+    
+    width: 100%;
+    color:black;
+    border:1px solid black;
+}*/
+=======
     .footer {
     background-color: #F7F6F6;
     position: absolute;
@@ -529,6 +606,7 @@ div#custom-search-input span.input-group-btn {
 
 
 }
+>>>>>>> 2ceda1b7efaf61f3518f92781b6f889f33673d5e
  
 
 .panelPadding{
@@ -561,6 +639,20 @@ div#custom-search-input span.input-group-btn {
     padding:5mm;
 }
 
+<<<<<<< HEAD
+
+/**************RECUAPERAR CONTRASEÑA****************/
+
+.RecordarContrasena div#btninfo a {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.RecordarContrasena div#btninfo {
+    margin-top: 30px;
+=======
 .thVertical{
     background-color:#E6E6E6;
         width: 49%;
@@ -582,4 +674,5 @@ div#custom-search-input span.input-group-btn {
     padding: 15px;
     border-bottom: azure;
     display: none;
+>>>>>>> 2ceda1b7efaf61f3518f92781b6f889f33673d5e
 }

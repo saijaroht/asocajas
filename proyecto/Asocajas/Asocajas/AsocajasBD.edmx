@@ -269,11 +269,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="AsocajasBDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="AsocajasBDEntities" p1:LazyLoadingEnabled="true">
-          <FunctionImport Name="SendMail">
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="Asunto" Mode="In" Type="String" />
-            <Parameter Name="Html" Mode="In" Type="String" />
-          </FunctionImport>
           <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.LTLogApp" />
           <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.LTLogConsultasAni" />
           <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
@@ -308,6 +303,11 @@
             <End Role="RRole" EntitySet="RRole" />
             <End Role="RUsuario" EntitySet="RUsuario" />
           </AssociationSet>
+          <FunctionImport Name="SendMail" ReturnType="Collection(AsocajasBDModel.SendMail_Result)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Asunto" Mode="In" Type="String" />
+            <Parameter Name="Html" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="LTLogApp">
           <Key>
@@ -539,13 +539,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SendMail_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Apellido" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Vigencia" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" />
+          <Property Type="Int32" Name="IdCcf" Nullable="true" />
+          <Property Type="Int32" Name="IdRole" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaActualizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioActualizacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MaquinaActualizacion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AsocajasBDModelStoreContainer" CdmEntityContainer="AsocajasBDEntities">
-          <FunctionImportMapping FunctionImportName="SendMail" FunctionName="AsocajasBDModel.Store.SendMail" />
           <EntitySetMapping Name="LTLogApp">
             <EntityTypeMapping TypeName="AsocajasBDModel.LTLogApp">
               <MappingFragment StoreEntitySet="LTLogApp">
@@ -702,6 +719,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SendMail" FunctionName="AsocajasBDModel.Store.SendMail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AsocajasBDModel.SendMail_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+                <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

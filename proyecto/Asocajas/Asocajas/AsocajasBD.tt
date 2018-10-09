@@ -422,7 +422,6 @@ public class CodeStringGenerator
                 "{2}",
                 inHeader ? Environment.NewLine : "",
                 includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
-                includeCollections ? (Environment.NewLine + "using Asocajas.Common.Supertype;") : "",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

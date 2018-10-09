@@ -28,11 +28,12 @@
             </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4 nuevoUser">
-                <button type="button" class="btn btn-success">Nuevo usuario</button>
-            </div>
+                    <button type="button" class="btn btn-success">Nuevo usuario</button>
+                </div>
           </div>
         </div>   
      </div> 
+     <div class="table table-responsive">
        <table id="mytable" class="table table-responsive table-bordred table-striped">
                    
                    <thead>
@@ -82,6 +83,7 @@
     </tbody>
         
     </table>
+      </div>
 </form>
       
 </asp:Content>
