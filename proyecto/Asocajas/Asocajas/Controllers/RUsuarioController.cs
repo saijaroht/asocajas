@@ -31,7 +31,6 @@ namespace Asocajas.Controllers
             return Ok(obj);
         }
 
-
         public IHttpActionResult GetExistUser(string user, string password)
         {
             //password = Utility.TripleDES(password, true);
