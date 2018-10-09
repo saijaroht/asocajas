@@ -107,7 +107,7 @@ function AddTextErrorToInput(control, MensajeError) {
         return false;
     }
 }
-function validateText(control) {
+function validateText(control, validPass) {
     if (control.id != "") {
         if ($(control).parent()[0].nodeName == "TD")
             div = $(control).closest("TD");
@@ -219,7 +219,7 @@ function validateText(control) {
 
                         var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*[()/&%$#]/;
 
-                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "" || !regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8)) {
+                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "" || !((!regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8)) && validPass)) {
                             div.removeClass("has-success");
                             $("#glypcn" + control.id).remove();
                             div.addClass("has-error has-feedback");

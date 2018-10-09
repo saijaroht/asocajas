@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Asocajas;
 using Asocajas.Utilities;
+using System.Web.Script.Serialization;
 
 namespace Asocajas.Controllers
 {
@@ -44,12 +45,23 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
-            var randomPass=HelperGeneral.RandomPass();
-            rsuario.Password = Utility.TripleDES(randomPass, true);
-            //var decypt = Utility.TripleDES(rsuario.Password, false);
-            var obj = this.objDb.Add(rsuario);
-            bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Cambio de Contraseña</h1>en el siguente link podra realizar el cambio de contraseña");
-            return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
+            if (this.objDb.Get().Where(o => o.Usuario == rsuario.Usuario).Count() == 0)
+            {
+                var randomPass = HelperGeneral.RandomPass();
+                rsuario.Password = Utility.TripleDES(randomPass, true);
+                //var decypt = Utility.TripleDES(rsuario.Password, false);
+                var obj = this.objDb.Add(rsuario);
+                bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Cambio de Contraseña</h1>en el siguente link podra realizar el cambio de contraseña");
+                return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
+            }
+            else
+            {
+                DataResult result = new DataResult();
+                result.Message = "El usuario ya existe";
+                result.Ok = false;
+                return Ok( );
+            }
+
         }
 
         
