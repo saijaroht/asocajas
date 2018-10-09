@@ -28,6 +28,7 @@ namespace Asocajas
         public string Estado { get; set; }
         public Nullable<int> IdCcf { get; set; }
         public int IdRole { get; set; }
+        public Nullable<int> Intentos { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }
         public string MaquinaCreacion { get; set; }

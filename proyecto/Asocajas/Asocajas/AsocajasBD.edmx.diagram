@@ -14,10 +14,10 @@
         <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="1.3917688324077842" PointY="14.747086949063039" />
         <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="9.308423821492319" PointY="2.4480524372533208" />
         <EntityTypeShape EntityType="AsocajasBDModel.RTipoDatoBasico" Width="1.5" PointX="6.2774373713310041" PointY="27.176884902257886" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="9.8572100893860739" PointY="31.1511951382976" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="10.298420000028992" PointY="3.3134541377953504" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />
