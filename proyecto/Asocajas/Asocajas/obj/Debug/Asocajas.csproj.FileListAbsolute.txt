@@ -29,7 +29,6 @@ C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asoc
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.csproj.App.config
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll.config
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.pdb
@@ -52,5 +51,6 @@ C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Primitives.x
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.Cors.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.WebHost.xml
+C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.csproj.App.config
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
