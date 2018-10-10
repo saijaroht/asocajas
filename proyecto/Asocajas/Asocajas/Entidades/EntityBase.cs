@@ -26,6 +26,14 @@ namespace Asocajas
 
 
     [Serializable]
+    public enum Estados
+    {
+        Activo = 1,
+        InActivo = 0,
+        Bloqueado = 2,
+    }
+
+    [Serializable]
     public enum TiposDatoBasico
     {
         TiposDeSolicitud = 1,

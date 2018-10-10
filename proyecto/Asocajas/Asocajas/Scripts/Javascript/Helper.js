@@ -534,3 +534,29 @@ function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, Funcio
     
     }
 }
+
+function SessionState() {
+
+}
+
+
+function SessionLogin() {
+    PostService("");
+}
+
+//location.origin + '../Services/Servicios.aspx/VerifyCaptcha'
+//"{response: '" + response + "'}"
+function PostService(uri, data, functionSucces) {
+    $.ajax({
+        type: "POST",
+        url: uri,
+        data: data,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            if (functionSucces) {
+                functionSucces(data);
+            }
+        }
+    });
+}

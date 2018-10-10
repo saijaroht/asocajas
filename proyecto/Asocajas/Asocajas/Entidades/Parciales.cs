@@ -17,4 +17,17 @@ namespace Asocajas
             set;
         }
     }
+
+
+    public partial class results
+    {
+        [NotMapped]
+        public bool Ok { get; set; }
+        [NotMapped]
+        public string Message { get; set; }
+        [NotMapped]
+        public object Data { get; set; }
+        [NotMapped]
+        public object UFormularioSeccion { get; set; }
+    }
 }

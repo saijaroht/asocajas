@@ -8,6 +8,7 @@ using System.Web.Http.Cors;
 using Asocajas;
 using Asocajas.Utilities;
 using System.Web.Script.Serialization;
+using System.Configuration;
 
 namespace Asocajas.Controllers
 {
@@ -33,27 +34,69 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult GetExistUser(string user, string password)
         {
-            //password = Utility.TripleDES(password, true);
             var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
+            results result = new results();
             if (obj.Count() > 0)
             {
                 var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
                 RUsuario rusuario = new RUsuario();
                 rusuario = obj.FirstOrDefault();
-                if (password != linqEmails)
+                int resultadoFechas = DateTime.Compare(rusuario.Vigencia, new DateTime());
+
+                System.Configuration.AppSettingsReader settingsReader =
+                                               new AppSettingsReader();
+                var Cantidadintentos = Convert.ToInt32((string)settingsReader.GetValue("CantidadIntentos",
+                                                         typeof(String)));
+
+                if (Convert.ToInt32(rusuario.Estado) != (int)Estados.Activo)
                 {
-                    rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
+                    switch (Convert.ToInt32(rusuario.Estado))
+                    {
+                        case (int)Estados.InActivo:
+                            result.Message = "Su usuario se encuentra inactivo, por favor contacte al administrador.";
+                            break;
+                        case (int)Estados.Bloqueado:
+                            result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
+                            break;
+                    }
+                    result.Ok = false;
+                }
+                else if (rusuario.Intentos >= Cantidadintentos)
+                {
+                    rusuario.Estado = ((int)Estados.Bloqueado).ToString();
                     UpdateTry(rusuario);
-                    obj = new List<RUsuario>();
+                    result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
+                    result.Ok = false;
+                }
+                else if (resultadoFechas < 0)
+                {
+                    result.Message = "Su usuario ha caducado, por favor contacte al administrador.";
+                    result.Ok = false;
                 }
                 else
                 {
-                    rusuario.Intentos = 0;
-                    UpdateTry(rusuario);
+                    if (password != linqEmails)
+                    {
+                        result.Message = "Contraseña Incorrecta";
+                        result.Ok = false;
+                        rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
+                        UpdateTry(rusuario);
+                    }
+                    else
+                    {
+                        result.Message = "";
+                        result.Ok = true;
+                        rusuario.Intentos = 0;
+                        UpdateTry(rusuario);
+                    }
                 }
             }
-
-            return Ok(obj);
+            else
+            {
+                result.Message = "Su usuario no está registrado en el sistema.";
+                result.Ok = false;
+            }
+            return Ok(result);
         }
 
         public void UpdateTry(RUsuario rsuario)
