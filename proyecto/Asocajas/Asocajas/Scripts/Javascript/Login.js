@@ -36,22 +36,34 @@ var recaptchaCallback = function () {
 function ValidaUsuario()
 {
     debugger;
+   
+
+    var FechaHoy = hoyFecha();
+    
+    
     consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
         if (data.length == 0) {
             ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
         }
         else {
             $.each(data, function (i, val) {
-                if (val.Intentos == undefined)
+
+
+                //if (val.Vigencia == FechaHoy)
+                if ((new Date(val.Vigencia).getTime() < new Date(FechaHoy).getTime()))
                 {
-                    
-                   
-                    window.location.href = "AllPages/Cambio_Clave.aspx";
+                    ShowMessage("NOTIFICACIÓN", "Su Usuario a caducado por favor contacte al administrador", "Alerta");
                 }
-                else
-                {
-                    window.location.href = "AllPages/Inicio.aspx";
-                    
+                else {
+                    if (val.Intentos == undefined) {
+
+
+                        window.location.href = "AllPages/Cambio_Clave.aspx";
+                    }
+                    else {
+                        window.location.href = "AllPages/Inicio.aspx";
+
+                    }
                 }
             });
 
