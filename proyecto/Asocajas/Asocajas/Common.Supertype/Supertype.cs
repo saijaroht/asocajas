@@ -126,10 +126,10 @@ namespace Supertype
             if (find)
             {
                 TEntity _entity = this.Find((entity as EntityBase).PkValue);
-                context.Entry<TEntity>(_entity).State = EntityState.Detached;
-                (entity as ICamposAuditoria).FechaCreacion = (_entity as ICamposAuditoria).FechaCreacion;
-                (entity as ICamposAuditoria).UsuarioCreacion = (_entity as ICamposAuditoria).UsuarioCreacion;
-                (entity as ICamposAuditoria).MaquinaCreacion = (_entity as ICamposAuditoria).MaquinaCreacion;
+                //context.Entry<TEntity>(_entity).State = EntityState.Modified;
+                //(entity as ICamposAuditoria).FechaCreacion = (_entity as ICamposAuditoria).FechaCreacion;
+                //(entity as ICamposAuditoria).UsuarioCreacion = (_entity as ICamposAuditoria).UsuarioCreacion;
+                //(entity as ICamposAuditoria).MaquinaCreacion = (_entity as ICamposAuditoria).MaquinaCreacion;
             }
 
             context.Entry<TEntity>(entity).State = EntityState.Modified;
