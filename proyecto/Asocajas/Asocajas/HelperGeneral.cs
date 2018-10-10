@@ -14,7 +14,7 @@ namespace Asocajas
 
         public static string RandomPass()
         {
-            int longitud = 7;
+            int longitud = 8;
             Guid miGuid = Guid.NewGuid();
             string token = Convert.ToBase64String(miGuid.ToByteArray());
             token = token.Replace("=", "").Replace("+", "");

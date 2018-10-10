@@ -397,6 +397,28 @@ namespace Asocajas.Utilities
             return REMOTE_ADDR;
         }
 
+
+        public static string GetLoginURL()
+        {
+            if (System.Web.HttpContext.Current == null)
+                return "CONETXT NULO";
+            return System.Web.HttpContext.Current.Request.GetUserURL();
+        }
+        public static string GetUserURL(this HttpRequest request)
+        {
+            if (request == null)
+                return "REQUEST NULO";
+            System.Configuration.AppSettingsReader settingsReader =
+                                               new AppSettingsReader();
+
+            var URL = request.Url.Scheme + "://" + request.Url.Authority +
+    request.ApplicationPath.TrimEnd('/') + "/"+
+
+            (string)settingsReader.GetValue("LoginUrl",
+                                                         typeof(String));
+            return URL;
+        }
+
         public static string PathLog
         {
             get
@@ -722,7 +744,7 @@ namespace Asocajas.Utilities
         }
 
 
-        static string encryptionKey = "_Bext#Security$Token";
+        //static string encryptionKey = "_Bext#Security$Token";
         /// <summary>
         /// 
         /// </summary>
@@ -736,7 +758,10 @@ namespace Asocajas.Utilities
                 TripleDESCryptoServiceProvider odes = new TripleDESCryptoServiceProvider();
                 Encoding encoder = Encoding.ASCII;
                 MD5CryptoServiceProvider ohashAlgo = new MD5CryptoServiceProvider();
-
+                System.Configuration.AppSettingsReader settingsReader =
+                                                new AppSettingsReader();
+                string encryptionKey = (string)settingsReader.GetValue("SecurityKey",
+                                                         typeof(String));
                 odes.Key = ohashAlgo.ComputeHash(encoder.GetBytes(encryptionKey));
                 odes.Mode = CipherMode.ECB;
                 if (encrypt)

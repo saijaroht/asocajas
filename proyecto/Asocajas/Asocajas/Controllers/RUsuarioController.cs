@@ -55,12 +55,11 @@ namespace Asocajas.Controllers
 
         public IHttpActionResult PostRUsuario(RUsuario rsuario)
         {
-            var maquina = Utility.GetUserHostName();
             if (this.objDb.Get().Where(o => o.Usuario == rsuario.Usuario).Count() == 0)
             {
                 var randomPass = HelperGeneral.RandomPass();
                 rsuario.Password = Utility.TripleDES(randomPass, true);
-                //var decypt = Utility.TripleDES(rsuario.Password, false);
+                var decypt = Utility.TripleDES(rsuario.Password, false);
                 this.IEnviarEmail(rsuario, randomPass);
                 var obj = this.objDb.Add(rsuario);
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
@@ -77,7 +76,7 @@ namespace Asocajas.Controllers
 
         private void IEnviarEmail(RUsuario rsuario, string randomPass)
         {
-
+            var url = Utility.GetLoginURL();
             string MensajeCorreo = "<table width='80%' border='0'>";
             MensajeCorreo += "<tbody>";
             MensajeCorreo += "                    <tr>";
@@ -89,7 +88,7 @@ namespace Asocajas.Controllers
             MensajeCorreo += "                    <tr>";
             MensajeCorreo += "                        <td colspan='2'>";
             MensajeCorreo += "                        <p>El administrador de Consulta ANI de Asocajas ha creado un usuario para Usted, antes depoder acceder al sistema por primera vez, es imprescindible activar la cuenta registrada. Para ello acceda a la siguiente dirección:</p>";
-            MensajeCorreo += "                        <a href='http://localhost:25500/Pages/Login.aspx'>http://localhost:25500/Pages/Login.aspx</a>";
+            MensajeCorreo += "                        <a href='" + url + "'>" + url + "</a>";
             MensajeCorreo += "                        <br>";
             MensajeCorreo += "                        <p>Usuario: <strong>" + Convert.ToString(rsuario.Usuario) + "</strong><br>";
             MensajeCorreo += "                        Contraseña: <strong>" + randomPass + "</strong><br>";
