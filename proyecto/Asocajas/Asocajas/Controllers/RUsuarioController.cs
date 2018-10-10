@@ -58,7 +58,7 @@ namespace Asocajas.Controllers
 
         public void UpdateTry(RUsuario rsuario)
         {
-            var obj = this.objDb.Update(rsuario);
+            var obj = this.objDb.AddUpdate(rsuario, "IdUsuario");
 
         }
 
