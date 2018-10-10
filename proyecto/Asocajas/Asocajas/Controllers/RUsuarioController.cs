@@ -38,13 +38,28 @@ namespace Asocajas.Controllers
             if (obj.Count() > 0)
             {
                 var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
+                RUsuario rusuario = new RUsuario();
+                rusuario = obj.FirstOrDefault();
                 if (password != linqEmails)
                 {
+                    rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
+                    UpdateTry(rusuario);
                     obj = new List<RUsuario>();
+                }
+                else
+                {
+                    rusuario.Intentos = 0;
+                    UpdateTry(rusuario);
                 }
             }
 
             return Ok(obj);
+        }
+
+        public void UpdateTry(RUsuario rsuario)
+        {
+            var obj = this.objDb.Update(rsuario);
+
         }
 
         public IHttpActionResult GetRUsuarioById(int idUsuario)

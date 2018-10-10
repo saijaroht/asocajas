@@ -26,6 +26,9 @@ function cargaAdicionales()
     
     
 }
+function cancelar() {
+    window.location.href = "Gestion_Usuarios.aspx";
+}
 
 function ValidaUsuario() {
     debugger;
@@ -48,7 +51,8 @@ function GuardarUsuario() {
     }
 
     SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
-        alert("ingreso de forma satisfactoria");
+        ShowMessage("NOTIFICACIÓN", "Se ingreso el Usuario de manera satisfactoria", "Alerta");
+        window.location.href = "Gestion_Usuarios.aspx";
 
     }, null, function (dataError) {
     });

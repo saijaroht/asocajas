@@ -41,7 +41,21 @@ function ValidaUsuario()
             ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
         }
         else {
-            window.location.href = "AllPages/Inicio.aspx";
+            $.each(data, function (i, val) {
+                if (val.Intentos == undefined)
+                {
+                    
+                   
+                    window.location.href = "AllPages/Cambio_Clave.aspx";
+                }
+                else
+                {
+                    window.location.href = "AllPages/Inicio.aspx";
+                    
+                }
+            });
+
+           
         }
 
     }, null, function (dataError) { });

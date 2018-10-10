@@ -74,7 +74,7 @@
     </div>
     <div class="row">
         <div class="col-sm-2">
-            <button type="button" class="btn btn-primary">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="cancelar();">Cancelar</button>
         </div>
         <div class="col-sm-8"></div>
         <div class="col-sm-2">

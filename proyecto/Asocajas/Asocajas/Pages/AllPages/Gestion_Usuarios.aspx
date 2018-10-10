@@ -29,7 +29,7 @@
             </div>
 
                 <div class="col-xs-12 col-sm-4 col-md-4 nuevoUser">
-                <button type="button" class="btn btn-success">Nuevo usuario</button>
+                <button type="button" class="btn btn-success" onclick="nuevoUsuario()">Nuevo usuario</button>
             </div>
           </div>
         </div>   
