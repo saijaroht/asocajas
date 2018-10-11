@@ -29,7 +29,7 @@ namespace Asocajas
     public enum Estados
     {
         Activo = 1,
-        InActivo = 0,
+        Inactivo = 0,
         Bloqueado = 2,
     }
 

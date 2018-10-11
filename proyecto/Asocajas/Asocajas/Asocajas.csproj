@@ -120,6 +120,7 @@
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
+    <Content Include="Pages\CambioObligatorioClave.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\LogsEventos.aspx" />
     <Content Include="Pages\Modificacion_Contraseña.aspx" />
@@ -142,6 +143,8 @@
     <Content Include="Scripts\fonts\icomoon.svg" />
     <Content Include="Scripts\Images\logo_asocajas.png" />
     <Content Include="Scripts\Javascript\CambioContrasena.js" />
+    <Content Include="Scripts\Javascript\CambioObligatorioClave.js" />
+    <Content Include="Scripts\Javascript\Gestion_Usuarios.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
     <Content Include="Scripts\Javascript\Login.js" />
     <Content Include="Scripts\Javascript\Modificacion_Contraseña.js" />
@@ -268,6 +271,13 @@
     </Compile>
     <Compile Include="Pages\AllPages\Registro_usuarios.aspx.designer.cs">
       <DependentUpon>Registro_usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CambioObligatorioClave.aspx.cs">
+      <DependentUpon>CambioObligatorioClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CambioObligatorioClave.aspx.designer.cs">
+      <DependentUpon>CambioObligatorioClave.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

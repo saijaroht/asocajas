@@ -167,6 +167,7 @@
           <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
           <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
           <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CambioObligatorio" ColumnName="CambioObligatorio" />
           <ScalarProperty Name="Intentos" ColumnName="Intentos" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
           <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />

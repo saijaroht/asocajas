@@ -17,7 +17,7 @@
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="10.298420000028992" PointY="3.3134541377953504" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="6.8554913899188357" PointY="30.897935300552255" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />

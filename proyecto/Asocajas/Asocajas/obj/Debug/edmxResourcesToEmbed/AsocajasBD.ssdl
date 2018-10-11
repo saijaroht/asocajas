@@ -175,6 +175,7 @@
     <Property Name="IdCcf" Type="int" />
     <Property Name="IdRole" Type="int" Nullable="false" />
     <Property Name="Intentos" Type="int" />
+    <Property Name="CambioObligatorio" Type="bit" Nullable="false" />
     <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
     <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="MaquinaCreacion" Type="varchar" Nullable="false" MaxLength="100" />

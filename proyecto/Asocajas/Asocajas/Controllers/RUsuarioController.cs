@@ -41,7 +41,9 @@ namespace Asocajas.Controllers
                 var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
                 RUsuario rusuario = new RUsuario();
                 rusuario = obj.FirstOrDefault();
-                int resultadoFechas = DateTime.Compare(rusuario.Vigencia, new DateTime());
+                var today = DateTime.Now.Date;
+
+                int resultadoFechas = DateTime.Compare(rusuario.Vigencia, today);
 
                 System.Configuration.AppSettingsReader settingsReader =
                                                new AppSettingsReader();
@@ -52,7 +54,7 @@ namespace Asocajas.Controllers
                 {
                     switch (Convert.ToInt32(rusuario.Estado))
                     {
-                        case (int)Estados.InActivo:
+                        case (int)Estados.Inactivo:
                             result.Message = "Su usuario se encuentra inactivo, por favor contacte al administrador.";
                             break;
                         case (int)Estados.Bloqueado:
@@ -70,6 +72,8 @@ namespace Asocajas.Controllers
                 }
                 else if (resultadoFechas < 0)
                 {
+                    rusuario.Estado = ((int)Estados.Inactivo).ToString();
+                    UpdateTry(rusuario);
                     result.Message = "Su usuario ha caducado, por favor contacte al administrador.";
                     result.Ok = false;
                 }
@@ -77,18 +81,51 @@ namespace Asocajas.Controllers
                 {
                     if (password != linqEmails)
                     {
-                        result.Message = "Contraseña Incorrecta";
+                        result.Message = "El usuario o contraseña no son correctos.";
                         result.Ok = false;
                         rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
                         UpdateTry(rusuario);
                     }
                     else
                     {
-                        result.Message = "";
+                        if (rusuario.CambioObligatorio)
+                        {
+                            result.CambioObligatorio = true;
+                        }
+                        else
+                        {
+                            result.CambioObligatorio = false;
+                        }
                         result.Ok = true;
                         rusuario.Intentos = 0;
                         UpdateTry(rusuario);
                     }
+                }
+            }
+            else
+            {
+                result.Message = "Su usuario no está registrado en el sistema.";
+                result.Ok = false;
+            }
+            return Ok(result);
+        }
+
+        public IHttpActionResult GetExisteUser(string user, string password)
+        {
+            var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
+            results result = new results();
+            if (obj.Count() > 0)
+            {
+                var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
+                if (password != linqEmails)
+                {
+                    result.Message = "La contraseña actual no es correcta.";
+                    result.Ok = false;
+                }
+                else
+                {
+                    result.Message = "";
+                    result.Ok = true;
                 }
             }
             else
@@ -118,21 +155,22 @@ namespace Asocajas.Controllers
                 var randomPass = HelperGeneral.RandomPass();
                 rsuario.Password = Utility.TripleDES(randomPass, true);
                 var decypt = Utility.TripleDES(rsuario.Password, false);
-                this.IEnviarEmail(rsuario, randomPass);
+                this.IEnviarEmail(rsuario, randomPass, "");
+                rsuario.CambioObligatorio = true;
                 var obj = this.objDb.Add(rsuario);
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
             else
             {
-                DataResult result = new DataResult();
+                results result = new results();
                 result.Message = "El usuario ya existe";
                 result.Ok = false;
-                return Ok( );
+                return Ok(result);
             }
-
         }
 
-        private void IEnviarEmail(RUsuario rsuario, string randomPass)
+
+        private void IEnviarEmail(RUsuario rsuario, string randomPass, string Mensaje)
         {
             var url = Utility.GetLoginURL();
             string MensajeCorreo = "<table width='80%' border='0'>";
@@ -145,7 +183,7 @@ namespace Asocajas.Controllers
             MensajeCorreo += "                    </tr>";
             MensajeCorreo += "                    <tr>";
             MensajeCorreo += "                        <td colspan='2'>";
-            MensajeCorreo += "                        <p>El administrador de Consulta ANI de Asocajas ha creado un usuario para Usted, antes depoder acceder al sistema por primera vez, es imprescindible activar la cuenta registrada. Para ello acceda a la siguiente dirección:</p>";
+            MensajeCorreo += "                        <p>" + (string.IsNullOrEmpty(Mensaje) ? "El administrador de Consulta ANI de Asocajas ha creado un usuario para Usted, antes depoder acceder al sistema por primera vez, es imprescindible activar la cuenta registrada. Para ello acceda a la siguiente dirección:" : Mensaje) + "</p>";
             MensajeCorreo += "                        <a href='" + url + "'>" + url + "</a>";
             MensajeCorreo += "                        <br>";
             MensajeCorreo += "                        <p>Usuario: <strong>" + Convert.ToString(rsuario.Usuario) + "</strong><br>";
@@ -170,6 +208,27 @@ namespace Asocajas.Controllers
             //bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Usuario Creado</h1>en el siguente link podra realizar el cambio de contraseña");
 
         }
-        
+
+        public IHttpActionResult PutUpdatePassword(CambioPassword cambioPassword)
+        {
+            var rsuario = this.objDb.Get(o => o.Usuario == cambioPassword.Usuario).FirstOrDefault();
+            rsuario.CambioObligatorio = false;
+            rsuario.Password = Utility.TripleDES(cambioPassword.Password, true);
+            UpdateTry(rsuario);
+
+            return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
+        }
+
+        public IHttpActionResult PutUpdateActivarBloquear(ActivarBloquear activarBloquear)
+        {
+            var rsuario = this.objDb.Get(activarBloquear.IdUsuario);
+            rsuario.Estado = activarBloquear.Estado;
+            var randomPass = HelperGeneral.RandomPass();
+            rsuario.Password = Utility.TripleDES(randomPass, true);
+            this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes depoder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
+            UpdateTry(rsuario);
+
+            return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
+        }
     }
 }

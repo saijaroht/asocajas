@@ -1,19 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Cambio_Clave.aspx.cs" Inherits="Asocajas.Pages.AllPages.Cambio_Clave" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Login.Master" AutoEventWireup="true" CodeBehind="CambioObligatorioClave.aspx.cs" Inherits="Asocajas.Pages.CambioObligatorioClave" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../../Scripts/Javascript/CambioContrasena.js"></script>
+    <script src="../Scripts/Javascript/CambioObligatorioClave.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-
-
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
+    <br />
+    <br />
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-7">
             <h4><b>Cambiar Contraseña</b></h4>
             <br />
-            <p> </p>
+            <p> Es consultante y es la primera vez que se loguea. Por razonez de seguridad por favor cambie su contraseña.</p>
         </div>
         <div class="col-sm-4"></div>
     </div>
@@ -23,11 +22,6 @@
         <div class="col-sm-7">
             <div class="row">
             <div class="col-sm-6 BordeDiv">
-                <div class="form-group">
-                    <label >Contraseña Actual</label>
-                    <input type="password" class="form-control" id="txtContrasenaActual">
-                </div>
-
                  <div class="form-group">
                     <label>Nueva Contraseña</label>
                     <input type="password" class="form-control" id="txtNuevaContraseña">
@@ -53,8 +47,6 @@
                     </ul>
                 </ul>
             </div>
-
-                
             </div>
           
         </div>
@@ -67,10 +59,12 @@
             <button type="button" class="btn btn-primary" onclick="ActualizarContraseña(); return false;">Aceptar</button>
         </div>
     </div>
-
-
-
-  
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </asp:Content>
-
-

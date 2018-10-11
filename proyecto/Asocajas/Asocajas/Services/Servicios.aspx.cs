@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Services;
@@ -33,13 +35,13 @@ namespace Asocajas.Services
         }
 
         [WebMethod]
-        public string IsLogin()
+        public static string IsLogin()
         {
             DataResult jsonData = new DataResult();
             try
             {
-                jsonData.Message = this.User;
-                jsonData.Ok = this.User == null ? false : true;
+                jsonData.Message = User;
+                jsonData.Ok = User == null ? false : true;
             }
             catch (Exception ex)
             {
@@ -50,13 +52,14 @@ namespace Asocajas.Services
         }
 
         [WebMethod]
-        public string Login(string User)
+        public static string Login(string UserData)
         {
             DataResult jsonData = new DataResult();
             try
             {
-                this.User = User;
-                jsonData.Message = User;
+                //DownloadFile();
+                User = UserData;
+                jsonData.Message = UserData;
                 jsonData.Ok = true;
             }
             catch (Exception ex)
@@ -68,14 +71,14 @@ namespace Asocajas.Services
         }
 
         [WebMethod]
-        public string Logout()
+        public static string Logout()
         {
             DataResult jsonData = new DataResult();
             try
             {
-                this.User = User;
-                jsonData.Message = User;
-                jsonData.Ok = true;
+                HttpContext.Current.Session.Abandon();
+                HttpContext.Current.Session.Clear();
+                HttpContext.Current.Session.RemoveAll();
             }
             catch (Exception ex)
             {
@@ -87,16 +90,38 @@ namespace Asocajas.Services
 
         #region Session var
 
-        string User
+        public static string User
         {
             get
             {
-                if (Session[SESSION_VAR] == null)
-                    Session[SESSION_VAR] = null;
-                return (string)Session[SESSION_VAR];
+                if (HttpContext.Current.Session[SESSION_VAR] == null)
+                    HttpContext.Current.Session[SESSION_VAR] = null;
+                return (string)HttpContext.Current.Session[SESSION_VAR];
             }
-            set { Session[SESSION_VAR] = value; }
+            set { HttpContext.Current.Session[SESSION_VAR] = value; }
         }
         #endregion
+
+
+        public static void DownloadFile()
+        {
+            //// This is an array of strings right?
+            //string[,] DataToExportToCSV = new string[,] { { "2000", "2" }, { "2001", "4" } };
+
+            //// Use a StringBuilder to accumulate your output
+            //StringBuilder sb = new StringBuilder("Date;C1\r\n");
+            //for (int i = 0; i <= array.GetUpperBound(0); i++)
+            //{
+            //    for (int j = 0; j <= array.GetUpperBound(1); j++)
+            //    {
+            //        sb.Append((j == 0 ? "" : ";") + array[i, j]);
+            //    }
+            //    sb.AppendLine();
+            //}
+
+            //// Write everything with a single command 
+            //File.WriteAllText(@"C:\\FilesCSV\\fileadress.csv", sb.ToString());
+
+        }
     }
 }

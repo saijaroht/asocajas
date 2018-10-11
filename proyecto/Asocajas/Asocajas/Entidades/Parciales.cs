@@ -28,6 +28,40 @@ namespace Asocajas
         [NotMapped]
         public object Data { get; set; }
         [NotMapped]
-        public object UFormularioSeccion { get; set; }
+        public bool CambioObligatorio { get; set; }
+    }
+
+    public partial class CambioPassword
+    {
+        [NotMapped]
+        public string Password { get; set; }
+        [NotMapped]
+        public string Usuario { get; set; }
+    }
+
+    public partial class ActivarBloquear
+    {
+        [NotMapped]
+        public string Estado { get; set; }
+        [NotMapped]
+        public int IdUsuario { get; set; }
+    }
+
+    public partial class RUsuario
+    {
+
+        [NotMapped]
+        public string EstadoSTR
+        {
+            get { return this.TiposDeEstados.ToString(); }
+            private set { var temp = value; }
+
+        }
+        [NotMapped]
+        public Estados TiposDeEstados
+        {
+            get { return (Estados)Convert.ToInt32(this.Estado); }
+            private set { var temp = value; }
+        }
     }
 }

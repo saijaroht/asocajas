@@ -180,6 +180,7 @@
           <Property Name="IdCcf" Type="int" />
           <Property Name="IdRole" Type="int" Nullable="false" />
           <Property Name="Intentos" Type="int" />
+          <Property Name="CambioObligatorio" Type="bit" Nullable="false" />
           <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="MaquinaCreacion" Type="varchar" Nullable="false" MaxLength="100" />
@@ -309,7 +310,7 @@
             <End Role="RRole" EntitySet="RRole" />
             <End Role="RUsuario" EntitySet="RUsuario" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="LTLogApp">
           <Key>
             <PropertyRef Name="IdLogApp" />
@@ -512,6 +513,7 @@
           <Property Type="Int32" Name="IdCcf" />
           <Property Type="Int32" Name="IdRole" Nullable="false" />
           <Property Type="Int32" Name="Intentos" />
+          <Property Type="Boolean" Name="CambioObligatorio" Nullable="false" />
           <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
           <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -731,6 +733,7 @@
                 <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
                 <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
                 <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="CambioObligatorio" ColumnName="CambioObligatorio" />
                 <ScalarProperty Name="Intentos" ColumnName="Intentos" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />

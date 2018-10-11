@@ -47,7 +47,6 @@
                 <th>Estado</th>  
                 <th></th>                      
                 <th></th>
-                <th></th>
                    </thead>
     <tbody id="tbodyGestionUsuarios">
     
