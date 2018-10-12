@@ -78,8 +78,17 @@
                                     <li class="menu-item ">
                                         <a href="#">Log eventos</a>
                                     </li>
+                                     <li class="menu-item ">
+                                        <a href="#">Log Consultas ANI</a>
+                                    </li>
                                     <li class="menu-item ">
                                         <a href="#">Log excepciones</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="#">Consultas Procesadas</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="#">Tiempo Respuesta</a>
                                     </li>
                                     <li class="menu-item ">
                                         <a href="#">Desempeño plataforma</a>
