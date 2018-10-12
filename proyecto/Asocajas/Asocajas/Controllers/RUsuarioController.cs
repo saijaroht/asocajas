@@ -179,7 +179,7 @@ namespace Asocajas.Controllers
             MensajeCorreo += "                        <td colspan='2'></td>";
             MensajeCorreo += "                    </tr>";
             MensajeCorreo += "                    <tr>";
-            MensajeCorreo += "                        <td >Usuario creado</td>";
+            MensajeCorreo += "                        <td >Usuario " + (string.IsNullOrEmpty(Mensaje) ? "creado" : "Actualizado") + "</td>";
             MensajeCorreo += "                    </tr>";
             MensajeCorreo += "                    <tr>";
             MensajeCorreo += "                        <td colspan='2'>";
@@ -225,7 +225,8 @@ namespace Asocajas.Controllers
             rsuario.Estado = activarBloquear.Estado;
             var randomPass = HelperGeneral.RandomPass();
             rsuario.Password = Utility.TripleDES(randomPass, true);
-            this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes depoder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
+            if (Convert.ToInt32(activarBloquear.Estado) == (int)Estados.Activo)
+                this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes depoder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
             UpdateTry(rsuario);
 
             return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);

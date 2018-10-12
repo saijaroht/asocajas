@@ -572,137 +572,149 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
 }
 
 
-    function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, FuncionCancelar, NombreAceptar, NombreCancelar) {
-        switch (TipoMensaje) {
-            case "AceptarCancelar":
-                BootstrapDialog.show({
-                    message: Mensaje,
-                    closable: false,
-                    title: TituloMensaje,
-                    buttons: [{
-                        icon: 'glyphicon glyphicon-send',
-                        label: NombreAceptar || 'Aceptar',
-                        cssClass: 'btn-primary',
-                        autospin: true,
-                        action: function (dialogRef) {
-                            dialogRef.enableButtons(false);
-                            dialogRef.setClosable(false);
-                            dialogRef.getModalBody().html('Espere un momento por favor...');
-                            if (FuncionAceptar) {
-                                FuncionAceptar(dialogRef);
-                            }
-                            else {
-                                setTimeout(function () {
-                                    dialogRef.close();
-                                }, 3000);
-                            }
+function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, FuncionCancelar, NombreAceptar, NombreCancelar) {
+    switch (TipoMensaje) {
+        case "AceptarCancelar":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    icon: 'glyphicon glyphicon-send',
+                    label: NombreAceptar || 'Aceptar',
+                    cssClass: 'btn-primary',
+                    autospin: true,
+                    action: function (dialogRef) {
+                        dialogRef.enableButtons(false);
+                        dialogRef.setClosable(false);
+                        dialogRef.getModalBody().html('Espere un momento por favor...');
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
                         }
-                    }, {
-                        label: NombreCancelar || 'Cancelar',
-                        action: function (dialogRef) {
-                            if (FuncionCancelar) {
-                                FuncionCancelar(dialogRef);
-                            } else {
+                        else {
+                            setTimeout(function () {
                                 dialogRef.close();
-                            }
+                            }, 3000);
                         }
-                    }]
-                });
-                break;
-            case "Alerta":
-                BootstrapDialog.show({
-                    message: Mensaje,
-                    closable: false,
-                    title: TituloMensaje,
-                    buttons: [{
-                        label: 'Aceptar',
-                        action: function (dialogRef) {
-                            if (FuncionAceptar) {
-                                FuncionAceptar(dialogRef);
-                            } else {
-                                dialogRef.close();
-                            }
+                    }
+                }, {
+                    label: NombreCancelar || 'Cancelar',
+                    action: function (dialogRef) {
+                        if (FuncionCancelar) {
+                            FuncionCancelar(dialogRef);
+                        } else {
+                            dialogRef.close();
                         }
-                    }]
-                });
-                break;
-
-            case "SoloMensaje":
-                BootstrapDialog.show({
-                    message: Mensaje,
-                    closable: true,
-                    title: TituloMensaje,
-                    //buttons: [{
-                    //    closable: true,
-                    //    cssClass: 'btn-primary',
-                    //    label: 'Aceptar',
-                    //    action: function (dialogRef) {
-                    //        if (FuncionAceptar) {
-                    //            FuncionAceptar(dialogRef);
-                    //        } else {
-                    //            dialogRef.close();
-                    //        }
-                    //    }
-                    //}]
-            
-              
-                
-               
-                });
-                break;
-    
-        }
-    }
-
-    function SessionState() {
-        setTimeout(function () {
-            PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
-                if (!data.Ok) {
-                    window.location.href = location.origin + "/Pages/Login.aspx";
-                } else
-                    SessionState();
+                    }
+                }]
             });
-        }, 20000);
-    }
-
-    $(document).ready(function () {
-        debugger;
-        if (location.pathname != "/Pages/Login.aspx") {
-            PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
-                if (!data.Ok) {
-                    window.location.href = location.origin + "/Pages/Login.aspx";
-                }
+            break;
+        case "Alerta":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: false,
+                title: TituloMensaje,
+                buttons: [{
+                    label: 'Aceptar',
+                    action: function (dialogRef) {
+                        if (FuncionAceptar) {
+                            FuncionAceptar(dialogRef);
+                        } else {
+                            dialogRef.close();
+                        }
+                    }
+                }]
             });
-            SessionState();
-        }
-    });
+            break;
 
-    function SessionLogin(valueUser, functionsucess) {
-        PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
-    }
+        case "SoloMensaje":
+            BootstrapDialog.show({
+                message: Mensaje,
+                closable: true,
+                title: TituloMensaje,
+                //buttons: [{
+                //    closable: true,
+                //    cssClass: 'btn-primary',
+                //    label: 'Aceptar',
+                //    action: function (dialogRef) {
+                //        if (FuncionAceptar) {
+                //            FuncionAceptar(dialogRef);
+                //        } else {
+                //            dialogRef.close();
+                //        }
+                //    }
+                //}]
 
-    function Logout() {
-        debugger;
-        PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
-    }
 
-    function CerrarSesion() {
-        window.location.href = location.origin + "/Pages/Login.aspx"
+
+
+            });
+            break;
+
     }
+}
+
+function SessionState() {
+    setTimeout(function () {
+        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+            if (!data.Ok) {
+                window.location.href = location.origin + "/Pages/Login.aspx";
+            } else
+                SessionState();
+        });
+    }, 20000);
+}
+
+$(document).ready(function () {
+    debugger;
+    if (location.pathname != "/Pages/Login.aspx") {
+        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+            if (!data.Ok) {
+                window.location.href = location.origin + "/Pages/Login.aspx";
+            }
+        });
+        SessionState();
+    }
+});
+
+function SessionLogin(valueUser, functionsucess) {
+    PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
+}
+
+function Logout() {
+    debugger;
+    PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
+}
+
+function CerrarSesion() {
+    window.location.href = location.origin + "/Pages/Login.aspx"
+}
 
     //location.origin + '../Services/Servicios.aspx/VerifyCaptcha'
     //"{response: '" + response + "'}"
-    function PostService(uri, data, functionSucces) {
-        $.ajax({
-            type: "POST",
-            url: uri,
-            data: data,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                if (functionSucces) {
-                    functionSucces(jQuery.parseJSON(data.d));
-                }
+function PostService(uri, data, functionSucces) {
+    $.ajax({
+        type: "POST",
+        url: uri,
+        data: data,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            if (functionSucces) {
+                functionSucces(jQuery.parseJSON(data.d));
             }
-        });
-    }
+        }
+    });
+}
+
+function BuscarTable(IdTxtFilter, IdTbody) {
+    $('#' + IdTxtFilter).keyup(function () {
+        // debugger; 
+        var rex = new RegExp($(this).val(), 'i');
+        $('#' + IdTbody + ' tr').hide();
+        $('#' + IdTbody + ' tr').filter(function () {
+            return rex.test($(this).text());
+        }).show();
+
+    })
+}

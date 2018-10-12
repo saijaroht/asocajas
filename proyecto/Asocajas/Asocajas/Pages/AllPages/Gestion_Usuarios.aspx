@@ -1,56 +1,57 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Gestion_Usuarios.aspx.cs" Inherits="Asocajas.Pages.AllPages.Gestion_Usuarios" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Scripts/Javascript/Gestion_Usuarios.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
-    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-     <form>
-     <div class="encabezadoTable">
-       <div class="col-xs-12 col-sm-12 col-md-6">
-           <div class="textEncabezado">
-               <span>Gestion de usuarios</span>
-           </div>
-       </div>
-        <div class="col-xs-12 col-sm-12  col-md-6">
-            <div class="row">
-                <div class="col-xs-12 col-sm-8  col-md-8">
-                 <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
+    <form>
+        <div class="encabezadoTable">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="textEncabezado">
+                    <span>Gestion de usuarios</span>
                 </div>
             </div>
-            </div>
+            <div class="col-xs-12 col-sm-12  col-md-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8  col-md-8">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="  search-query form-control" placeholder="Search" id="Buscartxt" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="col-xs-12 col-sm-4 col-md-4 nuevoUser">
-                <button type="button" class="btn btn-success" onclick="nuevoUsuario()">Nuevo usuario</button>
+                    <div class="col-xs-12 col-sm-4 col-md-4 nuevoUser">
+                        <button type="button" class="btn btn-success" onclick="nuevoUsuario()">Nuevo usuario</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>   
-     </div> 
-       <table id="mytable" class="table table-responsive table-bordred table-striped">
-                   
-                   <thead>
-                   
-                <th><input type="checkbox" id="checkall" /></th>
+        </div>
+        <table id="mytable" class="table table-responsive table-bordred table-striped">
+
+            <thead>
+
+                <th>
+                    <input type="checkbox" id="checkall" /></th>
                 <th>Nombres</th>
                 <th>Apellido</th>
                 <th>Usuario</th>
                 <th>CCF</th>
                 <th>Tipo de Usuario</th>
-                <th>Estado</th>  
-                <th></th>                      
+                <th>Estado</th>
                 <th></th>
-                   </thead>
-    <tbody id="tbodyGestionUsuarios">
-    
-  <%--  <tr>
+                <th></th>
+            </thead>
+            <tbody id="tbodyGestionUsuarios">
+
+                <%--  <tr>
     <td><input type="checkbox" class="checkthis" /></td>
     <td>Mohsin</td>
     <td>Irshad</td>
@@ -91,11 +92,73 @@
     <td class="hidden"><p data-placement="top" data-toggle="tooltip" title="open"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
      <td><p data-placement="top" data-toggle="tooltip" title="closes"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></button></p></td>
  </tr>
-    --%>
-        
-    </tbody>
-        
-    </table>
-</form>
-      
+                --%>
+            </tbody>
+
+        </table>
+    </form>
+    <div class="modal fade" id="ModalEditar" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Formulario</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            <div class="panel ">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label styleLabel">Nombres:</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control styleinput" id="txtNombresActualizar" type="text" placeholder="Nombres">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label styleLabel">Apellidos:</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control styleinput styleLabel" id="txtApellidosActualizar" type="text" placeholder="Apellidos">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control styleinput" name="cboTipodeusuarioActualizar" id="cboTipodeusuarioActualizar">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
+                                        <div class="col-sm-8">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidadActualizar" id="txtFechadecaducidadActualizar" placeholder="DD/MM/YYYY" datepicker required />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <%--<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>--%>
+                        <button type="button" id="guardarFormulario" class="btn btn-primary" onclick="ValidaFormulario()">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </asp:Content>
