@@ -151,6 +151,46 @@ namespace Asocajas
             return true;
         }
 
+        public static bool PaginadorConsultasLTLogEventos(int limiteInferior, int limiteSuperior)
+        {
+            try
+            {
 
+                using (var ctx = new AsocajasBDEntities())
+                {
+                    var LimiteInferior = new SqlParameter
+                    {
+                        ParameterName = "LimiteInferior",
+                        Value = limiteInferior
+                    };
+
+                    var LimiteSuperior = new SqlParameter
+                    {
+                        ParameterName = "LimiteSuperior",
+                        Value = limiteSuperior
+                    };
+
+                    var Tabla = new SqlParameter
+                    {
+                        ParameterName = "Tabla",
+                        Value = "LTLogEventos"
+                    };
+
+                    var IdTable = new SqlParameter
+                    {
+                        ParameterName = "IdTable",
+                        Value = "IdLogEvento"
+                    };
+                    var exec = ctx.Database.SqlQuery<LTLogEventos>("exec SendMail @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<LTLogEventos>();
+                    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
