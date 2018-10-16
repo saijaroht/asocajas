@@ -5,8 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
     
 </asp:Content>
+ 
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-     <form>
+    <ul class="breadcrumb">
+        <li><a href="Inicio.aspx">Administración</a></li>
+        <li class="active">Gestión de Usuarios</li>
+    </ul>
+    <form>
      <div class="encabezadoTable">
        <div class="col-xs-12 col-sm-12 col-md-6">
            <div class="textEncabezado">
@@ -18,7 +23,7 @@
                 <div class="col-xs-12 col-sm-8  col-md-8">
                  <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                    <input type="text" id="myInput" class="search-query form-control" placeholder="Search" />
                     <span class="input-group-btn">
                         <button class="btn btn-danger" type="button">
                             <span class=" glyphicon glyphicon-search"></span>
@@ -34,6 +39,7 @@
           </div>
         </div>   
      </div> 
+ 
        <table id="mytable" class="table table-responsive table-bordred table-striped">
                    
                    <thead>

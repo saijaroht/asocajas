@@ -5,7 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-   
+    <ul class="breadcrumb">
+        <li><a href="Inicio.aspx">Administración</a></li>
+        <li><a href="Gestion_Usuarios.aspx">Gestión de Usuarios</a></li>
+        <li class="active">Nuevo Usuario</li>
+    </ul>
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">

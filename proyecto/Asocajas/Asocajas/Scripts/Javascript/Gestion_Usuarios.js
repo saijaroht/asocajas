@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     ConsultarUsuarios();
+    Buscador()
 });
 
 function nuevoUsuario() {
@@ -45,7 +46,7 @@ function ConsultarUsuarios() {
                     .append($("<td />", { html: val.Estado }))
                     .append($("<td />").append(btnEditar))
                     .append($("<td />").append(btnEliminar))
-                    .append($("<td />").append(tipoBtn))
+                    .append($("<td />").append(tipoBt n))
 
                     );
 
@@ -53,3 +54,12 @@ function ConsultarUsuarios() {
     });
 }
 
+
+function Buscador() {
+    $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+            $("#tbodyGestionUsuarios tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+}
