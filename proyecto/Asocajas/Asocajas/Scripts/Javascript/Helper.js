@@ -26,6 +26,26 @@ var consumirServicio = function (direccion, datos, funcionexitosa, datosAdiciona
     return false;
 }
 
+///traer la fecha actual
+function hoyFecha() {
+    var hoy = new Date();
+    var dd = hoy.getDate();
+    var mm = hoy.getMonth() + 1;
+    var yyyy = hoy.getFullYear();
+
+    dd = addZero(dd);
+    mm = addZero(mm);
+
+    return yyyy + '/' + mm + '/' + dd;
+}
+function addZero(i) {
+    if (i < 10) {
+        i = '0' + i;
+    }
+    return i;
+}
+
+
 //Método genérico para guardar
 function SaveService(Url, objData, funcionSuccess, funcionError, datosAdicionales) {
     try {
@@ -39,6 +59,36 @@ function SaveService(Url, objData, funcionSuccess, funcionError, datosAdicionale
 
         $.ajax({
             type: "POST",
+            dataType: "json",
+            url: Url,
+            data: objData,
+            success: function (data) {
+                if (funcionSuccess) {
+                    funcionSuccess(data, datosAdicionales);
+                }
+            },
+            error: function (data) {
+                if (funcionError) {
+                    funcionError(data);
+                } else {
+                    console.log(objData);
+                    console.log(data);
+                }
+            }
+        });
+
+    }
+    catch (ex) {
+        console.log(ex.message);
+    }
+}
+
+//Método genérico para guardar
+function UpdateService(Url, objData, funcionSuccess, funcionError, datosAdicionales) {
+    try {
+
+        $.ajax({
+            type: "PUT",
             dataType: "json",
             url: Url,
             data: objData,
@@ -198,6 +248,7 @@ function validateText(control, validPass) {
                 }
                 break;
             case "password":
+                RemoveValidateText(control);
                 if ($("#" + control.id).val() == null || $("#" + control.id).val() == "") {
                     div.removeClass("has-success");
                     $("#glypcn" + control.id).remove();
@@ -207,7 +258,7 @@ function validateText(control, validPass) {
                 }
                 else {
                     var Passwords = document.querySelectorAll('input[type=password]');
-                    if (Passwords.length == 1) {
+                    if (Passwords.length != 2) {
                         var valueInput = $("#" + control.id).val();
                         //var lowerCaseLetters = /[a-z]/g;
                         //var upperCaseLetters = /[A-Z]/g;
@@ -217,14 +268,16 @@ function validateText(control, validPass) {
                         //    errorText = false;
                         //}
 
-                        var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*[()/&%$#]/;
+                        var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ])(?=.*[A-ZÁÉÍÓÚÜÑ])(?=.*[()\/&%$#.@])/;
+                        var errorRegex = !regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8) ? false : true;
 
-                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "" || !((!regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8)) && validPass)) {
+                        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "" || (!errorRegex && validPass)) {
                             div.removeClass("has-success");
                             $("#glypcn" + control.id).remove();
                             div.addClass("has-error has-feedback");
                             div.append('<span id="glypcn' + control.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>');
                             //AddTextErrorToInput(control, "La contraseña debe tener ");
+                            
                             return false;
                         }
                         else {
@@ -236,7 +289,13 @@ function validateText(control, validPass) {
                         }
                     }
                     else {
-                        if (Passwords[0].value === Passwords[1].value) {
+                        debugger;
+                        var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ])(?=.*[A-ZÁÉÍÓÚÜÑ])(?=.*[()\/&%$#.@])/;
+                        if (!regex.test($("#" + control.id).val()) || $("#" + control.id).val().length < 8) {
+                            AddTextErrorToInput(control, "La contraseña no cumple con los requerimientos mínimos.");
+                            return false;
+                        }
+                        else if (Passwords[0].value === Passwords[1].value) {
                             control = Passwords[0];
                             div.removeClass("has-error");
                             div.addClass("has-success has-feedback");
@@ -403,13 +462,73 @@ function validateText(control, validPass) {
     return true;
 }
 
-function removerValidacion(arraycontroles) {
+function ValidarCtrlPass(control, validarPass) {
+    if (control.id != "") {
+        RemoveValidateText(control);
+        if ($(control).parent()[0].nodeName == "TD")
+            div = $(control).closest("TD");
+        else
+            div = $(control).closest("div");
+
+        if ($("#" + control.id).val() == null || $("#" + control.id).val() == "") {
+            div.removeClass("has-success");
+            $("#glypcn" + control.id).remove();
+            div.addClass("has-error has-feedback");
+            div.append('<span id="glypcn' + control.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>');
+            return false;
+        }
+        else {
+            var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ])(?=.*[A-ZÁÉÍÓÚÜÑ])(?=.*[()\/&%$#.@])/;
+            var errorRegex = !regex.test($("#" + control.id).val()) || !($("#" + control.id).val().length >= 8) ? false : true;
+            if (!errorRegex && validarPass) {
+                //div.removeClass("has-success");
+                //$("#glypcn" + control.id).remove();
+                //div.addClass("has-error has-feedback");
+                //div.append('<span id="glypcn' + control.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>');
+                AddTextErrorToInput(control, "La contraseña no cumple con los requerimientos mínimos.");
+                //AddTextErrorToInput(control, "La contraseña debe tener ");
+                return false;
+            }
+            else {
+                div.removeClass("has-error");
+                div.addClass("has-success has-feedback");
+                $("#glypcn" + control.id).remove();
+                div.append('<span id="glypcn' + control.id + '" class="glyphicon glyphicon-ok form-control-feedback "></span>');
+                return true;
+            }
+        }
+    }
+}
+
+function ValidarPasswordIguales(control1, control2) {
+    RemoveValidateText(control1);
+    RemoveValidateText(control2);
+    if ($(control1).parent()[0].nodeName == "TD")
+        div = $(control1).closest("TD");
+    else
+        div = $(control1).closest("div");
+    if (control1.value == control2.value) {
+        div.removeClass("has-error");
+        div.addClass("has-success has-feedback");
+        $("#glypcn" + control1.id).remove();
+        div.append('<span id="glypcn' + control1.id + '" class="glyphicon glyphicon-ok form-control-feedback "></span>');
+        return true;
+    } else {
+        AddTextErrorToInput(control1, "Las contraseñas no coinciden");
+        AddTextErrorToInput(control2, "");
+        return false;
+    }
+}
+
+function removerValidacion(arraycontroles, removetext) {
     $.each(arraycontroles, function (index, value) {
-        RemoveValidateText(document.getElementById(value));
+        RemoveValidateText(document.getElementById(value), removetext);
     });
 }
-function RemoveValidateText(control) {
+function RemoveValidateText(control, removetext) {
     if (control.id != "") {
+        if (removetext)
+            $(control).val('');
         if ($(control).parent()[0].nodeName == "TD")
             div = $(control).closest("TD");
         else
@@ -525,12 +644,77 @@ function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, Funcio
                 //        }
                 //    }
                 //}]
-            
-              
-                
-               
+
+
+
+
             });
             break;
-    
+
     }
+}
+
+function SessionState() {
+    setTimeout(function () {
+        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+            if (!data.Ok) {
+                window.location.href = location.origin + "/Pages/Login.aspx";
+            } else
+                SessionState();
+        });
+    }, 20000);
+}
+
+$(document).ready(function () {
+    debugger;
+    if (location.pathname != "/Pages/Login.aspx") {
+        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+            if (!data.Ok) {
+                window.location.href = location.origin + "/Pages/Login.aspx";
+            }
+        });
+        SessionState();
+    }
+});
+
+function SessionLogin(valueUser, functionsucess) {
+    PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
+}
+
+function Logout() {
+    debugger;
+    PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
+}
+
+function CerrarSesion() {
+    window.location.href = location.origin + "/Pages/Login.aspx"
+}
+
+    //location.origin + '../Services/Servicios.aspx/VerifyCaptcha'
+    //"{response: '" + response + "'}"
+function PostService(uri, data, functionSucces) {
+    $.ajax({
+        type: "POST",
+        url: uri,
+        data: data,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            if (functionSucces) {
+                functionSucces(jQuery.parseJSON(data.d));
+            }
+        }
+    });
+}
+
+function BuscarTable(IdTxtFilter, IdTbody) {
+    $('#' + IdTxtFilter).keyup(function () {
+        // debugger; 
+        var rex = new RegExp($(this).val(), 'i');
+        $('#' + IdTbody + ' tr').hide();
+        $('#' + IdTbody + ' tr').filter(function () {
+            return rex.test($(this).text());
+        }).show();
+
+    })
 }

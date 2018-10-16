@@ -1,7 +1,5 @@
 ﻿$(document).ready(function () {
-  
-  
-
+    Logout();
 });
 
 var recaptchaCallback = function () {
@@ -37,15 +35,15 @@ function ValidaUsuario()
 {
     debugger;
     consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
-        if (data.length == 0) {
-            ShowMessage("NOTIFICACIÓN", "el Usuario o la contraseña estan erroneos", "Alerta");
+        if (!data.Ok) {
+            ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
+        } else {
+            SessionLogin($("#txtUsuario").val(), function (dataUser) {
+                if (data.CambioObligatorio)
+                    window.location.href = "CambioObligatorioClave.aspx";
+                else
+                    window.location.href = "AllPages/Inicio.aspx";
+            });
         }
-        else {
-
-            window.location.href = "AllPages/Inicio.aspx";
-        }
-
     }, null, function (dataError) { });
-
-
 }

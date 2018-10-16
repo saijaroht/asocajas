@@ -243,6 +243,7 @@
     <Property Type="Int32" Name="IdCcf" />
     <Property Type="Int32" Name="IdRole" Nullable="false" />
     <Property Type="Int32" Name="Intentos" />
+    <Property Type="Boolean" Name="CambioObligatorio" Nullable="false" />
     <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
     <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
