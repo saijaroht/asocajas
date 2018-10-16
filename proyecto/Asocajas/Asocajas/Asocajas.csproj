@@ -119,10 +119,10 @@
     <Content Include="Pages\AllPages\Consulta_Documentos.aspx" />
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
+    <Content Include="Pages\AllPages\LogsEventos.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\CambioObligatorioClave.aspx" />
     <Content Include="Pages\Login.aspx" />
-    <Content Include="Pages\LogsEventos.aspx" />
     <Content Include="Pages\Modificacion_Contraseña.aspx" />
     <Content Include="Pages\PagesIngrid\Gestion_Usuarios.aspx" />
     <Content Include="Scripts\css\bootstrap-toggle.min.css" />
@@ -258,6 +258,12 @@
     <Compile Include="Pages\AllPages\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AllPages\LogsEventos.aspx.cs">
+      <DependentUpon>LogsEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\LogsEventos.aspx.designer.cs">
+      <DependentUpon>LogsEventos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AllPages\pages.Master.cs">
       <DependentUpon>pages.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,13 +298,6 @@
     </Compile>
     <Compile Include="Pages\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\LogsEventos.aspx.cs">
-      <DependentUpon>LogsEventos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\LogsEventos.aspx.designer.cs">
-      <DependentUpon>LogsEventos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Modificacion_Contraseña.aspx.cs">
       <DependentUpon>Modificacion_Contraseña.aspx</DependentUpon>
