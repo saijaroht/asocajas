@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b84836529a85434fbc264fe47ef65328" Name="Diagram1">
+      <Diagram DiagramId="b84836529a85434fbc264fe47ef65328" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="4.4328478874791637" PointY="18.488987230923488" />
         <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="0.850836363085935" PointY="6.5213364989130458" />
         <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="1.8930264627062838" PointY="23.405885468891768" />

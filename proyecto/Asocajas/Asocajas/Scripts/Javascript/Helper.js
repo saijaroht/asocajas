@@ -682,7 +682,9 @@ $(document).ready(function () {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
             } else {
-                $('#UsuarioLogueado').html(data.Message);
+                consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail?Mail=" + data.Message + "", null, function (dataUsuario) {
+                    $('#UsuarioLogueado').html(dataUsuario.Nombre + " " + dataUsuario.Apellido);
+                });
             }
         });
         SessionState();
