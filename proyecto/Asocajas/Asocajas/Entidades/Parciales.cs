@@ -39,6 +39,13 @@ namespace Asocajas
         public string Usuario { get; set; }
     }
 
+
+    public partial class RecuperarPassword
+    {
+        [NotMapped]
+        public string Usuario { get; set; }
+    }
+
     public partial class ActivarBloquear
     {
         [NotMapped]

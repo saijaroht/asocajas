@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="forgot">
-                    <a href="#"><u>Olvide mi contraseña<u></a>
+                    <a href="Modificacion_Contrasena.aspx"><u>Olvide mi contraseña<u></a>
                 </div>
                 <div class=" w3l-form-group">
                     <div class="g-recaptcha" data-sitekey="6LcBs3QUAAAAAON6l4A3w66mtziMtI3YyoWGtECD" align="center"></div>

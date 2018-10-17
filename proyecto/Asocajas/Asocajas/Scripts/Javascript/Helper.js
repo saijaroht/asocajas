@@ -677,7 +677,7 @@ function SessionState() {
 
 $(document).ready(function () {
     debugger;
-    if (location.pathname != "/Pages/Login.aspx") {
+    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
@@ -734,6 +734,6 @@ function BuscarTable(IdTxtFilter, IdTbody) {
 function convertTextToDate(strDate) {
     var dateSplit = strDate.split("/");
 
-    return new Date(dateSplit[2], dateSplit[1] - 1, dateSplit[0]);
+    return (dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0]);
 
 }

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Login.Master" AutoEventWireup="true" CodeBehind="Modificacion_Contraseña.aspx.cs" Inherits="Asocajas.Pages.Modificacion_Contraseña" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Login.Master" AutoEventWireup="true" CodeBehind="Modificacion_Contrasena.aspx.cs" Inherits="Asocajas.Pages.Modificacion_Contraseña" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../Scripts/Javascript/Modificacion_Contraseña.js" type="text/javascript"></script>
+    <script src="../Scripts/Javascript/Modificacion_Contrasena.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
@@ -14,7 +14,7 @@
 
             <div class="group">
                 <i class="fas fa-user"></i>
-                <input type="text" class="form-control" placeholder="Usuario" required="required" />
+                <input type="text" class="form-control" placeholder="Usuario" required="required" id="txtContrasena" />
             </div>
             <br />
             <br />
@@ -23,7 +23,7 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary" onclick="">Volver</button>
+                    <button type="button" class="btn btn-primary" onclick="cancelar();">Volver</button>
                 </div>
 
                  <div class="col-md-6">
