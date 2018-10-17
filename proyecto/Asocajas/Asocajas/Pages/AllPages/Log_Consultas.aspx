@@ -13,6 +13,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
+      <ul class="breadcrumb">
+        <li><a href="Inicio.aspx">Administración</a></li>
+        <li class="active">Consulta Transacciones</li>
+    </ul>
+    <h4><b>Consulta Transacciones</b></h4>
      <form>
         <div class="table table-responsive Autoheight">
         <div id="toolbar">
