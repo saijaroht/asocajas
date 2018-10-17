@@ -15,6 +15,12 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
 
+    
+     <ul class="breadcrumb">
+        <li><a href="Inicio.aspx">Administración</a></li>
+        <li class="active">Logs de Eventos</li>
+    </ul>
+    <h4><b>Eventos Plataforma</b></h4>
     <form>
         <div class="table table-responsive Autoheight">
         <div id="toolbar">

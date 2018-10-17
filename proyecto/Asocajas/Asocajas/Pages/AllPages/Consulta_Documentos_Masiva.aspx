@@ -13,7 +13,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    
+    <ul class="breadcrumb">
+        <li><a href="Inicio.aspx">Administración</a></li>
+        <li class="active">Consulta Masiva Documentos</li>
+    </ul>
     <div class="row">
         <div class="col-sm-3">
             <h4><b>Consulta Masiva Documentos</b></h4>

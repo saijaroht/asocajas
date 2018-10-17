@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Logs_Carga_Stress_Plataforma.aspx.cs" Inherits="Asocajas.Pages.AllPages.Logs_Carga_Stress_Plataforma" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Logs_Rendimiento_Plataforma.aspx.cs" Inherits="Asocajas.Pages.AllPages.Logs_Rendimiento_Plataforma" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
@@ -11,7 +11,6 @@
     <script src="../../Scripts/Javascript/LogsExcepciones.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
     <ul class="breadcrumb">
@@ -88,40 +87,53 @@
        class="table-responsive">
 	<thead>
 		<tr>			
-			<th class="text-center"data-field="ccf" data-filter-control="select" data-sortable="true">Picos de consumo</th>
-			<th class="text-center"data-field="user" data-filter-control="select" data-sortable="true">Volumen de consultas</th>
-            <th class="text-center"data-field="fechaIni" data-filter-control="input" data-sortable="true">Volumen usuarios Conectados</th>
-           		
+			<th class="text-center"data-field="ccf"  data-sortable="true">Tiempo de Respuesta</th>
+			<th class="text-center"data-field="user"  data-sortable="true">Tiempo Promedio</th>
+            <th class="text-center"data-field="fechaIni"  data-sortable="true">Hora Inicial</th>
+            <th class="text-center"data-field="fechaFin" data-sortable="true">Hora Final</th>
+
 		
 		</tr>
 	</thead>
     <tbody id="tbody">
         <tr>			
-			<td>Cell 1</td>
-			<td>Cell 2</td>
-			<td>Cell 3</td>
-			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
+		</tr>
+
+          <tr>			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
+		</tr>
+
+         <tr>			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
 		</tr>
 
            <tr>			
-			<td>Cell 4</td>
-			<td>Cell 5</td>
-			<td>Cell 6</td>
-			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
 		</tr>
-
-           <tr>			
-			<td>Cell 7</td>
-			<td>Cell 8</td>
-			<td>Cell 9</td>
-			
+         <tr>			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
 		</tr>
-
-           <tr>			
-			<td>Cell 10</td>
-			<td>Cell 11</td>
-			<td>Cell 12</td>
-			
+         <tr>			
+			<td>27 ms</td>
+			<td>50.66 ms</td>
+			<td>8:00:00 a.m.</td>
+            <td>9:00:00 a.m.</td>
 		</tr>
 	</tbody>
 </table>
