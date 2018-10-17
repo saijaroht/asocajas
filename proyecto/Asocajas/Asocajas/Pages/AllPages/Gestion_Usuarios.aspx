@@ -2,6 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Scripts/Javascript/Gestion_Usuarios.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/RegistroUsuarios.js" type="text/javascript"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
@@ -29,7 +31,7 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-4 col-md-4 nuevoUser">
-                        <button type="button" class="btn btn-success" onclick="nuevoUsuario()">Nuevo usuario</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalCrearUsuario">Nuevo usuario</button>
                     </div>
                 </div>
             </div>
@@ -97,7 +99,7 @@
 
         </table>
     </form>
-    <div class="modal fade" id="ModalEditar" role="dialog">
+    <div class="modal fade" id="ModalCrearUsuario" role="dialog">
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
@@ -108,52 +110,83 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-8">
-                            <div class="panel ">
-                                <div class="form-horizontal">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label styleLabel">Nombres:</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control styleinput" id="txtNombresActualizar" type="text" placeholder="Nombres">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label styleLabel">Apellidos:</label>
-                                        <div class="col-sm-8">
-                                            <input class="form-control styleinput styleLabel" id="txtApellidosActualizar" type="text" placeholder="Apellidos">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
-                                        <div class="col-sm-8">
-                                            <select class="form-control styleinput" name="cboTipodeusuarioActualizar" id="cboTipodeusuarioActualizar">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
-                                        <div class="col-sm-8">
-                                            <div class='input-group date' id='datetimepicker1'>
-                                                <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidadActualizar" id="txtFechadecaducidadActualizar" placeholder="DD/MM/YYYY" datepicker required />
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            </div>
-                                        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="panel panel-primary">
+                <form class="form-horizontal">
+                    <div class="panel-heading">Registro Usarios</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Nombres:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control styleinput" id="txtNombres" type="text" placeholder="Nombres">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Apellidos:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control styleinput styleLabel" id="txtApellidos" type="text" placeholder="Apellidos">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Usuario:</label>
+                                <div class="col-sm-8">
+                                    <input class="form-control styleinput" id="txtUsuario" type="email" placeholder="Usuario">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Nombre CCF:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control styleinput" name="cboNombreCCF" id="cboNombreCCF">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Estado:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control styleinput" name="cboEstado" id="cboEstado" disabled>
+                                        <option value="1">Activo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control styleinput" name="cboTipodeusuario" id="cboTipodeusuario">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
+                                <div class="col-sm-8">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad" id="txtFechadecaducidad" placeholder="DD/MM/YYYY" datepicker required />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2"></div>
-
                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        
+        <div class="col-sm-9"></div>
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
+        </div>
+    </div>
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                        <%--<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>--%>
-                        <button type="button" id="guardarFormulario" class="btn btn-primary" onclick="ValidaFormulario()">Actualizar</button>
+                        
                     </div>
                 </div>
             </div>

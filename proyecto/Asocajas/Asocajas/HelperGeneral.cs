@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Asocajas.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -7,11 +8,18 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Net.Mail;
+using System.Net;
 
 namespace Asocajas
 {
     public class HelperGeneral
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string MachineInfo { get; set; }
 
         public static string RandomPass()
         {
@@ -119,29 +127,49 @@ namespace Asocajas
         {
             try
             {
+                SmtpClient clientDetails = new SmtpClient();
+                clientDetails.Port = 587;
+                clientDetails.Host = "smtp.office365.com";
+                clientDetails.EnableSsl = true;
+                clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                clientDetails.UseDefaultCredentials = false;
+                clientDetails.Credentials = new NetworkCredential("enviosautomaticos@asocajas.org.co", "Colombia2017");
 
-                using (var ctx = new AsocajasBDEntities())
-                {
-                    var Email = new SqlParameter
-                    {
-                        ParameterName = "Email",
-                        Value = Para
-                    };
+                //Detalle Mensaje
+                MailMessage mailDetails = new MailMessage();
+                mailDetails.From = new MailAddress("enviosautomaticos@asocajas.org.co");
+                mailDetails.To.Add(Para);
+                //para multiples destinatarios
+                //mailDetails.To.Add("another recipient email address");
+                //for copia oculta
+                //mailDetails.Bcc.Add("bcc email address")
+                mailDetails.Subject = asunto;
+                mailDetails.IsBodyHtml = true;
+                mailDetails.Body = html;
 
-                    var Asunto = new SqlParameter
-                    {
-                        ParameterName = "Asunto",
-                        Value = asunto
-                    };
+                clientDetails.Send(mailDetails);
+                //using (var ctx = new AsocajasBDEntities())
+                //{
+                //    var Email = new SqlParameter
+                //    {
+                //        ParameterName = "Email",
+                //        Value = Para
+                //    };
 
-                    var Html = new SqlParameter
-                    {
-                        ParameterName = "Html",
-                        Value = html
-                    };
-                    var exec = ctx.Database.SqlQuery<RUsuario>("exec SendMail @Email,@Asunto,@Html ", Email, Asunto, Html).ToList<RUsuario>();
-                    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
-                }
+                //    var Asunto = new SqlParameter
+                //    {
+                //        ParameterName = "Asunto",
+                //        Value = asunto
+                //    };
+
+                //    var Html = new SqlParameter
+                //    {
+                //        ParameterName = "Html",
+                //        Value = html
+                //    };
+                //    var exec = ctx.Database.SqlQuery<RUsuario>("exec SendMail @Email,@Asunto,@Html ", Email, Asunto, Html).ToList<RUsuario>();
+                //    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+                //}
                 return true;
             }
             catch (Exception)
@@ -191,6 +219,61 @@ namespace Asocajas
                 return false;
             }
             return true;
+        }
+
+        public static results exceptionError()
+        {
+            results result = new results();
+            result.Message = "El usuario ya existe";
+            result.Ok = false;
+            using (BusinessBase<LTLogApp> objLTLogApp = new BusinessBase<LTLogApp>())
+            {
+                LTLogApp newLog = new LTLogApp();
+
+                newLog.Type = "Log";
+                newLog.GUID = "Log";
+                newLog.AppName = "Log";
+                newLog.WebServiceName = "Log";
+                newLog.MethodName = "Log";
+                newLog.MethodNameUI = "Log";
+                newLog.UserName = "Log";
+                newLog.UserMachineInfo = Utility.GetUserMachineInfo(MachineInfo);
+                newLog.ServerIP = "Log";
+                newLog.Data = "Log";
+                newLog.ErrorMessage = "Log";
+                newLog.Source = "Log";
+                newLog.Method = "Log";
+                newLog.ErrorType = "Log";
+                newLog.Trace = "Log";
+                newLog.CreationDate = DateTime.Now;
+                objLTLogApp.Add(newLog);
+            }
+            return result;
+        }
+
+        public static void SendMailsParams()
+        {
+            SmtpClient clientDetails = new SmtpClient();
+            clientDetails.Port = 587;
+            clientDetails.Host = "smtp.office365.com";
+            clientDetails.EnableSsl = true;
+            clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+            clientDetails.UseDefaultCredentials = false;
+            clientDetails.Credentials = new NetworkCredential("enviosautomaticos@asocajas.org.co", "Colombia2017");
+
+            //Detalle Mensaje
+            MailMessage mailDetails = new MailMessage();
+            mailDetails.From = new MailAddress("enviosautomaticos@asocajas.org.co");
+            mailDetails.To.Add("norbey9212@gmail.com");
+            //para multiples destinatarios
+            //mailDetails.To.Add("another recipient email address");
+            //for copia oculta
+            //mailDetails.Bcc.Add("bcc email address")
+            mailDetails.Subject = "Asunto del mensaje de correo";
+            mailDetails.IsBodyHtml = false;
+            mailDetails.Body = "Texto del correo";
+
+            clientDetails.Send(mailDetails);
         }
     }
 }
