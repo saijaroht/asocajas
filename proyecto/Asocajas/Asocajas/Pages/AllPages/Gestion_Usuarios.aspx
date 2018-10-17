@@ -208,38 +208,38 @@
                         <div class="col-sm-10">
                             <div class="panel panel-primary">
                                 <form class="form-horizontal">
-                                    <div class="panel-heading">Registro Usarios</div>
+                                    <div class="panel-heading">Editar Usario</div>
                                     <div class="panel-body">
                                         <div class="form-horizontal">
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Nombres:</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control styleinput" id="Text1" type="text" placeholder="Nombres">
+                                                    <input class="form-control styleinput" id="txtNombres2" type="text" placeholder="Nombres">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Apellidos:</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control styleinput styleLabel" id="Text2" type="text" placeholder="Apellidos">
+                                                    <input class="form-control styleinput styleLabel" id="txtApellidos2" type="text" placeholder="Apellidos">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Usuario:</label>
                                                 <div class="col-sm-8">
-                                                    <input class="form-control styleinput" id="Email1" type="email" placeholder="Usuario">
+                                                    <input class="form-control styleinput" id="txtUsuario2" type="email" placeholder="Usuario">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Nombre CCF:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-control styleinput" name="cboNombreCCF" id="Select1">
+                                                    <select class="form-control styleinput" name="cboNombreCCF2" id="cboNombreCCF2">
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Estado:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-control styleinput" name="cboEstado" id="Select2" disabled>
+                                                    <select class="form-control styleinput" name="cboEstado2" id="cboEstado2" disabled>
                                                         <option value="1">Activo</option>
                                                     </select>
                                                 </div>
@@ -247,7 +247,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-control styleinput" name="cboTipodeusuario" id="Select3">
+                                                    <select class="form-control styleinput" name="cboTipodeusuario2" id="cboTipodeusuario2">
                                                     </select>
                                                 </div>
                                             </div>
@@ -255,7 +255,7 @@
                                                 <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
                                                 <div class="col-sm-8">
                                                     <div class='input-group date' id='Div1'>
-                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad" id="Text3" placeholder="DD/MM/YYYY" datepicker required />
+                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad2" id="txtFechadecaducidad2" placeholder="DD/MM/YYYY" datepicker required />
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>

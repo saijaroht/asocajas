@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     CargarFechaInicioFechaFin('txtFechadecaducidad');
+    CargarFechaInicioFechaFin('txtFechadecaducidad2');
     cargaAdicionales()
 
 
@@ -63,3 +64,4 @@ function GuardarUsuario() {
     }, null, function (dataError) {
     });
 }
+

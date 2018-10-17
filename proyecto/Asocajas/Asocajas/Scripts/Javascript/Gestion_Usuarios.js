@@ -38,7 +38,7 @@ function PrintTable() {
                         .append($("<button />", { class: "btn btn-primary btn-xs" })
                         .append($('<span />', { class: "glyphicon glyphicon-pencil" })));
         btnEditar.click(function () {
-            $('#ModalEditar').modal('show');
+            $('#ModalEditarUsuario').modal('show');
             return false;
         });
         var btnEliminar = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip", title: "Eliminar" })
