@@ -9,8 +9,8 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-        <p>Desde esta pantalla podrá solicitar la modificacion de su contraseña</p>
-        <p>Introduciendo el loguin de usuario se le enviara un mensaje a su cuenta de correo electronico</p>
+        <p>Desde esta pantalla podrá solicitar la modificación de su contraseña</p>
+        <p>Introduciendo el loguin de usuario se le enviara un mensaje a su cuenta de correo electrónico</p>
 
             <div class="group">
                 <i class="fas fa-user"></i>
