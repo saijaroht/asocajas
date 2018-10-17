@@ -24,11 +24,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+		 <div id="banner" class="container"></div>
+	<!--
         <div id="banner" class="container">
             <div class="imgbanner">
                 <img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
         </div>
-        <h1 class="text-center titleLoguin"><u><b>Servicio digital de validación de identidad</b><u></h1>
+        <h1 class="text-center titleLoguin"><u><b>Servicio digital de validación de identidad</b><u></h1>-->
         <div>
             <asp:ContentPlaceHolder ID="TitlePage" runat="server">
             </asp:ContentPlaceHolder>
@@ -43,9 +45,10 @@
                 </div>
             </div>
         </div>
+		<!--
         <footer class="bg-4 text-center">
             <p>Copyright © ASOCAJAS Todos los derechos reservados Ver. 1.0 </p>
-        </footer>
+        </footer> -->
 
         <br />
         <br />
@@ -53,6 +56,7 @@
                 <p class="copyright-agileinfo"> Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
             </footer> --%>
     </form>
+
 
 </body>
 </html>
