@@ -1,4 +1,4 @@
-﻿var ServiceUrl = 'http://localhost:25500/api/';
+﻿var ServiceUrl = document.origin+'/api/';
 
 var consumirServicio = function (direccion, datos, funcionexitosa, datosAdicionales, funcionError) {
     // debugger

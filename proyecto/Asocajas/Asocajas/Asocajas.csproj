@@ -260,6 +260,7 @@
     </Compile>
     <Compile Include="Pages\AllPages\LogsEventos.aspx.cs">
       <DependentUpon>LogsEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AllPages\LogsEventos.aspx.designer.cs">
       <DependentUpon>LogsEventos.aspx</DependentUpon>
