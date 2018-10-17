@@ -39,12 +39,12 @@ h1.titleLoguin {
 div#banner .imgbanner {
     text-align: center;
     position: relative;
-    width: 320px;
+    /*width: 320px;*/
     margin: 0 auto;
 }
 
 div#banner img {
-    width: 158px;
+    /*width: 158px;*/
         position: relative;
     margin: 0 auto;
 }
@@ -455,7 +455,7 @@ div#menuGenral .dropdown-submenu > a:after {
 
 div#menuGenral .pull-right {
     float: right!important;
-    width: 155px;
+    width: 170px;
 }
 
 div#menuGenral  ul#identuser div#userLoguin span {  
@@ -465,7 +465,7 @@ div#menuGenral  ul#identuser div#userLoguin span {
 div#menuGenral  ul#identuser div#userLoguin {
     display: inline-block;
     vertical-align: middle;
-        margin-right: 20px;
+        /*margin-right: 20px;*/
 }
 
 div#menuGenral  ul#identuser div#userIng {

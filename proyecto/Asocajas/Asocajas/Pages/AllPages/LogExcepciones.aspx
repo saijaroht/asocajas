@@ -8,7 +8,7 @@
     <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
     <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
     <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
-    <script src="../../Scripts/Javascript/LogsExcepciones.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/LogExcepciones.js" type="text/javascript"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">

@@ -107,6 +107,7 @@ namespace Asocajas.Controllers
                                 result.CambioObligatorio = false;
                             }
                             result.Ok = true;
+                            result.Message = rusuario.Nombre + " "+ rusuario.Apellido;
                             rusuario.Intentos = 0;
                             UpdateTry(rusuario);
                         }

@@ -114,12 +114,15 @@
       <DependentUpon>AsocajasBD.edmx</DependentUpon>
       <LastGenOutput>AsocajasBD.cs</LastGenOutput>
     </Content>
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pages\AllPages\Cambio_Clave.aspx" />
     <Content Include="Pages\AllPages\Consulta_Documentos.aspx" />
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
+    <Content Include="Pages\AllPages\LogExcepciones.aspx" />
     <Content Include="Pages\AllPages\LogsEventos.aspx" />
+    <Content Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\CambioObligatorioClave.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -146,7 +149,9 @@
     <Content Include="Scripts\Javascript\CambioObligatorioClave.js" />
     <Content Include="Scripts\Javascript\Gestion_Usuarios.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
+    <Content Include="Scripts\Javascript\LogExcepciones.js" />
     <Content Include="Scripts\Javascript\Login.js" />
+    <Content Include="Scripts\Javascript\LogsEventos.js" />
     <Content Include="Scripts\Javascript\Modificacion_Contraseña.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
@@ -258,12 +263,26 @@
     <Compile Include="Pages\AllPages\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AllPages\LogExcepciones.aspx.cs">
+      <DependentUpon>LogExcepciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\LogExcepciones.aspx.designer.cs">
+      <DependentUpon>LogExcepciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AllPages\LogsEventos.aspx.cs">
       <DependentUpon>LogsEventos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AllPages\LogsEventos.aspx.designer.cs">
       <DependentUpon>LogsEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx.cs">
+      <DependentUpon>Logs_Carga_Stress_Plataforma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx.designer.cs">
+      <DependentUpon>Logs_Carga_Stress_Plataforma.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllPages\pages.Master.cs">
       <DependentUpon>pages.Master</DependentUpon>
@@ -390,7 +409,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\js\images\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
