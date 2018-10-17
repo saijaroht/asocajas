@@ -1,12 +1,13 @@
 ﻿$(document).ready(function () {
-    CargarFechaInicioFechaFin('txtFechadecaducidadActualizar');
+    //CargarFechaInicioFechaFin('txtFechadecaducidadActualizar');
+    CargarFechaInicioFechaFin('txtFechadecaducidad2');
     ConsultarUsuarios();
     BuscarTable("Buscartxt", "tbodyGestionUsuarios");
 
     consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
-        $("#cboTipodeusuarioActualizar").append('<option value="0">Seleccione...</option>');
+        $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
         $.each(data, function (i, val) {
-            $("#cboTipodeusuarioActualizar").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
+            $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
         });
     }, null, function (dataError) {
 
@@ -29,7 +30,7 @@ function ConsultarUsuarios() {
         PrintTable();
     }
 }
-
+var idUserUpdate;
 function PrintTable() {
     $("#tbodyGestionUsuarios").empty();
     $.each(ListUsuarios, function (index, val) {
@@ -37,8 +38,15 @@ function PrintTable() {
         var btnEditar = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip", title: "Editar" })
                         .append($("<button />", { class: "btn btn-primary btn-xs" })
                         .append($('<span />', { class: "glyphicon glyphicon-pencil" })));
-        btnEditar.click(function () {
-            $('#ModalEditar').modal('show');
+        btnEditar.click({ _val: val }, function (event) {
+            debugger;
+            var data = event.data._val;
+            idUserUpdate = data.IdUsuario;
+            $('#txtNombres2').val(data.Nombre);
+            $('#txtApellidos2').val(data.Apellido);
+            $('#cboTipodeusuario2').val(data.IdRole);
+            $('#txtFechadecaducidad2').val(ConvertDateSQLToText(data.Vigencia));
+            $('#ModalEditarUsuario').modal('show');
             return false;
         });
         var btnEliminar = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip", title: "Eliminar" })
@@ -104,5 +112,40 @@ function PrintTable() {
 
                 );
 
+    });
+}
+
+function ActualizarUsuario() {
+    debugger;
+    var item = {
+        IdUsuario: idUserUpdate,
+        Nombre: $('#txtNombres2').val(),
+        Apellido: $('#txtApellidos2').val(),
+        IdRole: $('#cboTipodeusuario2').val(),
+        Vigencia: convertTextToDate($('#txtFechadecaducidad2').val())
+    }
+    UpdateService(ServiceUrl + "RUsuario/PutUpdateUser", item, function (data) {
+        debugger;
+        ShowMessage("NOTIFICACIÓN", "Usuario actualizado.", "SoloMensaje");
+        //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
+        $('#ModalEditarUsuario').modal('hide');
+
+        Enumerable.From(ListUsuarios)
+        .Where(function (x) { return x.IdUsuario == data.IdUsuario })
+        .FirstOrDefault().Nombre = data.Nombre;
+
+        Enumerable.From(ListUsuarios)
+        .Where(function (x) { return x.IdUsuario == data.IdUsuario })
+        .FirstOrDefault().Apellido = data.Apellido;
+
+        Enumerable.From(ListUsuarios)
+        .Where(function (x) { return x.IdUsuario == data.IdUsuario })
+        .FirstOrDefault().IdRole = data.IdRole;
+
+        Enumerable.From(ListUsuarios)
+        .Where(function (x) { return x.IdUsuario == data.IdUsuario })
+        .FirstOrDefault().Vigencia = data.Vigencia;
+
+        ConsultarUsuarios();
     });
 }

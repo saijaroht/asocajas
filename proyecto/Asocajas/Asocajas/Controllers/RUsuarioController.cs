@@ -338,5 +338,24 @@ namespace Asocajas.Controllers
                 return Ok(HelperGeneral.exceptionError());
             }
         }
+
+        public IHttpActionResult PutUpdateUser(UpdateUser updateUser)
+        {
+            try
+            {
+                var rsuario = this.objDb.Get(updateUser.IdUsuario);
+                rsuario.Nombre = updateUser.Nombre;
+                rsuario.Apellido = updateUser.Apellido;
+                rsuario.Vigencia = updateUser.Vigencia;
+                rsuario.IdRole = updateUser.IdRole;
+                UpdateTry(rsuario);
+
+                return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
+            }
+            catch (Exception)
+            {
+                return Ok(HelperGeneral.exceptionError());
+            }
+        }
     }
 }
