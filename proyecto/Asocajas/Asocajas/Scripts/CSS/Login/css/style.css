@@ -39,12 +39,12 @@ h1.titleLoguin {
 div#banner .imgbanner {
     text-align: center;
     position: relative;
-    width: 320px;
+    /*width: 320px;*/
     margin: 0 auto;
 }
 
 div#banner img {
-    width: 158px;
+    /*width: 158px;*/
         position: relative;
     margin: 0 auto;
 }

@@ -671,6 +671,8 @@ $(document).ready(function () {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
+            } else {
+                $('#UsuarioLogueado').html(data.Message);
             }
         });
         SessionState();
