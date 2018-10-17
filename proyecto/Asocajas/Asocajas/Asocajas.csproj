@@ -253,6 +253,7 @@
     </Compile>
     <Compile Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx.cs">
       <DependentUpon>Consulta_Documentos_Masiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx.designer.cs">
       <DependentUpon>Consulta_Documentos_Masiva.aspx</DependentUpon>

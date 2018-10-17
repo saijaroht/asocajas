@@ -120,7 +120,7 @@ namespace Asocajas.Controllers
                 }
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return Ok(HelperGeneral.exceptionError());
             }
@@ -176,6 +176,19 @@ namespace Asocajas.Controllers
             try
             {
                 var obj = this.objDb.Get(o => o.IdUsuario == idUsuario).ToList();
+                return Ok(obj);
+            }
+            catch (Exception)
+            {
+                return Ok(HelperGeneral.exceptionError());
+            }
+        }
+
+        public IHttpActionResult GetRUsuarioByMail(string Mail)
+        {
+            try
+            {
+                var obj = this.objDb.Get(o => o.Usuario == Mail).FirstOrDefault();
                 return Ok(obj);
             }
             catch (Exception)

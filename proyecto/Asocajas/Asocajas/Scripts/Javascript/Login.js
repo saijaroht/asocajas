@@ -38,7 +38,7 @@ function ValidaUsuario()
         if (!data.Ok) {
             ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
         } else {
-            SessionLogin(data.Message, function (dataUser) {
+            SessionLogin($("#txtUsuario").val(), function (dataUser) {
                 if (data.CambioObligatorio)
                     window.location.href = "CambioObligatorioClave.aspx";
                 else
