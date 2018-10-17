@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="LogsEventos.aspx.cs" Inherits="Asocajas.Pages.LogsEventos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
-    <link href="../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
+    <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
 
-    <script src="../Scripts/Scripts/tables/bootstrap-table.js"></script>
-    <script src="../Scripts/Scripts/tables/bootstrap-table-editable.js"></script>
-    <script src="../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
-    <script src="../Scripts/Scripts/tables/tableExport.js"></script>
-    <script src="../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
+    <script src="../../Scripts/Scripts/tables/bootstrap-table.js"></script>
+    <script src="../../Scripts/Scripts/tables/bootstrap-table-editable.js"></script>
+    <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
+    <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
+    <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">

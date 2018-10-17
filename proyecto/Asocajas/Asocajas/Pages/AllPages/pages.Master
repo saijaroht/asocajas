@@ -54,11 +54,11 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
                             <li class="menu-item dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Adminitración<b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li class="menu-item dropdown dropdown-submenu">
-                                        <a href="Gestion_Usuarios.aspx" class="dropdown-toggle" data-toggle="dropdown">Gestion de usuarios</a>
-                                        <ul class="dropdown-menu">
+                                    <li class="menu-item ">
+                                        <a href="Gestion_Usuarios.aspx" >Gestion de usuarios</a>
+                                       <%-- <ul class="dropdown-menu">
                                             <li class="menu-item ">
                                                 <a href="Registro_usuarios.aspx">Nuevo Usuario</a>
                                             </li>
@@ -73,30 +73,50 @@
                                                     </li>
                                                 </ul>
                                             </li>--%>
-                                        </ul>
+                                       <%-- </ul>--%>
                                     </li>
                                     <li class="menu-item ">
-                                        <a href="#">Log eventos</a>
+                                        <a href="LogsEventos.aspx">Log eventos</a>
                                     </li>
                                      <li class="menu-item ">
-                                        <a href="#">Log Consultas ANI</a>
+                                        <a href="Log_Consultas.aspx">Log Consultas ANI</a>
                                     </li>
                                     <li class="menu-item ">
-                                        <a href="#">Log excepciones</a>
+                                        <a href="Log_Excepciones.aspx">Log excepciones</a>
                                     </li>
                                     <li class="menu-item ">
-                                        <a href="#">Consultas Procesadas</a>
+                                        <a href="Consultas_Procesadas.aspx">Consultas Procesadas</a>
                                     </li>
                                     <li class="menu-item ">
-                                        <a href="#">Tiempo Respuesta</a>
+                                        <a href="Tiempo_respuesta.aspx">Tiempo Respuesta</a>
                                     </li>
-                                    <li class="menu-item ">
+                                    <%--<li class="menu-item ">
                                         <a href="#">Desempeño plataforma</a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </li>
-                            <li class="menu-item ">
-                                <a href="#">Caja de compensación </a>
+                            <li class="menu-item dropdown" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración Sede <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="menu-item dropdown dropdown-submenu">
+                                        <li class="menu-item ">
+                                        <a href="Log_Consultas_ANI.aspx">Log Consultas ANI</a>
+                                    </li>
+                                    </li>
+                                </ul>            
+                            </li>
+                             <li class="menu-item  dropdown ">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consulta Documentos<b class="caret"></b></a>
+                                 <ul class="dropdown-menu">
+                                    <li class="menu-item dropdown dropdown-submenu">
+                                        <li class="menu-item ">
+                                        <a href="Consulta_Individual.aspx">Consulta Individual</a>
+                                    </li>
+                                         <li class="menu-item ">
+                                        <a href="Consulta_Masiva.aspx">Consulta Masiva</a>
+                                    </li>
+                                    </li>
+                                </ul> 
                             </li>
                         </ul>
                         <ul class="nav navbar-nav pull-right" id="identuser">
