@@ -32,16 +32,6 @@ C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asoc
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll.config
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Asocajas.pdb
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.SqlServer.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Newtonsoft.Json.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Extensions.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Formatting.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Primitives.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Cors.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.Cors.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.dll
-C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\System.Web.Http.WebHost.dll
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\EntityFramework.SqlServer.xml
 C:\Asocajas\asocajas\proyecto\Asocajas\Asocajas\bin\Newtonsoft.Json.xml
