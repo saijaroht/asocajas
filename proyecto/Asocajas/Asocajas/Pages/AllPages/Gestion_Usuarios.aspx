@@ -224,27 +224,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-4 control-label styleLabel">Usuario:</label>
-                                                <div class="col-sm-8">
-                                                    <input class="form-control styleinput" id="txtUsuario2" type="email" placeholder="Usuario">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label styleLabel">Nombre CCF:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-control styleinput" name="cboNombreCCF2" id="cboNombreCCF2">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label styleLabel">Estado:</label>
-                                                <div class="col-sm-8">
-                                                    <select class="form-control styleinput" name="cboEstado2" id="cboEstado2" disabled>
-                                                        <option value="1">Activo</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <label class="col-sm-4 control-label styleLabel">Tipo de usuario:</label>
                                                 <div class="col-sm-8">
                                                     <select class="form-control styleinput" name="cboTipodeusuario2" id="cboTipodeusuario2">
@@ -272,7 +251,7 @@
                     <div class="row">
                         <div class="col-sm-9"></div>
                         <div class="col-sm-2">
-                            <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
+                            <button type="button" class="btn btn-primary" onclick="ActualizarUsuario();">Actualizar</button>
                         </div>
                     </div>
                 </div>

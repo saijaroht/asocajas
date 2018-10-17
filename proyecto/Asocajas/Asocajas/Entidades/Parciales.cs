@@ -54,6 +54,20 @@ namespace Asocajas
         public int IdUsuario { get; set; }
     }
 
+    public partial class UpdateUser
+    {
+        [NotMapped]
+        public int IdUsuario { get; set; }
+        [NotMapped]
+        public string Nombre { get; set; }
+        [NotMapped]
+        public string Apellido { get; set; }
+        [NotMapped]
+        public System.DateTime Vigencia { get; set; }
+        [NotMapped]
+        public int IdRole { get; set; }
+    }
+
     public partial class RUsuario
     {
 
