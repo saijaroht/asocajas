@@ -7,7 +7,7 @@ function ConsultarExcepciones() {
     debugger;
     if (ListExcepciones.length == 0) {
         consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAni", null, function (data) {
-            ListEventos = data;
+            ListExcepciones = data;
             PrintTable();
         });
     }

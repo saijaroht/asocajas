@@ -38,6 +38,7 @@ namespace Asocajas.Controllers
                 return Ok(HelperGeneral.exceptionError());
             }
         }
+        
 
         public IHttpActionResult GetExistUser(string user, string password)
         {
