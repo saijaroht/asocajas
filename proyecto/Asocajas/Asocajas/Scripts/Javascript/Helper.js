@@ -545,6 +545,11 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
     $('#' + fechaInicio).datepicker({
         minDate: 0,
         dateFormat: formato || 'dd/mm/yy',
+        beforeShow: function () {
+            setTimeout(function () {
+                $('.ui-datepicker').css('z-index', 99999);
+            }, 0);
+        },
         onSelect: function (dateText, datePickerInstance) {
             debugger;
             var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
@@ -568,6 +573,11 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
             }, 2);
 
         }
+    })
+    .on('changeDate', function (e) {
+        debugger;
+        // Revalidate the date field
+        $('#eventForm').formValidation('revalidateField', 'date');
     })
 }
 
@@ -719,4 +729,11 @@ function BuscarTable(IdTxtFilter, IdTbody) {
         }).show();
 
     })
+}
+
+function convertTextToDate(strDate) {
+    var dateSplit = strDate.split("/");
+
+    return new Date(dateSplit[2], dateSplit[1] - 1, dateSplit[0]);
+
 }

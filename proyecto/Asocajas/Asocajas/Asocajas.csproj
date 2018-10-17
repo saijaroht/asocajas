@@ -122,6 +122,7 @@
     <Content Include="Pages\AllPages\Inicio.aspx" />
     <Content Include="Pages\AllPages\LogExcepciones.aspx" />
     <Content Include="Pages\AllPages\LogsEventos.aspx" />
+    <Content Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\CambioObligatorioClave.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -276,6 +277,13 @@
     <Compile Include="Pages\AllPages\LogsEventos.aspx.designer.cs">
       <DependentUpon>LogsEventos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx.cs">
+      <DependentUpon>Logs_Carga_Stress_Plataforma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx.designer.cs">
+      <DependentUpon>Logs_Carga_Stress_Plataforma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AllPages\pages.Master.cs">
       <DependentUpon>pages.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,7 +409,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\js\images\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

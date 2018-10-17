@@ -455,7 +455,7 @@ div#menuGenral .dropdown-submenu > a:after {
 
 div#menuGenral .pull-right {
     float: right!important;
-    width: 155px;
+    width: 170px;
 }
 
 div#menuGenral  ul#identuser div#userLoguin span {  
@@ -465,7 +465,7 @@ div#menuGenral  ul#identuser div#userLoguin span {
 div#menuGenral  ul#identuser div#userLoguin {
     display: inline-block;
     vertical-align: middle;
-        margin-right: 20px;
+        /*margin-right: 20px;*/
 }
 
 div#menuGenral  ul#identuser div#userIng {

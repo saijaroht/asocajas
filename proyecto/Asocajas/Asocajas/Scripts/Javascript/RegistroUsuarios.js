@@ -32,28 +32,34 @@ function cancelar() {
 
 function ValidaUsuario() {
     debugger;
-    var campos = ["txtNombres","txtApellidos","txtUsuario","txtFechadecaducidad","cboEstado","cboTipodeusuario"];
+    var campos = ["txtNombres","txtApellidos","txtUsuario","txtFechadecaducidad","cboTipodeusuario","cboNombreCCF"];
     if (validarcampos(campos)) {
         GuardarUsuario();
     }
 }
 function GuardarUsuario() {
-
+    debugger;
     var item = {
-       
+
         Nombre: $('#txtNombres').val(),
         Apellido: $('#txtApellidos').val(),
         Usuario: $('#txtUsuario').val(),
-        Vigencia: $('#txtFechadecaducidad').val(),
+        Vigencia: convertTextToDate($('#txtFechadecaducidad').val()),
         Estado: 1,
         IdCcf: $('#cboTipodeusuario').val(),
         IdRole: $('#cboNombreCCF').val(),
     }
 
     SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
-        ShowMessage("NOTIFICACIÓN", "Se ingreso el Usuario de manera satisfactoria", "SoloMensaje");
-        //window.location.href = "Gestion_Usuarios.aspx";
+        if (data.Message) {
+            ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
+        } else {
+            ShowMessage("NOTIFICACIÓN", "Se ingreso el Usuario de manera satisfactoria", "SoloMensaje");
+            //window.location.href = "Gestion_Usuarios.aspx";
 
+            var campos = ["txtNombres", "txtApellidos", "txtUsuario", "txtFechadecaducidad", "cboTipodeusuario","cboNombreCCF"];
+            removerValidacion(campos, true);
+        }
     }, null, function (dataError) {
     });
 }
