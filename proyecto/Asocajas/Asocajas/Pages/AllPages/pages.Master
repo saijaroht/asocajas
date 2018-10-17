@@ -90,6 +90,9 @@
                                     <li class="menu-item ">
                                         <a href="Tiempo_respuesta.aspx">Tiempo Respuesta</a>
                                     </li>
+                                     <li class="menu-item ">
+                                        <a href="Logs_Carga_Stress_Plataforma">Logs Stress</a>
+                                    </li>
                                     <%--<li class="menu-item ">
                                         <a href="#">Desempeño plataforma</a>
                                     </li>--%>
