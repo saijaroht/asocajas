@@ -739,3 +739,8 @@ function convertTextToDate(strDate) {
     return (dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0]);
 
 }
+
+function ConvertDateSQLToText(strdate) {
+    var dateSplit = strdate.split("T")[0].split("-");
+    return (dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0])
+}
