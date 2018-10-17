@@ -82,7 +82,7 @@
                                         <a href="Log_Consultas.aspx">Log Consultas ANI</a>
                                     </li>
                                     <li class="menu-item ">
-                                        <a href="Log_Excepciones.aspx">Log excepciones</a>
+                                        <a href="LogExcepciones.aspx">Log excepciones</a>
                                     </li>
                                     <li class="menu-item ">
                                         <a href="Consultas_Procesadas.aspx">Consultas Procesadas</a>

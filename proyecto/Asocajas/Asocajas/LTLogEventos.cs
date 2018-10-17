@@ -16,8 +16,12 @@ namespace Asocajas
     {
         public long IdLogEvento { get; set; }
         public System.DateTime FechaEvento { get; set; }
+        public System.DateTime FechaFinEvento { get; set; }
         public string Evento { get; set; }
         public string Descripcion { get; set; }
         public string Usuario { get; set; }
+    
+        public virtual LTLogEventos LTLogEventos1 { get; set; }
+        public virtual LTLogEventos LTLogEventos2 { get; set; }
     }
 }
