@@ -8,6 +8,7 @@
     <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
     <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
     <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
+    <script src="../../Scripts/Javascript/LogsEventos.js" type="text/javascript"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
@@ -37,9 +38,8 @@
 		
 		</tr>
 	</thead>
-	<tbody>
-		
-        <tr>			
+    <tbody id="tbody">
+      <%--  <tr>			
 			<td>Jitender</td>
 			<td>01/09/2015</td>
 			<td>Français</td>
@@ -121,12 +121,12 @@
 			<td>01/10/2015</td>
 			<td>Philosophie</td>
 			<td>10/20</td>
-		</tr>
+		</tr>--%>
 	</tbody>
 </table>
  </div>
           <%-- EJEMPLO2--%>
-<h2>EJEMPLO2 </h2>
+<%--<h2>EJEMPLO2 </h2>
  <div class="table-responsive Autoheight">
 <table class="table table-bordered">
 <thead>
@@ -216,7 +216,7 @@
       
 </div>
 
-      
+      --%>
     </form>
     <script>
 
