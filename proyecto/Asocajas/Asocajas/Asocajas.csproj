@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\AllPages\Cambio_Clave.aspx" />
     <Content Include="Pages\AllPages\Consulta_Documentos.aspx" />
+    <Content Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx" />
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
     <Content Include="Pages\AllPages\Inicio.aspx" />
     <Content Include="Pages\AllPages\LogExcepciones.aspx" />
@@ -155,6 +156,7 @@
     <Content Include="Scripts\Javascript\Modificacion_Contrasena.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
+    <Content Include="Scripts\js\images\ui-icons_444444_256x240.png" />
     <Content Include="Scripts\Scripts\bootstrap-dialog.min.js" />
     <Content Include="Scripts\Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\Scripts\bootstrap-toggle.min.js" />
@@ -248,6 +250,12 @@
     </Compile>
     <Compile Include="Pages\AllPages\Consulta_Documentos.aspx.designer.cs">
       <DependentUpon>Consulta_Documentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx.cs">
+      <DependentUpon>Consulta_Documentos_Masiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx.designer.cs">
+      <DependentUpon>Consulta_Documentos_Masiva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllPages\Gestion_Usuarios.aspx.cs">
       <DependentUpon>Gestion_Usuarios.aspx</DependentUpon>
@@ -409,9 +417,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\js\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
