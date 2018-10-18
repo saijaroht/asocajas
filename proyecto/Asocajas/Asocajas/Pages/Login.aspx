@@ -13,7 +13,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
 
     <script src="../Scripts/Javascript/Login.js" type="text/javascript"></script>
-    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit" async defer></script>
+<%--<script src='https://www.google.com/recaptcha/api.js'></script>--%>
 
     <div class="w3l-login-form col-md-4 col-ms-4 col-xs-12 centred">
         <form>
@@ -39,6 +40,7 @@
                     <a href="Modificacion_Contrasena.aspx"><u>Olvide mi contraseña<u></a>
                 </div>
                 <div class=" w3l-form-group">
+                    
                     <div class="g-recaptcha" data-sitekey="6LcBs3QUAAAAAON6l4A3w66mtziMtI3YyoWGtECD" align="center"></div>
                 </div>
                 <div class=" w3l-form-group">

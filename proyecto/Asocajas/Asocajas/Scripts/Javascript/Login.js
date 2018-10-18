@@ -6,7 +6,7 @@ var recaptchaCallback = function () {
     debugger;
     console.log('recaptcha is ready'); // not showing
     grecaptcha.render("recaptcha", {
-        sitekey: '6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0',
+        sitekey: '6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF',
         callback: function (response) {
             $.ajax({
                 type: "POST",

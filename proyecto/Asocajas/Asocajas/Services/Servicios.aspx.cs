@@ -14,7 +14,7 @@ namespace Asocajas.Services
 {
     public partial class Servicios : System.Web.UI.Page
     {
-        protected static string ReCaptcha_Secret = "6Le1FXQUAAAAAIeQ9MATkXnoQSG7-EXj7Rz6XjJZ";
+        protected static string ReCaptcha_Secret = "6LcBs3QUAAAAADLSosYj3Dz91_iYPz2YLSDDOotG";
         private const string SESSION_VAR = "User";
 
         protected void Page_Load(object sender, EventArgs e)
