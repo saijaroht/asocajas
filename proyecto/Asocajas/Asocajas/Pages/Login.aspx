@@ -49,7 +49,7 @@
                 <br />
                 <br />
                 <br />
-                <div class="group">
+                <div class="group col-md-8 col-ms-8 col-xs-10 centred">
                     <button type="submit" onclick="ValidaUsuario(); return false;">Iniciar sesión</button>
                 </div>
         </form>
@@ -58,7 +58,7 @@
     </div>
 	  <div class="copytxt" align="center">
 
-          <span>Copyright © 2019 ASOCAJAS. Todos los derechos reservados Ver. 1.0</span>
+          <h5>© 2019 ASOCAJAS. Todos los derechos reservados</h5>
       </div>
 
 </asp:Content>

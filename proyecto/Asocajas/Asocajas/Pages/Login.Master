@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>ASOCAJAS | Sistema Digital de validación de Identidad (ANI)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../Scripts/css/Login/css/style.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-		 <div id="banner" class="container"></div>
+		 <div id="banner" class="container" style="margin-top: 3em;"></div>
 	<!--
         <div id="banner" class="container">
             <div class="imgbanner">
@@ -36,8 +36,8 @@
             </asp:ContentPlaceHolder>
 
         </div>
-        <div class="container">
-            <div class="row">
+        <div class="container" >
+            <div class="row" >
 
                 <div class="col-md-12">
                     <asp:ContentPlaceHolder ID="ContentBody" runat="server">
