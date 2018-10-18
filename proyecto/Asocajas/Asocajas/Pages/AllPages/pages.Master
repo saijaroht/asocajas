@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>ASOCAJAS | Sistema Digital de validación de Identidad (ANI)</title>
     <link href="../../Scripts/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/css/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../../Scripts/css/Login/css/style.css" rel="stylesheet" />
@@ -36,9 +36,9 @@
                 <img src="../../Scripts/Images/logo_asocajas.png" class="img-responsive" />
             </div>
         </div>
-        <h1 class="text-center titleLoguin"><b><u>Servicio digital de validación de identidad</b></u></h1>
+        <h2 class="text-center ">Sistema Digital de Validación de Identidad (ANI)</h2>
 
-        <div class="container">
+        <div ">
             <div id="menuGenral">
                 <div class="navbar navbar-default" role="navigation">
 
@@ -90,16 +90,16 @@
                                     <li class="menu-item ">
                                         <a href="Logs_Rendimiento_Plataforma.aspx">Tiempo Respuesta</a>
                                     </li>
-                                     <li class="menu-item ">
+                                    <!-- <li class="menu-item ">
                                         <a href="Logs_Carga_Stress_Plataforma.aspx">Logs Stress</a>
-                                    </li>
+                                    </li> -->
                                     <%--<li class="menu-item ">
                                         <a href="#">Desempeño plataforma</a>
                                     </li>--%>
                                 </ul>
                             </li>
                             <li class="menu-item dropdown" >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración Sede <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Uso <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li class="menu-item dropdown dropdown-submenu">
                                         <li class="menu-item ">
@@ -161,7 +161,7 @@
         <br />
         <br />
         <footer class="bg-4 text-center">
-            <p class="copyright-agileinfo">Copyright &copy; ASOCAJAS Todos los derechos reservados Ver.1.0</p>
+            <p class="copyright-agileinfo">&copy; 2019 <a href="http://www.asocajas.org.co">ASOCAJAS - Asociación Nacional de Cajas de Compensación Familiar  </a>. Todos los derechos reservados.</p>
         </footer>
 
     </form>

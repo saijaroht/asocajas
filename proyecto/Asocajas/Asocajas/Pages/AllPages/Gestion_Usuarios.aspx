@@ -108,10 +108,12 @@
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
+			<!--
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Formulario</h4>
                 </div>
+				-->
                 <div class="modal-body">
 
                     <div class="row">
@@ -119,7 +121,7 @@
                         <div class="col-sm-10">
                             <div class="panel panel-primary">
                                 <form class="form-horizontal">
-                                    <div class="panel-heading">Registro Usarios</div>
+                                    <div class="panel-heading">Nuevo Usuario</div>
                                     <div class="panel-body">
                                         <div class="form-horizontal">
                                             <div class="form-group">
@@ -180,11 +182,16 @@
                         </div>
                         <div class="col-sm-1"></div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-9"></div>
-                        <div class="col-sm-2">
+                    <div class="group">
+						<div class="col-md-3"></div>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						</div>						
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
                             <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
                         </div>
+						<div class="col-md-3"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -202,10 +209,12 @@
         <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
+			<!--
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Formulario</h4>
                 </div>
+			-->
                 <div class="modal-body">
 
                     <div class="row">
@@ -253,12 +262,25 @@
                         </div>
                         <div class="col-sm-1"></div>
                     </div>
+                    <div class="group">
+						<div class="col-md-3"></div>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						</div>						
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" onclick="ActualizarUsuario();">Actualizar</button>
+                        </div>
+						<div class="col-md-3"></div>
+                    </div>
+					<!--
                     <div class="row">
                         <div class="col-sm-9"></div>
                         <div class="col-sm-2">
                             <button type="button" class="btn btn-primary" onclick="ActualizarUsuario();">Actualizar</button>
                         </div>
                     </div>
+					-->
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-9"></div>
