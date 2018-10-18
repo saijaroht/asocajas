@@ -40,8 +40,14 @@
                     <a href="Modificacion_Contrasena.aspx"><u>Olvide mi contraseña<u></a>
                 </div>
                 <div class=" w3l-form-group">
-                    
-                    <div class="g-recaptcha" data-sitekey="6LcBs3QUAAAAAON6l4A3w66mtziMtI3YyoWGtECD" align="center"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                       <label for="" class="labelText">Captcha</label>
+                        <div id="recaptcha"></div>
+                        <!-- <input type="text" id="txtcaptcha" style="display:none;color:red" />-->
+                        <label id="lblvalidacioncaptcha" style="display: none; color: red">El Captcha es requerido!</label>
+                        <label id="lblvalidacioncaptchaok" style="display: none; color: green">Captcha completado! </label>
+                    </div>
+                    <%--<div class="g-recaptcha" data-sitekey="6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF" align="center"></div>--%>
                 </div>
                 <div class=" w3l-form-group">
 

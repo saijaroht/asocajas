@@ -6,7 +6,7 @@ var recaptchaCallback = function () {
     debugger;
     console.log('recaptcha is ready'); // not showing
     grecaptcha.render("recaptcha", {
-        sitekey: '6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF',
+        sitekey: '6LcBs3QUAAAAAON6l4A3w66mtziMtI3YyoWGtECD',
         callback: function (response) {
             $.ajax({
                 type: "POST",
@@ -26,6 +26,11 @@ var recaptchaCallback = function () {
                     }
                     debugger;
                     console.log('recaptcha callback');
+                },
+                error: function (data) {
+
+                    console.log(data);
+
                 }
             });
         }

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Services;
@@ -30,8 +33,16 @@ namespace Asocajas.Services
         [WebMethod]
         public static string VerifyCaptcha(string response)
         {
-            string url = "https://www.google.com/recaptcha/api/siteverify?secret=" + ReCaptcha_Secret + "&response=" + response;
-            return (new WebClient()).DownloadString(url);
+            try
+            {
+                string url = "https://www.google.com/recaptcha/api/siteverify?secret=" + ReCaptcha_Secret + "&response=" + response;
+                return (new WebClient()).DownloadString(url);
+            }
+            catch (Exception ex)
+            {
+
+                return new JavaScriptSerializer().Serialize(ex);
+            }
         }
 
         [WebMethod]
