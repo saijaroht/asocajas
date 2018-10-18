@@ -6,41 +6,42 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentBody" runat="server">
 
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-        <p>Desde esta pantalla podrá solicitar la modificación de su contraseña</p>
-        <p>Introduciendo el loguin de usuario se le enviara un mensaje a su cuenta de correo electrónico</p>
+    <!--<div class="row">-->
+	<div class="w3l-login-form col-md-6 col-ms-6 col-xs-12 centred">
+            <div class="w3l-form-group">
+                <div class="imgbanner">
+                    <img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
+                <h4 class="text-center titleLoguin"><b>Servicio Digital de Validación de Identidad (ANI)</b></h4>
+            </div>
+        
+        <div class="w3l-form-group">
+		<h2>Recuperar Clave</h2>
+        <p>Desde esta pantalla podrá solicitar la información de su clave</p>
+        <p>Digite su usuario y se le enviara un mensaje a su correo electrónico con instrucciones para restablecer su clave.</p>
 
             <div class="group">
                 <i class="fas fa-user"></i>
                 <input type="text" class="form-control" placeholder="Usuario" required="required" id="txtContrasena" />
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
 
-            <div class="row">
+            <div class="group">
+				<div class="col-md-2"></div>
                 <div class="col-md-3">
                     <button type="button" class="btn btn-primary" onclick="cancelar();">Volver</button>
                 </div>
 
-                 <div class="col-md-6">
-                  </div>
+                 <div class="col-md-2"></div>
                 <div class="col-md-3">
                     <button type="button" class="btn btn-primary" onclick="oprimirbtn()">Solicitar</button>
                 </div>
+				<div class="col-md-2"></div>
             </div>
+		</div>
     </div>
-        </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+	  <div class="copytxt" align="center">
 
+          <h5>© 2019 ASOCAJAS. Todos los derechos reservados</h5>
+      </div>
 
     
 
