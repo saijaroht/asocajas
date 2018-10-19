@@ -161,6 +161,7 @@
     <Content Include="Scripts\css\bootstrap-toggle.min.css" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\jquery-ui.css" />
+    <Content Include="Scripts\css\jquery.dataTables.min.css" />
     <Content Include="Scripts\css\Login\css\fontawesome-all.css" />
     <Content Include="Scripts\css\Login\css\style.css" />
     <Content Include="Scripts\css\Login\images\cover4.jpg" />
@@ -216,6 +217,7 @@
     <None Include="Properties\PublishProfiles\ANI.pubxml" />
     <None Include="Scripts\Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\Scripts\jquery-ui.js" />
+    <Content Include="Scripts\Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\Scripts\jquery.linq.js" />
     <Content Include="Scripts\Scripts\jquery.linq.min.js" />
     <None Include="Scripts\Scripts\linq-vsdoc.js" />

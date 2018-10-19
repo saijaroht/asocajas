@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     Logout();
 });
-
+var captchaComplete = false;
 var recaptchaCallback = function () {
     debugger;
     console.log('recaptcha is ready'); // not showing
@@ -17,6 +17,7 @@ var recaptchaCallback = function () {
                 success: function (r) {
                     var captchaResponse = jQuery.parseJSON(r.d);
                     if (captchaResponse.success) {
+                        captchaComplete = true;
                         $('#lblvalidacioncaptchaok').show();
                         $('#lblvalidacioncaptcha').hide();
                     } else {
@@ -38,6 +39,12 @@ var recaptchaCallback = function () {
 }
 function ValidaUsuario()
 {
+    var campos = ["txtUsuario", "txtContrasena"];
+    if (!validarcampos(campos) || !captchaComplete) {
+        if (!captchaComplete)
+            $('#lblvalidacioncaptcha').show();
+        return;
+    }
     debugger;
     consumirServicio(ServiceUrl + "RUsuario/GetExistUser?user=" + $("#txtUsuario").val() + "&password=" + $("#txtContrasena").val()+"", null, function (data) {
         if (!data.Ok) {

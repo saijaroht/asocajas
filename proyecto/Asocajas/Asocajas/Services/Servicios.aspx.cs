@@ -40,9 +40,47 @@ namespace Asocajas.Services
             }
             catch (Exception ex)
             {
-
                 return new JavaScriptSerializer().Serialize(ex);
             }
+        }
+
+        [WebMethod]
+        public static string GetDataUser(object parameters)
+        {
+            DataResult jsonData = new DataResult();
+            DataTableParameters DatosReturn = new DataTableParameters();
+            try
+            {
+                jsonData.Message = User;
+                jsonData.Ok = User == null ? false : true;
+                List<RUsuario> data = HelperGeneral.PaginadorConsultasLTLogEventos(1,10);
+
+                DatosReturn.data = new List<List<string>>();
+
+                foreach (var item in data)
+                {
+                    List<string> campos = new List<string>();
+                    campos.Add("");
+                    campos.Add(item.Nombre);
+                    campos.Add(item.Apellido);
+                    campos.Add(item.Nombre);
+                    campos.Add("");
+                    campos.Add("");
+                    campos.Add("");
+                    campos.Add("");
+                    campos.Add("");
+                    DatosReturn.data.Add(campos);
+                }
+                DatosReturn.recordsTotal = 2;
+                DatosReturn.recordsTotal = data.Count();
+                DatosReturn.recordsFiltered = data.Count();
+            }
+            catch (Exception ex)
+            {
+                jsonData.Message = ex.ToString();
+                jsonData.Ok = false;
+            }
+            return Json(DatosReturn);
         }
 
         [WebMethod]

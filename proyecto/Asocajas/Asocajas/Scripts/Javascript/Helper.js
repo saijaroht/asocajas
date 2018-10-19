@@ -1,4 +1,4 @@
-﻿var ServiceUrl = document.origin+'/api/';
+﻿var ServiceUrl = location.origin + '/api/';
 
 var consumirServicio = function (direccion, datos, funcionexitosa, datosAdicionales, funcionError) {
     // debugger
@@ -677,7 +677,7 @@ function SessionState() {
 
 $(document).ready(function () {
     debugger;
-    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {
+    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx" && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";

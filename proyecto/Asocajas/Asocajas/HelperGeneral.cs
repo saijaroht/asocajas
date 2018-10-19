@@ -179,11 +179,11 @@ namespace Asocajas
             return true;
         }
 
-        public static bool PaginadorConsultasLTLogEventos(int limiteInferior, int limiteSuperior)
+        public static List<RUsuario> PaginadorConsultasLTLogEventos(int limiteInferior, int limiteSuperior)
         {
             try
             {
-
+                List<RUsuario> exec = new List<RUsuario>();
                 using (var ctx = new AsocajasBDEntities())
                 {
                     var LimiteInferior = new SqlParameter
@@ -201,24 +201,25 @@ namespace Asocajas
                     var Tabla = new SqlParameter
                     {
                         ParameterName = "Tabla",
-                        Value = "LTLogEventos"
+                        Value = "RUsuario"
                     };
 
                     var IdTable = new SqlParameter
                     {
                         ParameterName = "IdTable",
-                        Value = "IdLogEvento"
+                        Value = "IdUsuario"
                     };
-                    var exec = ctx.Database.SqlQuery<LTLogEventos>("exec SendMail @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<LTLogEventos>();
+                    exec = ctx.Database.SqlQuery<RUsuario>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<RUsuario>();
+                 
                     //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
                 }
-                return true;
+                return exec;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                List<RUsuario> exec = new List<RUsuario>();
+                return exec;
             }
-            return true;
         }
 
         public static results exceptionError()

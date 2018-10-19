@@ -12,14 +12,32 @@
     }, null, function (dataError) {
 
     });
+
+   
 });
+
+var cargarTabla = function () {
+    debugger;
+    $('#example').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: location.origin + '/Services/Servicios.aspx/GetDataUser',
+            data: function (d) {
+                return JSON.stringify({ parameters: d });
+            }
+        }
+    });
+}
 
 function nuevoUsuario() {
     window.location.href = "Registro_Usuarios.aspx";
 }
 var ListUsuarios = new Array();
 function ConsultarUsuarios() {
-    debugger;
+    
     if (ListUsuarios.length == 0) {
         consumirServicio(ServiceUrl + "RUsuario/GetRUsuario", null, function (data) {
             ListUsuarios = data;
@@ -39,7 +57,6 @@ function PrintTable() {
                         .append($("<button />", { class: "btn btn-primary btn-xs" })
                         .append($('<span />', { class: "glyphicon glyphicon-pencil" })));
         btnEditar.click({ _val: val }, function (event) {
-            debugger;
             var data = event.data._val;
             idUserUpdate = data.IdUsuario;
             $('#txtNombres2').val(data.Nombre);
@@ -65,7 +82,7 @@ function PrintTable() {
         //var tipoBtn = val.Estado == 1 ? btnVer : btnBlock;
         var EstadoSTR = $("<td />", { html: val.EstadoSTR });
         tipoBtn.click({ _id: val.IdUsuario, _btnVer: btnVer, _btnBlock: btnBlock, _tipoBtn: tipoBtn, _EstadoSTR: EstadoSTR }, function (event) {
-            debugger;
+            
             Enumerable.From(ListUsuarios)
             .Where(function (x) { return x.IdUsuario == event.data._id })
             .FirstOrDefault().Estado = Enumerable.From(ListUsuarios)
@@ -116,7 +133,7 @@ function PrintTable() {
 }
 
 function ActualizarUsuario() {
-    debugger;
+    
     var item = {
         IdUsuario: idUserUpdate,
         Nombre: $('#txtNombres2').val(),
@@ -125,7 +142,7 @@ function ActualizarUsuario() {
         Vigencia: convertTextToDate($('#txtFechadecaducidad2').val())
     }
     UpdateService(ServiceUrl + "RUsuario/PutUpdateUser", item, function (data) {
-        debugger;
+        
         ShowMessage("NOTIFICACIÓN", "Usuario actualizado.", "SoloMensaje");
         //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
         $('#ModalEditarUsuario').modal('hide');

@@ -46,8 +46,8 @@ function GuardarUsuario() {
         Usuario: $('#txtUsuario').val(),
         Vigencia: convertTextToDate($('#txtFechadecaducidad').val()),
         Estado: 1,
-        IdCcf: $('#cboTipodeusuario').val(),
-        IdRole: $('#cboNombreCCF').val(),
+        IdCcf: $('#cboNombreCCF').val(),
+        IdRole:$('#cboTipodeusuario').val(),
     }
 
     SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {

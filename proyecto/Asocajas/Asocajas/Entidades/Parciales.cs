@@ -85,4 +85,14 @@ namespace Asocajas
             private set { var temp = value; }
         }
     }
+
+    #region DataTables
+    public class DataTableParameters
+    {
+        public int Draw { get; set; }
+        public int recordsTotal { get; set; }
+        public int recordsFiltered { get; set; }
+        public List<List<string>> data { get; set; }
+    }
+    #endregion
 }
