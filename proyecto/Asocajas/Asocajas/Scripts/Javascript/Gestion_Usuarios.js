@@ -1,10 +1,13 @@
-﻿$(document).ready(function () {
+﻿var dataRoles = new Array();
+
+$(document).ready(function () {
     //CargarFechaInicioFechaFin('txtFechadecaducidadActualizar');
     CargarFechaInicioFechaFin('txtFechadecaducidad2');
     ConsultarUsuarios();
     BuscarTable("Buscartxt", "tbodyGestionUsuarios");
 
     consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
+        dataRoles = data;
         $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
         $.each(data, function (i, val) {
             $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
@@ -158,6 +161,10 @@ function ActualizarUsuario() {
         Enumerable.From(ListUsuarios)
         .Where(function (x) { return x.IdUsuario == data.IdUsuario })
         .FirstOrDefault().IdRole = data.IdRole;
+
+        Enumerable.From(ListUsuarios)
+        .Where(function (x) { return x.IdUsuario == data.IdUsuario })
+        .FirstOrDefault().RRole = Enumerable.From(dataRoles).Where(function (x) { return x.IdRole == data.IdRole }).FirstOrDefault();
 
         Enumerable.From(ListUsuarios)
         .Where(function (x) { return x.IdUsuario == data.IdUsuario })
