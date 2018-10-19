@@ -104,7 +104,7 @@
 
         </table>
 
-        <table id="example" class="display" style="width:100%">
+        <%--<table id="example" class="display" style="width:100%">
             <thead>
 
                 <th><input type="checkbox" id="Checkbox1" /></th>
@@ -117,7 +117,7 @@
                 <th></th>
                 <th></th>
             </thead>
-    </table>
+    </table>--%>
     </form>
     <div class="modal fade" id="ModalCrearUsuario" role="dialog">
         <div class="modal-dialog modal-lg">
