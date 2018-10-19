@@ -153,7 +153,7 @@
     <Content Include="Pages\AllPages\Logs_Carga_Stress_Plataforma.aspx" />
     <Content Include="Pages\AllPages\Logs_Rendimiento_Plataforma.aspx" />
     <Content Include="Pages\AllPages\Log_Consultas.aspx" />
-    <Content Include="Pages\AllPages\Log_Consultas_Ccf.aspx" />
+    <Content Include="Pages\AllPages\Log_consulta_Ccf.aspx" />
     <Content Include="Pages\AllPages\Registro_usuarios.aspx" />
     <Content Include="Pages\CambioObligatorioClave.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -351,11 +351,12 @@
     <Compile Include="Pages\AllPages\Log_Consultas.aspx.designer.cs">
       <DependentUpon>Log_Consultas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AllPages\Log_Consultas_Ccf.aspx.cs">
-      <DependentUpon>Log_Consultas_Ccf.aspx</DependentUpon>
+    <Compile Include="Pages\AllPages\Log_consulta_Ccf.aspx.cs">
+      <DependentUpon>Log_consulta_Ccf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AllPages\Log_Consultas_Ccf.aspx.designer.cs">
-      <DependentUpon>Log_Consultas_Ccf.aspx</DependentUpon>
+    <Compile Include="Pages\AllPages\Log_consulta_Ccf.aspx.designer.cs">
+      <DependentUpon>Log_consulta_Ccf.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllPages\pages.Master.cs">
       <DependentUpon>pages.Master</DependentUpon>
