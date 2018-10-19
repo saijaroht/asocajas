@@ -222,7 +222,7 @@ namespace Asocajas
             }
         }
 
-        public static results exceptionError()
+        public static results exceptionError(Exception ex)
         {
             results result = new results();
             result.Message = "El usuario ya existe";

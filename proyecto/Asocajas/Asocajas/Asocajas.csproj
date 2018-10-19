@@ -498,6 +498,7 @@
     <Compile Include="Controllers\LTLogEventosController.cs" />
     <Compile Include="Controllers\RCCFController.cs" />
     <Compile Include="Controllers\RDatoBasicoController.cs" />
+    <Compile Include="Controllers\RMenuController.cs" />
     <Compile Include="Controllers\RRoleController.cs" />
     <Compile Include="Controllers\RRptaAsocajasController.cs" />
     <Compile Include="Controllers\RRptaRnecController.cs" />
@@ -661,6 +662,9 @@
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
     <Compile Include="RDatoBasico.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RMenu.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
     <Compile Include="RRole.cs">

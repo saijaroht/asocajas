@@ -11,6 +11,7 @@
           <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.Store.LTLogEventos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RCCF" EntityType="AsocajasBDModel.Store.RCCF" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.Store.RDatoBasico" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RMenu" EntityType="AsocajasBDModel.Store.RMenu" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RRole" EntityType="AsocajasBDModel.Store.RRole" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.Store.RRptaAsocajas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.Store.RRptaRnec" store:Type="Tables" Schema="dbo" />
@@ -120,6 +121,16 @@
           <Property Name="UsuarioActualizacion" Type="nvarchar" MaxLength="200" />
           <Property Name="MaquinaActualizacion" Type="nvarchar" MaxLength="200" />
           <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RMenu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="int" Nullable="false" />
+          <Property Name="IdMenuHijo" Type="int" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Orden" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RRole">
           <Key>
@@ -310,6 +321,7 @@
             <End Role="RRole" EntitySet="RRole" />
             <End Role="RUsuario" EntitySet="RUsuario" />
           </AssociationSet>
+          <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
           </EntityContainer>
         <EntityType Name="LTLogApp">
           <Key>
@@ -561,6 +573,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RMenu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Type="Int32" Name="IdMenu" Nullable="false" />
+          <Property Type="Int32" Name="IdMenuHijo" />
+          <Property Type="Int32" Name="IdRole" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -744,6 +766,17 @@
                 <ScalarProperty Name="Apellido" ColumnName="Apellido" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RMenu">
+            <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
+              <MappingFragment StoreEntitySet="RMenu">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdMenuHijo" ColumnName="IdMenuHijo" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
