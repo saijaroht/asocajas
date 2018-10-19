@@ -5,12 +5,20 @@
 var ListConsulta = new Array();
 function ConsultarConsultasAni() {
     debugger;
+    var Idccf
     if (ListConsulta.length == 0) {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
+            var UsuarioAct = data1.Message;
+            
+
+            consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail?Mail=" + UsuarioAct, null, function (data2) {
+                 Idccf=data2.IdCcf;
+          
         
-        consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAni", null, function (data) {
+                 consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAniCcf?idCcf=" + Idccf, null, function (data) {
             ListConsulta = data;
             PrintTable();
+            });
         });
        });
     }

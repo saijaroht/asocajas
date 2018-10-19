@@ -11,7 +11,7 @@ namespace Asocajas.Pages.AllPages
 {
 
 
-    public partial class Log_Consultas_Ccf
+    public partial class Log_consulta_Ccf
     {
     }
 }

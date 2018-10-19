@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Asocajas.Pages.AllPages
 {
-    public partial class Log_Consultas_Ccf : System.Web.UI.Page
+    public partial class Log_consulta_Ccf : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
