@@ -40,21 +40,5 @@ namespace Asocajas
         public DbSet<RUsuario> RUsuario { get; set; }
         public DbSet<RMenu> RMenu { get; set; }
     
-        public virtual ObjectResult<SendMail_Result> SendMail(string email, string asunto, string html)
-        {
-            var emailParameter = email != null ?
-                new ObjectParameter("Email", email) :
-                new ObjectParameter("Email", typeof(string));
-    
-            var asuntoParameter = asunto != null ?
-                new ObjectParameter("Asunto", asunto) :
-                new ObjectParameter("Asunto", typeof(string));
-    
-            var htmlParameter = html != null ?
-                new ObjectParameter("Html", html) :
-                new ObjectParameter("Html", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SendMail_Result>("SendMail", emailParameter, asuntoParameter, htmlParameter);
-        }
     }
 }

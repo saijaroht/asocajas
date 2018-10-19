@@ -86,6 +86,14 @@ namespace Asocajas
         }
     }
 
+
+
+    public partial class RMenu
+    {
+        [NotMapped]
+        public List<List<RMenu>> ListMenu { get; set; }
+    }
+
     #region DataTables
     public class DataTableParameters
     {

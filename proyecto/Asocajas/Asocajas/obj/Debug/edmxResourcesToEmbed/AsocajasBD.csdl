@@ -40,6 +40,7 @@
       <End Role="RRole" EntitySet="RRole" />
       <End Role="RUsuario" EntitySet="RUsuario" />
     </AssociationSet>
+    <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
   </EntityContainer>
   <EntityType Name="LTLogApp">
     <Key>
@@ -291,4 +292,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="RMenu">
+    <Key>
+      <PropertyRef Name="IdMenu" />
+    </Key>
+    <Property Type="Int32" Name="IdMenu" Nullable="false" />
+    <Property Type="Int32" Name="IdMenuHijo" />
+    <Property Type="Int32" Name="IdRole" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Orden" Nullable="false" />
+  </EntityType>
 </Schema>

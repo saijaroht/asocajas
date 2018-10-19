@@ -6,6 +6,7 @@
     <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.Store.LTLogEventos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RCCF" EntityType="AsocajasBDModel.Store.RCCF" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.Store.RDatoBasico" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RMenu" EntityType="AsocajasBDModel.Store.RMenu" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRole" EntityType="AsocajasBDModel.Store.RRole" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.Store.RRptaAsocajas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.Store.RRptaRnec" store:Type="Tables" Schema="dbo" />
@@ -115,6 +116,16 @@
     <Property Name="UsuarioActualizacion" Type="nvarchar" MaxLength="200" />
     <Property Name="MaquinaActualizacion" Type="nvarchar" MaxLength="200" />
     <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RMenu">
+    <Key>
+      <PropertyRef Name="IdMenu" />
+    </Key>
+    <Property Name="IdMenu" Type="int" Nullable="false" />
+    <Property Name="IdMenuHijo" Type="int" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="Orden" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RRole">
     <Key>

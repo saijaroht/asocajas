@@ -19,6 +19,7 @@ namespace Asocajas.Controllers
                 {
                     var IdRolUsuario = objRUsuario.Get(o => o.Usuario == Usuario).FirstOrDefault().IdRole;
                     var obj = this.objDb.Get(o => o.IdRole == IdRolUsuario).ToList();
+
                     return Ok(obj);
                 }
             }

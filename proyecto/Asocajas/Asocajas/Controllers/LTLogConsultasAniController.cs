@@ -38,9 +38,9 @@ namespace Asocajas.Controllers
                 }
                 return Ok(obj);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
         public IHttpActionResult GetLTLogConsultasAniCcf(int idCcf)
@@ -70,9 +70,9 @@ namespace Asocajas.Controllers
                 }
                 return Ok(obj);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 

@@ -33,9 +33,9 @@ namespace Asocajas.Controllers
                 }
                 return Ok(obj);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
         
@@ -122,7 +122,7 @@ namespace Asocajas.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -153,9 +153,9 @@ namespace Asocajas.Controllers
                 }
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -165,9 +165,9 @@ namespace Asocajas.Controllers
             {
                 var obj = this.objDb.AddUpdate(rsuario, "IdUsuario");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                HelperGeneral.exceptionError();
+                HelperGeneral.exceptionError(ex);
             }
         }
 
@@ -178,9 +178,9 @@ namespace Asocajas.Controllers
                 var obj = this.objDb.Get(o => o.IdUsuario == idUsuario).ToList();
                 return Ok(obj);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -191,9 +191,9 @@ namespace Asocajas.Controllers
                 var obj = this.objDb.Get(o => o.Usuario == Mail).FirstOrDefault();
                 return Ok(obj);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -219,9 +219,9 @@ namespace Asocajas.Controllers
                     return Ok(result);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -237,9 +237,9 @@ namespace Asocajas.Controllers
 
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -258,9 +258,9 @@ namespace Asocajas.Controllers
 
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -287,9 +287,9 @@ namespace Asocajas.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -306,9 +306,9 @@ namespace Asocajas.Controllers
 
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return Ok(HelperGeneral.exceptionError());
+                return Ok(HelperGeneral.exceptionError(ex));
             }
         }
 
@@ -351,9 +351,9 @@ namespace Asocajas.Controllers
                 bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, (string.IsNullOrEmpty(AsuntoMensaje) ? "Usuario creado" : AsuntoMensaje), MensajeCorreo);
                 //bool enviaMail = HelperGeneral.SendMail(rsuario.Usuario, "Usuario creado", "<h1>Usuario Creado</h1>en el siguente link podra realizar el cambio de contraseña");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                HelperGeneral.exceptionError();
+                HelperGeneral.exceptionError(ex);
             }
         }
 
