@@ -179,49 +179,6 @@ namespace Asocajas
             return true;
         }
 
-        public static List<RUsuario> PaginadorConsultasLTLogEventos(int limiteInferior, int limiteSuperior)
-        {
-            try
-            {
-                List<RUsuario> exec = new List<RUsuario>();
-                using (var ctx = new AsocajasBDEntities())
-                {
-                    var LimiteInferior = new SqlParameter
-                    {
-                        ParameterName = "LimiteInferior",
-                        Value = limiteInferior
-                    };
-
-                    var LimiteSuperior = new SqlParameter
-                    {
-                        ParameterName = "LimiteSuperior",
-                        Value = limiteSuperior
-                    };
-
-                    var Tabla = new SqlParameter
-                    {
-                        ParameterName = "Tabla",
-                        Value = "RUsuario"
-                    };
-
-                    var IdTable = new SqlParameter
-                    {
-                        ParameterName = "IdTable",
-                        Value = "IdUsuario"
-                    };
-                    exec = ctx.Database.SqlQuery<RUsuario>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<RUsuario>();
-                 
-                    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
-                }
-                return exec;
-            }
-            catch (Exception ex)
-            {
-                List<RUsuario> exec = new List<RUsuario>();
-                return exec;
-            }
-        }
-
         public static results exceptionError(Exception ex)
         {
             results result = new results();
@@ -276,5 +233,53 @@ namespace Asocajas
 
             clientDetails.Send(mailDetails);
         }
+
+        #region Paginadores
+
+        public static List<RUsuario> PaginadorConsultasLTLogEventos(int limiteInferior, int limiteSuperior)
+        {
+            try
+            {
+                List<RUsuario> exec = new List<RUsuario>();
+                using (var ctx = new AsocajasBDEntities())
+                {
+                    var LimiteInferior = new SqlParameter
+                    {
+                        ParameterName = "LimiteInferior",
+                        Value = limiteInferior
+                    };
+
+                    var LimiteSuperior = new SqlParameter
+                    {
+                        ParameterName = "LimiteSuperior",
+                        Value = limiteSuperior
+                    };
+
+                    var Tabla = new SqlParameter
+                    {
+                        ParameterName = "Tabla",
+                        Value = "RUsuario"
+                    };
+
+                    var IdTable = new SqlParameter
+                    {
+                        ParameterName = "IdTable",
+                        Value = "IdUsuario"
+                    };
+                    exec = ctx.Database.SqlQuery<RUsuario>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<RUsuario>();
+
+                    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+                }
+                return exec;
+            }
+            catch (Exception ex)
+            {
+                List<RUsuario> exec = new List<RUsuario>();
+                return exec;
+            }
+        }
+
+
+        #endregion
     }
 }

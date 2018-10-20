@@ -107,15 +107,9 @@
         <%--<table id="example" class="display" style="width:100%">
             <thead>
 
-                <th><input type="checkbox" id="Checkbox1" /></th>
                 <th>Nombres</th>
                 <th>Apellido</th>
                 <th>Usuario</th>
-                <th>CCF</th>
-                <th>Tipo de Usuario</th>
-                <th>Estado</th>
-                <th></th>
-                <th></th>
             </thead>
     </table>--%>
     </form>

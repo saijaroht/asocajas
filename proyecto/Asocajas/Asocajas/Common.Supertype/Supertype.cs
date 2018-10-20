@@ -10,6 +10,7 @@ using Common.Supertype.Extensions;
 using Asocajas.Common.Supertype;
 using Asocajas.Utilities;
 using Asocajas;
+using System.Data.SqlClient;
 
 namespace Supertype
 {
@@ -449,8 +450,46 @@ namespace Supertype
             return this.ObjectSet.Find(keyValues);
 
         }
-        #region
 
+
+        #region paginador
+
+        public virtual IEnumerable<TEntity> PaginadorConsultas(int limiteInferior, int limiteSuperior)
+        {
+            var propPk = typeof(TEntity);
+
+            IEnumerable<TEntity> exec = new List<TEntity>();
+            using (var ctx = new AsocajasBDEntities())
+            {
+                var LimiteInferior = new SqlParameter
+                {
+                    ParameterName = "LimiteInferior",
+                    Value = limiteInferior
+                };
+
+                var LimiteSuperior = new SqlParameter
+                {
+                    ParameterName = "LimiteSuperior",
+                    Value = limiteSuperior
+                };
+
+                var Tabla = new SqlParameter
+                {
+                    ParameterName = "Tabla",
+                    Value = propPk.Name
+                };
+
+                var IdTable = new SqlParameter
+                {
+                    ParameterName = "IdTable",
+                    Value = "IdUsuario"
+                };
+                exec = ctx.Database.SqlQuery<TEntity>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<TEntity>();
+
+                //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+            }
+            return exec;
+        }
 
 
         #endregion

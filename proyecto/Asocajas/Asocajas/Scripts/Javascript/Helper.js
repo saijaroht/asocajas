@@ -677,7 +677,7 @@ function SessionState() {
 
 $(document).ready(function () {
     debugger;
-    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {
+    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx" && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
@@ -743,4 +743,32 @@ function convertTextToDate(strDate) {
 function ConvertDateSQLToText(strdate) {
     var dateSplit = strdate.split("T")[0].split("-");
     return (dateSplit[2] + "/" + dateSplit[1] + "/" + dateSplit[0])
+}
+
+// ServiceUrl + "Home/AjaxGetJsonData"
+//{data:"Nombre",orderable:false,ctroFilter:"txtNombreFilter"}
+function SetDataTable(idTable, URL, dataColumns) {
+    debugger;
+    $('#' + idTable).dataTable({
+        "searching": false,
+        "processing": true, // control the processing indicator.
+        "serverSide": true, // recommended to use serverSide when data is more than 10000 rows for performance reasons
+        "info": true,   // control table information display field
+        "stateSave": true,  //restore table state on page reload,
+        "lengthMenu": [[10, 20, 50, 100000], [10, 20, 50, "All"]],    // use the first inner array as the page length values and the second inner array as the displayed options
+        "ajax": {
+            "url": URL,
+            "type": "POST",
+            "contentType": "application/json; charset=utf-8",
+            "data": function (d) {
+                return JSON.stringify({ parameters: d });
+            }
+        },
+        "columns": [
+            { "data": "Nombre", "orderable": true },
+            { "data": "Apellido", "orderable": false },
+            { "data": "Usuario", "orderable": true },
+        ],
+        "order": [[0, "asc"]]
+    });
 }

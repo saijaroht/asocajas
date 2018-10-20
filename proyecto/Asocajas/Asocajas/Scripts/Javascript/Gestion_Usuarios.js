@@ -21,18 +21,20 @@ $(document).ready(function () {
 
 var cargarTabla = function () {
     debugger;
-    $('#example').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            url: location.origin + '/Services/Servicios.aspx/GetDataUser',
-            data: function (d) {
-                return JSON.stringify({ parameters: d });
-            }
-        }
-    });
+    //$('#example').DataTable({
+    //    processing: true,
+    //    serverSide: true,
+    //    ajax: {
+    //        type: "POST",
+    //        contentType: "application/json; charset=utf-8",
+    //        url: location.origin + '/Services/Servicios.aspx/GetDataUser',
+    //        data: function (d) {
+    //            return JSON.stringify({ parameters: d });
+    //        }
+    //    }
+    //});
+
+    
 }
 
 function nuevoUsuario() {
