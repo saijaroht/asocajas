@@ -6,16 +6,6 @@ C:\Asocajas\Asocajas\Asocajas\obj\Debug\Asocajas.pdb
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\Asocajas.dll.config
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\Asocajas.dll
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\Asocajas.pdb
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\EntityFramework.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\EntityFramework.SqlServer.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\Newtonsoft.Json.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Extensions.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Formatting.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Net.Http.Primitives.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Web.Cors.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Web.Http.Cors.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Web.Http.dll
-C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\System.Web.Http.WebHost.dll
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\EntityFramework.xml
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\EntityFramework.SqlServer.xml
 C:\Users\Usuario\Desktop\omarOsuna\proyectos\registaduria\proyecto\Asocajas\Asocajas\bin\Newtonsoft.Json.xml

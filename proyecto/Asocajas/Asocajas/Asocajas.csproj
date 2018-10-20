@@ -419,6 +419,7 @@
     <Content Include="Scripts\Javascript\LogsEventos.js" />
     <Content Include="Scripts\Javascript\log_Consultas.js" />
     <Content Include="Scripts\Javascript\Log_Consulta_Ccf.js" />
+    <Content Include="Scripts\Javascript\menu.js" />
     <Content Include="Scripts\Javascript\Modificacion_Contrasena.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
     <Content Include="Scripts\Javascript\RegistroUsuarios.js" />
