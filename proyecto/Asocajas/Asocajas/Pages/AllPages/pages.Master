@@ -26,6 +26,7 @@
     <script src="../../Scripts/Scripts/linq-vsdoc.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/linq.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/linq.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/menu.js" type="text/javascript"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -54,95 +55,8 @@
 
                     </div>
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="menu-item dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="menu-item ">
-                                        <a href="Gestion_Usuarios.aspx" >Gestion de usuarios</a>
-                                       <%-- <ul class="dropdown-menu">
-                                            <li class="menu-item ">
-                                                <a href="Registro_usuarios.aspx">Nuevo Usuario</a>
-                                            </li>
-                                            <li class="menu-item ">
-                                                <a href="Gestion_Usuarios.aspx">Gestión de Usuarios</a>
-                                            </li>
-                                            <%--<li class="menu-item dropdown dropdown-submenu">
-                                                <a href="Gestion_Usuarios.aspx" class="dropdown-toggle" data-toggle="dropdown">Gestión de Usuarios</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="#">Link 3</a>
-                                                    </li>
-                                                </ul>
-                                            </li>--%>
-                                       <%-- </ul>--%>
-                                    </li>
-                                    <li class="menu-item ">
-                                        <a href="LogsEventos.aspx">Log eventos</a>
-                                    </li>
-                                     <li class="menu-item ">
-                                        <a href="Log_Consultas.aspx">Log Consultas ANI</a>
-                                    </li>
-                                    <li class="menu-item ">
-                                        <a href="LogExcepciones.aspx">Log excepciones</a>
-                                    </li>
-                                    <li class="menu-item ">
-                                        <a href="Consultas_Procesadas.aspx">Consultas Procesadas</a>
-                                    </li>
-                                    <li class="menu-item ">
-                                        <a href="Logs_Rendimiento_Plataforma.aspx">Tiempo Respuesta</a>
-                                    </li>
-                                    <!-- <li class="menu-item ">
-                                        <a href="Logs_Carga_Stress_Plataforma.aspx">Logs Stress</a>
-                                    </li> -->
-                                    <%--<li class="menu-item ">
-                                        <a href="#">Desempeño plataforma</a>
-                                    </li>--%>
-                                </ul>
-                            </li>
-                            <li class="menu-item dropdown" >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes Uso <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="menu-item dropdown dropdown-submenu">
-                                        <li class="menu-item ">
-                                        <a href="Log_consulta_Ccf.aspx">Log Consultas ANI</a>
-                                    </li>
-                                    </li>
-                                </ul>            
-                            </li>
-                             <li class="menu-item  dropdown ">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consulta Documentos<b class="caret"></b></a>
-                                 <ul class="dropdown-menu">
-                                    <li class="menu-item dropdown dropdown-submenu">
-                                        <li class="menu-item ">
-                                        <a href="Consulta_Documentos.aspx">Consulta Individual</a>
-                                    </li>
-                                         <li class="menu-item ">
-                                        <a href="Consulta_Documentos_Masiva.aspx">Consulta Masiva</a>
-                                    </li>
-                                    </li>
-                                </ul> 
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav pull-right" id="identuser">
-                            <li class="menu-item dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <div id="userLoguin">
-                                        <span id="UsuarioLogueado">Nombre user</span><span>Asocajas</span>
-                                    </div>
-                                    <div id="userIng">
-                                        <b class=""></b>
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="menu-item ">
-                                        <a href="Cambio_Clave.aspx">Cambiar Clave</a>
-                                    </li>
-                                    <li class="menu-item ">
-                                        <a href="javascript:CerrarSesion();">Cerrar Sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <ul class="nav navbar-nav" id="menu">
+                            
                         </ul>
                     </div>
                 </div>

@@ -184,6 +184,7 @@
     <EntitySetMapping Name="RMenu">
       <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
         <MappingFragment StoreEntitySet="RMenu">
+          <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="Orden" ColumnName="Orden" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />

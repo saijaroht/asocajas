@@ -131,6 +131,7 @@
           <Property Name="IdRole" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="Orden" Type="int" Nullable="false" />
+          <Property Name="url" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="RRole">
           <Key>
@@ -582,6 +583,7 @@
           <Property Type="Int32" Name="IdRole" Nullable="false" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="String" Name="url" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -772,6 +774,7 @@
           <EntitySetMapping Name="RMenu">
             <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
               <MappingFragment StoreEntitySet="RMenu">
+                <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="Orden" ColumnName="Orden" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />

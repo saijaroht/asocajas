@@ -126,6 +126,7 @@
     <Property Name="IdRole" Type="int" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
     <Property Name="Orden" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityType Name="RRole">
     <Key>

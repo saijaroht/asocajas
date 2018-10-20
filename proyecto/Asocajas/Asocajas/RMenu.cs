@@ -19,5 +19,6 @@ namespace Asocajas
         public int IdRole { get; set; }
         public string Descripcion { get; set; }
         public int Orden { get; set; }
+        public string url { get; set; }
     }
 }
