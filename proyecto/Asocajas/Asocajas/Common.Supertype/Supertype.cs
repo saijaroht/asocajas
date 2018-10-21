@@ -482,7 +482,7 @@ namespace Supertype
                 var IdTable = new SqlParameter
                 {
                     ParameterName = "IdTable",
-                    Value = "IdUsuario"
+                    Value = "NA"
                 };
                 exec = ctx.Database.SqlQuery<TEntity>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<TEntity>();
 

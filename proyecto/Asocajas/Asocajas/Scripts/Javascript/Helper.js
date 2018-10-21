@@ -677,7 +677,7 @@ function SessionState() {
 
 $(document).ready(function () {
     debugger;
-    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx" && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
+    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {// && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
         PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
@@ -754,12 +754,12 @@ function SetDataTable(idTable, URL, dataColumns) {
         columns.push({ data: value.data, "orderable": false });
     });
     $('#' + idTable).dataTable({
-        "searching": false,
+        "searching": true,
         "processing": true, // control the processing indicator.
         "serverSide": true, // recommended to use serverSide when data is more than 10000 rows for performance reasons
         "info": true,   // control table information display field
         "stateSave": true,  //restore table state on page reload,
-        "lengthMenu": [[10, 20, 50, 100000], [10, 20, 50, "All"]],    // use the first inner array as the page length values and the second inner array as the displayed options
+        "lengthMenu": [[10, 20, 50], [10, 20, 50]],    // use the first inner array as the page length values and the second inner array as the displayed options
         "ajax": {
             "url": URL,
             "type": "POST",

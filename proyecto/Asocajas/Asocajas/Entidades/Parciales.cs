@@ -84,9 +84,23 @@ namespace Asocajas
             get { return (Estados)Convert.ToInt32(this.Estado); }
             private set { var temp = value; }
         }
+
+        [NotMapped]
+        public string Nombres
+        {
+            get
+            {
+                return Nombre + " " + Apellido;
+            }
+            private set { var temp = value; }
+        }
     }
 
-
+    public partial class LTLogEventos
+    {
+        [NotMapped]
+        public string CCF { get; set; }
+    }
 
     public partial class RMenu
     {

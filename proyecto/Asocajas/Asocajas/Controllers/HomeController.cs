@@ -11,44 +11,55 @@ using System.Web.Mvc;
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class HomeController : BaseController<RUsuario>
+    public class HomeController : ApiController
     {
         private const int TOTAL_ROWS = 995;
         //private static readonly List<DataItem> _data = CreateData();
-
-        public class DataItem
-        {
-            public string Nombres { get; set; }
-            public string Apellido { get; set; }
-            public string Usuario { get; set; }
-        }
 
         public class DataTableData
         {
             public int draw { get; set; }
             public int recordsTotal { get; set; }
             public int recordsFiltered { get; set; }
-            public List<RUsuario> data { get; set; }
+            public List<LTLogEventos> data { get; set; }
         }
-
+        public static int TotalRows { get; set; }
 
         // this ajax function is called by the client for each draw of the information on the page (i.e. when paging, ordering, searching, etc.). 
-        public IHttpActionResult AjaxGetJsonData(object parameters)
+        public IHttpActionResult AjaxGetJsonDataLTLogEventos(object parameters)
         {
-            DataTableData dataTableData = new DataTableData();
-            var input = JObject.FromObject(JObject.FromObject(parameters)["parameters"]);
+            using (BusinessBase<LTLogEventos> objLTLogEventos = new BusinessBase<LTLogEventos>())
+            {
+                using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
+                {
+                    using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
+                    {
+                        DataTableData dataTableData = new DataTableData();
+                        var input = JObject.FromObject(JObject.FromObject(parameters)["parameters"]);
+                        //var search = JObject.FromObject(input["search"]["value"]);
+                        dataTableData.draw = (int)input["draw"];
+                        List<LTLogEventos> list = new List<LTLogEventos>();
+                        list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
 
-            dataTableData.draw = (int)input["draw"];
-            dataTableData.recordsTotal = TOTAL_ROWS;
+                        foreach (var item in list)
+                        {
+                            item.RUsuario = objRUsuario.Get(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
+                            item.RUsuario.RCCF = objRCCF.Get(o => o.IdCcf == item.RUsuario.IdCcf).FirstOrDefault();
+                        }
+                        //list = HelperGeneral.PaginadorConsultasLTLogEventos((int)input["start"], (int)input["length"]);
 
-            List<RUsuario> list = new List<RUsuario>();
-            list = this.objDb.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
-            //list = HelperGeneral.PaginadorConsultasLTLogEventos((int)input["start"], (int)input["length"]);
+                        dataTableData.data = list;
+                        if (TotalRows == 0)
+                        {
+                            TotalRows = objLTLogEventos.Get().Count();
+                        }
+                        dataTableData.recordsFiltered = TotalRows;
+                        dataTableData.recordsTotal = dataTableData.recordsFiltered;
 
-            dataTableData.data = list;
-            dataTableData.recordsFiltered = this.objDb.Get().Count();
-
-            return Json(dataTableData);
+                        return Json(dataTableData);
+                    }
+                }
+            }
         }
     }
 }

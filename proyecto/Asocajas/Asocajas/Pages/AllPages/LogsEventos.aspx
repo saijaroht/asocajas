@@ -153,9 +153,10 @@
      <table id="tblLogEventos" class="display" style="width:100%">
         <thead>
             <tr>
+			<th>CCF</th>
+			<th>Usuario</th>
 			<th>Evento</th>
 			<th>FechaEvento</th>
-            <th>IdUsuario</th>
             </tr>
         </thead>
     </table>
