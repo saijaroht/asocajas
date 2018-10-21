@@ -24,7 +24,6 @@ function ConsultarConsultasMenu()
         });
         $.each(listaMenuPapa, function (i, val) {
             var hijos
-            debugger;
             listaMenuHijo1 = Enumerable.From(listaMenuHijo)
                .Where(function (x) { return x.IdMenuHijo == val.IdMenu })
                  .OrderBy(function (x) { return x.Orden })
@@ -36,13 +35,6 @@ function ConsultarConsultasMenu()
                 else {
                     hijos = hijos + "<li  class='menu-item'><a  href=" + val2.url + ">" + val2.Descripcion + "</a></li>";
                 }
-<<<<<<< HEAD
-=======
-               
-
-                
-
->>>>>>> b64e76f4f5e34dd15c54c1e68eacd12d6e59addb
             });
             $("#menu")
                 .append($("<li />", { class: "menu-item dropdown" })
