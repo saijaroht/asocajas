@@ -21,16 +21,16 @@
             <div class="w3l-form-group">
                 <div class="imgbanner">
                     <img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
-                <h4 class="text-center titleLoguin"><b>Servicio Digital de Validación de Identidad (ANI)</b></h4>
+                <h5 class="text-center titleLoguin"><b>Servicio Digital de Validación de Identidad (ANI)</b></h5>
             </div>
             <div class="">
-                <div class="w3l-form-group">
+                <div >
                     <div class="group">
                         <i class="fas fa-user"></i>
                         <input type="email" class="form-control" placeholder="Usuario" required="required" id="txtUsuario" />
                     </div>
                 </div>
-                <div class=" w3l-form-group">
+                <div >
                     <div class="group">
                         <i class="fas fa-unlock"></i>
                         <input type="password" class="form-control" placeholder="Clave" required="required" id="txtContrasena" />
@@ -49,17 +49,17 @@
                     </div>
                     <%--<div class="g-recaptcha" data-sitekey="6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF" align="center"></div>--%>
                 </div>
+				<!--
                 <div class=" w3l-form-group">
 
                     <!--<div class="recaptcha"></div>
                 <div class="g-recaptcha" data-sitekey="6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0"></div> -->
+                <!--</div>                
+				-->
+                <div class="group col-md-6 col-sm-6 col-xs-8 centred">
+                    <button type="submit" onclick="ValidaUsuario(); return false;">Ingresar</button>
                 </div>
-                <br />
-                <br />
-                <br />
-                <div class="group col-md-8 col-ms-8 col-xs-10 centred">
-                    <button type="submit" onclick="ValidaUsuario(); return false;">Iniciar sesión</button>
-                </div>
+			</div>
         </form>
 
     </div>

@@ -215,12 +215,12 @@
 
     </form>
     
-    <div class="row">
+   <%-- <div class="row">
         <div class="col-sm-11"></div>
     <div class="col-sm-1">
         <button type="button" class="btn btn-primary">Salir</button>
     </div>
-    </div>
+    </div>--%>
         
         
             <script>

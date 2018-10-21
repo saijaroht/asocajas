@@ -75,8 +75,9 @@ function PrintTable() {
                         .append($("<button />", { class: "btn btn-danger btn-xs" })
                         .append($('<span />', { class: "glyphicon glyphicon-trash" })));
 
-        var btnVer = $("<button />", { class: "btn btn-success btn-xs" }).append($('<span />', { class: "glyphicon glyphicon-eye-open" }));
-        var btnBlock = $("<button />", { class: "btn btn-danger btn-xs" }).append($('<span />', { class: "glyphicon glyphicon-eye-close" }))
+        var btnVer = $("<button />", { class: "btn btn-success btn-xs" }).append($('<span /> <img src="../../scripts/images/lock-open.png"></img>'));
+        var btnBlock = $("<button />", { class: "btn btn-danger btn-xs" }).append($('<span />  <img src="../../scripts/images/lock-closed.png"></img>'));
+        //var btnBlock = $("<button />", { class: "btn btn-danger btn-xs" }).append($('<span />', { class: "glyphicon glyphicon-eye-close" }))
 
         var tipoBtn = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip" });
         if (val.Estado == 1) {
@@ -121,7 +122,7 @@ function PrintTable() {
         var check = $('<input/>', { "type": "checkbox", class: "checkthis" });
         $("#tbodyGestionUsuarios")
             .append($("<tr />")
-                .append($("<td />").append(check))
+                //.append($("<td />").append(check))
                 .append($("<td />", { html: val.Nombre }))
                 .append($("<td />", { html: val.Apellido }))
                 .append($("<td />", { html: val.Usuario }))

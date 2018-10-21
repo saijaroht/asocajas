@@ -542,7 +542,8 @@ table {
     background: beige;
     background-color: rgb(48, 147, 199);
     background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133));
-        margin: 10px 0px;
+    margin: 10px 0px;
+	border-radius: 4px;
 }
 
 .encabezadoTable div#custom-search-input {
@@ -579,6 +580,9 @@ div#custom-search-input span.input-group-btn {
     color: #fff;
 }
 
+.txtEncabezadoLog {
+    color: #fff;
+}
 .encabezadoTable .nuevoUser button {
     margin: 15px 0px;
 }

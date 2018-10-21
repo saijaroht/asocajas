@@ -35,8 +35,6 @@ function ConsultarConsultasMenu()
                 else {
                     hijos = hijos.append( $("<li />", { class: "menu-item" }).append($("<a />", { href: val2.url, html: val2.Descripcion })));
                 }
-                
-
             });
             $("#menu")
                 .append($("<li />", { class: "menu-item dropdown" })

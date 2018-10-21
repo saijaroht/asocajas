@@ -8,6 +8,32 @@
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Consulta Documentos</li>
     </ul>
+	<h4 class="text-center "><b>Consulta Individual Documentos</b></h4>
+	
+  <form>	
+	<div class="encabezadoTable">
+        <div class="col-xs-12 col-sm-12 col-md-12">	
+			<div class="col-md-3"></div>
+            <div class="col-xs-8 col-sm-8 col-md-3 ">
+				<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+				  <span>Documento</span>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12" >
+				<input id="Number1" type="number" placeholder="Número Identificación" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">			
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+            <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
+                <button type="button" class="btn btn-success" >Consultar</button>
+            </div>
+			
+        </div>
+			
+	</div>
+	<div class="row">
+	  <h5 class="text-center "><b>Para la consulta debe tener en cuenta que: Sólo se puede ingresar un documento a la vez, sólo se permite digitar números, el documento ingresado no puede tener más de diez (10) digitos </b></h5>
+	</div>
+	<!--
     <div class="row">
         <div class="col-sm-3">
              <h4><strong>Consulta Documentos</strong></h4>
@@ -15,13 +41,13 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-4">
             <div class="input-group">
-            <span class="input-group-addon"><b>Identificación</b></span>
-            <input id="Number1" type="number" class="form-control">
-        </div>
+				<span class="input-group-addon"><b>Identificación</b></span>
+				<input id="Number1" type="number" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">
+			</div>
         </div>
        
         <div class="col-sm-2"></div>
-        <div class="col-sm-2">
+		<div class="col-sm-2">
             <button type="button" class="btn btn-primary">Consultar</button>
         </div>
 
@@ -32,7 +58,9 @@
 
     <br/>
     <br/>
+-->
 
+<!--
     <div class="row">
          <div class="col-sm-2"></div>
         
@@ -108,14 +136,16 @@
     </table>
             </div>
         </div>
-  
+-->		
+ </form>		
+  <!--
     <div class="row">
         <div class="col-sm-10" ></div>
         <div class="col-sm-2" >
         <button type="button" class="btn btn-primary" onclick="">Regresar</button>
             </div>
     </div>
-    
+    -->
    
 
 </asp:Content>

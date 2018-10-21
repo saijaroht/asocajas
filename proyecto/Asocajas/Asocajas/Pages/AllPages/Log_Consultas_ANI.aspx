@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Log_Consultas.aspx.cs" Inherits="Asocajas.Pages.AllPages.Log_Consultas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Log_Consultas_ANI.aspx.cs" Inherits="Asocajas.Pages.AllPages.Log_Consultas_ANI" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
@@ -14,10 +14,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
       <ul class="breadcrumb">
-        <li><a href="Inicio.aspx">Administración</a></li>
-        <li class="active">Consulta Transacciones</li>
+        <li><a href="Inicio.aspx">Reportes Uso </a></li>
+        <li class="active">Consultas ANI</li>
     </ul>
-    <h4 class="text-center "><b>Consulta Transacciones</b></h4>
+    <h4 class="text-center "><b>Reporte Consultas ANI</b></h4>
      <form>
 	 
 	
@@ -31,60 +31,6 @@
 		-->	
             <div class="col-xs-12 col-sm-12 col-md-12">					
                     <div class="col-xs-12 col-sm-12 col-md-10 ">
-						<div class="col-xs-6 col-sm-6 col-md-3 ">
-							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
-								<span>CCF</span>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12 ">
-								<select class="form-control">
-									<option value="0">-- TODAS --</option>
-									<option value="1">ASOCAJAS</option>
-									<option value="2">CAMACOL</option>
-									<option value="3">COMFENALCO ANTIOQUIA</option>
-									<option value="4">COMFAMA</option>
-									<option value="5">CAJACOPI</option>
-									<option value="6">COMBARRANQUILLA</option>
-									<option value="7">COMFAMILIAR ATLANTICO</option>
-									<option value="8">COMFENALCO CARTAGENA</option>
-									<option value="9">COMFAMILIAR CARTAGENA</option>
-									<option value="10">COMFABOY</option>
-									<option value="11">CONFA</option>
-									<option value="13">COMFACA</option>
-									<option value="14">COMFACAUCA</option>
-									<option value="15">COMFACESAR</option>
-									<option value="16">COMFACOR</option>
-									<option value="21">CAFAM</option>
-									<option value="22">COLSUBSIDIO</option>
-									<option value="24">COMPENSAR</option>
-									<option value="26">COMFACUNDI</option>
-									<option value="29">COMFACHOCO</option>
-									<option value="30">COMFAGUAJIRA</option>
-									<option value="32">COMFAMILIAR HUILA</option>
-									<option value="33">CAJAMAG</option>
-									<option value="34">COFREM</option>
-									<option value="35">COMFAMILIAR NARIÑO</option>
-									<option value="36">COMFAORIENTE</option>
-									<option value="37">COMFANORTE</option>
-									<option value="38">CAFABA</option>
-									<option value="39">CAJASAN</option>
-									<option value="40">COMFENALCO SANTANDER</option>
-									<option value="41">COMFASUCRE</option>
-									<option value="43">COMFENALCO QUINDIO</option>
-									<option value="44">COMFAMILIAR RISARALDA</option>
-									<option value="46">CAFASUR</option>
-									<option value="48">COMFATOLIMA</option>
-									<option value="50">COMFENALCO TOLIMA</option>
-									<option value="56">COMFENALCO VALLE</option>
-									<option value="57">COMFANDI</option>
-									<option value="63">COMFAMILIAR PUTUMAYO</option>
-									<option value="64">CAJASAI</option>
-									<option value="65">CAFAMAZ</option>
-									<option value="67">COMFIAR</option>
-									<option value="68">COMCAJA</option>
-									<option value="69">COMFACASANARE</option>
-								</select>
-							</div>
-						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 ">
 							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
 								<span>USUARIO</span>
@@ -139,7 +85,6 @@
        class="table-responsive">
 	<thead>
 		<tr>			
-			<th data-field="ccf" data-filter-control="select" data-sortable="true">CCF</th>
 			<th data-field="user" data-filter-control="select" data-sortable="true">Usuario</th>
             <th data-field="transaccion" data-filter-control="input" data-sortable="true">Id . Transacción</th>
             <th data-field="via" data-filter-control="input" data-sortable="true">Vía</th>

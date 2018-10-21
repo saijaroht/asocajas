@@ -6,9 +6,11 @@ var ListEventos = new Array();
 function ConsultarEventos() {
     debugger;
     var dataColumns = [
-        { data: "Nombre", orderable: false, ctroFilter: "txtNombreFilter" }
+        { data: "Evento", ctroFilter: "txtNombreFilter" },
+        { data: "IdUsuario", ctroFilter: "txtNombreFilter" },
+        { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
     ];
-    SetDataTable("table", ServiceUrl + "LTLogEventos/GetLTLogEventos", dataColumns);
+    SetDataTable("tblLogEventos", ServiceUrl + "LTLogEventos/GetLTLogEventos", dataColumns);
     //if (ListEventos.length == 0) {
     //    consumirServicio(ServiceUrl + "LTLogEventos/GetLTLogEventos", null, function (data) {
     //        ListEventos = data;

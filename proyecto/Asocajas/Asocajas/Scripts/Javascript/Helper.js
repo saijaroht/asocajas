@@ -749,6 +749,10 @@ function ConvertDateSQLToText(strdate) {
 //{data:"Nombre",orderable:false,ctroFilter:"txtNombreFilter"}
 function SetDataTable(idTable, URL, dataColumns) {
     debugger;
+    var columns = new Array();
+    $.each(dataColumns, function (index, value) {
+        columns.push({ data: value.data, "orderable": false });
+    });
     $('#' + idTable).dataTable({
         "searching": false,
         "processing": true, // control the processing indicator.
@@ -764,11 +768,7 @@ function SetDataTable(idTable, URL, dataColumns) {
                 return JSON.stringify({ parameters: d });
             }
         },
-        "columns": [
-            { "data": "Nombre", "orderable": true },
-            { "data": "Apellido", "orderable": false },
-            { "data": "Usuario", "orderable": true },
-        ],
+        "columns": columns,
         "order": [[0, "asc"]]
     });
 }

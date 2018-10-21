@@ -44,9 +44,11 @@
         <table id="mytable" class="table table-responsive table-bordred table-striped">
 
             <thead>
-
+			<!--
                 <th>
-                    <input type="checkbox" id="checkall" /></th>
+                    <input type="checkbox" id="checkall" />
+				</th>
+				-->
                 <th>Nombres</th>
                 <th>Apellido</th>
                 <th>Usuario</th>
@@ -103,15 +105,6 @@
             </tbody>
 
         </table>
-
-        <%--<table id="example" class="display" style="width:100%">
-            <thead>
-
-                <th>Nombres</th>
-                <th>Apellido</th>
-                <th>Usuario</th>
-            </thead>
-    </table>--%>
     </form>
     <div class="modal fade" id="ModalCrearUsuario" role="dialog">
         <div class="modal-dialog modal-lg">
