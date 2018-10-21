@@ -28,33 +28,18 @@ namespace Asocajas
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<RUsuario> RUsuario { get; set; }
         public DbSet<LTLogApp> LTLogApp { get; set; }
         public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public DbSet<LTLogEventos> LTLogEventos { get; set; }
         public DbSet<RCCF> RCCF { get; set; }
         public DbSet<RDatoBasico> RDatoBasico { get; set; }
+        public DbSet<RMenu> RMenu { get; set; }
         public DbSet<RRole> RRole { get; set; }
         public DbSet<RRptaAsocajas> RRptaAsocajas { get; set; }
         public DbSet<RRptaRnec> RRptaRnec { get; set; }
         public DbSet<RTipoDatoBasico> RTipoDatoBasico { get; set; }
-        public DbSet<RUsuario> RUsuario { get; set; }
-        public DbSet<RMenu> RMenu { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     
-        //public virtual ObjectResult<SendMail_Result> SendMail(string email, string asunto, string html)
-        //{
-        //    var emailParameter = email != null ?
-        //        new ObjectParameter("Email", email) :
-        //        new ObjectParameter("Email", typeof(string));
-    
-        //    var asuntoParameter = asunto != null ?
-        //        new ObjectParameter("Asunto", asunto) :
-        //        new ObjectParameter("Asunto", typeof(string));
-    
-        //    var htmlParameter = html != null ?
-        //        new ObjectParameter("Html", html) :
-        //        new ObjectParameter("Html", typeof(string));
-    
-        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SendMail_Result>("SendMail", emailParameter, asuntoParameter, htmlParameter);
-        //}
     }
 }

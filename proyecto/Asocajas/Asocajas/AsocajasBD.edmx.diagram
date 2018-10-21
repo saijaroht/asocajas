@@ -5,23 +5,26 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b84836529a85434fbc264fe47ef65328" Name="Diagram1" ZoomLevel="94">
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="4.4328478874791637" PointY="18.488987230923488" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="0.850836363085935" PointY="6.5213364989130458" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="1.8930264627062838" PointY="23.405885468891768" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="1.2589756200364677" PointY="21.930628190716089" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RDatoBasico" Width="1.5" PointX="2.0064236661449186" PointY="21.505383307815244" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="3.9057741630383647" PointY="24.237029370030868" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="1.3917688324077842" PointY="14.747086949063039" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="9.308423821492319" PointY="2.4480524372533208" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RTipoDatoBasico" Width="1.5" PointX="6.2774373713310041" PointY="27.176884902257886" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="6.8554913899188357" PointY="30.897935300552255" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="1.747967100584864" PointY="21.36341426771293" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="8.2936691103007956" PointY="17.755373933238616" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="2.7590465036961467" PointY="1.9199681141972393" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="6.2165281484911814" PointY="23.366461854133039" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RDatoBasico" Width="1.5" PointX="7.7708878031796251" PointY="4.4090311249760124" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RMenu" Width="1.5" PointX="9.8787402035103824" PointY="23.800119828339721" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRole" Width="1.5" PointX="10.408611678708629" PointY="25.980521795330812" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaAsocajas" Width="1.5" PointX="9.7453023222020363" PointY="23.771681498629825" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RRptaRnec" Width="1.5" PointX="9.9291632128549558" PointY="2.1930923323114833" />
+        <EntityTypeShape EntityType="AsocajasBDModel.RTipoDatoBasico" Width="1.5" PointX="8.9701122273551821" PointY="26.45259964207774" />
+        <EntityTypeShape EntityType="AsocajasBDModel.sysdiagrams" Width="1.5" PointX="0.070395380291340584" PointY="14.254860228977567" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="6.8554913899188357" PointY="30.897935300552255" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUserMod" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUsuario" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />
-        <EntityTypeShape EntityType="AsocajasBDModel.RMenu" Width="1.5" PointX="2.7477188700566622" PointY="31.87177562707652" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

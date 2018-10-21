@@ -704,6 +704,9 @@
     <Compile Include="Services\Servicios.aspx.designer.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Utility.cs" />
   </ItemGroup>
   <ItemGroup>

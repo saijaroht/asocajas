@@ -12,15 +12,12 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     using Asocajas.Common.Supertype;
-    public partial class LTLogEventos : EntityBase
+    public partial class sysdiagrams : EntityBase
     {
-        public long IdLogEvento { get; set; }
-        public System.DateTime FechaEvento { get; set; }
-        public string Evento { get; set; }
-        public Nullable<int> IdUsuario { get; set; }
-        public Nullable<int> idUserMod { get; set; }
-    
-        public virtual RUsuario RUsuario { get; set; }
-        public virtual RUsuario RUsuario1 { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

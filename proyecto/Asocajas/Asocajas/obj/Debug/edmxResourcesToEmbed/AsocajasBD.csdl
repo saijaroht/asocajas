@@ -1,15 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AsocajasBDModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="AsocajasBDEntities" p1:LazyLoadingEnabled="true">
+    <FunctionImport Name="SendMail" ReturnType="Collection(AsocajasBDModel.SendMail_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Asunto" Mode="In" Type="String" />
+      <Parameter Name="Html" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="RUsuario" EntityType="AsocajasBDModel.RUsuario" />
     <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.LTLogApp" />
     <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.LTLogConsultasAni" />
     <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
     <EntitySet Name="RCCF" EntityType="AsocajasBDModel.RCCF" />
     <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.RDatoBasico" />
+    <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
     <EntitySet Name="RRole" EntityType="AsocajasBDModel.RRole" />
     <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.RRptaAsocajas" />
     <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.RRptaRnec" />
     <EntitySet Name="RTipoDatoBasico" EntityType="AsocajasBDModel.RTipoDatoBasico" />
+    <EntitySet Name="sysdiagrams" EntityType="AsocajasBDModel.sysdiagrams" />
     <AssociationSet Name="FK_LTLogConsultasAni_RCcf" Association="AsocajasBDModel.FK_LTLogConsultasAni_RCcf">
       <End Role="RCCF" EntitySet="RCCF" />
       <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
@@ -22,15 +30,17 @@
       <End Role="RRptaRnec" EntitySet="RRptaRnec" />
       <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
     </AssociationSet>
-    <FunctionImport Name="SendMail" ReturnType="Collection(AsocajasBDModel.SendMail_Result)">
-      <Parameter Name="Email" Mode="In" Type="String" />
-      <Parameter Name="Asunto" Mode="In" Type="String" />
-      <Parameter Name="Html" Mode="In" Type="String" />
-    </FunctionImport>
-    <EntitySet Name="RUsuario" EntityType="AsocajasBDModel.RUsuario" />
     <AssociationSet Name="FK_LTLogConsultasAni_RUsuario" Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario">
       <End Role="RUsuario" EntitySet="RUsuario" />
       <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LTLogEventos_RUserMod" Association="AsocajasBDModel.FK_LTLogEventos_RUserMod">
+      <End Role="RUsuario" EntitySet="RUsuario" />
+      <End Role="LTLogEventos" EntitySet="LTLogEventos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LTLogEventos_RUsuario" Association="AsocajasBDModel.FK_LTLogEventos_RUsuario">
+      <End Role="RUsuario" EntitySet="RUsuario" />
+      <End Role="LTLogEventos" EntitySet="LTLogEventos" />
     </AssociationSet>
     <AssociationSet Name="FK_RUsuario_RCcf" Association="AsocajasBDModel.FK_RUsuario_RCcf">
       <End Role="RCCF" EntitySet="RCCF" />
@@ -40,8 +50,53 @@
       <End Role="RRole" EntitySet="RRole" />
       <End Role="RUsuario" EntitySet="RUsuario" />
     </AssociationSet>
-    <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
   </EntityContainer>
+  <ComplexType Name="SendMail_Result">
+    <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Apellido" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Vigencia" Nullable="false" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" />
+    <Property Type="Int32" Name="IdCcf" Nullable="true" />
+    <Property Type="Int32" Name="IdRole" Nullable="false" />
+    <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="FechaActualizacion" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UsuarioActualizacion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MaquinaActualizacion" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="Activo" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="RUsuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Type="Int32" Name="IdUsuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Apellido" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Vigencia" Nullable="false" Precision="0" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="IdCcf" />
+    <Property Type="Int32" Name="IdRole" Nullable="false" />
+    <Property Type="Int32" Name="Intentos" />
+    <Property Type="Boolean" Name="CambioObligatorio" Nullable="false" />
+    <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
+    <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="FechaActualizacion" Precision="3" />
+    <Property Type="String" Name="UsuarioActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Activo" Nullable="false" />
+    <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" FromRole="RUsuario" ToRole="LTLogConsultasAni" />
+    <NavigationProperty Name="LTLogEventos" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="RUsuario" ToRole="LTLogEventos" />
+    <NavigationProperty Name="LTLogEventos1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="RUsuario" ToRole="LTLogEventos" />
+    <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_RUsuario_RCcf" FromRole="RUsuario" ToRole="RCCF" />
+    <NavigationProperty Name="RRole" Relationship="AsocajasBDModel.FK_RUsuario_RRole" FromRole="RUsuario" ToRole="RRole" />
+  </EntityType>
   <EntityType Name="LTLogApp">
     <Key>
       <PropertyRef Name="IdLogApp" />
@@ -91,8 +146,10 @@
     <Property Type="Int64" Name="IdLogEvento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="DateTime" Name="FechaEvento" Nullable="false" Precision="3" />
     <Property Type="String" Name="Evento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Usuario" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="IdUsuario" />
+    <Property Type="Int32" Name="idUserMod" />
+    <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="LTLogEventos" ToRole="RUsuario" />
+    <NavigationProperty Name="RUsuario1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="LTLogEventos" ToRole="RUsuario" />
   </EntityType>
   <EntityType Name="RCCF">
     <Key>
@@ -127,6 +184,17 @@
     <Property Type="String" Name="UsuarioActualizacion" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="MaquinaActualizacion" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="Activo" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RMenu">
+    <Key>
+      <PropertyRef Name="IdMenu" />
+    </Key>
+    <Property Type="Int32" Name="IdMenu" Nullable="false" />
+    <Property Type="Int32" Name="IdMenuHijo" />
+    <Property Type="Int32" Name="IdRole" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="url" MaxLength="300" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="RRole">
     <Key>
@@ -176,6 +244,16 @@
     <Property Type="String" Name="MaquinaActualizacion" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="Activo" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <Association Name="FK_LTLogConsultasAni_RCcf">
     <End Type="AsocajasBDModel.RCCF" Role="RCCF" Multiplicity="0..1" />
     <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
@@ -212,50 +290,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <ComplexType Name="SendMail_Result">
-    <Property Type="Int32" Name="IdUsuario" Nullable="false" />
-    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" />
-    <Property Type="String" Name="Apellido" Nullable="true" MaxLength="150" />
-    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" />
-    <Property Type="String" Name="Password" Nullable="false" MaxLength="100" />
-    <Property Type="DateTime" Name="Vigencia" Nullable="false" />
-    <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" />
-    <Property Type="Int32" Name="IdCcf" Nullable="true" />
-    <Property Type="Int32" Name="IdRole" Nullable="false" />
-    <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
-    <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" />
-    <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" />
-    <Property Type="DateTime" Name="FechaActualizacion" Nullable="true" Precision="23" />
-    <Property Type="String" Name="UsuarioActualizacion" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="MaquinaActualizacion" Nullable="true" MaxLength="100" />
-    <Property Type="Boolean" Name="Activo" Nullable="false" />
-  </ComplexType>
-  <EntityType Name="RUsuario">
-    <Key>
-      <PropertyRef Name="IdUsuario" />
-    </Key>
-    <Property Type="Int32" Name="IdUsuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Apellido" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="Vigencia" Nullable="false" Precision="0" />
-    <Property Type="String" Name="Estado" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="IdCcf" />
-    <Property Type="Int32" Name="IdRole" Nullable="false" />
-    <Property Type="Int32" Name="Intentos" />
-    <Property Type="Boolean" Name="CambioObligatorio" Nullable="false" />
-    <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="3" />
-    <Property Type="String" Name="UsuarioCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="MaquinaCreacion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="DateTime" Name="FechaActualizacion" Precision="3" />
-    <Property Type="String" Name="UsuarioActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Type="Boolean" Name="Activo" Nullable="false" />
-    <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" FromRole="RUsuario" ToRole="LTLogConsultasAni" />
-    <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_RUsuario_RCcf" FromRole="RUsuario" ToRole="RCCF" />
-    <NavigationProperty Name="RRole" Relationship="AsocajasBDModel.FK_RUsuario_RRole" FromRole="RUsuario" ToRole="RRole" />
-  </EntityType>
   <Association Name="FK_LTLogConsultasAni_RUsuario">
     <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
     <End Type="AsocajasBDModel.LTLogConsultasAni" Role="LTLogConsultasAni" Multiplicity="*" />
@@ -264,6 +298,30 @@
         <PropertyRef Name="IdUsuario" />
       </Principal>
       <Dependent Role="LTLogConsultasAni">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LTLogEventos_RUserMod">
+    <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
+    <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="LTLogEventos">
+        <PropertyRef Name="idUserMod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LTLogEventos_RUsuario">
+    <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
+    <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUsuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="LTLogEventos">
         <PropertyRef Name="IdUsuario" />
       </Dependent>
     </ReferentialConstraint>
@@ -292,15 +350,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="RMenu">
-    <Key>
-      <PropertyRef Name="IdMenu" />
-    </Key>
-    <Property Type="Int32" Name="IdMenu" Nullable="false" />
-    <Property Type="Int32" Name="IdMenuHijo" />
-    <Property Type="Int32" Name="IdRole" Nullable="false" />
-    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="Orden" Nullable="false" />
-    <Property Type="String" Name="url" MaxLength="300" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>
