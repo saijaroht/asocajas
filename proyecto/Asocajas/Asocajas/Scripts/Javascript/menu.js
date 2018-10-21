@@ -30,17 +30,25 @@ function ConsultarConsultasMenu()
                  .OrderBy(function (x) { return x.Orden })
                 .ToArray();
             $.each(listaMenuHijo1, function (i, val2) {
-                if (i == 0)
-                { hijos = $("<li />", { class: "menu-item" }).append($("<a />", { href: val2.url, html: val2.Descripcion })); }
-                else {
-                    hijos = hijos.append( $("<li />", { class: "menu-item" }).append($("<a />", { href: val2.url, html: val2.Descripcion })));
+                if (i == 0) {
+                    hijos = "<li  class='menu-item'><a  href=" + val2.url + ">" + val2.Descripcion + "</a></li>";
                 }
+                else {
+                    hijos = hijos + "<li  class='menu-item'><a  href=" + val2.url + ">" + val2.Descripcion + "</a></li>";
+                }
+<<<<<<< HEAD
+=======
+               
+
+                
+
+>>>>>>> b64e76f4f5e34dd15c54c1e68eacd12d6e59addb
             });
             $("#menu")
                 .append($("<li />", { class: "menu-item dropdown" })
                 .append($("<a />", { href: "#", class: "dropdown-toggle", "data-toggle": "dropdown", html: val.Descripcion })
                 .append($("<b />", { class: "caret" })))
-                .append($("<ul />", { class: "dropdown-menu" }).append($(hijos))))
+                .append($("<ul />", { class: "dropdown-menu" }).append(hijos)))
         });
     });
    
