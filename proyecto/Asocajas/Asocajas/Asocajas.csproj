@@ -515,6 +515,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HelperGeneral.cs" />
+    <Compile Include="JsonDeserializer.cs" />
     <Compile Include="LTLogApp.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>

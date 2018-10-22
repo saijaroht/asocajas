@@ -12,15 +12,6 @@ function ConsultarEventos() {
         { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
-    //if (ListEventos.length == 0) {
-    //    consumirServicio(ServiceUrl + "LTLogEventos/GetLTLogEventos", null, function (data) {
-    //        ListEventos = data;
-    //        PrintTable();
-    //    });
-    //}
-    //else {
-    //    PrintTable();
-    //}
 }
 
 function Buscar() {
