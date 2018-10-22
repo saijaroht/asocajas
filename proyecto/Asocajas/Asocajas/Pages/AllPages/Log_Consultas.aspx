@@ -128,8 +128,24 @@
         <div id="toolbar">
 		
 </div>
+
+                    <table id="tblLogConsultasAni" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>CCF</th>
+                <th>Usuario</th>
+                <th>Id . Transacción</th>
+                <th>Vía</th>
+                <th>Estado</th>
+                <th>Consecutivo</th>
+                <th>Mac Address</th>
+                <th>Rango de fechas</th>
+            </tr>
+        </thead>
+    </table>
+            </div>
             <%--EJEMPLO1--%>
-<table id="table" 
+<%--<table id="table" 
 			 data-toggle="table"
 			 data-search="true"
 			 data-filter-control="true" 
@@ -153,13 +169,13 @@
     <tbody id="tbody">
 
 	</tbody>
-</table>
+</table>--%>
  </div>
 
 
 
     </form>
-    <script>
+    <%--<script>
 
         //exporte les données sélectionnées
         var $table = $('#table');
@@ -176,5 +192,5 @@
         $(trBoldBlue).on("click", "tr", function () {
             $(this).toggleClass("bold-blue");
         });
-    </script>
+    </script>--%>
 </asp:Content>

@@ -2,38 +2,60 @@
     ConsultarConsultasAni();
     //BuscarTable("Buscartxt", "tbodyLogEventos");
 });
-var ListConsulta= new Array();
+
+var ListEventos = new Array();
 function ConsultarConsultasAni() {
     debugger;
-    if (ListConsulta.length == 0) {
-        consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAni", null, function (data) {
-            ListConsulta = data;
-            PrintTable();
-        });
-    }
-    else {
-        PrintTable();
-    }
+    var dataColumns = [
+        { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
+        { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
+        { data: "Evento", ctroFilter: "txtNombreFilter" },
+        { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
+    ];
+    SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
+    //if (ListEventos.length == 0) {
+    //    consumirServicio(ServiceUrl + "LTLogEventos/GetLTLogEventos", null, function (data) {
+    //        ListEventos = data;
+    //        PrintTable();
+    //    });
+    //}
+    //else {
+    //    PrintTable();
+    //}
 }
-function PrintTable() {
-    debugger
-    $("#tbody").empty();
-    $.each(ListConsulta, function (index, val) {
-        $("#tbody")
-                .append($("<tr />")
-                .append($("<td />", { html: val.RCCF.Nombre }))
-                .append($("<td />", { html: val.RUsuario.Usuario }))
-                .append($("<td />", { html: val.IdConsulta }))
-                .append($("<td />", { html: val.RRptaRnec.RptaRnec }))
-                .append($("<td />", { html: val.RRptaAsocajas.RptaAsocajas }))
-                .append($("<td />", { html: val.Origen }))
-                .append($("<td />", { html: val.Duracion }))
-                .append($("<td />", { html: val.FechaInicia + "--- " + val.FechaFin }))
+
+//var ListConsulta= new Array();
+//function ConsultarConsultasAni() {
+//    debugger;
+//    if (ListConsulta.length == 0) {
+//        consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAni", null, function (data) {
+//            ListConsulta = data;
+//            PrintTable();
+//        });
+//    }
+//    else {
+//        PrintTable();
+//    }
+}
+//function PrintTable() {
+//    debugger
+//    $("#tbody").empty();
+//    $.each(ListConsulta, function (index, val) {
+//        $("#tbody")
+//                .append($("<tr />")
+//                .append($("<td />", { html: val.RCCF.Nombre }))
+//                .append($("<td />", { html: val.RUsuario.Usuario }))
+//                .append($("<td />", { html: val.IdConsulta }))
+//                .append($("<td />", { html: val.RRptaRnec.RptaRnec }))
+//                .append($("<td />", { html: val.RRptaAsocajas.RptaAsocajas }))
+//                .append($("<td />", { html: val.Origen }))
+//                .append($("<td />", { html: val.Duracion }))
+//                .append($("<td />", { html: val.FechaInicia + "--- " + val.FechaFin }))
                 
 
 
 
 
-               );
-    });
-}
+//               );
+//    });
+//}
