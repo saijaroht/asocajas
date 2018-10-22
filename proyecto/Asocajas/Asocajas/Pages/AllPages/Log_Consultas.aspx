@@ -144,6 +144,11 @@
         </thead>
     </table>
             </div>
+           <br />
+         <br />
+         <br />
+         <br />
+         <br />
             <%--EJEMPLO1--%>
 <%--<table id="table" 
 			 data-toggle="table"
@@ -175,6 +180,7 @@
 
 
     </form>
+  
     <%--<script>
 
         //exporte les données sélectionnées
