@@ -40,63 +40,45 @@ namespace Asocajas.Controllers
                         JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
                         List<LTLogEventos> list = new List<LTLogEventos>();
 
-                        var IdCCF = js.GetString("search.IdCCF");
-                        var IdUsuario = js.GetString("search.IdUsuario");
-                        var FechaInicial = js.GetString("search.FechaInicial");
-                        var FechaFinal = js.GetString("search.FechaFinal");
+                        var IdCCFstr = js.GetString("search.IdCCF");
+                        var IdUsuariostr = js.GetString("search.IdUsuario");
+                        var FechaInicialstr = js.GetString("search.FechaInicial");
+                        var FechaFinalstr = js.GetString("search.FechaFinal");
                         dataTableData.draw = (int)input["draw"];
 
-                        if (!string.IsNullOrEmpty(IdCCF) || !string.IsNullOrEmpty(IdUsuario) || !string.IsNullOrEmpty(FechaInicial) || !string.IsNullOrEmpty(FechaFinal))
+                        int? IdUsuario = !string.IsNullOrEmpty(IdUsuariostr) ? (int?)Convert.ToInt32(IdUsuariostr) : null;
+
+                        int? IdCCF = !string.IsNullOrEmpty(IdCCFstr) ? (int?)Convert.ToInt64(IdCCFstr) : null;
+
+                        var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == IdCCF).Select(o => o.IdUsuario).ToList();
+
+                        DateTime? FechaInicial = !string.IsNullOrEmpty(FechaInicialstr) ? (DateTime?)Convert.ToDateTime(FechaInicialstr) : null;
+                        DateTime? FechaFinal = !string.IsNullOrEmpty(FechaFinalstr) ? (DateTime?)Convert.ToDateTime(FechaFinalstr).AddDays(1) : null;
+
+                        list = objLTLogEventos.Get(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
+                            && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
+                            ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
+                            ).Skip((int)input["start"]).Take((int)input["length"]).ToList();
+
+                        if (strSearch != input["search"]["value"].ToString())
                         {
-                            if (strSearch == input["search"]["value"].ToString())
-                            {
-                                list = listLTLogEventos.Skip((int)input["start"]).Take((int)input["length"]).ToList();
-                            }
-                            else
-                            {
-                                strSearch = input["search"]["value"].ToString();
-                                
-                                list = objLTLogEventos.Get().ToList();
-                                if (!string.IsNullOrEmpty(IdUsuario))
-                                {
-                                    list = list.Where(o => o.IdUsuario == Convert.ToInt32(IdUsuario)).ToList();
-                                }
-                                else if (!string.IsNullOrEmpty(IdCCF))
-                                {
-                                    //long[] IdsUsersCCF;
-                                    var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == Convert.ToInt32(IdCCF)).Select(o => Convert.ToInt32(o.IdUsuario)).ToList();
-                                    list = list.Where(o => IdsUsersCCF.Contains(o.IdUsuario)).ToList();
-                                }
-                                if (!string.IsNullOrEmpty(FechaInicial) && !string.IsNullOrEmpty(FechaFinal))
-                                {
-                                    list = list.Where(o => o.FechaEvento >= Convert.ToDateTime(FechaInicial) && o.FechaEvento <= Convert.ToDateTime(FechaFinal)).ToList();
-                                }
-                                listLTLogEventos = list;
-                                TotalRowsLogEventos = list.Count();
-                                list = list.Skip((int)input["start"]).Take((int)input["length"]).ToList();
-                            }
-                        }
-                        else
-                        {
-                            TotalRowsLogEventos = 0;
-                            list = objLTLogEventos.Get().Skip((int)input["start"]).Take((int)input["length"]).ToList();
+                            TotalRowsLogEventos = objLTLogEventos.Get().Where(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
+                                && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
+                                ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
+                                ).Count();
+                            strSearch = input["search"]["value"].ToString();
                         }
 
                         //list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
 
+                        dataTableData.recordsFiltered = TotalRowsLogEventos;
                         foreach (var item in list)
                         {
                             item.RUsuario = objRUsuario.Get(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
                             item.RUsuario.RCCF = objRCCF.Get(o => o.IdCcf == item.RUsuario.IdCcf).FirstOrDefault();
                         }
-                        //list = HelperGeneral.PaginadorConsultasLTLogEventos((int)input["start"], (int)input["length"]);
 
                         dataTableData.data = list;
-                        if (TotalRowsLogEventos == 0)
-                        {
-                            TotalRowsLogEventos = objLTLogEventos.Get().Count();
-                        }
-                        dataTableData.recordsFiltered = TotalRowsLogEventos;
                         dataTableData.recordsTotal = dataTableData.recordsFiltered;
 
                         return Json(dataTableData);

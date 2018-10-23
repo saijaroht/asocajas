@@ -582,6 +582,24 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
 }
 
 
+function CargarFecha(fecha,formato) {
+    $('#' + fecha).datepicker({
+        //minDate: 0,
+        dateFormat: formato || 'dd/mm/yy',
+        beforeShow: function () {
+            setTimeout(function () {
+                $('.ui-datepicker').css('z-index', 99999);
+            }, 0);
+        }
+    })
+    .on('changeDate', function (e) {
+        debugger;
+        // Revalidate the date field
+        $('#eventForm').formValidation('revalidateField', 'date');
+    })
+}
+
+
 function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, FuncionCancelar, NombreAceptar, NombreCancelar) {
     switch (TipoMensaje) {
         case "AceptarCancelar":

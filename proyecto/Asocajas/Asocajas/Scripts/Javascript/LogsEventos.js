@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    CargarFechaInicioFechaFin('txtFechaIncial');
-    CargarFechaInicioFechaFin('txtFechaFinal');
+    CargarFecha('txtFechaIncial','yy-mm-dd');
+    CargarFecha('txtFechaFinal', 'yy-mm-dd');
     cargaAdicionales();
     ConsultarEventos();
     //BuscarTable("Buscartxt", "tbodyLogEventos");
@@ -15,7 +15,9 @@ function ConsultarEventos() {
         { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
-    Buscar();
+    $('#tblLogEventos').DataTable().search(
+       ""
+    ).draw();
 }
 
 function Buscar() {
@@ -36,7 +38,7 @@ var UsuariosList = new Array();
 function cargaAdicionales() {
     consumirServicio(ServiceUrl + "RCCF/GetRCCF", null, function (data) {
         $("#cboCCF").empty();
-        $("#cboCCF").append('<option value="">Seleccione...</option>');
+        $("#cboCCF").append('<option value="">Todos</option>');
         CCFList = data;
         $.each(data, function (i, val) {
             $("#cboCCF").append('<option value = "' + val.IdCcf + '">' + val.Nombre + '</option>');
@@ -54,6 +56,7 @@ function cargaAdicionales() {
             var lista = Enumerable.From(UsuariosList)
             .Where(function (x) { return x.IdCcf == idCCF })
             .ToArray();
+            $("#cboUsuario").append('<option value="">Todos</option>');
             $.each(lista, function (i, val) {
                 $("#cboUsuario").append('<option value = "' + val.IdUsuario + '">' + val.Nombres + '</option>');
             });
@@ -70,7 +73,7 @@ function cargaAdicionales() {
 
 function CargarUsuarios() {
     $("#cboUsuario").empty();
-    $("#cboUsuario").append('<option value="">Seleccione...</option>');
+    $("#cboUsuario").append('<option value="">Todos</option>');
     $.each(UsuariosList, function (i, val) {
         $("#cboUsuario").append('<option value = "' + val.IdUsuario + '">' + val.Nombres + '</option>');
     });

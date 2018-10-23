@@ -44,11 +44,6 @@
         <table id="mytable" class="table table-responsive table-bordred table-striped">
 
             <thead>
-			<!--
-                <th>
-                    <input type="checkbox" id="checkall" />
-				</th>
-				-->
                 <th>Nombres</th>
                 <th>Apellido</th>
                 <th>Usuario</th>
@@ -60,51 +55,13 @@
             </thead>
             <tbody id="tbodyGestionUsuarios">
 
-                <%--  <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Mohsin</td>
-    <td>Irshad</td>
-    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-    <td>isometric.mohsin@gmail.com</td>
-    <td>+923335586757</td>
-        <td>Activo</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="open"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-    <td class="hidden"><p data-placement="top" data-toggle="tooltip" title="close"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></button></p></td>
-    </tr>
-    
- <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Mohsin</td>
-    <td>Irshad</td>
-    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-    <td>isometric.mohsin@gmail.com</td>
-    <td>+923335586757</td>
-     <td>Activo</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    <td class="hidden"><p data-placement="top" data-toggle="tooltip" title="open"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-     <td><p data-placement="top" data-toggle="tooltip" title="closes"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></button></p></td>
- </tr>
-
-        <tr>
-    <td><input type="checkbox" class="checkthis" /></td>
-    <td>Cristhian Camilo</td>
-    <td>Gutierrez</td>
-    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-    <td>usuario@gmail.com</td>
-    <td>+923335586757</td>
-     <td>Activo</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-    <td class="hidden"><p data-placement="top" data-toggle="tooltip" title="open"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></p></td>
-     <td><p data-placement="top" data-toggle="tooltip" title="closes"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></button></p></td>
- </tr>
-                --%>
             </tbody>
 
         </table>
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
     <div class="modal fade" id="ModalCrearUsuario" role="dialog">
         <div class="modal-dialog modal-lg">
