@@ -17,7 +17,7 @@ namespace Asocajas
         public long IdLogEvento { get; set; }
         public System.DateTime FechaEvento { get; set; }
         public string Evento { get; set; }
-        public Nullable<int> IdUsuario { get; set; }
+        public int IdUsuario { get; set; }
         public Nullable<int> idUserMod { get; set; }
     
         public virtual RUsuario RUsuario { get; set; }

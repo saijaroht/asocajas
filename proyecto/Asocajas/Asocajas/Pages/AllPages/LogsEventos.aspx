@@ -38,8 +38,8 @@
 								<span>CCF</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-								<select class="form-control">
-									<option value="0">-- TODAS --</option>
+								<select class="form-control" id="cboCCF">
+									<option value="">-- TODAS --</option>
 									<option value="1">ASOCAJAS</option>
 									<option value="2">CAMACOL</option>
 									<option value="3">COMFENALCO ANTIOQUIA</option>
@@ -92,8 +92,8 @@
 								<span>USUARIO</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-								<select class="form-control">
-									<option value="1"></option>
+								<select class="form-control" id="cboUsuario">
+									<option value=""></option>
 								</select>
 							</div>
 						</div>
@@ -102,7 +102,7 @@
 								<span>FECHA INICIAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='date' class="form-control" name="LogInicia" id="LogInicia" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required/>
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 ">
@@ -110,7 +110,7 @@
 								<span>FECHA FINAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='date' class="form-control" name="LogFinaliza" id="LogFinaliza" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required/>
 							</div>
 						</div>
 						
@@ -118,7 +118,7 @@
 
                     <div class="col-xs-4 offset-xs-4 col-sm-4 offset-sm-4 col-md-2 offset-md-0 nuevoUser">	
 						<span></span>
-                        <button type="button" class="btn btn-success" >Consultar</button>
+                        <button type="button" class="btn btn-success" onclick="Buscar();" >Consultar</button>
                     </div>
                 
             </div>

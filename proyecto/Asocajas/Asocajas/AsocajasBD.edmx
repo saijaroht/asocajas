@@ -96,7 +96,7 @@
           <Property Name="IdLogEvento" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FechaEvento" Type="datetime" Nullable="false" />
           <Property Name="Evento" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
           <Property Name="idUserMod" Type="int" />
         </EntityType>
         <EntityType Name="RCCF">
@@ -281,7 +281,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LTLogEventos_RUsuario">
-          <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="0..1" />
+          <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="1" />
           <End Role="LTLogEventos" Type="AsocajasBDModel.Store.LTLogEventos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RUsuario">
@@ -334,7 +334,6 @@
           <EntitySet Name="RUsuario" EntityType="AsocajasBDModel.RUsuario" />
           <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.LTLogApp" />
           <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.LTLogConsultasAni" />
-          <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
           <EntitySet Name="RCCF" EntityType="AsocajasBDModel.RCCF" />
           <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.RDatoBasico" />
           <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
@@ -359,14 +358,6 @@
             <End Role="RUsuario" EntitySet="RUsuario" />
             <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
           </AssociationSet>
-          <AssociationSet Name="FK_LTLogEventos_RUserMod" Association="AsocajasBDModel.FK_LTLogEventos_RUserMod">
-            <End Role="RUsuario" EntitySet="RUsuario" />
-            <End Role="LTLogEventos" EntitySet="LTLogEventos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LTLogEventos_RUsuario" Association="AsocajasBDModel.FK_LTLogEventos_RUsuario">
-            <End Role="RUsuario" EntitySet="RUsuario" />
-            <End Role="LTLogEventos" EntitySet="LTLogEventos" />
-          </AssociationSet>
           <AssociationSet Name="FK_RUsuario_RCcf" Association="AsocajasBDModel.FK_RUsuario_RCcf">
             <End Role="RCCF" EntitySet="RCCF" />
             <End Role="RUsuario" EntitySet="RUsuario" />
@@ -374,6 +365,15 @@
           <AssociationSet Name="FK_RUsuario_RRole" Association="AsocajasBDModel.FK_RUsuario_RRole">
             <End Role="RRole" EntitySet="RRole" />
             <End Role="RUsuario" EntitySet="RUsuario" />
+          </AssociationSet>
+          <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
+          <AssociationSet Name="FK_LTLogEventos_RUserMod" Association="AsocajasBDModel.FK_LTLogEventos_RUserMod">
+            <End Role="RUsuario" EntitySet="RUsuario" />
+            <End Role="LTLogEventos" EntitySet="LTLogEventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LTLogEventos_RUsuario" Association="AsocajasBDModel.FK_LTLogEventos_RUsuario">
+            <End Role="RUsuario" EntitySet="RUsuario" />
+            <End Role="LTLogEventos" EntitySet="LTLogEventos" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="SendMail_Result">
@@ -417,10 +417,10 @@
           <Property Type="String" Name="MaquinaActualizacion" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Activo" Nullable="false" />
           <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" FromRole="RUsuario" ToRole="LTLogConsultasAni" />
-          <NavigationProperty Name="LTLogEventos" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="RUsuario" ToRole="LTLogEventos" />
-          <NavigationProperty Name="LTLogEventos1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="RUsuario" ToRole="LTLogEventos" />
           <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_RUsuario_RCcf" FromRole="RUsuario" ToRole="RCCF" />
           <NavigationProperty Name="RRole" Relationship="AsocajasBDModel.FK_RUsuario_RRole" FromRole="RUsuario" ToRole="RRole" />
+          <NavigationProperty Name="LTLogEventos" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="RUsuario" ToRole="LTLogEventos" />
+          <NavigationProperty Name="LTLogEventos1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="RUsuario" ToRole="LTLogEventos" />
           </EntityType>
         <EntityType Name="LTLogApp">
           <Key>
@@ -463,18 +463,6 @@
           <NavigationProperty Name="RRptaAsocajas" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" FromRole="LTLogConsultasAni" ToRole="RRptaAsocajas" />
           <NavigationProperty Name="RRptaRnec" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" FromRole="LTLogConsultasAni" ToRole="RRptaRnec" />
           <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" FromRole="LTLogConsultasAni" ToRole="RUsuario" />
-        </EntityType>
-        <EntityType Name="LTLogEventos">
-          <Key>
-            <PropertyRef Name="IdLogEvento" />
-          </Key>
-          <Property Type="Int64" Name="IdLogEvento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="DateTime" Name="FechaEvento" Nullable="false" Precision="3" />
-          <Property Type="String" Name="Evento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdUsuario" />
-          <Property Type="Int32" Name="idUserMod" />
-          <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="LTLogEventos" ToRole="RUsuario" />
-          <NavigationProperty Name="RUsuario1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="LTLogEventos" ToRole="RUsuario" />
         </EntityType>
         <EntityType Name="RCCF">
           <Key>
@@ -627,30 +615,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LTLogEventos_RUserMod">
-          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
-          <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RUsuario">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="LTLogEventos">
-              <PropertyRef Name="idUserMod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LTLogEventos_RUsuario">
-          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
-          <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RUsuario">
-              <PropertyRef Name="IdUsuario" />
-            </Principal>
-            <Dependent Role="LTLogEventos">
-              <PropertyRef Name="IdUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RUsuario_RCcf">
           <End Type="AsocajasBDModel.RCCF" Role="RCCF" Multiplicity="0..1" />
           <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="*" />
@@ -672,6 +636,42 @@
             </Principal>
             <Dependent Role="RUsuario">
               <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LTLogEventos">
+          <Key>
+            <PropertyRef Name="IdLogEvento" />
+          </Key>
+          <Property Type="Int64" Name="IdLogEvento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FechaEvento" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Evento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="Int32" Name="idUserMod" />
+          <NavigationProperty Name="RUsuario" Relationship="AsocajasBDModel.FK_LTLogEventos_RUserMod" FromRole="LTLogEventos" ToRole="RUsuario" />
+          <NavigationProperty Name="RUsuario1" Relationship="AsocajasBDModel.FK_LTLogEventos_RUsuario" FromRole="LTLogEventos" ToRole="RUsuario" />
+        </EntityType>
+        <Association Name="FK_LTLogEventos_RUserMod">
+          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="0..1" />
+          <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="LTLogEventos">
+              <PropertyRef Name="idUserMod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LTLogEventos_RUsuario">
+          <End Type="AsocajasBDModel.RUsuario" Role="RUsuario" Multiplicity="1" />
+          <End Type="AsocajasBDModel.LTLogEventos" Role="LTLogEventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="LTLogEventos">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -764,17 +764,6 @@
                 <ScalarProperty Name="Nuip" ColumnName="Nuip" />
                 <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
                 <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LTLogEventos">
-            <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
-              <MappingFragment StoreEntitySet="LTLogEventos">
-                <ScalarProperty Name="idUserMod" ColumnName="idUserMod" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Evento" ColumnName="Evento" />
-                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
-                <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -881,6 +870,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LTLogEventos">
+            <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
+              <MappingFragment StoreEntitySet="LTLogEventos">
+                <ScalarProperty Name="idUserMod" ColumnName="idUserMod" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
+                <ScalarProperty Name="IdLogEvento" ColumnName="IdLogEvento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

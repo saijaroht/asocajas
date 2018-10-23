@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="AsocajasBDModel.RUsuario" Width="1.5" PointX="6.8554913899188357" PointY="30.897935300552255" />
         <EntityTypeShape EntityType="AsocajasBDModel.LTLogApp" Width="1.5" PointX="1.747967100584864" PointY="21.36341426771293" />
         <EntityTypeShape EntityType="AsocajasBDModel.LTLogConsultasAni" Width="1.5" PointX="8.2936691103007956" PointY="17.755373933238616" />
-        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="2.7590465036961467" PointY="1.9199681141972393" />
         <EntityTypeShape EntityType="AsocajasBDModel.RCCF" Width="1.5" PointX="6.2165281484911814" PointY="23.366461854133039" />
         <EntityTypeShape EntityType="AsocajasBDModel.RDatoBasico" Width="1.5" PointX="7.7708878031796251" PointY="4.4090311249760124" />
         <EntityTypeShape EntityType="AsocajasBDModel.RMenu" Width="1.5" PointX="9.8787402035103824" PointY="23.800119828339721" />
@@ -21,10 +20,11 @@
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaAsocajas" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RRptaRnec" />
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogConsultasAni_RUsuario" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUserMod" />
-        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUsuario" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />
+        <EntityTypeShape EntityType="AsocajasBDModel.LTLogEventos" Width="1.5" PointX="8.9054309972121537" PointY="22.23083185694685" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUserMod" />
+        <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUsuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

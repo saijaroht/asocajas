@@ -1,8 +1,11 @@
 ﻿$(document).ready(function () {
+    CargarFechaInicioFechaFin('txtFechaIncial');
+    CargarFechaInicioFechaFin('txtFechaFinal');
+    cargaAdicionales();
     ConsultarEventos();
     //BuscarTable("Buscartxt", "tbodyLogEventos");
 });
-var ListEventos = new Array();
+
 function ConsultarEventos() {
     debugger;
     var dataColumns = [
@@ -12,15 +15,63 @@ function ConsultarEventos() {
         { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
+    Buscar();
 }
 
 function Buscar() {
     $('#tblLogEventos').DataTable().search(
-       JSON.stringify( {
-            IdCCF: "1",
-            IdUsuario: "2",
-            Evento: "3",
-            FechaEvento:"2018-01-01"
-        })
+       JSON.stringify({
+           search: {
+               IdCCF: $('#cboCCF').val(),
+               IdUsuario: $('#cboUsuario').val(),
+               FechaInicial: $("#txtFechaIncial").val(),
+               FechaFinal: $("#txtFechaFinal").val()
+           }
+       })
     ).draw();
+}
+
+var CCFList = new Array();
+var UsuariosList = new Array();
+function cargaAdicionales() {
+    consumirServicio(ServiceUrl + "RCCF/GetRCCF", null, function (data) {
+        $("#cboCCF").empty();
+        $("#cboCCF").append('<option value="">Seleccione...</option>');
+        CCFList = data;
+        $.each(data, function (i, val) {
+            $("#cboCCF").append('<option value = "' + val.IdCcf + '">' + val.Nombre + '</option>');
+        });
+    }, null, function (dataError) {
+
+    });
+
+    $("#cboCCF").change(function () {
+        if ($(this).val() == "") {
+            CargarUsuarios();
+        } else {
+            $("#cboUsuario").empty();
+            var idCCF=$(this).val();
+            var lista = Enumerable.From(UsuariosList)
+            .Where(function (x) { return x.IdCcf == idCCF })
+            .ToArray();
+            $.each(lista, function (i, val) {
+                $("#cboUsuario").append('<option value = "' + val.IdUsuario + '">' + val.Nombres + '</option>');
+            });
+        }
+    });
+
+    consumirServicio(ServiceUrl + "RUsuario/GetRUsuario", null, function (data) {
+        UsuariosList = data;
+        CargarUsuarios();
+    }, null, function (dataError) {
+
+    });
+}
+
+function CargarUsuarios() {
+    $("#cboUsuario").empty();
+    $("#cboUsuario").append('<option value="">Seleccione...</option>');
+    $.each(UsuariosList, function (i, val) {
+        $("#cboUsuario").append('<option value = "' + val.IdUsuario + '">' + val.Nombres + '</option>');
+    });
 }

@@ -91,7 +91,7 @@
     <Property Name="IdLogEvento" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="FechaEvento" Type="datetime" Nullable="false" />
     <Property Name="Evento" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="IdUsuario" Type="int" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
     <Property Name="idUserMod" Type="int" />
   </EntityType>
   <EntityType Name="RCCF">
@@ -276,7 +276,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LTLogEventos_RUsuario">
-    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="0..1" />
+    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="1" />
     <End Role="LTLogEventos" Type="AsocajasBDModel.Store.LTLogEventos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RUsuario">

@@ -23,6 +23,8 @@ namespace Asocajas.Controllers
             public List<LTLogEventos> data { get; set; }
         }
         public static int TotalRowsLogEventos { get; set; }
+        public static List<LTLogEventos> listLTLogEventos { get; set; }
+        public static string strSearch { get; set; }
 
         // this ajax function is called by the client for each draw of the information on the page (i.e. when paging, ordering, searching, etc.). 
         public IHttpActionResult AjaxGetJsonDataLTLogEventos(object parameters)
@@ -36,11 +38,51 @@ namespace Asocajas.Controllers
                         DataTableDataLogEventos dataTableData = new DataTableDataLogEventos();
                         var input = JObject.FromObject(JObject.FromObject(parameters)["parameters"]);
                         JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
-                        //var usu =JsonDeserializer(input["search"]["value"]);
-                        //var search = JObject.FromObject(input["search"]["value"]);
-                        dataTableData.draw = (int)input["draw"];
                         List<LTLogEventos> list = new List<LTLogEventos>();
-                        list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
+
+                        var IdCCF = js.GetString("search.IdCCF");
+                        var IdUsuario = js.GetString("search.IdUsuario");
+                        var FechaInicial = js.GetString("search.FechaInicial");
+                        var FechaFinal = js.GetString("search.FechaFinal");
+                        dataTableData.draw = (int)input["draw"];
+
+                        if (!string.IsNullOrEmpty(IdCCF) || !string.IsNullOrEmpty(IdUsuario) || !string.IsNullOrEmpty(FechaInicial) || !string.IsNullOrEmpty(FechaFinal))
+                        {
+                            if (strSearch == input["search"]["value"].ToString())
+                            {
+                                list = listLTLogEventos.Skip((int)input["start"]).Take((int)input["length"]).ToList();
+                            }
+                            else
+                            {
+                                strSearch = input["search"]["value"].ToString();
+                                
+                                list = objLTLogEventos.Get().ToList();
+                                if (!string.IsNullOrEmpty(IdUsuario))
+                                {
+                                    list = list.Where(o => o.IdUsuario == Convert.ToInt32(IdUsuario)).ToList();
+                                }
+                                else if (!string.IsNullOrEmpty(IdCCF))
+                                {
+                                    //long[] IdsUsersCCF;
+                                    var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == Convert.ToInt32(IdCCF)).Select(o => Convert.ToInt32(o.IdUsuario)).ToList();
+                                    list = list.Where(o => IdsUsersCCF.Contains(o.IdUsuario)).ToList();
+                                }
+                                if (!string.IsNullOrEmpty(FechaInicial) && !string.IsNullOrEmpty(FechaFinal))
+                                {
+                                    list = list.Where(o => o.FechaEvento >= Convert.ToDateTime(FechaInicial) && o.FechaEvento <= Convert.ToDateTime(FechaFinal)).ToList();
+                                }
+                                listLTLogEventos = list;
+                                TotalRowsLogEventos = list.Count();
+                                list = list.Skip((int)input["start"]).Take((int)input["length"]).ToList();
+                            }
+                        }
+                        else
+                        {
+                            TotalRowsLogEventos = 0;
+                            list = objLTLogEventos.Get().Skip((int)input["start"]).Take((int)input["length"]).ToList();
+                        }
+
+                        //list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
 
                         foreach (var item in list)
                         {

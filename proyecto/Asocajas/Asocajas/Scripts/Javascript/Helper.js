@@ -753,6 +753,7 @@ function SetDataTable(idTable, URL, dataColumns) {
     $.each(dataColumns, function (index, value) {
         columns.push({ data: value.data, "orderable": false });
     });
+
     $('#' + idTable).dataTable({
         "searching": true,
         "processing": true, // control the processing indicator.
@@ -770,5 +771,6 @@ function SetDataTable(idTable, URL, dataColumns) {
         },
         "columns": columns,
         "order": [[0, "asc"]]
-    });
+    })
+
 }

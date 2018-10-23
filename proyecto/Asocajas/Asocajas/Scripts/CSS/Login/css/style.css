@@ -118,7 +118,7 @@ input[type="text"],
 input[type="email"] {
     width: 100%;
    border-radius: 0px 4px 4px 0px !important; 
-    background: transparent;
+    /*background: transparent;*/
     color: #000;
 }
 
@@ -694,3 +694,5 @@ div#custom-search-input span.input-group-btn {
 }
 
 .datepicker{z-index:1151 !important;}
+
+/*.dataTables_filter, .dataTables_info { display: none; }*/
