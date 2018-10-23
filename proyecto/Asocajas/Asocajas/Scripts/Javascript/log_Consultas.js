@@ -9,10 +9,15 @@ function ConsultarConsultasAni() {
     var dataColumns = [
         { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
         { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
-        { data: "Evento", ctroFilter: "txtNombreFilter" },
-        { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+      
     ];
-    SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
+    SetDataTable("tblLogConsultasAni", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
     //if (ListEventos.length == 0) {
     //    consumirServicio(ServiceUrl + "LTLogEventos/GetLTLogEventos", null, function (data) {
     //        ListEventos = data;
@@ -36,7 +41,7 @@ function ConsultarConsultasAni() {
 //    else {
 //        PrintTable();
 //    }
-}
+
 //function PrintTable() {
 //    debugger
 //    $("#tbody").empty();
