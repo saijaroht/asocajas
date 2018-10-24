@@ -15,12 +15,10 @@ function ConsultarEventos() {
         { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
-    $('#tblLogEventos').DataTable().search(
-       ""
-    ).draw();
 }
 
 function Buscar() {
+    $('#dvLogEventos').show();
     $('#tblLogEventos').DataTable().search(
        JSON.stringify({
            search: {

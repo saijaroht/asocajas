@@ -9,12 +9,20 @@ using Asocajas;
 using Asocajas.Utilities;
 using System.Web.Script.Serialization;
 using System.Configuration;
+using System.Web;
 
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RUsuarioController : BaseController<RUsuario>
     {
+        private string CrearUsuario = "CREAR USUARIO";
+        private string CambiarClave = "CAMBIA CLAVE";
+        private string OlvidaClave= "OLVIDA CLAVE";
+        private string BloqueaUsuario = "BLOQUEA USUARIO";
+        private string DesbloqueaUsuario = "DESBLOQUEA USUARIO";
+
+
         public IHttpActionResult GetRUsuario()
         {
             try
@@ -51,6 +59,7 @@ namespace Asocajas.Controllers
                     var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
                     RUsuario rusuario = new RUsuario();
                     rusuario = obj.FirstOrDefault();
+                    rusuario.UsuarioLogueado = user;
                     var today = DateTime.Now.Date;
 
                     int resultadoFechas = DateTime.Compare(rusuario.Vigencia, today);
@@ -77,6 +86,7 @@ namespace Asocajas.Controllers
                     {
                         rusuario.Estado = ((int)Estados.Bloqueado).ToString();
                         UpdateTry(rusuario);
+                        CreateLogEventos(BloqueaUsuario, rusuario);
                         result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
                         result.Ok = false;
                     }
@@ -208,6 +218,8 @@ namespace Asocajas.Controllers
                     var decypt = Utility.TripleDES(rsuario.Password, false);
                     rsuario.CambioObligatorio = true;
                     var obj = this.objDb.Add(rsuario);
+                    CreateLogEventos(CrearUsuario, rsuario);
+
                     this.IEnviarEmail(rsuario, randomPass, "");
                     return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
                 }
@@ -232,8 +244,10 @@ namespace Asocajas.Controllers
             {
                 var rsuario = this.objDb.Get(o => o.Usuario == cambioPassword.Usuario).FirstOrDefault();
                 rsuario.CambioObligatorio = false;
+                rsuario.UsuarioLogueado = cambioPassword.Usuario;
                 rsuario.Password = Utility.TripleDES(cambioPassword.Password, true);
                 UpdateTry(rsuario);
+                CreateLogEventos(CambiarClave, rsuario);
 
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
@@ -249,12 +263,20 @@ namespace Asocajas.Controllers
             {
                 var rsuario = this.objDb.Get(activarBloquear.IdUsuario);
                 rsuario.Estado = activarBloquear.Estado;
-                rsuario.CambioObligatorio =true;
+                rsuario.CambioObligatorio = true;
                 var randomPass = HelperGeneral.RandomPass();
                 rsuario.Password = Utility.TripleDES(randomPass, true);
-                if (Convert.ToInt32(activarBloquear.Estado) == (int)Estados.Activo)
-                    this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
                 UpdateTry(rsuario);
+                rsuario.UsuarioLogueado = activarBloquear.UsuarioLogueado;
+                if (Convert.ToInt32(activarBloquear.Estado) == (int)Estados.Activo)
+                {
+                    CreateLogEventos(DesbloqueaUsuario, rsuario);
+                    this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
+                }
+                else
+                {
+                    CreateLogEventos(BloqueaUsuario, rsuario);
+                }
 
                 return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
             }
@@ -276,6 +298,9 @@ namespace Asocajas.Controllers
                     var randomPass = HelperGeneral.RandomPass();
                     rsuario.Password = Utility.TripleDES(randomPass, true);
                     UpdateTry(rsuario);
+                    rsuario.UsuarioLogueado = recuperarPassword.Usuario;
+                    CreateLogEventos(OlvidaClave, rsuario);
+
                     this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha actualizado su contraseña, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:", "Recordar Contraseña");
                     return CreatedAtRoute("DefaultApi", new { id = rsuario.IdUsuario }, rsuario);
                 }
@@ -309,6 +334,29 @@ namespace Asocajas.Controllers
             catch (Exception ex)
             {
                 return Ok(HelperGeneral.exceptionError(ex));
+            }
+        }
+
+        private void CreateLogEventos(string Evento, RUsuario Usuario)
+        {
+            try
+            {
+                using (BusinessBase<LTLogEventos> objLTLogEventos = new BusinessBase<LTLogEventos>())
+                {
+                    string UserLogin = Usuario.UsuarioLogueado;
+                    int? IdUsuarioMod = string.IsNullOrEmpty(UserLogin) ? null : (int?)this.objDb.Get(o => o.Usuario == UserLogin).FirstOrDefault().IdUsuario;
+                    LTLogEventos NewLog = new LTLogEventos();
+                    NewLog.FechaEvento = DateTime.Now;
+                    NewLog.Evento = Evento;
+                    NewLog.IdUsuario = Usuario.IdUsuario;
+                    NewLog.idUserMod = IdUsuarioMod;
+                    objLTLogEventos.Add(NewLog);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                HelperGeneral.exceptionError(ex);
             }
         }
 

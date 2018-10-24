@@ -18,7 +18,7 @@ namespace Asocajas.Services
     public partial class Servicios : System.Web.UI.Page
     {
         protected static string ReCaptcha_Secret = "6LcBs3QUAAAAADLSosYj3Dz91_iYPz2YLSDDOotG";
-        private const string SESSION_VAR = "User";
+        //private const string SESSION_VAR = "User";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -89,8 +89,8 @@ namespace Asocajas.Services
             DataResult jsonData = new DataResult();
             try
             {
-                jsonData.Message = User;
-                jsonData.Ok = User == null ? false : true;
+                jsonData.Message = HelperGeneral.User;
+                jsonData.Ok = HelperGeneral.User == null ? false : true;
             }
             catch (Exception ex)
             {
@@ -106,7 +106,7 @@ namespace Asocajas.Services
             DataResult jsonData = new DataResult();
             try
             {
-                User = UserData;
+               HelperGeneral.User = UserData;
                 jsonData.Message = UserData;
                 jsonData.Ok = true;
             }
@@ -124,9 +124,7 @@ namespace Asocajas.Services
             DataResult jsonData = new DataResult();
             try
             {
-                HttpContext.Current.Session.Abandon();
-                HttpContext.Current.Session.Clear();
-                HttpContext.Current.Session.RemoveAll();
+                HelperGeneral.CloseSession();
             }
             catch (Exception ex)
             {
@@ -138,16 +136,16 @@ namespace Asocajas.Services
 
         #region Session var
 
-        public static string User
-        {
-            get
-            {
-                if (HttpContext.Current.Session[SESSION_VAR] == null)
-                    HttpContext.Current.Session[SESSION_VAR] = null;
-                return (string)HttpContext.Current.Session[SESSION_VAR];
-            }
-            set { HttpContext.Current.Session[SESSION_VAR] = value; }
-        }
+        //public static string User
+        //{
+        //    get
+        //    {
+        //        if (HttpContext.Current.Session[SESSION_VAR] == null)
+        //            HttpContext.Current.Session[SESSION_VAR] = null;
+        //        return (string)HttpContext.Current.Session[SESSION_VAR];
+        //    }
+        //    set { HttpContext.Current.Session[SESSION_VAR] = value; }
+        //}
         #endregion
     }
 }

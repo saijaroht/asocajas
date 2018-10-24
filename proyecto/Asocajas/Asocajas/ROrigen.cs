@@ -12,10 +12,17 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     using Asocajas.Common.Supertype;
-    public partial class RRptaRnec : EntityBase
+    public partial class ROrigen : EntityBase
     {
-        public string IdRptaRnec { get; set; }
-        public string RptaRnec { get; set; }
+        public ROrigen()
+        {
+            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
+        }
+    
+        public string IdOrigen { get; set; }
+        public string OrigenConsulta { get; set; }
         public bool Activo { get; set; }
+    
+        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
     }
 }

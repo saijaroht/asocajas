@@ -17,18 +17,22 @@ namespace Asocajas
         public long IdConsulta { get; set; }
         public System.DateTime FechaConsulta { get; set; }
         public string Nuip { get; set; }
-        public string Origen { get; set; }
+        public string IdOrigen { get; set; }
+        public string Mac { get; set; }
+        public string Ip { get; set; }
         public System.DateTime FechaInicia { get; set; }
         public System.DateTime FechaFin { get; set; }
         public int Duracion { get; set; }
-        public Nullable<int> IdCcf { get; set; }
-        public Nullable<int> IdUsuario { get; set; }
+        public int IdCcf { get; set; }
+        public int IdUsuario { get; set; }
         public string IdRptaRnec { get; set; }
         public string IdRptaAsocajas { get; set; }
+        public string ControlRNEC { get; set; }
+        public string DescrRNEC { get; set; }
+        public string CdgoRNEC { get; set; }
     
         public virtual RCCF RCCF { get; set; }
-        public virtual RRptaAsocajas RRptaAsocajas { get; set; }
-        public virtual RRptaRnec RRptaRnec { get; set; }
+        public virtual ROrigen ROrigen { get; set; }
         public virtual RUsuario RUsuario { get; set; }
     }
 }

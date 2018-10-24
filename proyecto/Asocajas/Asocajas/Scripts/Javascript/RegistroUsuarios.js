@@ -39,28 +39,34 @@ function ValidaUsuario() {
 }
 function GuardarUsuario() {
     debugger;
-    var item = {
+    PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
+        if (data1.Ok) {
+            var UsuarioAct = data1.Message;
+            var item = {
 
-        Nombre: $('#txtNombres').val(),
-        Apellido: $('#txtApellidos').val(),
-        Usuario: $('#txtUsuario').val(),
-        Vigencia: convertTextToDate($('#txtFechadecaducidad').val()),
-        Estado: 1,
-        IdCcf: $('#cboNombreCCF').val(),
-        IdRole:$('#cboTipodeusuario').val(),
-    }
+                Nombre: $('#txtNombres').val(),
+                Apellido: $('#txtApellidos').val(),
+                Usuario: $('#txtUsuario').val(),
+                Vigencia: convertTextToDate($('#txtFechadecaducidad').val()),
+                Estado: 1,
+                IdCcf: $('#cboNombreCCF').val(),
+                IdRole: $('#cboTipodeusuario').val(),
+                UsuarioLogueado: UsuarioAct
+            }
 
-    SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
-        if (data.Message) {
-            ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
-        } else {
-            ShowMessage("NOTIFICACIÓN", "Se ingreso el Usuario de manera satisfactoria", "SoloMensaje");
-            //window.location.href = "Gestion_Usuarios.aspx";
+            SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
+                if (data.Message) {
+                    ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
+                } else {
+                    ShowMessage("NOTIFICACIÓN", "Se ingreso el Usuario de manera satisfactoria", "SoloMensaje");
+                    //window.location.href = "Gestion_Usuarios.aspx";
 
-            var campos = ["txtNombres", "txtApellidos", "txtUsuario", "txtFechadecaducidad", "cboTipodeusuario","cboNombreCCF"];
-            removerValidacion(campos, true);
+                    var campos = ["txtNombres", "txtApellidos", "txtUsuario", "txtFechadecaducidad", "cboTipodeusuario", "cboNombreCCF"];
+                    removerValidacion(campos, true);
+                }
+            }, null, function (dataError) {
+            });
         }
-    }, null, function (dataError) {
     });
 }
 

@@ -127,49 +127,27 @@ namespace Asocajas
         {
             try
             {
+                System.Configuration.AppSettingsReader settingsReader =
+                                                new AppSettingsReader();
+
                 SmtpClient clientDetails = new SmtpClient();
-                clientDetails.Port = 587;
-                clientDetails.Host = "smtp.office365.com";
+                clientDetails.Port = Convert.ToInt32((string)settingsReader.GetValue("Port", typeof(String)));
+                clientDetails.Host = (string)settingsReader.GetValue("Host", typeof(String));
                 clientDetails.EnableSsl = true;
                 clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
                 clientDetails.UseDefaultCredentials = false;
-                clientDetails.Credentials = new NetworkCredential("enviosautomaticos@asocajas.org.co", "Colombia2017");
+                clientDetails.Credentials = new NetworkCredential((string)settingsReader.GetValue("UserMail", typeof(String)),
+                    (string)settingsReader.GetValue("PasswordMail", typeof(String)));
 
                 //Detalle Mensaje
                 MailMessage mailDetails = new MailMessage();
-                mailDetails.From = new MailAddress("enviosautomaticos@asocajas.org.co");
+                mailDetails.From = new MailAddress((string)settingsReader.GetValue("UserMail", typeof(String)));
                 mailDetails.To.Add(Para);
-                //para multiples destinatarios
-                //mailDetails.To.Add("another recipient email address");
-                //for copia oculta
-                //mailDetails.Bcc.Add("bcc email address")
                 mailDetails.Subject = asunto;
                 mailDetails.IsBodyHtml = true;
                 mailDetails.Body = html;
 
                 clientDetails.Send(mailDetails);
-                //using (var ctx = new AsocajasBDEntities())
-                //{
-                //    var Email = new SqlParameter
-                //    {
-                //        ParameterName = "Email",
-                //        Value = Para
-                //    };
-
-                //    var Asunto = new SqlParameter
-                //    {
-                //        ParameterName = "Asunto",
-                //        Value = asunto
-                //    };
-
-                //    var Html = new SqlParameter
-                //    {
-                //        ParameterName = "Html",
-                //        Value = html
-                //    };
-                //    var exec = ctx.Database.SqlQuery<RUsuario>("exec SendMail @Email,@Asunto,@Html ", Email, Asunto, Html).ToList<RUsuario>();
-                //    //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
-                //}
                 return true;
             }
             catch (Exception)
@@ -189,20 +167,20 @@ namespace Asocajas
                 LTLogApp newLog = new LTLogApp();
 
                 newLog.Type = "Log";
-                newLog.GUID = "Log";
-                newLog.AppName = "Log";
-                newLog.WebServiceName = "Log";
-                newLog.MethodName = "Log";
-                newLog.MethodNameUI = "Log";
-                newLog.UserName = "Log";
+                newLog.GUID = Guid.NewGuid().ToString();
+                newLog.AppName = ex.Source;
+                newLog.WebServiceName = ((System.Reflection.MemberInfo)(((System.Reflection.MemberInfo)(ex.TargetSite)).DeclaringType)).Name;
+                newLog.MethodName = "First";
+                newLog.MethodNameUI = ((System.Reflection.MemberInfo)(ex.TargetSite)).Name;
+                newLog.UserName = null;
                 newLog.UserMachineInfo = Utility.GetUserMachineInfo(MachineInfo);
-                newLog.ServerIP = "Log";
-                newLog.Data = "Log";
-                newLog.ErrorMessage = "Log";
-                newLog.Source = "Log";
-                newLog.Method = "Log";
-                newLog.ErrorType = "Log";
-                newLog.Trace = "Log";
+                newLog.ServerIP = Utility.GetServerIP();
+                newLog.Data = ((System.NullReferenceException)(ex)).ToString();
+                newLog.ErrorMessage = ex.Message;
+                newLog.Source =ex.Source;
+                newLog.Method = ((System.Reflection.MemberInfo)(ex.TargetSite)).Name;
+                newLog.ErrorType = null;
+                newLog.Trace = null;
                 newLog.CreationDate = DateTime.Now;
                 objLTLogApp.Add(newLog);
             }
@@ -280,6 +258,28 @@ namespace Asocajas
         }
 
 
+        #endregion
+
+        #region Session var
+        private const string SESSION_VAR = "User";
+
+        public static string User
+        {
+            get
+            {
+                if (HttpContext.Current.Session[SESSION_VAR] == null)
+                    HttpContext.Current.Session[SESSION_VAR] = null;
+                return (string)HttpContext.Current.Session[SESSION_VAR];
+            }
+            set { HttpContext.Current.Session[SESSION_VAR] = value; }
+        }
+
+        public static void CloseSession()
+        {
+            HttpContext.Current.Session.Abandon();
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.RemoveAll();
+        }
         #endregion
     }
 }

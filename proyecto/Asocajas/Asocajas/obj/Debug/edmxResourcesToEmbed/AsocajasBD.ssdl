@@ -7,6 +7,7 @@
     <EntitySet Name="RCCF" EntityType="AsocajasBDModel.Store.RCCF" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.Store.RDatoBasico" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RMenu" EntityType="AsocajasBDModel.Store.RMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ROrigen" EntityType="AsocajasBDModel.Store.ROrigen" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRole" EntityType="AsocajasBDModel.Store.RRole" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.Store.RRptaAsocajas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.Store.RRptaRnec" store:Type="Tables" Schema="dbo" />
@@ -17,12 +18,8 @@
       <End Role="RCCF" EntitySet="RCCF" />
       <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
     </AssociationSet>
-    <AssociationSet Name="FK_LTLogConsultasAni_RRptaAsocajas" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RRptaAsocajas">
-      <End Role="RRptaAsocajas" EntitySet="RRptaAsocajas" />
-      <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LTLogConsultasAni_RRptaRnec" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RRptaRnec">
-      <End Role="RRptaRnec" EntitySet="RRptaRnec" />
+    <AssociationSet Name="FK_LTLogConsultasAni_ROrigen" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_ROrigen">
+      <End Role="ROrigen" EntitySet="ROrigen" />
       <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
     </AssociationSet>
     <AssociationSet Name="FK_LTLogConsultasAni_RUsuario" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RUsuario">
@@ -75,14 +72,19 @@
     <Property Name="IdConsulta" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="FechaConsulta" Type="datetime" Nullable="false" />
     <Property Name="Nuip" Type="varchar" Nullable="false" MaxLength="10" />
-    <Property Name="Origen" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="IdOrigen" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="Mac" Type="varchar" MaxLength="20" />
+    <Property Name="Ip" Type="varchar" MaxLength="15" />
     <Property Name="FechaInicia" Type="datetime" Nullable="false" />
     <Property Name="FechaFin" Type="datetime" Nullable="false" />
     <Property Name="Duracion" Type="int" Nullable="false" />
-    <Property Name="IdCcf" Type="int" />
-    <Property Name="IdUsuario" Type="int" />
-    <Property Name="IdRptaRnec" Type="varchar" Nullable="false" MaxLength="5" />
-    <Property Name="IdRptaAsocajas" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="IdCcf" Type="int" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdRptaRnec" Type="varchar" MaxLength="5" />
+    <Property Name="IdRptaAsocajas" Type="varchar" MaxLength="5" />
+    <Property Name="ControlRNEC" Type="varchar" MaxLength="10" />
+    <Property Name="DescrRNEC" Type="varchar" MaxLength="50" />
+    <Property Name="CdgoRNEC" Type="varchar" MaxLength="5" />
   </EntityType>
   <EntityType Name="LTLogEventos">
     <Key>
@@ -136,6 +138,14 @@
     <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="300" />
     <Property Name="Orden" Type="int" Nullable="false" />
     <Property Name="url" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="ROrigen">
+    <Key>
+      <PropertyRef Name="IdOrigen" />
+    </Key>
+    <Property Name="IdOrigen" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="OrigenConsulta" Type="varchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="RRole">
     <Key>
@@ -216,7 +226,7 @@
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_LTLogConsultasAni_RCcf">
-    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="0..1" />
+    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="1" />
     <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RCCF">
@@ -227,32 +237,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LTLogConsultasAni_RRptaAsocajas">
-    <End Role="RRptaAsocajas" Type="AsocajasBDModel.Store.RRptaAsocajas" Multiplicity="1" />
+  <Association Name="FK_LTLogConsultasAni_ROrigen">
+    <End Role="ROrigen" Type="AsocajasBDModel.Store.ROrigen" Multiplicity="1" />
     <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="RRptaAsocajas">
-        <PropertyRef Name="IdRptaAsocajas" />
+      <Principal Role="ROrigen">
+        <PropertyRef Name="IdOrigen" />
       </Principal>
       <Dependent Role="LTLogConsultasAni">
-        <PropertyRef Name="IdRptaAsocajas" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LTLogConsultasAni_RRptaRnec">
-    <End Role="RRptaRnec" Type="AsocajasBDModel.Store.RRptaRnec" Multiplicity="1" />
-    <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RRptaRnec">
-        <PropertyRef Name="IdRptaRnec" />
-      </Principal>
-      <Dependent Role="LTLogConsultasAni">
-        <PropertyRef Name="IdRptaRnec" />
+        <PropertyRef Name="IdOrigen" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LTLogConsultasAni_RUsuario">
-    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="0..1" />
+    <End Role="RUsuario" Type="AsocajasBDModel.Store.RUsuario" Multiplicity="1" />
     <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RUsuario">

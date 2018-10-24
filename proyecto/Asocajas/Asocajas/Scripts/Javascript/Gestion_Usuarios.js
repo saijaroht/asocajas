@@ -2,21 +2,21 @@
 
 $(document).ready(function () {
     //CargarFechaInicioFechaFin('txtFechadecaducidadActualizar');
-    CargarFechaInicioFechaFin('txtFechadecaducidad2');
-    ConsultarUsuarios();
-    BuscarTable("Buscartxt", "tbodyGestionUsuarios");
 
-    consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
-        dataRoles = data;
-        $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
-        $.each(data, function (i, val) {
-            $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
+        CargarFechaInicioFechaFin('txtFechadecaducidad2');
+        ConsultarUsuarios();
+        BuscarTable("Buscartxt", "tbodyGestionUsuarios");
+
+        consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
+            dataRoles = data;
+            $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
+            $.each(data, function (i, val) {
+                $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
+            });
+        }, null, function (dataError) {
+
         });
-    }, null, function (dataError) {
 
-    });
-
-   
 });
 
 var cargarTabla = function () {
@@ -88,31 +88,36 @@ function PrintTable() {
         //var tipoBtn = val.Estado == 1 ? btnVer : btnBlock;
         var EstadoSTR = $("<td />", { html: val.EstadoSTR });
         tipoBtn.click({ _id: val.IdUsuario, _btnVer: btnVer, _btnBlock: btnBlock, _tipoBtn: tipoBtn, _EstadoSTR: EstadoSTR }, function (event) {
-            
-            Enumerable.From(ListUsuarios)
-            .Where(function (x) { return x.IdUsuario == event.data._id })
-            .FirstOrDefault().Estado = Enumerable.From(ListUsuarios)
-            .Where(function (x) { return x.IdUsuario == event.data._id })
-            .FirstOrDefault().Estado == "1" ? "2" : "1";
-            //PrintTable();
-            event.data._tipoBtn.empty();
-            var estado = Enumerable.From(ListUsuarios)
-            .Where(function (x) { return x.IdUsuario == event.data._id })
-            .FirstOrDefault().Estado;
-            if (estado == "1") {
-                event.data._tipoBtn.append(event.data._btnVer);
-                event.data._EstadoSTR.html("Activo");
-            } else {
-                event.data._tipoBtn.append(event.data._btnBlock);
-                event.data._EstadoSTR.html("Bloqueado");
-            }
-            var item = {
-                Estado: estado,
-                IdUsuario: event.data._id,
-            }
-            UpdateService(ServiceUrl + "RUsuario/PutUpdateActivarBloquear", item, function (data) {
-                //ShowMessage("NOTIFICACIÓN", "Su contraseña ha sido cambiada exitosamente. ", "SoloMensaje");
-                //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
+            PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
+                if (data1.Ok) {
+                    var UsuarioAct = data1.Message;
+                    Enumerable.From(ListUsuarios)
+                    .Where(function (x) { return x.IdUsuario == event.data._id })
+                    .FirstOrDefault().Estado = Enumerable.From(ListUsuarios)
+                    .Where(function (x) { return x.IdUsuario == event.data._id })
+                    .FirstOrDefault().Estado == "1" ? "2" : "1";
+                    //PrintTable();
+                    event.data._tipoBtn.empty();
+                    var estado = Enumerable.From(ListUsuarios)
+                    .Where(function (x) { return x.IdUsuario == event.data._id })
+                    .FirstOrDefault().Estado;
+                    if (estado == "1") {
+                        event.data._tipoBtn.append(event.data._btnVer);
+                        event.data._EstadoSTR.html("Activo");
+                    } else {
+                        event.data._tipoBtn.append(event.data._btnBlock);
+                        event.data._EstadoSTR.html("Bloqueado");
+                    }
+                    var item = {
+                        Estado: estado,
+                        IdUsuario: event.data._id,
+                        UsuarioLogueado: UsuarioAct
+                    }
+                    UpdateService(ServiceUrl + "RUsuario/PutUpdateActivarBloquear", item, function (data) {
+                        //ShowMessage("NOTIFICACIÓN", "Su contraseña ha sido cambiada exitosamente. ", "SoloMensaje");
+                        //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
+                    });
+                }
             });
             return false;
         });

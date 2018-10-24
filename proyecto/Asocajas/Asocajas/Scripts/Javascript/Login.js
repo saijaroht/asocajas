@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     Logout();
 });
-var captchaComplete = false;
+var captchaComplete = true;
 var recaptchaCallback = function () {
     debugger;
     console.log('recaptcha is ready'); // not showing

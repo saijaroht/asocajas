@@ -52,6 +52,8 @@ namespace Asocajas
         public string Estado { get; set; }
         [NotMapped]
         public int IdUsuario { get; set; }
+        [NotMapped]
+        public string UsuarioLogueado { get; set; }
     }
 
     public partial class UpdateUser
@@ -94,6 +96,8 @@ namespace Asocajas
             }
             private set { var temp = value; }
         }
+        [NotMapped]
+        public string UsuarioLogueado { get; set; }
     }
 
     public partial class LTLogEventos
@@ -107,6 +111,7 @@ namespace Asocajas
         [NotMapped]
         public List<List<RMenu>> ListMenu { get; set; }
     }
+
 
     #region DataTables
     public class DataTableParameters

@@ -33,6 +33,7 @@ namespace Asocajas
         Bloqueado = 2,
     }
 
+
     [Serializable]
     public enum TiposDatoBasico
     {

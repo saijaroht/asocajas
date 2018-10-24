@@ -14,15 +14,8 @@ namespace Asocajas
     using Asocajas.Common.Supertype;
     public partial class RRptaAsocajas : EntityBase
     {
-        public RRptaAsocajas()
-        {
-            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
-        }
-    
         public string IdRptaAsocajas { get; set; }
         public string RptaAsocajas { get; set; }
         public bool Activo { get; set; }
-    
-        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
     }
 }

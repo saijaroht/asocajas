@@ -30,7 +30,7 @@ namespace Asocajas.Controllers
 
             //list = HelperGeneral.PaginadorConsultasLTLogEventos((int)input["start"], (int)input["length"]);
 
-            dataTableData.data = this.objDb.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
+            dataTableData.data = this.objDb.PaginadorConsultas((int)input["start"], (int)input["length"], "").ToList();
             dataTableData.recordsFiltered = this.objDb.Get().Count();
             dataTableData.recordsTotal = dataTableData.recordsFiltered;
 

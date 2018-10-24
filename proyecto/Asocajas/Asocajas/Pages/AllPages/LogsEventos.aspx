@@ -74,10 +74,10 @@
         </div>
 	
 	
- <div class="table table-responsive Autoheight">
+ <div class="table table-responsive Autoheight" style="display:none;" id="dvLogEventos">
         <div id="toolbar"> 
 		</div>
-     <table id="tblLogEventos" class="display" style="width:100%">
+     <table id="tblLogEventos" style=" width:100%">
         <thead>
             <tr>
 			<th>CCF</th>

@@ -44,34 +44,59 @@ namespace Asocajas.Controllers
                         var IdUsuariostr = js.GetString("search.IdUsuario");
                         var FechaInicialstr = js.GetString("search.FechaInicial");
                         var FechaFinalstr = js.GetString("search.FechaFinal");
-                        dataTableData.draw = (int)input["draw"];
 
                         int? IdUsuario = !string.IsNullOrEmpty(IdUsuariostr) ? (int?)Convert.ToInt32(IdUsuariostr) : null;
-
                         int? IdCCF = !string.IsNullOrEmpty(IdCCFstr) ? (int?)Convert.ToInt64(IdCCFstr) : null;
-
-                        var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == IdCCF).Select(o => o.IdUsuario).ToList();
-
                         DateTime? FechaInicial = !string.IsNullOrEmpty(FechaInicialstr) ? (DateTime?)Convert.ToDateTime(FechaInicialstr) : null;
                         DateTime? FechaFinal = !string.IsNullOrEmpty(FechaFinalstr) ? (DateTime?)Convert.ToDateTime(FechaFinalstr).AddDays(1) : null;
 
-                        list = objLTLogEventos.Get(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
-                            && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
-                            ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
-                            ).Skip((int)input["start"]).Take((int)input["length"]).ToList();
-
-                        if (strSearch != input["search"]["value"].ToString())
+                        FechaFinalstr = !string.IsNullOrEmpty(FechaFinalstr) ? Convert.ToDateTime(FechaFinal).Year.ToString() + "-" + Convert.ToDateTime(FechaFinal).Month.ToString() + "-" + Convert.ToDateTime(FechaFinal).Day.ToString() : "";
+                        string where = "";
+                        if ((!string.IsNullOrEmpty(IdUsuariostr)) || (!string.IsNullOrEmpty(IdCCFstr)) || (!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)))
                         {
-                            TotalRowsLogEventos = objLTLogEventos.Get().Where(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
-                                && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
-                                ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
-                                ).Count();
-                            strSearch = input["search"]["value"].ToString();
+                            where += "where ";
+                            if (!string.IsNullOrEmpty(IdUsuariostr))
+                            {
+                                where += "IdUsuario = " + IdUsuario.ToString();
+                            }
+                            else if (!string.IsNullOrEmpty(IdCCFstr))
+                            {
+                                var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == IdCCF).Select(o => o.IdUsuario).ToList();
+                                where += "CHARINDEX(CAST(IdUsuario AS VARCHAR),'";
+                                foreach (var item in IdsUsersCCF)
+                                {
+                                    where += item + ";";
+                                }
+                                where += "')<>0";
+                            }
+                            if (!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr))
+                            {
+                                if ((!string.IsNullOrEmpty(IdUsuariostr)) || (!string.IsNullOrEmpty(IdCCFstr)))
+                                {
+                                    where += " and ";
+                                }
+                                where += "FechaEvento BETWEEN '" + FechaInicialstr + "' AND '" + FechaFinalstr + "'";
+                            }
                         }
+                        list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"], where).ToList();
+                        //list = objLTLogEventos.Get(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
+                        //    && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
+                        //    ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
+                        //    ).Skip((int)input["start"]).Take((int)input["length"]).ToList();
 
-                        //list = objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
+                        //if (strSearch != input["search"]["value"].ToString())
+                        //{
+                        //    TotalRowsLogEventos = objLTLogEventos.Get().Where(o => (!string.IsNullOrEmpty(IdUsuariostr) ? o.IdUsuario == IdUsuario : true)
+                        //        && (!string.IsNullOrEmpty(IdCCFstr) ? IdsUsersCCF.Contains(o.IdUsuario) : true) &&
+                        //        ((!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)) ? o.FechaEvento >= FechaInicial && o.FechaEvento <= FechaFinal : true)
+                        //        ).Count();
+                        //    strSearch = input["search"]["value"].ToString();
 
-                        dataTableData.recordsFiltered = TotalRowsLogEventos;
+                        //TotalRowsLogEventos = objLTLogEventos.CountPaginadorConsultas(where);
+                        //}
+
+                        dataTableData.draw = (int)input["draw"];
+                        dataTableData.recordsFiltered = objLTLogEventos.CountPaginadorConsultas(where);
                         foreach (var item in list)
                         {
                             item.RUsuario = objRUsuario.Get(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
@@ -112,7 +137,7 @@ namespace Asocajas.Controllers
                         JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
                         dataTableData.draw = (int)input["draw"];
                         List<LTLogConsultasAni> list = new List<LTLogConsultasAni>();
-                        list = objLTLogConsultasAni.PaginadorConsultas((int)input["start"], (int)input["length"]).ToList();
+                        list = objLTLogConsultasAni.PaginadorConsultas((int)input["start"], (int)input["length"], "").ToList();
 
                         foreach (var item in list)
                         {

@@ -680,6 +680,9 @@
     <Compile Include="RMenu.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="ROrigen.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="RRole.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>

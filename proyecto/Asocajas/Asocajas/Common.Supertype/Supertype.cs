@@ -453,11 +453,10 @@ namespace Supertype
 
 
         #region paginador
-
-        public virtual IEnumerable<TEntity> PaginadorConsultas(int limiteInferior, int limiteSuperior)
+        public virtual IEnumerable<TEntity> PaginadorConsultas(int limiteInferior, int limiteSuperior, string where)
         {
             var propPk = typeof(TEntity);
-
+            
             IEnumerable<TEntity> exec = new List<TEntity>();
             using (var ctx = new AsocajasBDEntities())
             {
@@ -479,19 +478,39 @@ namespace Supertype
                     Value = propPk.Name
                 };
 
-                var IdTable = new SqlParameter
+                var Where = new SqlParameter
                 {
-                    ParameterName = "IdTable",
-                    Value = "NA"
+                    ParameterName = "Where",
+                    Value = where
                 };
-                exec = ctx.Database.SqlQuery<TEntity>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@IdTable ", LimiteInferior, LimiteSuperior, Tabla, IdTable).ToList<TEntity>();
+                exec = ctx.Database.SqlQuery<TEntity>("exec PaginadorConsultas @LimiteInferior,@LimiteSuperior,@Tabla,@Where ", LimiteInferior, LimiteSuperior, Tabla, Where).ToList<TEntity>();
 
                 //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
             }
             return exec;
         }
 
+        public virtual int CountPaginadorConsultas(string where)
+        {
+            var propPk = typeof(TEntity);
 
+            int exec = 0;
+            using (var ctx = new AsocajasBDEntities())
+            {
+                var Tabla = new SqlParameter
+                {
+                    ParameterName = "Tabla",
+                    Value = propPk.Name
+                };
+                var Where = new SqlParameter
+                {
+                    ParameterName = "Where",
+                    Value = where
+                };
+                exec = ctx.Database.SqlQuery<int>("exec CountPaginadorConsultas @Tabla,@Where ", Tabla, Where).FirstOrDefault();
+            }
+            return exec;
+        }
         #endregion
 
 
