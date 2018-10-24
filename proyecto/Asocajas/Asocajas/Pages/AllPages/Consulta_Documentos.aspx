@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Consulta_Documentos.aspx.cs" Inherits="Asocajas.Pages.AllPages.Consulta_Documentos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Scripts/Javascript/Consulta_Documentos.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
@@ -24,7 +25,7 @@
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-                <button type="button" class="btn btn-success" >Consultar</button>
+                <button type="button" class="btn btn-success" id="btnConsultar" >Consultar</button>
             </div>
 			
         </div>
@@ -61,7 +62,31 @@
 -->
 
 <!--
+    
+ </form>		
+  <!--
     <div class="row">
+        <div class="col-sm-10" ></div>
+        <div class="col-sm-2" >
+        <button type="button" class="btn btn-primary" onclick="">Regresar</button>
+            </div>
+    </div>
+    -->
+   
+
+    <div class="modal fade" id="ModalConsultarUsuarioDocumento" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+			<!--
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Formulario</h4>
+                </div>
+				-->
+                <div class="modal-body">
+
+                  <div class="row">
          <div class="col-sm-2"></div>
         
         <div class="col-sm-8">
@@ -136,16 +161,27 @@
     </table>
             </div>
         </div>
--->		
- </form>		
-  <!--
-    <div class="row">
-        <div class="col-sm-10" ></div>
-        <div class="col-sm-2" >
-        <button type="button" class="btn btn-primary" onclick="">Regresar</button>
+
+                    <div class="group">
+						<div class="col-md-3"></div>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						</div>						
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
+                            <%--<button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>--%>
+                        </div>
+						<div class="col-md-3"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
             </div>
+
+        </div>
     </div>
-    -->
-   
 
 </asp:Content>
