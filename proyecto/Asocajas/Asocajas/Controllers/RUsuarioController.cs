@@ -27,6 +27,7 @@ namespace Asocajas.Controllers
         {
             try
             {
+              //HelperGeneral.SaveFile();
                 var obj = this.objDb.Get().ToList();
                 using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
                 {
@@ -46,6 +47,42 @@ namespace Asocajas.Controllers
                 return Ok(HelperGeneral.exceptionError(ex));
             }
         }
+
+
+        //public IHttpActionResult GetFile()
+        //{
+
+        //    //crear en html <a target="_self" href="/api/download/1">Download File</a>
+        //    //using (BusinessBase<TReporte> objTReporte = new BusinessBase<TReporte>())
+        //    //{
+        //    //    var file = objTReporte.Get().FirstOrDefault().Excel;
+        //    //    HttpResponseMessage result = null;
+        //    //    var localFilePath = string.Empty;// HttpContext.Current.Server.MapPath("~/timetable.jpg");
+
+
+        //    //    var fileName = "MiDocumento.csv";
+        //    //    //localFilePath = Path.Combine(Path.GetTempPath(), fileName);
+        //    //    //File.WriteAllBytes(localFilePath, current.ArchivoCifrado);
+        //    //    //if (!File.Exists(localFilePath))
+        //    //    //{
+        //    //    //    throw new Exception("El Archivo especificado no existe " + localFilePath);
+        //    //    //}
+
+        //    //    result = new HttpResponseMessage();
+        //    //    //result.Content = new StreamContent(new FileStream(localFilePath, FileMode.Open, FileAccess.Read));
+        //    //    //result.Content = new StringContent(file);
+        //    //    result.Content = new ByteArrayContent(file);
+        //    //    result.Content.Headers.Add("x-filename", fileName);
+
+        //    //    result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+        //    //    result.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+        //    //    result.Content.Headers.ContentDisposition.FileName = fileName;
+
+
+        //    //    return Ok(result);
+        //    //}
+        //}
         
         public IHttpActionResult GetExistUser(string user, string password)
         {

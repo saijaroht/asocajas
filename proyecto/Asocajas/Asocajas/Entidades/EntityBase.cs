@@ -33,6 +33,14 @@ namespace Asocajas
         Bloqueado = 2,
     }
 
+    [Serializable]
+    public enum Origen
+    {
+        INDIVIDUAL = 1,
+        MASIVO = 0,
+        WEBSERVICE = 2,
+    }
+
 
     [Serializable]
     public enum TiposDatoBasico

@@ -47,6 +47,7 @@
       <End Role="RRole" EntitySet="RRole" />
       <End Role="RUsuario" EntitySet="RUsuario" />
     </AssociationSet>
+    <EntitySet Name="TReporte" EntityType="AsocajasBDModel.TReporte" />
   </EntityContainer>
   <ComplexType Name="SendMail_Result">
     <Property Type="Int32" Name="IdUsuario" Nullable="false" />
@@ -346,4 +347,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="TReporte">
+    <Key>
+      <PropertyRef Name="IdReporte" />
+    </Key>
+    <Property Type="Int32" Name="IdReporte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Binary" Name="Excel" Nullable="false" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

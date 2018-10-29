@@ -10,6 +10,8 @@ using System.Text;
 using System.Web;
 using System.Net.Mail;
 using System.Net;
+using System.Web.Mvc;
+using System.Net.Http;
 
 namespace Asocajas
 {
@@ -281,5 +283,80 @@ namespace Asocajas
             HttpContext.Current.Session.RemoveAll();
         }
         #endregion
+
+        public static void SaveFile()
+        {
+            string filename = "C:\\ArchivosPlanos\\prueba1.csv";
+            //int index = 1;
+            //int process = 5;
+            using (StreamWriter sw = new StreamWriter(new FileStream(filename, FileMode.Create), Encoding.UTF8))
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("titulo1, Titulo2, Titulo3");
+                sb.AppendLine("parametro11, parametro21, parametro31");
+                sb.AppendLine("parametro12, parametro22, parametro32");
+                sb.AppendLine("parametro13, parametro23, parametro33");
+                sb.AppendLine("parametro14, parametro24, parametro34");
+
+
+                sw.Write(sb.ToString());
+
+            }
+            byte[] file;
+            using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = new BinaryReader(stream))
+                {
+                    file = reader.ReadBytes((int)stream.Length);
+                }
+            }
+            TReporte NewReport = new TReporte();
+            NewReport.Excel = file;
+            using (BusinessBase<TReporte> objTReporte = new BusinessBase<TReporte>())
+            {
+                objTReporte.Add(NewReport);
+            }
+            HttpResponseMessage getFile = new HttpResponseMessage();
+            getFile = GetFile(file);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public static HttpResponseMessage GetFile(byte[] file)
+        {
+
+            //crear en html <a target="_self" href="/api/download/1">Download File</a>
+
+            HttpResponseMessage result = null;
+            var localFilePath = string.Empty;// HttpContext.Current.Server.MapPath("~/timetable.jpg");
+
+
+            var fileName = "MiDocumento.csv";
+            //localFilePath = Path.Combine(Path.GetTempPath(), fileName);
+            //File.WriteAllBytes(localFilePath, current.ArchivoCifrado);
+            //if (!File.Exists(localFilePath))
+            //{
+            //    throw new Exception("El Archivo especificado no existe " + localFilePath);
+            //}
+
+            result = new HttpResponseMessage();
+            //result.Content = new StreamContent(new FileStream(localFilePath, FileMode.Open, FileAccess.Read));
+            //result.Content = new StringContent(file);
+            result.Content = new ByteArrayContent(file);
+            result.Content.Headers.Add("x-filename", fileName);
+
+            result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+
+            result.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            result.Content.Headers.ContentDisposition.FileName = fileName;
+
+
+            return result;
+
+        }
     }
 }

@@ -218,5 +218,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TReporte">
+      <EntityTypeMapping TypeName="AsocajasBDModel.TReporte">
+        <MappingFragment StoreEntitySet="TReporte">
+          <ScalarProperty Name="Excel" ColumnName="Excel" />
+          <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

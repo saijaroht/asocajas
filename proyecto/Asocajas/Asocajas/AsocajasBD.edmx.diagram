@@ -25,6 +25,7 @@
         <AssociationConnector Association="AsocajasBDModel.FK_LTLogEventos_RUsuario" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RCcf" />
         <AssociationConnector Association="AsocajasBDModel.FK_RUsuario_RRole" />
+        <EntityTypeShape EntityType="AsocajasBDModel.TReporte" Width="1.5" PointX="0.8107362933506892" PointY="11.733034094671268" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,6 +14,14 @@
 
     <script src="../../Scripts/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/Scripts/dataTables.buttons.min.js"></script>
+    <script src="../../Scripts/Scripts/buttons.flash.min.js"></script>
+    <script src="../../Scripts/Scripts/jszip.min.js"></script>
+    <script src="../../Scripts/Scripts/pdfmake.min.js"></script>
+    <script src="../../Scripts/Scripts/vfs_fonts.js"></script>
+    <script src="../../Scripts/Scripts/buttons.html5.min.js"></script>
+    <script src="../../Scripts/Scripts/buttons.print.min.js"></script>
+
     <script src="../../Scripts/Scripts/jquery-ui.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="../../Scripts/Scripts/bootstrap-toggle.min.js" type="text/javascript"></script>

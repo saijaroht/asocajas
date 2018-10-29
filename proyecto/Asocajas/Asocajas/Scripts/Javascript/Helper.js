@@ -581,8 +581,32 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
     })
 }
 
-
-function CargarFecha(fecha,formato) {
+jQuery(function ($) {
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '&#x3c;Ant',
+        nextText: 'Sig&#x3e;',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+            'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
+        ],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles', 'Jueves', 'Viernes', 'S&aacute;bado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Juv', 'Vie', 'S&aacute;b'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'S&aacute;'],
+        weekHeader: 'Sm',
+        dateFormat: 'yy/mm/dd',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+});
+function CargarFecha(fecha, formato) {
+    $.datepicker.setDefaults($.datepicker.regional["es"]);
     $('#' + fecha).datepicker({
         //minDate: 0,
         dateFormat: formato || 'dd/mm/yy',
@@ -765,7 +789,9 @@ function ConvertDateSQLToText(strdate) {
 
 // ServiceUrl + "Home/AjaxGetJsonData"
 //{data:"Nombre",orderable:false,ctroFilter:"txtNombreFilter"}
-function SetDataTable(idTable, URL, dataColumns) {
+var downloading = false,
+    downloadTimestamp = null;
+function SetDataTable(idTable, DireccionURL, dataColumns) {
     debugger;
     var columns = new Array();
     $.each(dataColumns, function (index, value) {
@@ -797,6 +823,21 @@ function SetDataTable(idTable, URL, dataColumns) {
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
         },
+        dom: 'Bfrtip',
+        buttons: [{
+            text: 'CSV',
+            titleAttr: 'CSV',
+            className: 'downloadCSV',
+            action: function (e, dt, node, config) {
+                if (downloading === false) { //if download is in progress, do nothing, else
+                    node.attr('disabled', 'disabled'); //disable download button to prevent multi-click, probably some sort of *busy* indicator is a good idea
+
+                    downloading = true; //set downloading status to *true*
+
+                    dt.ajax.reload(); //re-run *DataTables* AJAX query with current filter and sort applied
+                }
+            }
+        }],
         "searching": true,
         "processing": true, // control the processing indicator.
         "serverSide": true, // recommended to use serverSide when data is more than 10000 rows for performance reasons
@@ -804,15 +845,59 @@ function SetDataTable(idTable, URL, dataColumns) {
         "stateSave": true,  //restore table state on page reload,
         "lengthMenu": [[10, 20, 50], [10, 20, 50]],    // use the first inner array as the page length values and the second inner array as the displayed options
         "ajax": {
-            "url": URL,
+            "url": DireccionURL,
             "type": "POST",
             "contentType": "application/json; charset=utf-8",
             "data": function (d) {
+                d.timestamp = new Date().getTime(); //add timestamp to data to be sent, it's going to be useful when retrieving produced file server-side
+
+                downloadTimestamp = d.timestamp; //save timestamp in local variable for use with GET request when retrieving produced file client-side
+
+                if (downloading === true) { //if download button was clicked
+                    d.download = true; //tell server to prepare data for download
+                    downloading = d.draw; //set which *DataTable* draw is actually a request to produce file for download
+                }
+
                 return JSON.stringify({ parameters: d });
             }
         },
         "columns": columns,
-        "order": [[0, "asc"]]
+        "order": [[0, "asc"]],
+        "preDrawCallback": function (settings) {
+            if (settings.iDraw === downloading) { //if returned *DataTable* draw matches file request draw value
+                downloading = false; //set downloading flag to false
+
+                $('.downloadCSV').removeAttr('disabled'); //enable download button
+                var filename = "my_data.csv";
+                var blob = new Blob([settings.json.DownloadStr], { type: 'text/csv;charset=utf-8;' });
+                if (navigator.msSaveBlob) { // IE 10+
+                    navigator.msSaveBlob(blob, filename);
+                } else {
+                    var link = document.createElement("a");
+                    if (link.download !== undefined) { // feature detection
+                        // Browsers that support HTML5 download attribute
+                        var url = URL.createObjectURL(blob);
+                        link.setAttribute("href", url);
+                        link.setAttribute("download", filename);
+                        link.style.visibility = 'hidden';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                }
+                //var encodedUri = encodeURI(settings.json.DownloadStr);
+                //var link = document.createElement("a");
+                //link.setAttribute("href", encodedUri);
+                //link.setAttribute("download", "my_data.csv");
+                //document.body.appendChild(link); // Required for FF
+
+                //link.click();
+
+                //window.location.href = URL + '?' + $.param({ ts: downloadTimestamp }); //navigate to AJAX URL with timestamp as parameter to trigger file download. Or You can have hidden IFrame and set its *src* attribute to the address above.
+
+                return false; //as it is file request, table should not be re-drawn
+            }
+        }
     })
 
 }

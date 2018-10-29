@@ -438,6 +438,10 @@
     <Content Include="Scripts\Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\Scripts\bootstrap-toggle.min.js" />
     <Content Include="Scripts\Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\Scripts\jquery-3.2.1.min.js" />
     <Content Include="Pages\PagesIngrid\MenuIngrid.Master" />
     <Content Include="Pages\PagesIngrid\Web.sitemap" />
@@ -467,13 +471,16 @@
     <Content Include="Scripts\Scripts\jquery.linq.js" />
     <Content Include="Scripts\Scripts\jquery.linq.min.js" />
     <None Include="Scripts\Scripts\linq-vsdoc.js" />
+    <Content Include="Scripts\Scripts\jszip.min.js" />
     <Content Include="Scripts\Scripts\linq.js" />
     <Content Include="Scripts\Scripts\linq.min.js" />
+    <Content Include="Scripts\Scripts\pdfmake.min.js" />
     <Content Include="Scripts\Scripts\tables\bootstrap-table-editable.js" />
     <Content Include="Scripts\Scripts\tables\bootstrap-table-export.js" />
     <Content Include="Scripts\Scripts\tables\bootstrap-table-filter-control.js" />
     <Content Include="Scripts\Scripts\tables\bootstrap-table.js" />
     <Content Include="Scripts\Scripts\tables\tableExport.js" />
+    <Content Include="Scripts\Scripts\vfs_fonts.js" />
     <Content Include="Services\Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -709,6 +716,9 @@
       <DependentUpon>Servicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AsocajasBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TReporte.cs">
       <DependentUpon>AsocajasBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Utility.cs" />

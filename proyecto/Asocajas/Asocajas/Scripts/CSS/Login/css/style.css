@@ -697,3 +697,6 @@ div#custom-search-input span.input-group-btn {
 
 .dataTables_filter { display: none; }
 /*.dataTables_filter, .dataTables_info { display: none; }*/
+.downloadCSV {
+    width:auto !important;
+}

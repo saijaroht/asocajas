@@ -19,6 +19,7 @@
           <EntitySet Name="RTipoDatoBasico" EntityType="AsocajasBDModel.Store.RTipoDatoBasico" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="RUsuario" EntityType="AsocajasBDModel.Store.RUsuario" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="AsocajasBDModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TReporte" EntityType="AsocajasBDModel.Store.TReporte" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_LTLogConsultasAni_RCcf" Association="AsocajasBDModel.Store.FK_LTLogConsultasAni_RCcf">
             <End Role="RCCF" EntitySet="RCCF" />
             <End Role="LTLogConsultasAni" EntitySet="LTLogConsultasAni" />
@@ -230,6 +231,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="TReporte">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+          </Key>
+          <Property Name="IdReporte" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Excel" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
         <Association Name="FK_LTLogConsultasAni_RCcf">
           <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="1" />
           <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
@@ -370,6 +378,7 @@
             <End Role="RRole" EntitySet="RRole" />
             <End Role="RUsuario" EntitySet="RUsuario" />
           </AssociationSet>
+          <EntitySet Name="TReporte" EntityType="AsocajasBDModel.TReporte" />
           </EntityContainer>
         <ComplexType Name="SendMail_Result">
           <Property Type="Int32" Name="IdUsuario" Nullable="false" />
@@ -669,6 +678,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TReporte">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+          </Key>
+          <Property Type="Int32" Name="IdReporte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Binary" Name="Excel" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -889,6 +905,14 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TReporte">
+            <EntityTypeMapping TypeName="AsocajasBDModel.TReporte">
+              <MappingFragment StoreEntitySet="TReporte">
+                <ScalarProperty Name="Excel" ColumnName="Excel" />
+                <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

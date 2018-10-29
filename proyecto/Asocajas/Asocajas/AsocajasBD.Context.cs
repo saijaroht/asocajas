@@ -41,6 +41,7 @@ namespace Asocajas
         public DbSet<RRptaRnec> RRptaRnec { get; set; }
         public DbSet<RTipoDatoBasico> RTipoDatoBasico { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<TReporte> TReporte { get; set; }
     
     }
 }
