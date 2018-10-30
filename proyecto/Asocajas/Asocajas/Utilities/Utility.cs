@@ -419,6 +419,26 @@ namespace Asocajas.Utilities
             return URL;
         }
 
+        public static string GetURLSite()
+        {
+         
+            if (System.Web.HttpContext.Current == null)
+                return "CONETXT NULO";
+            return System.Web.HttpContext.Current.Request.GetURLSite();
+        }
+
+        public static string GetURLSite(this HttpRequest request)
+        {
+            if (request == null)
+                return "REQUEST NULO";
+            System.Configuration.AppSettingsReader settingsReader =
+                                               new AppSettingsReader();
+
+            var URL = request.Url.Scheme + "://" + request.Url.Authority +
+    request.ApplicationPath.TrimEnd('/');
+            return URL;
+        }
+
         public static string PathLog
         {
             get
