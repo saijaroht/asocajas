@@ -377,10 +377,9 @@ namespace Asocajas.Utilities
                 return "REQUEST NULO";
             string userMachine = string.Empty;
             var REMOTE_ADDR = request.ServerVariables["REMOTE_ADDR"];
-
-
             return REMOTE_ADDR;
         }
+
         public static string GetUserHostName()
         {
             if (System.Web.HttpContext.Current == null)

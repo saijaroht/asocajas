@@ -148,7 +148,7 @@
 						</div>						
                         <div class="col-md-2"></div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
+                            <button type="button" class="btn btn-primary" onclick="ValidaUsuario(this);">Guardar</button>
                         </div>
 						<div class="col-md-3"></div>
                     </div>

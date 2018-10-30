@@ -575,28 +575,31 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
         }
     })
   .on("change", function () {
-        debugger;
-    
-        var regex = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
-        //var hoy = new Date();
-        //var fechaFormulario = new Date(Date.parce(this.value));
+      debugger;
+
+      var regex = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
+      //var hoy = new Date();
+      //var fechaFormulario = new Date(Date.parce(this.value));
 
       // Comparamos solo las fechas => no las horas!!
-        hoy.setHours(0, 0, 0, 0);
-        fechaFormulario.setHours(0, 0, 0, 0); // Lo iniciamos a 00:00 horas
-        if (this.value != "")
-            if (!regex.test($(this).val().trim()) ) {
-                this.value = "";
-                //div = $(this).closest("div");
-                //div.addClass("has-error has-feedback");
-                //div.append('<span id="glypcn' + this.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>')
-                //$("#glypcnNovalid" + this.id).remove();
-                //div.append('<span id="glypcnNovalid' + this.id + '" class="help-block">Fecha invalida (dd/mm/yyyy)</span>')
-            }
-            //else {
-            //    RemoveValidateText(this);
-            //}
-    })
+      //hoy.setHours(0, 0, 0, 0);
+      //fechaFormulario.setHours(0, 0, 0, 0); // Lo iniciamos a 00:00 horas
+      if (this.value != "")
+          if (!regex.test($(this).val().trim())) {
+              this.value = "";
+              //div = $(this).closest("div");
+              //div.addClass("has-error has-feedback");
+              //div.append('<span id="glypcn' + this.id + '" class="glyphicon glyphicon-remove form-control-feedback "></span>')
+              //$("#glypcnNovalid" + this.id).remove();
+              //div.append('<span id="glypcnNovalid' + this.id + '" class="help-block">Fecha invalida (dd/mm/yyyy)</span>')
+          }
+      //else {
+      //    RemoveValidateText(this);
+      //}
+  });
+    $('#' + fechaInicio).next().click(function () {
+        $('#' + fechaInicio).focus();
+    });
 }
 function CargarFecha(fecha, formato) {
     $('#' + fecha).datepicker({
@@ -616,8 +619,8 @@ function CargarFecha(fecha, formato) {
          //var fechaFormulario = new Date(Date.parce(this.value));
 
          // Comparamos solo las fechas => no las horas!!
-         hoy.setHours(0, 0, 0, 0);
-         fechaFormulario.setHours(0, 0, 0, 0); // Lo iniciamos a 00:00 horas
+         //hoy.setHours(0, 0, 0, 0);
+         //fechaFormulario.setHours(0, 0, 0, 0); // Lo iniciamos a 00:00 horas
          if (this.value != "")
              if (!regex.test($(this).val().trim())) {
                  this.value = "";
@@ -746,12 +749,16 @@ $(document).ready(function () {
 });
 
 function SessionLogin(valueUser, functionsucess) {
-    PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
+    PostService(ServiceUrl + "Home/Login?UserData=" + valueUser + "", functionsucess);
 }
 
 function Logout() {
     debugger;
-    PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
+    PostService(ServiceUrl + "Home/Logout", null, function (dataUsuario) {
+        debugger;
+        //$('#UsuarioLogueado').html(dataUsuario.Nombre + " " + dataUsuario.Apellido);
+    });
+    //PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
 }
 
 function CerrarSesion() {
