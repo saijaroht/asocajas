@@ -30,17 +30,14 @@ function cancelar() {
     //window.location.href = "Gestion_Usuarios.aspx";
 }
 
-function ValidaUsuario(btn) {
+function ValidaUsuario() {
     debugger;
-    $(btn).attr("disabled", "disabled");
     var campos = ["txtNombres","txtApellidos","txtUsuario","txtFechadecaducidad","cboTipodeusuario","cboNombreCCF"];
     if (validarcampos(campos)) {
-        GuardarUsuario(btn);
-    } else {
-        $(btn).removeAttr("disabled");
+        GuardarUsuario();
     }
 }
-function GuardarUsuario(btn) {
+function GuardarUsuario() {
     debugger;
     PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
         if (data1.Ok) {
@@ -67,8 +64,6 @@ function GuardarUsuario(btn) {
                     var campos = ["txtNombres", "txtApellidos", "txtUsuario", "txtFechadecaducidad", "cboTipodeusuario", "cboNombreCCF"];
                     removerValidacion(campos, true);
                 }
-                $(btn).removeAttr("disabled");
-
             }, null, function (dataError) {
             });
         }

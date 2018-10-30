@@ -12,86 +12,13 @@ using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Mvc;
 
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class HomeController : ApiController
     {
-        #region Session
-
-        private const string SESSION_VAR = "User";
-
-        public static string User
-        {
-            get
-            {
-                if (System.Web.HttpContext.Current.Session[SESSION_VAR] == null)
-                    System.Web.HttpContext.Current.Session[SESSION_VAR] = null;
-                return (string)System.Web.HttpContext.Current.Session[SESSION_VAR];
-            }
-            set { System.Web.HttpContext.Current.Session[SESSION_VAR] = value; }
-        }
-
-        public static void CloseSession()
-        {
-            if (System.Web.HttpContext.Current.Session != null)
-            {
-                System.Web.HttpContext.Current.Session.Abandon();
-                System.Web.HttpContext.Current.Session.Clear();
-                System.Web.HttpContext.Current.Session.RemoveAll();
-            }
-        }
-
-        public IHttpActionResult IsLogin(object parameters)
-        {
-            results jsonData = new results();
-            try
-            {
-                jsonData.Message = User;
-                jsonData.Ok = User == null ? false : true;
-            }
-            catch (Exception ex)
-            {
-                jsonData.Message = ex.ToString();
-                jsonData.Ok = false;
-            }
-            return Ok(jsonData);
-        }
-
-        public IHttpActionResult Login(string UserData)
-        {
-            results jsonData = new results();
-            try
-            {
-                User = UserData;
-                jsonData.Message = UserData;
-                jsonData.Ok = true;
-            }
-            catch (Exception ex)
-            {
-                jsonData.Message = ex.ToString();
-                jsonData.Ok = false;
-            }
-            return Ok(jsonData);
-        }
-
-        public IHttpActionResult Logout()
-        {
-            results jsonData = new results();
-            try
-            {
-                CloseSession();
-            }
-            catch (Exception ex)
-            {
-                jsonData.Message = ex.ToString();
-                jsonData.Ok = false;
-            }
-            return Ok(jsonData);
-        }
-        #endregion
-
         #region LTLogEventos
         public class DataTableDataLogEventos
         {
@@ -257,6 +184,44 @@ namespace Asocajas.Controllers
         #endregion
 
         #region Descarga Documentos
+
+        //public IHttpActionResult GetFile123()
+        //{
+        //    using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
+        //    {
+        //        StringBuilder sb = new StringBuilder();
+        //        IEnumerable<string> columnNames = objRUsuario.Get()
+        //                .Select(property => property.FechaCreacion);
+
+        //        sb.AppendLine(string.Join(",", columnNames));
+                
+
+        //        //foreach (var row in objLTLogEventos.Get().ToList())
+        //        //{
+        //        IEnumerable<string> fields = objRUsuario.Get().Select(field => field.ToString());
+        //        sb.AppendLine(string.Join(",", fields));
+        //        //}
+        //        return Json(sb);
+        //    }
+        //    //string filename = "C:\\ArchivosPlanos\\prueba1.csv";
+        //    ////int index = 1;
+        //    ////int process = 5;
+
+        //    //using (StreamWriter sw = new StreamWriter(new FileStream(filename, FileMode.Create), Encoding.UTF8))
+        //    //{
+        //    //    StringBuilder sb = new StringBuilder();
+        //    //    sb.AppendLine("titulo1, Titulo2, Titulo3");
+        //    //    sb.AppendLine("parametro11, parametro21, parametro31");
+        //    //    sb.AppendLine("parametro12, parametro22, parametro32");
+        //    //    sb.AppendLine("parametro13, parametro23, parametro33");
+        //    //    sb.AppendLine("parametro14, parametro24, parametro34");
+
+
+        //    //    sw.Write(sb.ToString());
+
+        //    //    return Json(sw);
+        //    //}
+        //}
         #endregion
     }
 }
