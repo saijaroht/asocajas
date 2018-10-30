@@ -22,7 +22,7 @@
             <h4><b>Consulta Masiva Documentos</b></h4>
         </div>
           <div class="col-sm-3">
-          <input type="file" class="filestyle" data-buttonBefore="true">
+          <input type="file" class="filestyle" data-buttonBefore="true" data-buttonText="Cargar Archivo">
         </div>
         <div class="col-sm-3">
                <div class="form-group">
