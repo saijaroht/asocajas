@@ -597,7 +597,10 @@ function CargarFechaInicioFechaFin(fechaInicio, fechaFin, formato) {
       //else {
       //    RemoveValidateText(this);
       //}
-  })
+  });
+    $('#' + fechaInicio).next().click(function () {
+        $('#' + fechaInicio).focus();
+    });
 };
 function CargarFecha(fecha, formato) {
     $('#' + fecha).datepicker({
