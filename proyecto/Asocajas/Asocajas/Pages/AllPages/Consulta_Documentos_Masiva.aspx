@@ -21,28 +21,33 @@
         <div class="col-sm-3">
             <h4><b>Consulta Masiva Documentos</b></h4>
         </div>
-        <div class="col-sm-5">
+          <div class="col-sm-3">
+          <input type="file" class="filestyle" data-buttonBefore="true" data-buttonText="Cargar Archivo">
+        </div>
+        <div class="col-sm-3">
                <div class="form-group">
 
-        
             <div class='input-group date' id='datetimepicker1'>
-                <span class="input-group-addon ">
-                    <a href="#"><span>Cargar Archivo</span></a>
-                </span>
+                
                 <span class="input-group-addon" style="background: white;">
                     <span class="glyphicon glyphicon-search"></span>
                 </span>
-                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
             </div>
         
     </div>
         </div>
-        <div class="col-sm-2">
+         <div class="col-sm-3">
+             <div class="row">
+                 <div class="col-sm-6">
              <button type="button" class="btn btn-primary">Cargar</button>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-6">
              <button type="button" class="btn btn-primary">Consultar</button>
         </div>
+             </div>
+         </div>
+        
     </div>
     
     
@@ -76,144 +81,17 @@
 		
 		</tr>
 	</thead>
-    <tbody id="tbody">
-        <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-         <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-       <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-
-        <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-       <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-       <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-       <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
-
-       <tr>			
-			<td>524689754</td>
-			<td>Suaréz</td>
-            <td>Sin particula</td>
-			<td>Gamboa</td>
-            <td>Adriana</td>
-            <td>Marcela</td>
-            <td>10/06/1980</td>
-            <td>Bogotá D.C.</td>
-            <td>Distrito Capital</td>
-            <td>06/08/1998</td>
-            <td>0</td>
-            <td>2355</td>
-            <td>2007</td>
-		</tr>
+    <tbody id="tbodyConsultaMasiva">
+    
 
 
 	</tbody>
 </table>
- </div>
+ 
 
 
 
-    </form>
+   
     
    <%-- <div class="row">
         <div class="col-sm-11"></div>

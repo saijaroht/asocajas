@@ -76,7 +76,7 @@
                             <li class="menu-item dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <div id="userLoguin">
-                                        <span id="UsuarioLogueado">Nombre user</span><!--<span>Asocajas</span>-->
+                                        <span id="UsuarioLogueado"></span><!--<span>Asocajas</span>-->
                                     </div>
                                     <div id="userIng">
                                         <b class=""></b>
