@@ -408,7 +408,9 @@ namespace Asocajas.Controllers
                 MensajeCorreo += "                        <td colspan='2'></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
-                MensajeCorreo += "                        <td > <img src='../Pages/Scripts/Images/logo_asocajas.png' class='img-responsive' /></td>";
+                MensajeCorreo += "                        <td > <img src='" + Utility.GetURLSite() + "/Pages/Scripts/Images/logo_asocajas.png' class='img-responsive' /></td>";
+                MensajeCorreo += "                    </tr>";
+                MensajeCorreo += "                    <tr>";
                 MensajeCorreo += "                        <td > <h2 class='text-center '>Sistema Digital de Validación de Identidad (ANI)</h2></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
