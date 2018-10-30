@@ -14,10 +14,10 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <ul class="breadcrumb">
+    <%--<ul class="breadcrumb">
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Logs Desempeño Plataforma</li>
-    </ul>
+    </ul>--%>
    <h4><b>Desempeño Plataforma</b></h4>
 
 

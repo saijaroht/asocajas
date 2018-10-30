@@ -9,10 +9,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
 
-    <ul class="breadcrumb">
+    <%--<ul class="breadcrumb">
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Gestión de Usuarios</li>
-    </ul>
+    </ul>--%>
     <form>
         <div class="encabezadoTable">
             <div class="col-xs-12 col-sm-12 col-md-6">

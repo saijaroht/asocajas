@@ -655,21 +655,23 @@ function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, Funcio
 
         case "SoloMensaje":
             BootstrapDialog.show({
+				//title: 'ASOCAJAS - ANI',
                 message: Mensaje,
                 closable: true,
-                title: TituloMensaje,
-                //buttons: [{
-                //    closable: true,
-                //    cssClass: 'btn-primary',
-                //    label: 'Aceptar',
-                //    action: function (dialogRef) {
+                //title: TituloMensaje,
+                buttons: [{
+                    closable: true,
+                    //cssClass: 'btn-primary',
+					cssClass: 'btn-mensaje',
+                    label: 'Aceptar',
+                    action: function (dialogRef) {
                 //        if (FuncionAceptar) {
                 //            FuncionAceptar(dialogRef);
                 //        } else {
-                //            dialogRef.close();
+                            dialogRef.close();
                 //        }
-                //    }
-                //}]
+                    }
+                }]
 
 
 

@@ -40,9 +40,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="TitlePage" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
 
-    <form id="form2" runat="server">
-	  <div >
+
+	  <nav  class="navbar navbar-default navbar-fixed-top">	  
 	    <div style="margin-top: 1em;"></div>
         <div id="banner" class="container">
             <div class="imgbanner">
@@ -92,25 +96,24 @@
                 </div>
             </div>
         </div>
-	  </div>	
-		
-        <div>
-            <asp:ContentPlaceHolder ID="TitlePage" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+	  </nav>	
+	  
+		<div class="container"style="margin-top: 15em;"></div>
+	
+<!--	<form id="form2" runat="server">		    		
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="container"> -->
+                <div class="container">					
                     <asp:ContentPlaceHolder ID="bodyContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-            </div>
+<!--            </div>
         </div>
-        <footer class="bg-4 text-center navbar navbar-fixed-bottom">
+<!--    </form>		-->
+        <footer class="bg-4 text-center  navbar-fixed-bottom">
             <p class="copyright-agileinfo">&copy; 2019 <a href="http://www.asocajas.org.co" target="_blank">ASOCAJAS - Asociación Nacional de Cajas de Compensación Familiar </a>. Todos los derechos reservados.</p>
         </footer>
 
-    </form>
 
 </body>
 </html>

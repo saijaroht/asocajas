@@ -14,10 +14,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <ul class="breadcrumb">
+    <%--<ul class="breadcrumb">
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Logs Excepciones o errores</li>
-    </ul>
+    </ul>--%>
     <h4><b>Excepciones o errores de la Plataforma</b></h4>
     <form>
         <div class="table table-responsive Autoheight">

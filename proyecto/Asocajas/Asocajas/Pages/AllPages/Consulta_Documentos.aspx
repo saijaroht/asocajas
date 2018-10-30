@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <ul class="breadcrumb">
+    <%--<ul class="breadcrumb">
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Consulta Documentos</li>
-    </ul>
+    </ul>--%>
 	<h4 class="text-center "><b>Consulta Individual Documentos</b></h4>
 	
   <form>	

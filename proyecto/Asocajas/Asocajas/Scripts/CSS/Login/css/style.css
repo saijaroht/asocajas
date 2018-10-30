@@ -15,13 +15,35 @@ h2 {
     font-weight: 400;
     text-align: center;
     letter-spacing: 1px;
-	padding-top: 20px;
-    padding-bottom: 20px;
+	padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 
 /***********GENERALES********************/
 
+.fixed-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.btn-mensaje {
+    color: #fff;
+    border-color: #2e6da4;
+    background-color: rgb(48, 147, 199)!important;
+    background-image: linear-gradient(rgb(48, 147, 199), rgb(28, 90, 133))!important;
+    border-radius: 10px;
+	width: 100px;
+    
+}
+
+#recaptcha   {
+                        transform: scale(0.95);
+                        transform-origin: 0 0;
+                       }
+					   
 h1.titleLoguin {
     margin: 0;   
     text-align: center;
@@ -90,6 +112,7 @@ p.w3l-register-p {
     display: flex;
     padding: 15px 5px;
     background-color: #ffffff;
+	text-decoration:none;
 }
 
 .group i {
@@ -203,7 +226,7 @@ footer p a:hover {
 }
 
 footer {
-    padding: 15px 0;
+    padding: 8px 0;
     text-align: center;
     position: relative;
     bottom: 0;
@@ -262,6 +285,15 @@ footer {
 /***************************************************/
 /********************ITEMS SUB MENU*****************/
 /***************************************************/
+
+.item-menu{
+	padding: 0px;
+	border-bottom: 1px solid #f4f4f4;
+	border-top: 1px solid #f4f4f4;
+	color: #67757c;
+	font-size: 13px;
+}
+	
 .pull-right > .dropdown-menu {
     right: 0;
     left: auto;
@@ -534,7 +566,11 @@ table {
   
 }
 
-
+.hoverbtn{
+	background-color: #0070ba;
+	text-decoration:none;	
+	/*text-decoration:underline;*/
+}	
 
 .encabezadoTable {
     float: left;
