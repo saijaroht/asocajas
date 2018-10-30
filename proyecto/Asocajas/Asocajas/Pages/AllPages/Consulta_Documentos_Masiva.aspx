@@ -21,8 +21,8 @@
         <div class="col-sm-3">
             <h4><b>Consulta Masiva Documentos</b></h4>
         </div>
-          <div class="col-sm-2">
-          <input type="file" class="filestyle" data-input="false">
+          <div class="col-sm-3">
+          <input type="file" class="filestyle" data-buttonBefore="true">
         </div>
         <div class="col-sm-3">
                <div class="form-group">
@@ -37,12 +37,17 @@
         
     </div>
         </div>
-        <div class="col-sm-2">
+         <div class="col-sm-3">
+             <div class="row">
+                 <div class="col-sm-6">
              <button type="button" class="btn btn-primary">Cargar</button>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-6">
              <button type="button" class="btn btn-primary">Consultar</button>
         </div>
+             </div>
+         </div>
+        
     </div>
     
     
