@@ -36,7 +36,7 @@
 								<span>CCF</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-								<select class="form-control">
+								<select class="form-control" id="cboCCF">
 									<option value="0">-- TODAS --</option>
 									<option value="1">ASOCAJAS</option>
 									<option value="2">CAMACOL</option>
@@ -90,8 +90,7 @@
 								<span>USUARIO</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-								<select class="form-control">
-									<option value="1"></option>
+								<select class="form-control" id="cboUsuario">
 								</select>
 							</div>
 						</div>
