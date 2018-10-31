@@ -11,15 +11,16 @@ function ConsultarEventos() {
     var dataColumns = [
         { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
         { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
-        { data: "Evento", ctroFilter: "txtNombreFilter" },
-        { data: "FechaEvento", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "Mac", ctroFilter: "txtNombreFilter" },
     ];
-    SetDataTable("tblLogEventos", ServiceUrl + "Home/AjaxGetJsonDataLTLogEventos", dataColumns);
+    SetDataTable("tblLogConsultas_Ani", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
 }
 
 function Buscar() {
-    $('#dvLogEventos').show();
-    $('#tblLogEventos').DataTable().search(
+    $('#dvLogConsultas_Ani').show();
+    $('#tblLogConsultas_Ani').DataTable().search(
        JSON.stringify({
            search: {
                IdCCF: $('#cboCCF').val(),

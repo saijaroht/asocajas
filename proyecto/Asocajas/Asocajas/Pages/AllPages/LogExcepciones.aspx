@@ -14,59 +14,83 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <%--<ul class="breadcrumb">
-        <li><a href="Inicio.aspx">Administración</a></li>
-        <li class="active">Logs Excepciones o errores</li>
-    </ul>--%>
+    
     <h4><b>Excepciones o errores de la Plataforma</b></h4>
-    <form>
-        <div class="table table-responsive Autoheight">
-        <div id="toolbar">
-		
-</div>
-            <%--EJEMPLO1--%>
-<table id="table" 
-			 data-toggle="table"
-			 data-search="true"
-			 data-filter-control="true" 
-			 data-show-export="true"
-			 data-click-to-select="true"
-			 data-toolbar="#toolbar"
-       class="table-responsive">
-	<thead>
-		<tr>			
-			<th data-field="ccf" data-filter-control="select" data-sortable="true">CCF</th>
-			<th data-field="user" data-filter-control="select" data-sortable="true">Usuario</th>
-            <th data-field="fechaIni" data-filter-control="input" data-sortable="true">Fecha Inicio</th>
-            <th data-field="FechaFin" data-filter-control="input" data-sortable="true">Fecha Fin</th>			
-		
-		</tr>
-	</thead>
-    <tbody id="tbody">
+   <form>
+	
+        <div class="encabezadoTable">
+            <div class="col-xs-12 col-sm-12 col-md-12">					
+                    <div class="col-xs-12 col-sm-12 col-md-10 ">
+						<div class="col-xs-6 col-sm-6 col-md-3 ">
+							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+								<span>CCF</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 ">
+								<select class="form-control" id="cboCCF">
+									
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-3 ">
+							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+								<span>USUARIO</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 ">
+								<select class="form-control" id="cboUsuario">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-3 ">
+							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+								<span>FECHA INICIAL</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 ">
+                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required/>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-3 ">
+							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+								<span>FECHA FINAL</span>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 ">
+                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required/>
+							</div>
+						</div>
+						
+                    </div>
 
-	</tbody>
-</table>
+                    <div class="col-xs-4 offset-xs-4 col-sm-4 offset-sm-4 col-md-2 offset-md-0 nuevoUser">	
+						<span></span>
+                        <button type="button" class="btn btn-success" onclick="Buscar();" >Consultar</button>
+                    </div>
+                
+            </div>
+        </div>
+	
+	
+ <div class="table table-responsive Autoheight" style="display:none;" id="dvLogEventos">
+        <div id="toolbar"> 
+		</div>
+     <table id="tblLogEventos" style=" width:100%">
+        <thead>
+            <tr>
+			<th>CCF</th>
+			<th>Usuario</th>
+			<th>Id. Transacción</th>
+			<th>Mac Origen</th>
+            <th>Fecha Exepción</th>
+            </tr>
+        </thead>
+    </table>
  </div>
-
-
-
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
     <script>
 
-        //exporte les données sélectionnées
-        var $table = $('#table');
-        $(function () {
-            $('#toolbar').find('select').change(function () {
-                $table.bootstrapTable('refreshOptions', {
-                    exportDataType: $(this).val()
-                });
-            });
-        })
-
-        var trBoldBlue = $("table");
-
-        $(trBoldBlue).on("click", "tr", function () {
-            $(this).toggleClass("bold-blue");
-        });
+      
     </script>
 </asp:Content>
