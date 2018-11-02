@@ -308,7 +308,7 @@ namespace Asocajas.Controllers
                 if (Convert.ToInt32(activarBloquear.Estado) == (int)Estados.Activo)
                 {
                     CreateLogEventos(DesbloqueaUsuario, rsuario);
-                    this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:");
+                    this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha activado su usuario, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:","Usuario Activado");
                 }
                 else
                 {
@@ -408,7 +408,8 @@ namespace Asocajas.Controllers
                 MensajeCorreo += "                        <td colspan='2'></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
-                MensajeCorreo += "                        <td > <img src='" + Utility.GetURLSite() + "/Pages/Scripts/Images/logo_asocajas.png' class='img-responsive' /></td>";
+                MensajeCorreo += "                        <td > <img src='cid:HDIImage' class='img-responsive' /></td>";
+                //MensajeCorreo += "                        <td > <img src=\"" + Utility.GetURLSite() + "/Scripts/Images/logo_asocajas.png" + "\" class='img-responsive' /></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
                 MensajeCorreo += "                        <td > <h2 class='text-center '>Sistema Digital de Validación de Identidad (ANI)</h2></td>";

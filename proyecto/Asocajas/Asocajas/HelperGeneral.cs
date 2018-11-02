@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Web.Mvc;
 using System.Net.Http;
+using System.Net.Mime;
 
 namespace Asocajas
 {
@@ -141,13 +142,22 @@ namespace Asocajas
                 clientDetails.Credentials = new NetworkCredential((string)settingsReader.GetValue("UserMail", typeof(String)),
                     (string)settingsReader.GetValue("PasswordMail", typeof(String)));
 
+                System.Net.Mail.AlternateView htmlView = System.Net.Mail.AlternateView.CreateAlternateViewFromString(html, null, "text/html");
+                //Add image to HTML version
+                System.Net.Mail.LinkedResource imageResource = new System.Net.Mail.LinkedResource(System.Web.HttpContext.Current.Server.MapPath("~/Scripts/Images/logo_asocajas.png"));
+                imageResource.ContentId = "HDIImage";
+                htmlView.LinkedResources.Add(imageResource);
+                //Add two views to message.
+
                 //Detalle Mensaje
                 MailMessage mailDetails = new MailMessage();
                 mailDetails.From = new MailAddress((string)settingsReader.GetValue("UserMail", typeof(String)));
                 mailDetails.To.Add(Para);
                 mailDetails.Subject = asunto;
                 mailDetails.IsBodyHtml = true;
-                mailDetails.Body = html;
+                mailDetails.AlternateViews.Add(htmlView);
+                
+                //mailDetails.Body = html;
 
                 clientDetails.Send(mailDetails);
                 return true;
@@ -156,13 +166,14 @@ namespace Asocajas
             {
                 return false;
             }
-            return true;
         }
+
+        
 
         public static results exceptionError(Exception ex)
         {
             results result = new results();
-            result.Message = "El usuario ya existe";
+            result.Message = ex.ToString();
             result.Ok = false;
             using (BusinessBase<LTLogApp> objLTLogApp = new BusinessBase<LTLogApp>())
             {
