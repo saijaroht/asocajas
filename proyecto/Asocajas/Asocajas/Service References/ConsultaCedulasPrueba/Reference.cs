@@ -466,7 +466,7 @@ namespace Asocajas.ConsultaCedulasPrueba {
         
         private string descripcionErrorField;
         
-        private string fechaHoraConsultaField;
+        private System.DateTime fechaHoraConsultaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -506,7 +506,7 @@ namespace Asocajas.ConsultaCedulasPrueba {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string fechaHoraConsulta {
+        public System.DateTime fechaHoraConsulta {
             get {
                 return this.fechaHoraConsultaField;
             }
