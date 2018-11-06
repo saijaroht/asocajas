@@ -25,7 +25,7 @@
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-                <button type="button" class="btn btn-success" id="btnConsultar" >Consultar</button>
+                <button type="button" class="btn btn-success" id="btnConsultar" onclick="alerta();" >Consultar</button>
             </div>
 			
         </div>
