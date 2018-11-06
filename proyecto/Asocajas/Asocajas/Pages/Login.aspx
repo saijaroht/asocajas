@@ -23,7 +23,7 @@
                     <img src="../Scripts/Images/logo_asocajas.png" class="img-responsive"></div>
                 <h5 class="text-center titleLoguin"><b>Servicio Digital de Validación de Identidad (ANI)</b></h5>
             </div>
-            <div class="">
+            <div>
                 <div >
                     <div class="group">
                         <i class="fas fa-user"></i>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="forgot">
-                    <a href="Modificacion_Contrasena.aspx"><u>Olvide mi contraseña<u></a>
+                    <a href="Modificacion_Contrasena.aspx"><u>Olvidé mi contraseña<u></a>
                 </div>
                 <div class=" w3l-form-group">
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -49,23 +49,18 @@
                     </div>
                     <%--<div class="g-recaptcha" data-sitekey="6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF" align="center"></div>--%>
                 </div>
-				<!--
-                <div class=" w3l-form-group">
-
-                    <!--<div class="recaptcha"></div>
-                <div class="g-recaptcha" data-sitekey="6Lc9FXQUAAAAAAD9ZwF-PjD0e10HdtZDnJJQPFp0"></div> -->
-                <!--</div>                
-				-->
-                <div class="group col-md-6 col-sm-6 col-xs-8 centred">
-                    <button type="submit" onclick="ValidaUsuario(); return false;">Ingresar</button>
+				
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-6 centred">
+					<button class="hoverbtn"  style="margin-top: 15px" type="button" onclick="ValidaUsuario(); return false;">Ingresar</button>                    
                 </div>
+				
 			</div>
         </form>
 
     </div>
 	  <div class="copytxt" align="center">
 
-          <h5>© 2019 ASOCAJAS. Todos los derechos reservados</h5>
+          <h5 style="margin-top: 30px" >© 2019 ASOCAJAS. Todos los derechos reservados</h5>
       </div>
 
 </asp:Content>

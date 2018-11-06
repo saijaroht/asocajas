@@ -20,19 +20,24 @@
 				  <span>Documento</span>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12" >
-				<input id="Number1" type="number" placeholder="Número Identificación" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">			
+				<input id="Number1" type="text" maxlength="10" placeholder="Número Identificación" class="form-control" required onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 13 && event.keyCode != 8 && event.keyCode != 0) return false;">			
 				</div>
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-                <button type="button" class="btn btn-success" id="btnConsultar" onclick="alerta();" >Consultar</button>
+                <button type="button" class="btn btn-success" id="btnConsultar" >Consultar</button>
             </div>
 			
         </div>
 			
 	</div>
-	<div class="row">
-	  <h5 class="text-center "><b>Para la consulta debe tener en cuenta que: Sólo se puede ingresar un documento a la vez, sólo se permite digitar números, el documento ingresado no puede tener más de diez (10) digitos </b></h5>
+	<div class="row col-md-6 col-md-offset-3">
+	  <h3 class="text-justify "><b>Para la consulta debe tener en cuenta que:  </b></h3>
+	  
+	  <ul>
+		<li type="circle"><h4 class="text-justify "><b>Sólo se puede ingresar un documento a la vez. </b></h4></li>
+		<li type="circle"><h4 class="text-justify "><b>Sólo se permite digitar números. </b></h4></li>
+		<li type="circle"><h4 class="text-justify "><b>El documento ingresado no puede tener más de diez (10) digitos. </b></h4></li>	  
 	</div>
 	<!--
     <div class="row">
@@ -163,15 +168,11 @@
         </div>
 
                     <div class="group">
-						<div class="col-md-3"></div>
+						<div class="col-md-5"></div>
 						<div class="col-md-2">
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 						</div>						
                         <div class="col-md-2"></div>
-                        <div class="col-md-2">
-                            <%--<button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>--%>
-                        </div>
-						<div class="col-md-3"></div>
                     </div>
                 </div>
                 <div class="modal-footer">

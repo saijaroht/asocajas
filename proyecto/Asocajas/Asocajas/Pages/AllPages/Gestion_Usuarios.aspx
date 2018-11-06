@@ -25,7 +25,7 @@
                     <div class="col-xs-12 col-sm-8  col-md-8">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input type="text" class="  search-query form-control" placeholder="Search" id="Buscartxt" />
+                                <input type="text" class="  search-query form-control" placeholder="Buscar" id="Buscartxt" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
                                         <span class=" glyphicon glyphicon-search"></span>
@@ -127,7 +127,7 @@
                                                 <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
                                                 <div class="col-sm-8">
                                                     <div class='input-group date' id='datetimepicker1'>
-                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad" id="txtFechadecaducidad" placeholder="DD/MM/YYYY" datepicker required />
+                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad" id="txtFechadecaducidad" placeholder="YYYY-MM-DD" datepicker required readonly />
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -144,11 +144,11 @@
                     <div class="group">
 						<div class="col-md-3"></div>
 						<div class="col-md-2">
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary hoverbtn" data-dismiss="modal">Cancelar</button>
 						</div>						
                         <div class="col-md-2"></div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" onclick="ValidaUsuario();">Guardar</button>
+                            <button type="button" class="btn btn-primary hoverbtn" onclick="ValidaUsuario();">Guardar</button>
                         </div>
 						<div class="col-md-3"></div>
                     </div>
@@ -207,7 +207,7 @@
                                                 <label class="col-sm-4 control-label styleLabel">Fecha de caducidad:</label>
                                                 <div class="col-sm-8">
                                                     <div class='input-group date' id='Div1'>
-                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad2" id="txtFechadecaducidad2" placeholder="DD/MM/YYYY" datepicker required />
+                                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechadecaducidad2" id="txtFechadecaducidad2" placeholder="YYYY-MM-DD" datepicker required readonly />
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -224,11 +224,11 @@
                     <div class="group">
 						<div class="col-md-3"></div>
 						<div class="col-md-2">
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary hoverbtn" data-dismiss="modal">Cancelar</button>
 						</div>						
                         <div class="col-md-2"></div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" onclick="ActualizarUsuario();">Actualizar</button>
+                            <button type="button" class="btn btn-primary hoverbtn" onclick="ActualizarUsuario();">Actualizar</button>
                         </div>
 						<div class="col-md-3"></div>
                     </div>

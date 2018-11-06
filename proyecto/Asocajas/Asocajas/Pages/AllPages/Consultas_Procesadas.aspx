@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Log_Consultas.aspx.cs" Inherits="Asocajas.Pages.AllPages.Log_Consultas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Consultas_Procesadas.aspx.cs" Inherits="Asocajas.Pages.AllPages.Consultas_Procesadas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
@@ -8,13 +8,13 @@
     <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
     <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
     <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
-    <script src="../../Scripts/Javascript/log_Consultas_Ani.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/Consultas_Procesadas.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
 
-    <h4 class="text-center "><b>Consulta Transacciones</b></h4>
+    <h4 class="text-center "><b>Consulta Carga de Transacciones</b></h4>
     <form>
 
         <div class="encabezadoTable">
@@ -67,20 +67,14 @@
         </div>
 
 
-        <div class="table table-responsive Autoheight" style="display: none;" id="dvLogConsultas_Ani">
+        <div class="table table-responsive Autoheight" style="display: none;" id="dvConsultasProcesadas">
             <div id="toolbar">
             </div>
-            <table id="tblLogConsultas_Ani" style="width: 100%">
+            <table id="tblConsultasProcesadas" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>CCF</th>
-                        <th>Usuario</th>
-                        <th>Id.</th>                        
-						<th>Documento</th>
-                        <th>Vía</th>                        
-                        <th>Dirección IP</th>
-                        <th>Fecha Transacción</th>
-						<th>Resultado</th>
+                        <th>Fecha</th>
+                        <th>Cantidad</th>
                     </tr>
                 </thead>
             </table>

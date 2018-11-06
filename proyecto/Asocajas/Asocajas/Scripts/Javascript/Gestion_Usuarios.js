@@ -3,19 +3,19 @@
 $(document).ready(function () {
     //CargarFechaInicioFechaFin('txtFechadecaducidadActualizar');
 
-        CargarFechaInicioFechaFin('txtFechadecaducidad2');
-        ConsultarUsuarios();
-        BuscarTable("Buscartxt", "tbodyGestionUsuarios");
+    CargarFechaInicioFechaFin('txtFechadecaducidad2');
+    ConsultarUsuarios();
+    BuscarTable("Buscartxt", "tbodyGestionUsuarios");
 
-        consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
-            dataRoles = data;
-            $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
-            $.each(data, function (i, val) {
-                $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
-            });
-        }, null, function (dataError) {
-
+    consumirServicio(ServiceUrl + "RRole/GetRRole", null, function (data) {
+        dataRoles = data;
+        $("#cboTipodeusuario2").append('<option value="0">Seleccione...</option>');
+        $.each(data, function (i, val) {
+            $("#cboTipodeusuario2").append('<option value = "' + val.IdRole + '">' + val.Nombre + '</option>');
         });
+    }, null, function (dataError) {
+
+    });
 
 });
 
@@ -34,7 +34,7 @@ var cargarTabla = function () {
     //    }
     //});
 
-    
+
 }
 
 function nuevoUsuario() {
@@ -42,7 +42,7 @@ function nuevoUsuario() {
 }
 var ListUsuarios = new Array();
 function ConsultarUsuarios() {
-    
+
     if (ListUsuarios.length == 0) {
         consumirServicio(ServiceUrl + "RUsuario/GetRUsuario", null, function (data) {
             ListUsuarios = data;
@@ -81,8 +81,10 @@ function PrintTable() {
 
         var tipoBtn = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip" });
         if (val.Estado == 1) {
+            tipoBtn = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip", title: "Bloquear" });
             tipoBtn.append(btnVer);
         } else {
+            tipoBtn = $('<p />', { 'data-placement': "top", 'data-toggle': "tooltip", title: "DesBloquear" });
             tipoBtn.append(btnBlock);
         }
         //var tipoBtn = val.Estado == 1 ? btnVer : btnBlock;
@@ -103,9 +105,11 @@ function PrintTable() {
                     .FirstOrDefault().Estado;
                     if (estado == "1") {
                         event.data._tipoBtn.append(event.data._btnVer);
+                        event.data._tipoBtn[0].attributes[2].nodeValue = "Bloquear";
                         event.data._EstadoSTR.html("Activo");
                     } else {
                         event.data._tipoBtn.append(event.data._btnBlock);
+                        event.data._tipoBtn[0].attributes[2].nodeValue = "DesBloquear";
                         event.data._EstadoSTR.html("Bloqueado");
                     }
                     var item = {
@@ -144,7 +148,7 @@ function PrintTable() {
 }
 
 function ActualizarUsuario() {
-    
+
     var item = {
         IdUsuario: idUserUpdate,
         Nombre: $('#txtNombres2').val(),
@@ -153,7 +157,7 @@ function ActualizarUsuario() {
         Vigencia: convertTextToDate($('#txtFechadecaducidad2').val())
     }
     UpdateService(ServiceUrl + "RUsuario/PutUpdateUser", item, function (data) {
-        
+
         ShowMessage("NOTIFICACIÓN", "Usuario actualizado.", "SoloMensaje");
         //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
         $('#ModalEditarUsuario').modal('hide');

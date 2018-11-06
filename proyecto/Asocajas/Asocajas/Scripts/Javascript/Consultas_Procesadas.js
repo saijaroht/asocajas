@@ -18,12 +18,12 @@ function ConsultarEventos() {
 		{ data: "FechaConsulta", ctroFilter: "txtNombreFilter" },
 		{ data: "DescrRNEC", ctroFilter: "txtNombreFilter" },
     ];
-    SetDataTable("tblLogConsultas_Ani", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
+    SetDataTable("tblConsultasProcesadas", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
 }
 
 function Buscar() {
-    $('#dvLogConsultas_Ani').show();
-    $('#tblLogConsultas_Ani').DataTable().search(
+    $('#dvConsultasProcesadas').show();
+    $('#tblConsultasProcesadas').DataTable().search(
        JSON.stringify({
            search: {
                IdCCF: $('#cboCCF').val(),

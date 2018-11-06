@@ -303,6 +303,7 @@
     <Content Include="obj\Debug\TempPE\AsocajasBD.cs.dll" />
     <Content Include="obj\Debug\TempPE\AsocajasBD.Designer.cs.dll" />
     <Content Include="Pages\AllPages\Cambio_Clave.aspx" />
+    <Content Include="Pages\AllPages\Consultas_Procesadas.aspx" />
     <Content Include="Pages\AllPages\Consulta_Documentos.aspx" />
     <Content Include="Pages\AllPages\Consulta_Documentos_Masiva.aspx" />
     <Content Include="Pages\AllPages\Gestion_Usuarios.aspx" />
@@ -417,7 +418,9 @@
     <Content Include="Scripts\Images\logo_asocajas.png" />
     <Content Include="Scripts\Javascript\CambioContrasena.js" />
     <Content Include="Scripts\Javascript\CambioObligatorioClave.js" />
+    <Content Include="Scripts\Javascript\Consultas_Procesadas.js" />
     <Content Include="Scripts\Javascript\Consulta_Documentos.js" />
+    <Content Include="Scripts\Javascript\Consulta_Documentos_Masiva.js" />
     <Content Include="Scripts\Javascript\Gestion_Usuarios.js" />
     <Content Include="Scripts\Javascript\Helper.js" />
     <Content Include="Scripts\Javascript\LogExcepciones.js" />
@@ -425,6 +428,7 @@
     <Content Include="Scripts\Javascript\LogsEventos.js" />
     <Content Include="Scripts\Javascript\log_Consultas_Ani.js" />
     <Content Include="Scripts\Javascript\Log_Consulta_Ccf.js" />
+    <Content Include="Scripts\Javascript\log_rendimiento.js" />
     <Content Include="Scripts\Javascript\menu.js" />
     <Content Include="Scripts\Javascript\Modificacion_Contrasena.js" />
     <Content Include="Scripts\Javascript\RecordarClave.js" />
@@ -555,6 +559,13 @@
     </Compile>
     <Compile Include="Pages\AllPages\Cambio_Clave.aspx.designer.cs">
       <DependentUpon>Cambio_Clave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consultas_Procesadas.aspx.cs">
+      <DependentUpon>Consultas_Procesadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AllPages\Consultas_Procesadas.aspx.designer.cs">
+      <DependentUpon>Consultas_Procesadas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllPages\Consulta_Documentos.aspx.cs">
       <DependentUpon>Consulta_Documentos.aspx</DependentUpon>

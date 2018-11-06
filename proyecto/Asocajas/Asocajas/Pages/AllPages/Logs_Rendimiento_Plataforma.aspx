@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Logs_Rendimiento_Plataforma.aspx.cs" Inherits="Asocajas.Pages.AllPages.Logs_Rendimiento_Plataforma" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
 
     <script src="../../Scripts/Scripts/tables/bootstrap-table.js"></script>
@@ -8,167 +9,96 @@
     <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
     <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
     <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
-    <script src="../../Scripts/Javascript/LogsExcepciones.js" type="text/javascript"></script>
+    <script src="../../Scripts/Javascript/log_rendimiento.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <%--<ul class="breadcrumb">
-        <li><a href="Inicio.aspx">Administración</a></li>
-        <li class="active">Logs Desempeño Plataforma</li>
-    </ul>--%>
-   <h4><b>Desempeño Plataforma</b></h4>
-   
 
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio" checked>Rendimiento</label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optradio">Carga y Estrés
-                </label>
-            </div>
-
-            
-        </div>
-        <div class="col-sm-6">
-                 <div class="form-group">
-                                
-                                <div class="col-sm-8">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <span class="input-group-addon">
-                                            <span >F inicial</span>
-                                        </span>
-                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechaInicial" id="txtFechaInicial" placeholder="DD/MM/YYYY" datepicker required />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                 <div class="form-group">
-                                
-                                <div class="col-sm-8">
-                                    <div class='input-group date' id='Div1'>
-                                        <span class="input-group-addon" >
-                                            <span >F Final</span>
-                                        </span>
-                                        <input type='text' class="form-control styleinput" datepicker-popup="yyyy/mm/dd" name="txtFechaFinal" id="txtFechaFinal" placeholder="DD/MM/YYYY" datepicker required />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-            </div>
-        <div class="col-sm-2">
-            
-            <button type="button" class="btn btn-primary">Consultar</button>
-            
-        </div>
-    </div>
-
+    <h4 class="text-center "><b>Consulta Tiempos Transacciones</b></h4>
     <form>
-        <div class="table table-responsive Autoheight">
-        <div id="toolbar">
-		
-</div>
-            <%--EJEMPLO1--%>
-<table id="table" 
-			 data-toggle="table"
-			 data-search="true"
-			 data-filter-control="true" 
-			 data-show-export="true"
-			 data-click-to-select="true"
-			 data-toolbar="#toolbar"
-       class="table-responsive">
-	<thead>
-		<tr>			
-			<th class="text-center"data-field="ccf"  data-sortable="true">Tiempo de Respuesta</th>
-			<th class="text-center"data-field="user"  data-sortable="true">Tiempo Promedio</th>
-            <th class="text-center"data-field="fechaIni"  data-sortable="true">Hora Inicial</th>
-            <th class="text-center"data-field="fechaFin" data-sortable="true">Hora Final</th>
 
-		
-		</tr>
-	</thead>
-    <tbody id="tbody">
-        <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
+        <div class="encabezadoTable">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-10 ">
+				<!--
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>CCF</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <select class="form-control" id="cboCCF">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>USUARIO</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <select class="form-control" id="cboUsuario">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+				-->
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>FECHA INICIAL</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required readonly />
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>FECHA FINAL</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required readonly />
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>MILISEGUNDOS</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <input type='text' maxlength="6" class="form-control" name="txtDuracion" id="txtDuracion" placeholder="Duración"  required onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 13 && event.keyCode != 8 && event.keyCode != 0) return false;">			
+                        </div>
+                    </div>
 
-          <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
+                </div>
 
-         <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
+                <div class="col-xs-4 offset-xs-4 col-sm-4 offset-sm-4 col-md-2 offset-md-0 nuevoUser">
+                    <span></span>
+                    <button type="button" class="btn btn-success" onclick="Buscar();">Consultar</button>
+                </div>
 
-           <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
-         <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
-         <tr>			
-			<td>27 ms</td>
-			<td>50.66 ms</td>
-			<td>8:00:00 a.m.</td>
-            <td>9:00:00 a.m.</td>
-		</tr>
-	</tbody>
-</table>
- </div>
+            </div>
+        </div>
 
 
-
+        <div class="table table-responsive Autoheight" style="display: none;" id="dvLogConsultas_Ani">
+            <div id="toolbar">
+            </div>
+            <table id="tblLogConsultas_Ani" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>CCF</th>
+                        <th>Usuario</th>
+                        <th>Id.</th>                        
+						<th>Documento</th>
+                        <th>Vía</th>                        
+                        <th>Dirección IP</th>
+                        <th>Fecha Transacción</th>
+						<th>Duración</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
-
-    <div class="row">
-        <div class="col-sm-10"></div>
-    <div class="col-sm-2">
-        <button type="button" class="btn btn-primary">Regresar</button>
-    </div>
-    </div>
-        
-        
-            <script>
-
-                //exporte les données sélectionnées
-                var $table = $('#table');
-                $(function () {
-                    $('#toolbar').find('select').change(function () {
-                        $table.bootstrapTable('refreshOptions', {
-                            exportDataType: $(this).val()
-                        });
-                    });
-                })
-
-                var trBoldBlue = $("table");
-
-                $(trBoldBlue).on("click", "tr", function () {
-                    $(this).toggleClass("bold-blue");
-                });
-    </script>
-
 </asp:Content>

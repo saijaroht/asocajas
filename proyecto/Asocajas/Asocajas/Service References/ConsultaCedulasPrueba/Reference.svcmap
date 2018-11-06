@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="44dbb71d-dc14-49fb-929d-cb66506f7f49" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7de3ab7-e92d-4acf-9b57-8f0c9d7e3f3f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.103.9.2/WSConsulta.asmx?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://207.244.104.48:92/WSConsulta.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSConsulta.wsdl" MetadataType="Wsdl" ID="0f096d5f-e05d-4910-a243-5b4503fb1585" SourceId="1" SourceUrl="http://10.103.9.2/WSConsulta.asmx?WSDL" />
+    <MetadataFile FileName="WSConsulta.wsdl" MetadataType="Wsdl" ID="b940869a-e556-44f0-a743-5caed895e8c1" SourceId="1" SourceUrl="http://207.244.104.48:92/WSConsulta.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -16,7 +16,7 @@ function ConsultarEventos() {
         { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
         { data: "Ip", ctroFilter: "txtNombreFilter" },
 		{ data: "FechaConsulta", ctroFilter: "txtNombreFilter" },
-		{ data: "DescrRNEC", ctroFilter: "txtNombreFilter" },
+		{ data: "Duracion", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogConsultas_Ani", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
 }

@@ -15,13 +15,14 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
     
-    <h4><b>Excepciones o errores de la Plataforma</b></h4>
+    <h4 class="text-center "><b>Log Excepciones</b></h4>
    <form>
 	
         <div class="encabezadoTable">
             <div class="col-xs-12 col-sm-12 col-md-12">					
                     <div class="col-xs-12 col-sm-12 col-md-10 ">
-						<div class="col-xs-6 col-sm-6 col-md-3 ">
+					<!--
+						<div class="col-xs-6 col-sm-6 col-md-3 ">					
 							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
 								<span>CCF</span>
 							</div>
@@ -41,12 +42,13 @@
 								</select>
 							</div>
 						</div>
+					-->
 						<div class="col-xs-6 col-sm-6 col-md-3 ">
 							<div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
 								<span>FECHA INICIAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required readonly />
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 ">
@@ -54,7 +56,7 @@
 								<span>FECHA FINAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required readonly />
 							</div>
 						</div>
 						
@@ -75,11 +77,11 @@
      <table id="tblLogEventos" style=" width:100%">
         <thead>
             <tr>
-			<th>CCF</th>
-			<th>Usuario</th>
-			<th>Id. Transacción</th>
-			<th>Mac Origen</th>
-            <th>Fecha Exepción</th>
+			<th>Id</th>
+			<th>Fecha</th>
+			<th>Clase</th>
+			<th>Método</th>
+            <th>Detalle</th>
             </tr>
         </thead>
     </table>

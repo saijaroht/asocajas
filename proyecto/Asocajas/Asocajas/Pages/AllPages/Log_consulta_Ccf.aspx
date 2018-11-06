@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/AllPages/pages.Master" AutoEventWireup="true" CodeBehind="Log_consulta_Ccf.aspx.cs" Inherits="Asocajas.Pages.AllPages.Log_consulta_Ccf" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="../../Scripts/css/Login/tables/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/Login/tables/bootstrap-editable.css" rel="stylesheet" />
 
     <script src="../../Scripts/Scripts/tables/bootstrap-table.js"></script>
@@ -13,64 +13,82 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-       <%--<ul class="breadcrumb">
-        <li><a href="Inicio.aspx">Administración</a></li>
-        <li class="active">Consulta Transacciones</li>
-    </ul>--%>
-    <h4><b>Consulta Transacciones</b></h4>
-     <form>
-        <div class="table table-responsive Autoheight">
-        <div id="toolbar">
-		
-</div>
-            <%--EJEMPLO1--%>
-<table id="table" 
-			 data-toggle="table"
-			 data-search="true"
-			 data-filter-control="true" 
-			 data-show-export="true"
-			 data-click-to-select="true"
-			 data-toolbar="#toolbar"
-       class="table-responsive">
-	<thead>
-		<tr>			
-			<th data-field="ccf" data-filter-control="select" data-sortable="true">CCF</th>
-			<th data-field="user" data-filter-control="select" data-sortable="true">Usuario</th>
-            <th data-field="transaccion" data-filter-control="input" data-sortable="true">Id . Transacción</th>
-            <th data-field="via" data-filter-control="input" data-sortable="true">Vía</th>
-            <th data-field="estado" data-filter-control="input" data-sortable="true">Estado</th>	
-            <th data-field="consecutivo" data-filter-control="input" data-sortable="true">Consecutivo</th>
-            <th data-field="mac" data-filter-control="input" data-sortable="true">Mac Address</th>	
-            <th data-field="fechas" data-filter-control="input" data-sortable="true">Rango de fechas</th>					
-		
-		</tr>
-	</thead>
-    <tbody id="tbody">
 
-	</tbody>
-</table>
- </div>
+    <h4 class="text-center "><b>Consulta Transacciones Caja Compensación</b></h4>
+    <form>
+
+        <div class="encabezadoTable">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-10 ">
+				<!--
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>CCF</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <select class="form-control" id="cboCCF">
+                            </select>
+                        </div>
+                    </div>
+					-->
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>USUARIO</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <select class="form-control" id="cboUsuario">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>FECHA INICIAL</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required readonly />
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-3 ">
+                        <div class="col-xs-12 col-sm-12 col-md-12 txtEncabezadoLog">
+                            <span>FECHA FINAL</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required readonly />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-4 offset-xs-4 col-sm-4 offset-sm-4 col-md-2 offset-md-0 nuevoUser">
+                    <span></span>
+                    <button type="button" class="btn btn-success" onclick="Buscar();">Consultar</button>
+                </div>
+
+            </div>
+        </div>
 
 
-
+        <div class="table table-responsive Autoheight" style="display: none;" id="dvLogConsultas_Ani">
+            <div id="toolbar">
+            </div>
+            <table id="tblLogConsultas_Ani" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Id.</th>                        
+						<th>Documento</th>
+                        <th>Vía</th>                        
+                        <th>Dirección IP</th>
+                        <th>Fecha Transacción</th>
+						<th>Resultado</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
-    <script>
-
-        //exporte les données sélectionnées
-        var $table = $('#table');
-        $(function () {
-            $('#toolbar').find('select').change(function () {
-                $table.bootstrapTable('refreshOptions', {
-                    exportDataType: $(this).val()
-                });
-            });
-        })
-
-        var trBoldBlue = $("table");
-
-        $(trBoldBlue).on("click", "tr", function () {
-            $(this).toggleClass("bold-blue");
-        });
-    </script>
-
 </asp:Content>

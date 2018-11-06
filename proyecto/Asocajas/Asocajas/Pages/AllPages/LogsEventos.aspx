@@ -15,13 +15,16 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
 
-    
-     <%--<ul class="breadcrumb">
+<!--    
+     <ul class="breadcrumb">
         <li><a href="Inicio.aspx">Administración</a></li>
         <li class="active">Logs de Eventos</li>
-    </ul>--%>
-    <h4 class="text-center "><b>Eventos Plataforma</b></h4>
-    <form>
+    </ul>
+-->	
+  <!--<div class="container"> -->
+
+    <h4 class="text-center "><b>Log de Eventos</b></h4>
+ <!--   <form>-->
 	
         <div class="encabezadoTable">
             <div class="col-xs-12 col-sm-12 col-md-12">					
@@ -51,7 +54,7 @@
 								<span>FECHA INICIAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaIncial" id="txtFechaIncial" placeholder="YYYY-MM-DD" required readonly />
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 ">
@@ -59,7 +62,7 @@
 								<span>FECHA FINAL</span>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 ">
-                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required/>
+                                <input type='text' class="form-control" name="txtFechaFinal" id="txtFechaFinal" placeholder="YYYY-MM-DD" required readonly />
 							</div>
 						</div>
 						
@@ -92,8 +95,9 @@
         <br />
         <br />
         <br />
-    </form>
+   <!-- </form>
     <script>
 
-    </script>
+    </script> -->
+  <!--</div> -->
 </asp:Content>
