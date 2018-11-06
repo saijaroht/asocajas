@@ -20,12 +20,12 @@
 				  <span>Documento</span>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12" >
-				<input id="Number1" type="number" placeholder="Número Identificación" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">			
+				<input id="Identificacion" type="number" placeholder="Número Identificación" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">			
 				</div>
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-                <button type="button" class="btn btn-success" id="btnConsultar" onclick="alerta();" >Consultar</button>
+                <button type="button" class="btn btn-success" id="btnConsultar" onclick="consultaDocumento();" >Consultar</button>
             </div>
 			
         </div>
@@ -95,67 +95,68 @@
         <tbody class="bordertable">
             <tr>
                 <th scope="row" class="thVertical">Identificación</th>
-                <td>123456789</td>
+                <td ><input class="form-control styleinput" id="txtnuip" type="text" disabled></td>
+            </tr>
+              <tr>
+                <th scope="row" class="thVertical">Particula</th>
+                <td><input class="form-control styleinput" id="txtparticula" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Primer Apellido</th>
-                <td>Suarez</td>
+                <td><input class="form-control styleinput" id="txtprimerApellido" type="text" disabled></td>
             </tr>
 
-            <tr>
-                <th scope="row" class="thVertical">Particula</th>
-                <td>Sin Particula</td>
-            </tr>
+
 
             <tr>
                 <th scope="row" class="thVertical">Segundo Apellido</th>
-                <td>Gamboa</td>
+                <td><input class="form-control styleinput" id="txtsegundoApellido" type="text" disabled ></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Primer Nombre</th>
-                <td>Adriana</td>
+                <td><input class="form-control styleinput" id="txtprimerNombre" type="text" disabled ></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Segundo Nombre</th>
-                <td>Marcela</td>
+                <td><input class="form-control styleinput" id="txtsegundoNombre" type="text"disabled ></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Fecha de Nacimiento</th>
-                <td>10/06/1980</td>
+                <td><input class="form-control styleinput" id="txtfechaNacimiento" type="text" disabled ></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Municipio de Expedición</th>
-                <td>Bogotá D.C.</td>
+                <td><input class="form-control styleinput" id="txtmunicipioExpedicion" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Departamento de Expedición</th>
-                <td>Distrito Capital</td>
+                <td><input class="form-control styleinput" id="txtdepartamentoExpedicion" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Fecha de Expedición</th>
-                <td>06/08/1998</td>
+                <td><input class="form-control styleinput" id="txtfechaExpedicion" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Estado del documento</th>
-                <td>0</td>
+                <td><input class="form-control styleinput" id="txtestadoCedula" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Número de Resolución</th>
-                <td>2355</td>
+                <td><input class="form-control styleinput" id="txtnumResolucion" type="text" disabled></td>
             </tr>
 
             <tr>
                 <th scope="row" class="thVertical">Año de Resolución</th>
-                <td>2007</td>
+                <td><input class="form-control styleinput" id="txtanoResolucion" type="text" disabled></td>
             </tr>
         </tbody>
     </table>
