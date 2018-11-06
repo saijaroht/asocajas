@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Asocajas.Utilities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
+using Asocajas.ConsultaCedulasPrueba;
 
 namespace Asocajas.Controllers
 {
@@ -254,92 +256,27 @@ namespace Asocajas.Controllers
         }
         #endregion
 
-        //#region LTLogConsultasAni
-        //public class DataTableDataLogConsultasAni
-        //{
-        //    public int draw { get; set; }
-        //    public int recordsTotal { get; set; }
-        //    public int recordsFiltered { get; set; }
-        //    public List<LTLogConsultasAni> data { get; set; }
-        //}
-        //public static int TotalRowsConsultasAni { get; set; }
 
-        //// this ajax function is called by the client for each draw of the information on the page (i.e. when paging, ordering, searching, etc.). 
-        //public IHttpActionResult AjaxGetJsonDataLTLogConsultasAni(object parameters)
-        //{
-        //    using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())
-        //    {
-        //        using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
-        //        {
-        //            using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
-        //            {
-        //                DataTableDataLogConsultasAni dataTableData = new DataTableDataLogConsultasAni();
-        //                var input = JObject.FromObject(JObject.FromObject(parameters)["parameters"]);
-        //                JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
-        //                dataTableData.draw = (int)input["draw"];
-        //                List<LTLogConsultasAni> list = new List<LTLogConsultasAni>();
-        //                list = objLTLogConsultasAni.PaginadorConsultas((int)input["start"], (int)input["length"], "").ToList();
+        #region Login
 
-        //                foreach (var item in list)
-        //                {
-        //                    item.RUsuario = objRUsuario.Get(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
-        //                    item.RUsuario.RCCF = objRCCF.Get(o => o.IdCcf == item.RUsuario.IdCcf).FirstOrDefault();
-        //                }
+        #endregion
 
-        //                dataTableData.data = list;
-        //                if (TotalRowsConsultasAni == 0)
-        //                {
-        //                    TotalRowsConsultasAni = objLTLogConsultasAni.Get().Count();
-        //                }
-        //                dataTableData.recordsFiltered = TotalRowsConsultasAni;
-        //                dataTableData.recordsTotal = dataTableData.recordsFiltered;
+        #region ConsultasWSDL
+        public IHttpActionResult GetCedula(string Cedula)
+        {
+            System.Configuration.AppSettingsReader settingsReader =
+                                new AppSettingsReader();
+            using (ServiceSoapClient consultaCedulasPrueba = new ServiceSoapClient())
+            {
 
-        //                return Json(dataTableData);
-        //            }
-        //        }
-        //    }
-        //}
-        //#endregion
-
-        #region Descarga Documentos
-
-        //public IHttpActionResult GetFile123()
-        //{
-        //    using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
-        //    {
-        //        StringBuilder sb = new StringBuilder();
-        //        IEnumerable<string> columnNames = objRUsuario.Get()
-        //                .Select(property => property.FechaCreacion);
-
-        //        sb.AppendLine(string.Join(",", columnNames));
-                
-
-        //        //foreach (var row in objLTLogEventos.Get().ToList())
-        //        //{
-        //        IEnumerable<string> fields = objRUsuario.Get().Select(field => field.ToString());
-        //        sb.AppendLine(string.Join(",", fields));
-        //        //}
-        //        return Json(sb);
-        //    }
-        //    //string filename = "C:\\ArchivosPlanos\\prueba1.csv";
-        //    ////int index = 1;
-        //    ////int process = 5;
-
-        //    //using (StreamWriter sw = new StreamWriter(new FileStream(filename, FileMode.Create), Encoding.UTF8))
-        //    //{
-        //    //    StringBuilder sb = new StringBuilder();
-        //    //    sb.AppendLine("titulo1, Titulo2, Titulo3");
-        //    //    sb.AppendLine("parametro11, parametro21, parametro31");
-        //    //    sb.AppendLine("parametro12, parametro22, parametro32");
-        //    //    sb.AppendLine("parametro13, parametro23, parametro33");
-        //    //    sb.AppendLine("parametro14, parametro24, parametro34");
-
-
-        //    //    sw.Write(sb.ToString());
-
-        //    //    return Json(sw);
-        //    //}
-        //}
+                ConsultaCedulasPrueba.UserAuth UserAuth = new ConsultaCedulasPrueba.UserAuth();
+                UserAuth.usuario = (string)settingsReader.GetValue("UserSoap", typeof(string));
+                UserAuth.contrasena = (string)settingsReader.GetValue("PassSoap", typeof(string));
+                UserAuth.ip = Utility.GetServerIP();
+                var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
+                return Json(retornaC);
+            }
+        }
         #endregion
     }
 }

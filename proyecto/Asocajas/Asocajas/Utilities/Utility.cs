@@ -413,7 +413,7 @@ namespace Asocajas.Utilities
                                                new AppSettingsReader();
 
             var URL = request.Url.Scheme + "://" + request.Url.Authority +
-    request.ApplicationPath.TrimEnd('/') + "/"+
+    request.ApplicationPath.TrimEnd('/') + "/" +
 
             (string)settingsReader.GetValue("LoginUrl",
                                                          typeof(String));
@@ -422,7 +422,7 @@ namespace Asocajas.Utilities
 
         public static string GetURLSite()
         {
-         
+
             if (System.Web.HttpContext.Current == null)
                 return "CONETXT NULO";
             return System.Web.HttpContext.Current.Request.GetURLSite();
@@ -439,6 +439,8 @@ namespace Asocajas.Utilities
     request.ApplicationPath.TrimEnd('/');
             return URL;
         }
+
+        private const string SESSION_VAR = "User";
 
         public static string PathLog
         {
@@ -832,7 +834,7 @@ namespace Asocajas.Utilities
                 obj.Add(item.Key, item.Value);
         }
 
-        
+
 
         //public static IEnumerable<System.Reflection.PropertyInfo> GetPropiedadesPlanas<T>(this T entidad, List<string> lstColumnasExclucion = null, string _namespace = null) where T : class
         //{
@@ -942,5 +944,44 @@ namespace Asocajas.Utilities
                 throw ex;
             }
         }
+
+        #region Session
+
+        //public static void setSession(string SessionValue)
+        //{
+        //    System.Web.HttpContext.Current.setSession(SessionValue);
+        //}
+
+        //public static void setSession(this HttpContext Context, string SessionValue)
+        //{
+        //    if (Context.Session == null)
+        //        Context.Session  = new System.Web.SessionState.HttpSessionState();
+        //    Context.Session[SESSION_VAR] = SessionValue;
+        //}
+
+        //public static string GetSession(string SessionValue)
+        //{
+        //    return System.Web.HttpContext.Current.GetSession();
+        //}
+
+        //public static string GetSession(this HttpContext Context)
+        //{
+        //    if (Context.Session[SESSION_VAR] == null)
+        //        Context.Session[SESSION_VAR] = null;
+        //    return (string)Context.Session[SESSION_VAR];
+        //}
+
+        //public static void ClearSession()
+        //{
+        //    System.Web.HttpContext.Current.ClearSession();
+        //}
+
+        //public static void ClearSession(this HttpContext Context)
+        //{
+        //    Context.Session.Abandon();
+        //    Context.Session.Clear();
+        //    Context.Session.RemoveAll();
+        //}
+        #endregion
     }
 }
