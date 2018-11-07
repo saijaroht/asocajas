@@ -20,20 +20,12 @@
 				  <span>Documento</span>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12" >
-<<<<<<< HEAD
-				<input id="Number1" type="text" maxlength="10" placeholder="Número Identificación" class="form-control" required onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 13 && event.keyCode != 8 && event.keyCode != 0) return false;">			
-=======
-				<input id="Identificacion" type="number" placeholder="Número Identificación" class="form-control" required onKeyDown="if(this.value.length>9 && event.keyCode!=8) return false;">			
->>>>>>> 9c7a3c82e36b832f6c58fd3d1a7160fdcfeeb89e
+				<input id="Identificacion" type="text" maxlength="10" placeholder="Número Identificación" class="form-control" required onkeypress="if ((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 13 && event.keyCode != 8 && event.keyCode != 0) return false;">			
 				</div>
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-<<<<<<< HEAD
-                <button type="button" class="btn btn-success" id="btnConsultar" >Consultar</button>
-=======
                 <button type="button" class="btn btn-success" id="btnConsultar" onclick="consultaDocumento();" >Consultar</button>
->>>>>>> 9c7a3c82e36b832f6c58fd3d1a7160fdcfeeb89e
             </div>
 			
         </div>

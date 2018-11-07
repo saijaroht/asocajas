@@ -264,6 +264,7 @@ namespace Asocajas.Controllers
         #region ConsultasWSDL
         public IHttpActionResult GetCedula(string Cedula)
         {
+            var today = DateTime.Now;
             System.Configuration.AppSettingsReader settingsReader =
                                 new AppSettingsReader();
             using (ServiceSoapClient consultaCedulasPrueba = new ServiceSoapClient())
@@ -274,6 +275,8 @@ namespace Asocajas.Controllers
                 UserAuth.contrasena = (string)settingsReader.GetValue("PassSoap", typeof(string));
                 UserAuth.ip = Utility.GetServerIP();
                 var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
+                var datereturnSOAP = DateTime.Now;
+                //int resultadoFechas = DateTime.Compare(today, datereturnSOAP);
                 return Json(retornaC);
             }
         }
