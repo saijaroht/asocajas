@@ -27,20 +27,25 @@ namespace Asocajas.Controllers
         {
             try
             {
-              //HelperGeneral.SaveFile();
-                var obj = this.objDb.Get().ToList();
-                using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
+                if (HelperGeneral.IsUserLogin())
                 {
-                    using (BusinessBase<RRole> objRRole = new BusinessBase<RRole>())
+                    //HelperGeneral.SaveFile();
+                    var obj = this.objDb.Get().ToList();
+                    using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
                     {
-                        foreach (var item in obj)
+                        using (BusinessBase<RRole> objRRole = new BusinessBase<RRole>())
                         {
-                            item.RCCF = objRCCF.Get(o => o.IdCcf == item.IdCcf).FirstOrDefault();
-                            item.RRole = objRRole.Get(o => o.IdRole == item.IdRole).FirstOrDefault();
+                            foreach (var item in obj)
+                            {
+                                item.RCCF = objRCCF.Get(o => o.IdCcf == item.IdCcf).FirstOrDefault();
+                                item.RRole = objRRole.Get(o => o.IdRole == item.IdRole).FirstOrDefault();
+                            }
                         }
                     }
+                    return Ok(obj);
                 }
-                return Ok(obj);
+                else
+                    return Ok(HelperGeneral.resultsNull());
             }
             catch (Exception ex)
             {
@@ -52,85 +57,91 @@ namespace Asocajas.Controllers
         {
             try
             {
-                var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
-                //HelperGeneral.SendMailsParams();
-                results result = new results();
-                if (obj.Count() > 0)
-                {
-                    var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
-                    RUsuario rusuario = new RUsuario();
-                    rusuario = obj.FirstOrDefault();
-                    rusuario.UsuarioLogueado = user;
-                    var today = DateTime.Now.Date;
-
-                    int resultadoFechas = DateTime.Compare(rusuario.Vigencia, today);
-
-                    System.Configuration.AppSettingsReader settingsReader =
-                                                   new AppSettingsReader();
-                    var Cantidadintentos = Convert.ToInt32((string)settingsReader.GetValue("CantidadIntentos",
-                                                             typeof(String)));
-
-                    if (Convert.ToInt32(rusuario.Estado) != (int)Estados.Activo)
+                //if (HelperGeneral.IsUserLogin())
+                //{
+                    var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
+                    //HelperGeneral.SendMailsParams();
+                    results result = new results();
+                    if (obj.Count() > 0)
                     {
-                        switch (Convert.ToInt32(rusuario.Estado))
+                        var linqEmails = Utility.TripleDES(obj.FirstOrDefault().Password, false);
+                        RUsuario rusuario = new RUsuario();
+                        rusuario = obj.FirstOrDefault();
+                        rusuario.UsuarioLogueado = user;
+                        var today = DateTime.Now.Date;
+
+                        int resultadoFechas = DateTime.Compare(rusuario.Vigencia, today);
+
+                        System.Configuration.AppSettingsReader settingsReader =
+                                                       new AppSettingsReader();
+                        var Cantidadintentos = Convert.ToInt32((string)settingsReader.GetValue("CantidadIntentos",
+                                                                 typeof(String)));
+
+                        if (Convert.ToInt32(rusuario.Estado) != (int)Estados.Activo)
                         {
-                            case (int)Estados.Inactivo:
-                                result.Message = "Su usuario se encuentra inactivo, por favor contacte al administrador.";
-                                break;
-                            case (int)Estados.Bloqueado:
-                                result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
-                                break;
-                        }
-                        result.Ok = false;
-                    }
-                    else if (rusuario.Intentos >= Cantidadintentos)
-                    {
-                        rusuario.Estado = ((int)Estados.Bloqueado).ToString();
-                        UpdateTry(rusuario);
-                        CreateLogEventos(BloqueaUsuario, rusuario);
-                        result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
-                        result.Ok = false;
-                    }
-                    else if (resultadoFechas < 0)
-                    {
-                        rusuario.Estado = ((int)Estados.Inactivo).ToString();
-                        UpdateTry(rusuario);
-                        result.Message = "Su usuario ha caducado, por favor contacte al administrador.";
-                        result.Ok = false;
-                    }
-                    else
-                    {
-                        if (password != linqEmails)
-                        {
-                            result.Message = "El usuario o contraseña no son correctos.";
+                            switch (Convert.ToInt32(rusuario.Estado))
+                            {
+                                case (int)Estados.Inactivo:
+                                    result.Message = "Su usuario se encuentra inactivo, por favor contacte al administrador.";
+                                    break;
+                                case (int)Estados.Bloqueado:
+                                    result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
+                                    break;
+                            }
                             result.Ok = false;
-                            rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
+                        }
+                        else if (rusuario.Intentos >= Cantidadintentos)
+                        {
+                            rusuario.Estado = ((int)Estados.Bloqueado).ToString();
                             UpdateTry(rusuario);
+                            CreateLogEventos(BloqueaUsuario, rusuario);
+                            result.Message = "Su usuario se encuentra bloqueado, por favor contacte al administrador.";
+                            result.Ok = false;
+                        }
+                        else if (resultadoFechas < 0)
+                        {
+                            rusuario.Estado = ((int)Estados.Inactivo).ToString();
+                            UpdateTry(rusuario);
+                            result.Message = "Su usuario ha caducado, por favor contacte al administrador.";
+                            result.Ok = false;
                         }
                         else
                         {
-                            if (rusuario.CambioObligatorio)
+                            if (password != linqEmails)
                             {
-                                result.CambioObligatorio = true;
+                                result.Message = "El usuario o contraseña no son correctos.";
+                                result.Ok = false;
+                                rusuario.Intentos = rusuario.Intentos == null ? 1 : rusuario.Intentos + 1;
+                                UpdateTry(rusuario);
                             }
                             else
                             {
-                                result.CambioObligatorio = false;
+                                if (rusuario.CambioObligatorio)
+                                {
+                                    result.CambioObligatorio = true;
+                                }
+                                else
+                                {
+                                    result.CambioObligatorio = false;
+                                }
+                                result.Ok = true;
+                                result.Message = rusuario.Nombre + " " + rusuario.Apellido;
+                                //Utility.setSession(password);
+                                rusuario.Intentos = 0;
+                                UpdateTry(rusuario);
+                                HelperGeneral.SetSession(rusuario.Usuario);
                             }
-                            result.Ok = true;
-                            result.Message = rusuario.Nombre + " "+ rusuario.Apellido;
-                            //Utility.setSession(password);
-                            rusuario.Intentos = 0;
-                            UpdateTry(rusuario);
                         }
                     }
-                }
-                else
-                {
-                    result.Message = "Su usuario no está registrado en el sistema.";
-                    result.Ok = false;
-                }
-                return Ok(result);
+                    else
+                    {
+                        result.Message = "Su usuario no está registrado en el sistema.";
+                        result.Ok = false;
+                    }
+                    return Ok(result);
+                //}
+                //else
+                //    return Ok(HelperGeneral.resultsNull());
             }
             catch (Exception ex)
             {
@@ -138,10 +149,45 @@ namespace Asocajas.Controllers
             }
         }
 
-        public IHttpActionResult GetExisteUser(string user, string password)
+        public IHttpActionResult GetIsLogin()
         {
             try
             {
+                if (HelperGeneral.IsUserLogin())
+                {
+                    results result = new results();
+                    result.Ok = string.IsNullOrEmpty(HelperGeneral.GetSession()) ? false : true;
+                    return Ok(result);
+                } return Ok(HelperGeneral.resultsNull());
+            }
+            catch (Exception ex)
+            {
+
+                return Ok(HelperGeneral.exceptionError(ex));
+            }
+        }
+
+        public IHttpActionResult GetCloseSession()
+        {
+            try
+            {
+                results result = new results();
+                HelperGeneral.CloseSession();
+                result.Ok = true;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+
+                return Ok(HelperGeneral.exceptionError(ex));
+            }
+        }
+
+        public IHttpActionResult GetExisteUser(string password)
+        {
+            try
+            {
+                string user = HelperGeneral.GetSession();
                 var obj = this.objDb.Get().Where(o => o.Usuario == user).ToList();
                 results result = new results();
                 if (obj.Count() > 0)
@@ -196,10 +242,11 @@ namespace Asocajas.Controllers
             }
         }
 
-        public IHttpActionResult GetRUsuarioByMail(string Mail)
+        public IHttpActionResult GetRUsuarioByMail()
         {
             try
             {
+                string Mail = HelperGeneral.GetSession();
                 var obj = this.objDb.Get(o => o.Usuario == Mail).FirstOrDefault();
                 return Ok(obj);
             }
@@ -244,9 +291,10 @@ namespace Asocajas.Controllers
         {
             try
             {
+                cambioPassword.Usuario = HelperGeneral.GetSession();
                 var rsuario = this.objDb.Get(o => o.Usuario == cambioPassword.Usuario).FirstOrDefault();
                 rsuario.CambioObligatorio = false;
-                rsuario.UsuarioLogueado = cambioPassword.Usuario;
+                rsuario.UsuarioLogueado = HelperGeneral.GetSession();
                 rsuario.Password = Utility.TripleDES(cambioPassword.Password, true);
                 UpdateTry(rsuario);
                 CreateLogEventos(CambiarClave, rsuario);
@@ -269,7 +317,7 @@ namespace Asocajas.Controllers
                 var randomPass = HelperGeneral.RandomPass();
                 rsuario.Password = Utility.TripleDES(randomPass, true);
                 UpdateTry(rsuario);
-                rsuario.UsuarioLogueado = activarBloquear.UsuarioLogueado;
+                rsuario.UsuarioLogueado = HelperGeneral.GetSession();
                 if (Convert.ToInt32(activarBloquear.Estado) == (int)Estados.Activo)
                 {
                     CreateLogEventos(DesbloqueaUsuario, rsuario);
@@ -300,7 +348,7 @@ namespace Asocajas.Controllers
                     var randomPass = HelperGeneral.RandomPass();
                     rsuario.Password = Utility.TripleDES(randomPass, true);
                     UpdateTry(rsuario);
-                    rsuario.UsuarioLogueado = recuperarPassword.Usuario;
+                    rsuario.UsuarioLogueado = HelperGeneral.GetSession();
                     CreateLogEventos(OlvidaClave, rsuario);
 
                     this.IEnviarEmail(rsuario, randomPass, "El administrador de Consulta ANI de Asocajas ha actualizado su contraseña, antes de poder acceder al sistema, es imprescindible cambiar la contraseña. Para ello acceda a la siguiente dirección:", "Recordar Contraseña");
@@ -345,7 +393,7 @@ namespace Asocajas.Controllers
             {
                 using (BusinessBase<LTLogEventos> objLTLogEventos = new BusinessBase<LTLogEventos>())
                 {
-                    string UserLogin = Usuario.UsuarioLogueado;
+                    string UserLogin = HelperGeneral.GetSession();
                     int? IdUsuarioMod = string.IsNullOrEmpty(UserLogin) ? null : (int?)this.objDb.Get(o => o.Usuario == UserLogin).FirstOrDefault().IdUsuario;
                     LTLogEventos NewLog = new LTLogEventos();
                     NewLog.FechaEvento = DateTime.Now;

@@ -50,12 +50,12 @@ function ValidaUsuario()
         if (!data.Ok) {
             ShowMessage("NOTIFICACIÓN", data.Message, "SoloMensaje");
         } else {
-            SessionLogin($("#txtUsuario").val(), function (dataUser) {
+            //SessionLogin($("#txtUsuario").val(), function (dataUser) {
                 if (data.CambioObligatorio)
                     window.location.href = "CambioObligatorioClave.aspx";
                 else
                     window.location.href = "AllPages/Inicio.aspx";
-            });
+            //});
         }
     }, null, function (dataError) { });
 }

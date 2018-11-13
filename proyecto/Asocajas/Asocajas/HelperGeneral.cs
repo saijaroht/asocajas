@@ -293,6 +293,48 @@ namespace Asocajas
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.RemoveAll();
         }
+
+        public static void SetSession(string user)
+        {
+            try
+            {
+                User = user;
+            }
+            catch (Exception ex)
+            {
+                exceptionError(ex);
+            }
+        }
+        public static string GetSession()
+        {
+            try
+            {
+               return User;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static bool IsUserLogin()
+        {
+            try
+            {
+                return string.IsNullOrEmpty(User) ? false : true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static results resultsNull()
+        {
+            results Results = new results();
+            Results.Ok = false;
+            return Results;
+        }
         #endregion
 
         public static void SaveFile()

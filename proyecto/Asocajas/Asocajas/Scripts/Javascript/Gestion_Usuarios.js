@@ -90,9 +90,9 @@ function PrintTable() {
         //var tipoBtn = val.Estado == 1 ? btnVer : btnBlock;
         var EstadoSTR = $("<td />", { html: val.EstadoSTR });
         tipoBtn.click({ _id: val.IdUsuario, _btnVer: btnVer, _btnBlock: btnBlock, _tipoBtn: tipoBtn, _EstadoSTR: EstadoSTR }, function (event) {
-            PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
-                if (data1.Ok) {
-                    var UsuarioAct = data1.Message;
+            //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
+            //    if (data1.Ok) {
+            //        var UsuarioAct = data1.Message;
                     Enumerable.From(ListUsuarios)
                     .Where(function (x) { return x.IdUsuario == event.data._id })
                     .FirstOrDefault().Estado = Enumerable.From(ListUsuarios)
@@ -115,14 +115,14 @@ function PrintTable() {
                     var item = {
                         Estado: estado,
                         IdUsuario: event.data._id,
-                        UsuarioLogueado: UsuarioAct
+                        UsuarioLogueado: ""
                     }
                     UpdateService(ServiceUrl + "RUsuario/PutUpdateActivarBloquear", item, function (data) {
                         //ShowMessage("NOTIFICACIÓN", "Su contraseña ha sido cambiada exitosamente. ", "SoloMensaje");
                         //removerValidacion(["txtContrasenaActual", "txtNuevaContraseña", "txtConfirmarContraseña"], true);
                     });
-                }
-            });
+            //    }
+            //});
             return false;
         });
 
