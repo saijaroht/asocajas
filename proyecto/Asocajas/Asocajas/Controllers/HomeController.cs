@@ -309,16 +309,21 @@ namespace Asocajas.Controllers
                 TimeSpan diferenciaFecha = datereturnSOAP - today;
                 var Duracion = diferenciaFecha.Milliseconds;
                 LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
+                lTLogConsultasAni.FechaConsulta = today;
+                lTLogConsultasAni.Nuip = Cedula;
+                lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
+                lTLogConsultasAni.Mac = sMacAddress;
+                lTLogConsultasAni.Ip = localIP;
+                lTLogConsultasAni.FechaInicia = today;
+                lTLogConsultasAni.FechaFin = datereturnSOAP;
                 lTLogConsultasAni.Duracion = Duracion;
-                lTLogConsultasAni.IdCcf = 1;
+                lTLogConsultasAni.IdCcf = 92;
                 lTLogConsultasAni.IdUsuario = 26;
                 lTLogConsultasAni.IdRptaRnec = "123";
                 lTLogConsultasAni.IdRptaAsocajas = "465";
-                lTLogConsultasAni.Nuip = Cedula;
-                lTLogConsultasAni.FechaConsulta = today;
-                lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
-                lTLogConsultasAni.Ip = localIP;
-                lTLogConsultasAni.Mac = sMacAddress;
+                lTLogConsultasAni.ControlRNEC = "1";
+                lTLogConsultasAni.DescrRNEC = "2";
+                lTLogConsultasAni.CdgoRNEC = "3";
                 objLTLogConsultasAni.Add(lTLogConsultasAni);
                 
 
