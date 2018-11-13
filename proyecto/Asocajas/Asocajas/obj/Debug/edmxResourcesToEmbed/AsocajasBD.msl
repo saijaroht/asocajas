@@ -70,28 +70,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LTLogConsultasAni">
-      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
-        <MappingFragment StoreEntitySet="LTLogConsultasAni">
-          <ScalarProperty Name="CdgoRNEC" ColumnName="CdgoRNEC" />
-          <ScalarProperty Name="DescrRNEC" ColumnName="DescrRNEC" />
-          <ScalarProperty Name="ControlRNEC" ColumnName="ControlRNEC" />
-          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
-          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-          <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
-          <ScalarProperty Name="Ip" ColumnName="Ip" />
-          <ScalarProperty Name="Mac" ColumnName="Mac" />
-          <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
-          <ScalarProperty Name="Nuip" ColumnName="Nuip" />
-          <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
-          <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="LTLogEventos">
       <EntityTypeMapping TypeName="AsocajasBDModel.LTLogEventos">
         <MappingFragment StoreEntitySet="LTLogEventos">
@@ -223,6 +201,28 @@
         <MappingFragment StoreEntitySet="TReporte">
           <ScalarProperty Name="Excel" ColumnName="Excel" />
           <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LTLogConsultasAni">
+      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
+        <MappingFragment StoreEntitySet="LTLogConsultasAni">
+          <ScalarProperty Name="CdgoRNEC" ColumnName="CdgoRNEC" />
+          <ScalarProperty Name="DescrRNEC" ColumnName="DescrRNEC" />
+          <ScalarProperty Name="ControlRNEC" ColumnName="ControlRNEC" />
+          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
+          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Mac" ColumnName="Mac" />
+          <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+          <ScalarProperty Name="Nuip" ColumnName="Nuip" />
+          <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
+          <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

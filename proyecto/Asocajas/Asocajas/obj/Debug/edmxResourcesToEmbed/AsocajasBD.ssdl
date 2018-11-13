@@ -79,7 +79,7 @@
     <Property Name="FechaInicia" Type="datetime" Nullable="false" />
     <Property Name="FechaFin" Type="datetime" Nullable="false" />
     <Property Name="Duracion" Type="int" Nullable="false" />
-    <Property Name="IdCcf" Type="int" Nullable="false" />
+    <Property Name="IdCcf" Type="int" />
     <Property Name="IdUsuario" Type="int" Nullable="false" />
     <Property Name="IdRptaRnec" Type="varchar" MaxLength="5" />
     <Property Name="IdRptaAsocajas" Type="varchar" MaxLength="5" />
@@ -234,7 +234,7 @@
     <Property Name="Excel" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_LTLogConsultasAni_RCcf">
-    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="1" />
+    <End Role="RCCF" Type="AsocajasBDModel.Store.RCCF" Multiplicity="0..1" />
     <End Role="LTLogConsultasAni" Type="AsocajasBDModel.Store.LTLogConsultasAni" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="RCCF">

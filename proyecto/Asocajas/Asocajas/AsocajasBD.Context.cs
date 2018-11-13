@@ -30,7 +30,6 @@ namespace Asocajas
     
         public DbSet<RUsuario> RUsuario { get; set; }
         public DbSet<LTLogApp> LTLogApp { get; set; }
-        public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public DbSet<LTLogEventos> LTLogEventos { get; set; }
         public DbSet<RCCF> RCCF { get; set; }
         public DbSet<RDatoBasico> RDatoBasico { get; set; }
@@ -42,6 +41,7 @@ namespace Asocajas
         public DbSet<RTipoDatoBasico> RTipoDatoBasico { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<TReporte> TReporte { get; set; }
+        public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
     
     }
 }

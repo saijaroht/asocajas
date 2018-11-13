@@ -12,13 +12,13 @@ namespace Asocajas
     using System;
     using System.Collections.Generic;
     using Asocajas.Common.Supertype;
-    public partial class RUsuario : EntityBase
+    public partial class RUsuario : EntityBase, ICamposAuditoria
     {
         public RUsuario()
         {
-            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
             this.LTLogEventos = new HashSet<LTLogEventos>();
             this.LTLogEventos1 = new HashSet<LTLogEventos>();
+            this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
         }
     
         public int IdUsuario { get; set; }
@@ -40,10 +40,10 @@ namespace Asocajas
         public string MaquinaActualizacion { get; set; }
         public bool Activo { get; set; }
     
-        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public virtual ICollection<LTLogEventos> LTLogEventos { get; set; }
         public virtual ICollection<LTLogEventos> LTLogEventos1 { get; set; }
         public virtual RCCF RCCF { get; set; }
         public virtual RRole RRole { get; set; }
+        public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
     }
 }
