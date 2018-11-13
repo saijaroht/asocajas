@@ -23,7 +23,7 @@ namespace Asocajas
         public System.DateTime FechaInicia { get; set; }
         public System.DateTime FechaFin { get; set; }
         public int Duracion { get; set; }
-        public int IdCcf { get; set; }
+        public Nullable<int> IdCcf { get; set; }
         public int IdUsuario { get; set; }
         public string IdRptaRnec { get; set; }
         public string IdRptaAsocajas { get; set; }
