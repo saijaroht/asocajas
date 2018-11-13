@@ -39,9 +39,9 @@ function ValidaUsuario() {
 }
 function GuardarUsuario() {
     debugger;
-    PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
-        if (data1.Ok) {
-            var UsuarioAct = data1.Message;
+    //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
+    //    if (data1.Ok) {
+    //        var UsuarioAct = data1.Message;
             var item = {
 
                 Nombre: $('#txtNombres').val(),
@@ -51,7 +51,7 @@ function GuardarUsuario() {
                 Estado: 1,
                 IdCcf: $('#cboNombreCCF').val(),
                 IdRole: $('#cboTipodeusuario').val(),
-                UsuarioLogueado: UsuarioAct
+                UsuarioLogueado: ""
             }
 
             SaveService(ServiceUrl + "RUsuario/PostRUsuario", item, function (data) {
@@ -66,7 +66,7 @@ function GuardarUsuario() {
                 }
             }, null, function (dataError) {
             });
-        }
-    });
+        //}
+    //});
 }
 

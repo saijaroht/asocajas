@@ -16,11 +16,13 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Mvc;
 using Asocajas.ConsultaCedulasPrueba;
+using System.Web.Services;
+using System.Web.Script.Serialization;
 
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class HomeController : ApiController
+    public class HomeController : ApiController, System.Web.SessionState.IRequiresSessionState 
     {
         #region LTLogEventos
         public class DataTableDataLogEventos
@@ -260,6 +262,27 @@ namespace Asocajas.Controllers
 
         #region Login
 
+        public IHttpActionResult Login(string UserData)
+        {
+            results jsonData = new results();
+            try
+            {
+
+
+                //HttpContextBase context = null;
+                //var httpContext = context as HttpContextBase;
+                //HttpContext.Current.Session["username"] = "sa";
+                HelperGeneral.User = UserData;
+                jsonData.Message = UserData;
+                jsonData.Ok = true;
+            }
+            catch (Exception ex)
+            {
+                jsonData.Message = ex.ToString();
+                jsonData.Ok = false;
+            }
+            return Ok(jsonData);
+        }
         #endregion
 
         #region ConsultasWSDL

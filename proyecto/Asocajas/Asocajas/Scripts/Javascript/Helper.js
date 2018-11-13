@@ -719,7 +719,8 @@ function ShowMessage(TituloMensaje, Mensaje, TipoMensaje, FuncionAceptar, Funcio
 
 function SessionState() {
     setTimeout(function () {
-        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+        consumirServicio(ServiceUrl + "RUsuario/GetIsLogin", null, function (data) {
+            //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
             } else
@@ -731,11 +732,12 @@ function SessionState() {
 $(document).ready(function () {
     debugger;
     if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {// && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
-        PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+        consumirServicio(ServiceUrl + "RUsuario/GetIsLogin", null, function (data) {
+            //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
             if (!data.Ok) {
                 window.location.href = location.origin + "/Pages/Login.aspx";
             } else {
-                consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail?Mail=" + data.Message + "", null, function (dataUsuario) {
+                consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail", null, function (dataUsuario) {
                     $('#UsuarioLogueado').html(dataUsuario.Nombre + " " + dataUsuario.Apellido);
                 });
             }
@@ -745,12 +747,13 @@ $(document).ready(function () {
 });
 
 function SessionLogin(valueUser, functionsucess) {
-    PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
+    //PostService(location.origin + '/Services/Servicios.aspx/Login', "{UserData: '" + valueUser + "'}", functionsucess);
 }
 
 function Logout() {
     debugger;
-    PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
+    consumirServicio(ServiceUrl + "RUsuario/GetCloseSession", null);
+        //PostService(location.origin + '/Services/Servicios.aspx/Logout', null);
 }
 
 function CerrarSesion() {

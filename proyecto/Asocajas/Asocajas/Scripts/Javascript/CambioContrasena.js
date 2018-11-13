@@ -9,14 +9,14 @@ function ActualizarContraseña() {
     } else if (!ValidarPasswordIguales(document.getElementById("txtNuevaContraseña"), document.getElementById("txtConfirmarContraseña"))) {
         return;
     }
-    PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+    //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
 
-        if (data.Ok) {
-            consumirServicio(ServiceUrl + "RUsuario/GetExisteUser?user=" + data.Message + "&password=" + $("#txtContrasenaActual").val() + "", null, function (dataContrasenaActual) {
+        //if (data.Ok) {
+            consumirServicio(ServiceUrl + "RUsuario/GetExisteUser?password=" + $("#txtContrasenaActual").val() + "", null, function (dataContrasenaActual) {
                 if (dataContrasenaActual.Ok) {
                     var item = {
                         Password: $('#txtNuevaContraseña').val(),
-                        Usuario: data.Message
+                        Usuario: ""
                     }
 
                     UpdateService(ServiceUrl + "RUsuario/PutUpdatePassword", item, function (data) {
@@ -28,6 +28,6 @@ function ActualizarContraseña() {
                 }
             });
 
-        }
-    });
+        //}
+    //});
 }

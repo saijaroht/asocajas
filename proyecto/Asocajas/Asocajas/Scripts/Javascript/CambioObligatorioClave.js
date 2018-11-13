@@ -6,11 +6,11 @@ function ActualizarContraseña() {
     if (!validarcampos(campos)) {
         return;
     }
-    PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
-        if (data.Ok) {
+    //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+        //if (data.Ok) {
             var item = {
                 Password: $('#txtNuevaContraseña').val(),
-                Usuario: data.Message
+                Usuario: ""
             }
 
             UpdateService(ServiceUrl + "RUsuario/PutUpdatePassword", item, function (data) {
@@ -18,6 +18,6 @@ function ActualizarContraseña() {
 
             }, null, function (dataError) {
             });
-        }
-    });
+    //    }
+    //});
 }

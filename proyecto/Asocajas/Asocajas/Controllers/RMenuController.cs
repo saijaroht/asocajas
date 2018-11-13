@@ -11,10 +11,11 @@ namespace Asocajas.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RMenuController : BaseController<RMenu>
     {
-        public IHttpActionResult GetRMenu(string Usuario)
+        public IHttpActionResult GetRMenu()
         {
             try
             {
+                string Usuario = HelperGeneral.GetSession();
                 using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
                 {
                     var IdRolUsuario = objRUsuario.Get(o => o.Usuario == Usuario).FirstOrDefault().IdRole;
