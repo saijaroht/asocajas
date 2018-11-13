@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Web;
 using System.Web.Http;
@@ -299,8 +300,53 @@ namespace Asocajas.Controllers
                 UserAuth.ip = Utility.GetServerIP();
                 var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
                 var datereturnSOAP = DateTime.Now;
+                PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC);
                 //int resultadoFechas = DateTime.Compare(today, datereturnSOAP);
                 return Json(retornaC);
+            }
+        }
+        public void PutLTLogConsultasAni(DateTime today, DateTime datereturnSOAP, string Cedula, Usuario consultaCedulasPrueba)
+        {
+            using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())
+            {
+                IPHostEntry host;
+                string localIP = "";
+                host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (IPAddress ip in host.AddressList)
+                {
+                    if (ip.AddressFamily.ToString() == "InterNetwork")
+                    {
+                        localIP = ip.ToString();
+                    }
+                }
+                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                String sMacAddress = string.Empty;
+                foreach (NetworkInterface adapter in nics)
+                {
+                    if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                    {
+                        IPInterfaceProperties properties = adapter.GetIPProperties();
+                        sMacAddress = adapter.GetPhysicalAddress().ToString();
+                    }
+                }
+                TimeSpan diferenciaFecha = datereturnSOAP - today;
+                var Duracion = diferenciaFecha.Milliseconds;
+                LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
+                lTLogConsultasAni.Duracion = Duracion;
+                lTLogConsultasAni.IdCcf = 1;
+                lTLogConsultasAni.IdUsuario = 26;
+                lTLogConsultasAni.IdRptaRnec = "123";
+                lTLogConsultasAni.IdRptaAsocajas = "465";
+                lTLogConsultasAni.Nuip = Cedula;
+                lTLogConsultasAni.FechaConsulta = today;
+                lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
+                lTLogConsultasAni.Ip = localIP;
+                lTLogConsultasAni.Mac = sMacAddress;
+                objLTLogConsultasAni.Add(lTLogConsultasAni);
+                
+
+
+
             }
         }
         #endregion
