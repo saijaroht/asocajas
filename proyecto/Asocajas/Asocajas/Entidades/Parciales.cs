@@ -112,6 +112,22 @@ namespace Asocajas
         public List<List<RMenu>> ListMenu { get; set; }
     }
 
+    public partial class LTLogConsultasAni
+    {
+        [NotMapped]
+        public RRptaAsocajas RRptaAsocajas { get; set; }
+    }
+
+    public partial class LTLogConsultasProcesadas
+    {
+        [NotMapped]
+        public DateTime Fecha { get; set; }
+        [NotMapped]
+        public string Lapso { get; set; }
+        [NotMapped]
+        public int Cantidad { get; set; }
+    }
+
 
     #region DataTables
     public class DataTableParameters

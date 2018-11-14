@@ -188,7 +188,7 @@ namespace Asocajas
                 newLog.UserName = null;
                 newLog.UserMachineInfo = Utility.GetUserMachineInfo(MachineInfo);
                 newLog.ServerIP = Utility.GetServerIP();
-               // newLog.Data = ((System.NullReferenceException)(ex)).ToString();
+                newLog.Data = ex.ToString();
                 newLog.ErrorMessage = ex.Message;
                 newLog.Source =ex.Source;
                 newLog.Method = ((System.Reflection.MemberInfo)(ex.TargetSite)).Name;

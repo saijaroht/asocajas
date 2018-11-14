@@ -12,10 +12,12 @@ function ConsultarEventos() {
         { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
         { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
         { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
-		{ data: "Nuip", ctroFilter: "txtNombreFilter" },
+		//{ data: "Nuip", ctroFilter: "txtNombreFilter" },
         { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
-        { data: "Ip", ctroFilter: "txtNombreFilter" },
-		{ data: "FechaConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "RRptaAsocajas.RptaAsocajas", ctroFilter: "txtNombreFilter" },
+		{ data: "FechaInicia", ctroFilter: "txtNombreFilter" },
+		{ data: "FechaFin", ctroFilter: "txtNombreFilter" },
+		{ data: "ControlRNEC", ctroFilter: "txtNombreFilter" },
 		{ data: "DescrRNEC", ctroFilter: "txtNombreFilter" },
     ];
     SetDataTable("tblLogConsultas_Ani", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);

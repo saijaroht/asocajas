@@ -9,16 +9,11 @@
 function ConsultarEventos() {
     debugger;
     var dataColumns = [
-        { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
-        { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
-        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
-		{ data: "Nuip", ctroFilter: "txtNombreFilter" },
-        { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
-        { data: "Ip", ctroFilter: "txtNombreFilter" },
-		{ data: "FechaConsulta", ctroFilter: "txtNombreFilter" },
-		{ data: "DescrRNEC", ctroFilter: "txtNombreFilter" },
+        { data: "Fecha", ctroFilter: "txtNombreFilter" },
+        { data: "Lapso", ctroFilter: "txtNombreFilter" },
+		{ data: "Cantidad", ctroFilter: "txtNombreFilter" },
     ];
-    SetDataTable("tblConsultasProcesadas", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAni", dataColumns);
+    SetDataTable("tblConsultasProcesadas", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasProcesadas", dataColumns);
 }
 
 function Buscar() {
@@ -33,6 +28,21 @@ function Buscar() {
            }
        })
     ).draw();
+    //$('#ThFecha').show();
+    //$('#ThLapso').hide();
+
+    if ($("#txtFechaIncial").val() != "" && $("#txtFechaFinal").val() != "") {
+        if ($("#txtFechaIncial").val() == $("#txtFechaFinal").val()) {
+            //$('#ThFecha').hide();
+            //$('#ThLapso').show();
+
+            $('#tblConsultasProcesadas').DataTable().columns(0).visible(false).columns(1).visible(true);
+        } else {
+            $('#tblConsultasProcesadas').DataTable().columns(0).visible(true).columns(1).visible(false);
+        }
+    } else
+        $('#tblConsultasProcesadas').DataTable().columns(0).visible(true).columns(1).visible(false);
+
 }
 
 var CCFList = new Array();
