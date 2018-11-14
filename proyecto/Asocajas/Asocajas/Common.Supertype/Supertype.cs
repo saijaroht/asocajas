@@ -511,6 +511,62 @@ namespace Supertype
             }
             return exec;
         }
+
+        public virtual IEnumerable<TEntity> PaginadorConsultasProceadas(int limiteInferior, int limiteSuperior, string where, bool esIgual)
+        {
+
+            IEnumerable<TEntity> exec = new List<TEntity>();
+            using (var ctx = new AsocajasBDEntities())
+            {
+                var LimiteInferior = new SqlParameter
+                {
+                    ParameterName = "LimiteInferior",
+                    Value = limiteInferior
+                };
+
+                var LimiteSuperior = new SqlParameter
+                {
+                    ParameterName = "LimiteSuperior",
+                    Value = limiteSuperior
+                };
+
+                var Where = new SqlParameter
+                {
+                    ParameterName = "Where",
+                    Value = where
+                };
+
+                var EsIgual = new SqlParameter
+                {
+                    ParameterName = "EsIgual",
+                    Value = esIgual
+                };
+                exec = ctx.Database.SqlQuery<TEntity>("exec LogConsultasProcesadas @LimiteInferior,@LimiteSuperior,@Where,@EsIgual ", LimiteInferior, LimiteSuperior, Where, EsIgual).ToList<TEntity>();
+
+                //var EXEC = ctx.INSERTSOLicitud(IdSolicitudAntigua, IdSolicitudNueva);
+            }
+            return exec;
+        }
+
+        public virtual int CountPaginadorConsultasProcesadas(string where, bool esIgual)
+        {
+            int exec = 0;
+            using (var ctx = new AsocajasBDEntities())
+            {
+                var Where = new SqlParameter
+                {
+                    ParameterName = "Where",
+                    Value = where
+                };
+                var EsIgual = new SqlParameter
+                {
+                    ParameterName = "EsIgual",
+                    Value = esIgual
+                };
+                exec = ctx.Database.SqlQuery<int>("exec CountLogConsultasProcesadas @Where,@EsIgual ", Where, EsIgual).FirstOrDefault();
+            }
+            return exec;
+        }
         #endregion
 
 

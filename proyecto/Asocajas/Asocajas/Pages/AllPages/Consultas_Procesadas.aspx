@@ -73,7 +73,8 @@
             <table id="tblConsultasProcesadas" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>Fecha</th>
+                        <th >Fecha</th>
+                        <th >Lapso</th>
                         <th>Cantidad</th>
                     </tr>
                 </thead>

@@ -421,7 +421,7 @@ namespace Asocajas.Controllers
                 MensajeCorreo += "                        <td colspan='2'></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
-                MensajeCorreo += "                        <td > <img src='cid:HDIImage' class='img-responsive' /></td>";
+                MensajeCorreo += "                        <td style='text-align: center;' > <img src='cid:HDIImage' class='img-responsive' /></td>";
                 //MensajeCorreo += "                        <td > <img src=\"" + Utility.GetURLSite() + "/Scripts/Images/logo_asocajas.png" + "\" class='img-responsive' /></td>";
                 MensajeCorreo += "                    </tr>";
                 MensajeCorreo += "                    <tr>";
@@ -446,12 +446,12 @@ namespace Asocajas.Controllers
                 MensajeCorreo += "                     <tr>";
                 MensajeCorreo += "                       <td  colspan='2'></td>";
                 MensajeCorreo += "                   </tr>";
-                MensajeCorreo += "                   <tr>";
-                MensajeCorreo += "                       <td colspan='2'>";
-                MensajeCorreo += "                       <p>Cordialmente,<br>";
-                MensajeCorreo += "                       <strong>Consultas ANI</strong></p>";
-                MensajeCorreo += "                       </td>";
-                MensajeCorreo += "                   </tr>";
+                //MensajeCorreo += "                   <tr>";
+                //MensajeCorreo += "                       <td colspan='2'>";
+                //MensajeCorreo += "                       <p>Cordialmente,<br>";
+                //MensajeCorreo += "                       <strong>Consultas ANI</strong></p>";
+                //MensajeCorreo += "                       </td>";
+                //MensajeCorreo += "                   </tr>";
                 MensajeCorreo += "               </tbody>";
                 MensajeCorreo += "           </table>";
 
