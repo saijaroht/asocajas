@@ -74,7 +74,7 @@
                 <thead>
                     <tr>
                         <th >Fecha</th>
-                        <th >Lapso</th>
+                        <th >Hora</th>
                         <th>Cantidad</th>
                     </tr>
                 </thead>

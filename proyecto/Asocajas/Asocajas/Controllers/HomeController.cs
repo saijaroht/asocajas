@@ -348,9 +348,9 @@ namespace Asocajas.Controllers
 
                         StringBuilder sb = new StringBuilder();
                         if (esIgual)
-                            sb.AppendLine("Fecha, Cantidad");
+                            sb.AppendLine("Hora, Cantidad");
                         else
-                            sb.AppendLine("Lapso, Cantidad");
+                            sb.AppendLine("Fecha, Cantidad");
 
                         var datosExport = objLTLogConsultasAni.PaginadorConsultasProceadas(0, (int)settingsReader.GetValue("CountExportCSV", typeof(int)), where, esIgual).ToList();
 
@@ -358,11 +358,11 @@ namespace Asocajas.Controllers
                         {
                             if (esIgual)
                                 sb.AppendLine(
-                                item.Fecha + "," +
+                                item.Lapso+ "," +
                                 item.Cantidad);
                         else
                                 sb.AppendLine(
-                                item.Lapso + "," +
+                                item.Fecha + "," +
                                 item.Cantidad);
                         }
                         dataTableData.DownloadStr = sb.ToString();
