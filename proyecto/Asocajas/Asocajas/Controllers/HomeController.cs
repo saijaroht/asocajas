@@ -22,7 +22,7 @@ using System.Web.Script.Serialization;
 namespace Asocajas.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class HomeController : ApiController, System.Web.SessionState.IRequiresSessionState 
+    public class HomeController : ApiController, System.Web.SessionState.IRequiresSessionState
     {
         #region LTLogEventos
         public class DataTableDataLogEventos
@@ -48,7 +48,7 @@ namespace Asocajas.Controllers
                         JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
                         List<LTLogEventos> list = new List<LTLogEventos>();
                         //var timestamp = Number(Request.QueryString('ts'));
-                        
+
                         var IdCCFstr = js.GetString("search.IdCCF");
                         var IdUsuariostr = js.GetString("search.IdUsuario");
                         var FechaInicialstr = js.GetString("search.FechaInicial");
@@ -88,7 +88,7 @@ namespace Asocajas.Controllers
                             }
                         }
                         list = (int)input["draw"] == 1 ? new List<LTLogEventos>() : objLTLogEventos.PaginadorConsultas((int)input["start"], (int)input["length"], where).ToList();
-                        
+
                         #region CSVFile
 
                         var download = Convert.ToBoolean(input["download"]);
@@ -623,46 +623,50 @@ namespace Asocajas.Controllers
         {
             using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())
             {
-                IPHostEntry host;
-                string localIP = "";
-                host = Dns.GetHostEntry(Dns.GetHostName());
-                foreach (IPAddress ip in host.AddressList)
+
+                using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
                 {
-                    if (ip.AddressFamily.ToString() == "InterNetwork")
+                    IPHostEntry host;
+                    string localIP = "";
+                    host = Dns.GetHostEntry(Dns.GetHostName());
+                    foreach (IPAddress ip in host.AddressList)
                     {
-                        localIP = ip.ToString();
+                        if (ip.AddressFamily.ToString() == "InterNetwork")
+                        {
+                            localIP = ip.ToString();
+                        }
                     }
-                }
-                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-                String sMacAddress = string.Empty;
-                foreach (NetworkInterface adapter in nics)
-                {
-                    if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                    NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                    String sMacAddress = string.Empty;
+                    foreach (NetworkInterface adapter in nics)
                     {
-                        IPInterfaceProperties properties = adapter.GetIPProperties();
-                        sMacAddress = adapter.GetPhysicalAddress().ToString();
+                        if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                        {
+                            IPInterfaceProperties properties = adapter.GetIPProperties();
+                            sMacAddress = adapter.GetPhysicalAddress().ToString();
+                        }
                     }
+                var RusuarioData=    objRUsuario.Get(o => o.Usuario == HelperGeneral.GetSession()).FirstOrDefault();
+                    TimeSpan diferenciaFecha = datereturnSOAP - today;
+                    var Duracion = diferenciaFecha.Milliseconds;
+                    LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
+                    lTLogConsultasAni.FechaConsulta = today;
+                    lTLogConsultasAni.Nuip = Cedula;
+                    lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
+                    lTLogConsultasAni.Mac = sMacAddress;
+                    lTLogConsultasAni.Ip = localIP;
+                    lTLogConsultasAni.FechaInicia = today;
+                    lTLogConsultasAni.FechaFin = datereturnSOAP;
+                    lTLogConsultasAni.Duracion = Duracion;
+                    lTLogConsultasAni.IdCcf =1 ;
+                    lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
+                    lTLogConsultasAni.IdRptaRnec = "123";
+                    lTLogConsultasAni.IdRptaAsocajas = "465";
+                    lTLogConsultasAni.ControlRNEC = "1";
+                    lTLogConsultasAni.DescrRNEC = "2";
+                    lTLogConsultasAni.CdgoRNEC = "3";
+                    objLTLogConsultasAni.Add(lTLogConsultasAni);
                 }
-                TimeSpan diferenciaFecha = datereturnSOAP - today;
-                var Duracion = diferenciaFecha.Milliseconds;
-                LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
-                lTLogConsultasAni.FechaConsulta = today;
-                lTLogConsultasAni.Nuip = Cedula;
-                lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
-                lTLogConsultasAni.Mac = sMacAddress;
-                lTLogConsultasAni.Ip = localIP;
-                lTLogConsultasAni.FechaInicia = today;
-                lTLogConsultasAni.FechaFin = datereturnSOAP;
-                lTLogConsultasAni.Duracion = Duracion;
-                lTLogConsultasAni.IdCcf = 92;
-                lTLogConsultasAni.IdUsuario = 26;
-                lTLogConsultasAni.IdRptaRnec = "123";
-                lTLogConsultasAni.IdRptaAsocajas = "465";
-                lTLogConsultasAni.ControlRNEC = "1";
-                lTLogConsultasAni.DescrRNEC = "2";
-                lTLogConsultasAni.CdgoRNEC = "3";
-                objLTLogConsultasAni.Add(lTLogConsultasAni);
-                
 
 
 
