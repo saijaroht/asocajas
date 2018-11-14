@@ -28,12 +28,12 @@
 				  <span>Listado Documentos</span>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12" >
-					<input type="file" class="filestyle" data-buttonBefore="true" data-buttonText="Cargar Archivo">
+					<input type="file" class="filestyle" data-buttonBefore="true" data-buttonText="Cargar Archivo" id="inputFile">
 				</div>
 			</div>
 			<div class="col-md-1"></div>
             <div class="col-xs-4 col-sm-4 col-md-2 nuevoUser">					
-                <button type="button" class="btn btn-success" id="btnConsultar" >Consultar</button>
+                <button type="button" class="btn btn-success" id="btnConsultar" onclick="BuscarData();" >Consultar</button>
             </div>
 			
         </div>

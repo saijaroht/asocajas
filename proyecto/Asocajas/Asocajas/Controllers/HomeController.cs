@@ -332,7 +332,8 @@ namespace Asocajas.Controllers
                             sMacAddress = adapter.GetPhysicalAddress().ToString();
                         }
                     }
-                var RusuarioData=    objRUsuario.Get(o => o.Usuario == HelperGeneral.GetSession()).FirstOrDefault();
+                    var idUsu = HelperGeneral.GetSession();
+                    var RusuarioData = objRUsuario.Get(o => o.Usuario == idUsu).FirstOrDefault();
                     TimeSpan diferenciaFecha = datereturnSOAP - today;
                     var Duracion = diferenciaFecha.Milliseconds;
                     LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
@@ -344,7 +345,7 @@ namespace Asocajas.Controllers
                     lTLogConsultasAni.FechaInicia = today;
                     lTLogConsultasAni.FechaFin = datereturnSOAP;
                     lTLogConsultasAni.Duracion = Duracion;
-                    lTLogConsultasAni.IdCcf =1 ;
+                    lTLogConsultasAni.IdCcf = RusuarioData.IdCcf;
                     lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
                     lTLogConsultasAni.IdRptaRnec = "123";
                     lTLogConsultasAni.IdRptaAsocajas = "465";
