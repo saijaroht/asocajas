@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -344,6 +345,8 @@ namespace Asocajas.Utilities
                 return hostmi.ToString();
             }
 
+
+
             //if (request == null)
             //{
             //    return string.IsNullOrEmpty(MachineInfo) ? "REQUEST NULO" : MachineInfo;
@@ -358,6 +361,22 @@ namespace Asocajas.Utilities
             //    userMachine = REMOTE_HOST + "|" + REMOTE_ADDR + (string.IsNullOrEmpty(REMOTE_PORT) ? string.Empty : ":" + REMOTE_PORT);
 
             //return userMachine;
+        }
+        public static string GetMacMachine()
+        { 
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                    String sMacAddress = string.Empty;
+                    foreach (NetworkInterface adapter in nics)
+                    {
+                        if (sMacAddress == String.Empty)// only return MAC Address from first card  
+                        {
+                            IPInterfaceProperties properties = adapter.GetIPProperties();
+                            sMacAddress = adapter.GetPhysicalAddress().ToString();
+                        }
+                    }
+
+                    return sMacAddress;
+
         }
         public static string GetMachineName()
         {

@@ -22,5 +22,17 @@ namespace Asocajas.Controllers
             var obj = this.objDb.Add(rRptaAsocajas);
             return CreatedAtRoute("DefaultApi", new { id = rRptaAsocajas.IdRptaAsocajas }, rRptaAsocajas);
         }
+        public IHttpActionResult GetRRptaAsocajasId(string id)
+        {
+            try
+            {
+                var obj = this.objDb.Get(o => o.IdRptaAsocajas == id).ToList();
+                return Ok(obj);
+            }
+            catch (Exception ex)
+            {
+                return Ok(HelperGeneral.exceptionError(ex));
+            }
+        }
     }
 }

@@ -126,6 +126,8 @@ namespace Asocajas
             return UTF8Encoding.UTF8.GetString(resultArray);
         }
 
+        
+
         public static bool SendMail(string Para, string asunto, string html)
         {
             try
