@@ -128,6 +128,11 @@ namespace Asocajas
         public int Cantidad { get; set; }
     }
 
+    public partial class ConsultaDocumentos
+    {
+        [NotMapped]
+        public List<string> Cedulas { get; set; }
+    }
 
     #region DataTables
     public class DataTableParameters

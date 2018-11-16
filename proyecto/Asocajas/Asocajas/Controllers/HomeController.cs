@@ -755,7 +755,7 @@ namespace Asocajas.Controllers
         }
 
 
-        public IHttpActionResult GetListCedulas(List<string> Cedulas)
+        public IHttpActionResult PostListCedulas(ConsultaDocumentos Cedulas)
         {
             System.Configuration.AppSettingsReader settingsReader =
                                 new AppSettingsReader();
@@ -767,7 +767,7 @@ namespace Asocajas.Controllers
                 UserAuth.contrasena = (string)settingsReader.GetValue("PassSoap", typeof(string));
                 UserAuth.ip = Utility.GetServerIP();
 
-                foreach (var Cedula in Cedulas)
+                foreach (var Cedula in Cedulas.Cedulas)
                 {
                     var today = DateTime.Now;
                     var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
@@ -808,7 +808,7 @@ namespace Asocajas.Controllers
                         lTLogConsultasAni.Duracion = Duracion;
                         lTLogConsultasAni.IdCcf = RusuarioData.IdCcf;
                         lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
-                        lTLogConsultasAni.IdRptaRnec = "000";
+                        lTLogConsultasAni.IdRptaRnec = consultaCedulasPrueba.estadoConsulta.codError;
                         lTLogConsultasAni.IdRptaAsocajas = RRptaAsocajasData.IdRptaAsocajas;
                         lTLogConsultasAni.ControlRNEC = "1";
                         lTLogConsultasAni.DescrRNEC = RRptaAsocajasData.RptaAsocajas;
