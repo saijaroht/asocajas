@@ -786,47 +786,35 @@ namespace Asocajas.Controllers
 
                 using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
                 {
-                    IPHostEntry host;
-                    string localIP = "";
-                    host = Dns.GetHostEntry(Dns.GetHostName());
-                    foreach (IPAddress ip in host.AddressList)
+                    using (BusinessBase<RRptaAsocajas> objRRptaAsocajas = new BusinessBase<RRptaAsocajas>())
                     {
-                        if (ip.AddressFamily.ToString() == "InterNetwork")
-                        {
-                            localIP = ip.ToString();
-                        }
+
+                        var localIP = Utility.GetServerIP();
+                        var sMacAddress = Utility.GetMacMachine();
+                        var idUsu = HelperGeneral.GetSession();
+                        var ResRnec="000";
+                        var RusuarioData = objRUsuario.Get(o => o.Usuario == idUsu).FirstOrDefault();
+                        var RRptaAsocajasData = objRRptaAsocajas.Get(o => o.IdRptaAsocajas == ResRnec).FirstOrDefault();
+                        TimeSpan diferenciaFecha = datereturnSOAP - today;
+                        var Duracion = diferenciaFecha.Milliseconds;
+                        LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
+                        lTLogConsultasAni.FechaConsulta = today;
+                        lTLogConsultasAni.Nuip = Cedula;
+                        lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
+                        lTLogConsultasAni.Mac = sMacAddress;
+                        lTLogConsultasAni.Ip = localIP;
+                        lTLogConsultasAni.FechaInicia = today;
+                        lTLogConsultasAni.FechaFin = datereturnSOAP;
+                        lTLogConsultasAni.Duracion = Duracion;
+                        lTLogConsultasAni.IdCcf = RusuarioData.IdCcf;
+                        lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
+                        lTLogConsultasAni.IdRptaRnec = "000";
+                        lTLogConsultasAni.IdRptaAsocajas = RRptaAsocajasData.IdRptaAsocajas;
+                        lTLogConsultasAni.ControlRNEC = "1";
+                        lTLogConsultasAni.DescrRNEC = RRptaAsocajasData.RptaAsocajas;
+                        lTLogConsultasAni.CdgoRNEC = RRptaAsocajasData.IdRptaAsocajas;
+                        objLTLogConsultasAni.Add(lTLogConsultasAni);
                     }
-                    NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-                    String sMacAddress = string.Empty;
-                    foreach (NetworkInterface adapter in nics)
-                    {
-                        if (sMacAddress == String.Empty)// only return MAC Address from first card  
-                        {
-                            IPInterfaceProperties properties = adapter.GetIPProperties();
-                            sMacAddress = adapter.GetPhysicalAddress().ToString();
-                        }
-                    }
-                    var idUsu = HelperGeneral.GetSession();
-                    var RusuarioData = objRUsuario.Get(o => o.Usuario == idUsu).FirstOrDefault();
-                    TimeSpan diferenciaFecha = datereturnSOAP - today;
-                    var Duracion = diferenciaFecha.Milliseconds;
-                    LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
-                    lTLogConsultasAni.FechaConsulta = today;
-                    lTLogConsultasAni.Nuip = Cedula;
-                    lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
-                    lTLogConsultasAni.Mac = sMacAddress;
-                    lTLogConsultasAni.Ip = localIP;
-                    lTLogConsultasAni.FechaInicia = today;
-                    lTLogConsultasAni.FechaFin = datereturnSOAP;
-                    lTLogConsultasAni.Duracion = Duracion;
-                    lTLogConsultasAni.IdCcf = RusuarioData.IdCcf;
-                    lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
-                    lTLogConsultasAni.IdRptaRnec = "123";
-                    lTLogConsultasAni.IdRptaAsocajas = "465";
-                    lTLogConsultasAni.ControlRNEC = "1";
-                    lTLogConsultasAni.DescrRNEC = "2";
-                    lTLogConsultasAni.CdgoRNEC = "3";
-                    objLTLogConsultasAni.Add(lTLogConsultasAni);
                 }
 
 
