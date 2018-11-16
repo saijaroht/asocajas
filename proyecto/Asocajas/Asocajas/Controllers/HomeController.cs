@@ -748,7 +748,7 @@ namespace Asocajas.Controllers
                 UserAuth.ip = Utility.GetServerIP();
                 var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
                 var datereturnSOAP = DateTime.Now;
-                PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC);
+                PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC, ((int)Origen.INDIVIDUAL).ToString());
                 //int resultadoFechas = DateTime.Compare(today, datereturnSOAP);
                 return Json(retornaC);
             }
@@ -773,13 +773,13 @@ namespace Asocajas.Controllers
                     var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
                     RetornaCedulas.Add(retornaC);
                     var datereturnSOAP = DateTime.Now;
-                    PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC);
+                    PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC, ((int)Origen.MASIVO).ToString());
                 }
                 return Json(RetornaCedulas);
             }
         }
 
-        public void PutLTLogConsultasAni(DateTime today, DateTime datereturnSOAP, string Cedula, Usuario consultaCedulasPrueba)
+        public void PutLTLogConsultasAni(DateTime today, DateTime datereturnSOAP, string Cedula, Usuario consultaCedulasPrueba, string Origen)
         {
             using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())
             {
@@ -800,7 +800,7 @@ namespace Asocajas.Controllers
                         LTLogConsultasAni lTLogConsultasAni = new LTLogConsultasAni();
                         lTLogConsultasAni.FechaConsulta = today;
                         lTLogConsultasAni.Nuip = Cedula;
-                        lTLogConsultasAni.IdOrigen = ((int)Origen.INDIVIDUAL).ToString();
+                        lTLogConsultasAni.IdOrigen = Origen; //((int)Origen.INDIVIDUAL).ToString();
                         lTLogConsultasAni.Mac = sMacAddress;
                         lTLogConsultasAni.Ip = localIP;
                         lTLogConsultasAni.FechaInicia = today;
@@ -810,9 +810,9 @@ namespace Asocajas.Controllers
                         lTLogConsultasAni.IdUsuario = RusuarioData.IdUsuario;
                         lTLogConsultasAni.IdRptaRnec = consultaCedulasPrueba.estadoConsulta.codError;
                         lTLogConsultasAni.IdRptaAsocajas = RRptaAsocajasData.IdRptaAsocajas;
-                        lTLogConsultasAni.ControlRNEC = "1";
-                        lTLogConsultasAni.DescrRNEC = RRptaAsocajasData.RptaAsocajas;
-                        lTLogConsultasAni.CdgoRNEC = RRptaAsocajasData.IdRptaAsocajas;
+                        lTLogConsultasAni.ControlRNEC = consultaCedulasPrueba.estadoConsulta.numeroControl;
+                        lTLogConsultasAni.DescrRNEC = consultaCedulasPrueba.estadoConsulta.descripcionError;
+                        lTLogConsultasAni.CdgoRNEC = consultaCedulasPrueba.datosCedulas.codError;
                         objLTLogConsultasAni.Add(lTLogConsultasAni);
                     }
                 }
