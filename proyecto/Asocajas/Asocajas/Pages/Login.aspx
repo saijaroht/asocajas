@@ -27,8 +27,11 @@
                 <div >
                     <div class="group">
                         <i class="fas fa-user"></i>
-                        <input type="email" class="form-control" placeholder="Usuario" required="required" id="txtUsuario" />
+                        <input type="email" class="form-control" placeholder="Usuario" required="required" id="txtUsuario" />						
                     </div>
+					<div>
+						<label id="lblvalidaciontxtusuario" style="display: none; color: red">Correo Electronico no valido!</label>
+					</div>
                 </div>
                 <div >
                     <div class="group">
@@ -40,7 +43,7 @@
                     <a href="Modificacion_Contrasena.aspx"><u>Olvidé mi contraseña<u></a>
                 </div>
                 <div class=" w3l-form-group">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-10 col-sm-8 col-md-12 centred">
                        <label for="" class="labelText">Captcha</label>
                         <div id="recaptcha"></div>
                         <!-- <input type="text" id="txtcaptcha" style="display:none;color:red" />-->
@@ -50,7 +53,7 @@
                     <%--<div class="g-recaptcha" data-sitekey="6Lcum3UUAAAAAEP7sz4o9d7hy2T7Vbjp-EKiTJXF" align="center"></div>--%>
                 </div>
 				
-                <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-6 centred">
+                <div class="col-md-6 col-sm-6 col-xs-6 centred">
 					<button class="hoverbtn"  style="margin-top: 15px" type="button" onclick="ValidaUsuario(); return false;">Ingresar</button>                    
                 </div>
 				

@@ -12,7 +12,7 @@ function ConsultarEventos() {
         { data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
         { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
         { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
-		//{ data: "Nuip", ctroFilter: "txtNombreFilter" },
+		{ data: "Nuip", ctroFilter: "txtNombreFilter" },
         { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
         { data: "RRptaAsocajas.RptaAsocajas", ctroFilter: "txtNombreFilter" },
 		{ data: "FechaInicia", ctroFilter: "txtNombreFilter" },

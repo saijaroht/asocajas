@@ -43,6 +43,13 @@ function ValidaUsuario()
     if (!validarcampos(campos) || !captchaComplete) {
         if (!captchaComplete)
             $('#lblvalidacioncaptcha').show();
+        var control = document.getElementById("txtUsuario");
+        if (!validateText(control)) {
+            RemoveValidateText(control);
+            $('#lblvalidaciontxtusuario').show();
+        } else {
+            $('#lblvalidaciontxtusuario').hide();
+        }
         return;
     }
     debugger;

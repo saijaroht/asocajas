@@ -1,41 +1,49 @@
 ﻿$(document).ready(function () {
-    ConsultarConsultasAni();
-    //BuscarTable("Buscartxt", "tbodyLogEventos");
+    CargarUsuarios();
+    ConsultarEventos();
 });
-var ListConsulta = new Array();
-function ConsultarConsultasAni() {
-    debugger;
-    var Idccf
-    if (ListConsulta.length == 0) {
-        //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data1) {
-        //    var UsuarioAct = data1.Message;
-        consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail", null, function (data2) {
-            Idccf = data2.IdCcf;
-            consumirServicio(ServiceUrl + "LTLogConsultasAni/GetLTLogConsultasAniCcf?idCcf=" + Idccf, null, function (data) {
-                ListConsulta = data;
-                PrintTable();
-            });
+
+function CargarUsuarios() {
+    $("#cboUsuario").empty();
+    $("#cboUsuario").append('<option value="">Todos</option>');
+    consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByCCF", null, function (UsuariosList) {
+
+        $.each(UsuariosList, function (i, val) {
+            $("#cboUsuario").append('<option value = "' + val.IdUsuario + '">' + val.Nombres + '</option>');
         });
-        //});
-    }
-    else {
-        PrintTable();
-    }
-}
-function PrintTable() {
-    debugger
-    $("#tbody").empty();
-    $.each(ListConsulta, function (index, val) {
-        $("#tbody")
-                .append($("<tr />")
-                .append($("<td />", { html: val.RCCF.Nombre }))
-                .append($("<td />", { html: val.RUsuario.Usuario }))
-                .append($("<td />", { html: val.IdConsulta }))
-                .append($("<td />", { html: val.RRptaRnec.RptaRnec }))
-                .append($("<td />", { html: val.RRptaAsocajas.RptaAsocajas }))
-                .append($("<td />", { html: val.Origen }))
-                .append($("<td />", { html: val.Duracion }))
-                .append($("<td />", { html: val.FechaInicia + "--- " + val.FechaFin }))
-               );
+    }, null, function (dataError) {
+
     });
 }
+
+function ConsultarEventos() {
+    debugger;
+    var dataColumns = [
+        //{ data: "RUsuario.RCCF.Nombre", ctroFilter: "txtNombreFilter" },
+        { data: "RUsuario.Nombres", ctroFilter: "txtNombreFilter" },
+        { data: "IdConsulta", ctroFilter: "txtNombreFilter" },
+		{ data: "Nuip", ctroFilter: "txtNombreFilter" },
+        { data: "ROrigen.OrigenConsulta", ctroFilter: "txtNombreFilter" },
+        { data: "RRptaAsocajas.RptaAsocajas", ctroFilter: "txtNombreFilter" },
+		{ data: "FechaInicia", ctroFilter: "txtNombreFilter" },
+		{ data: "FechaFin", ctroFilter: "txtNombreFilter" },
+		{ data: "ControlRNEC", ctroFilter: "txtNombreFilter" },
+		{ data: "DescrRNEC", ctroFilter: "txtNombreFilter" },
+    ];
+    SetDataTable("tblLogConsultas_Ani", ServiceUrl + "Home/AjaxGetJsonDataLTLogConsultasAniByCCF", dataColumns);
+}
+
+function Buscar() {
+    $('#dvLogConsultas_Ani').show();
+    $('#tblLogConsultas_Ani').DataTable().search(
+       JSON.stringify({
+           search: {
+               IdCCF: $('#cboCCF').val(),
+               IdUsuario: $('#cboUsuario').val(),
+               FechaInicial: $("#txtFechaIncial").val(),
+               FechaFinal: $("#txtFechaFinal").val()
+           }
+       })
+    ).draw();
+}
+

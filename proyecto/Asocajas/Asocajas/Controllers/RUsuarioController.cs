@@ -53,6 +53,39 @@ namespace Asocajas.Controllers
             }
         }
 
+
+        public IHttpActionResult GetRUsuarioByCCF()
+        {
+            try
+            {
+                if (HelperGeneral.IsUserLogin())
+                {
+                    //HelperGeneral.SaveFile();
+                    var usuario = HelperGeneral.GetSession();
+                    var CCFUserLogin = this.objDb.Get(o => o.Usuario == usuario).FirstOrDefault().IdCcf;
+                    var obj = this.objDb.Get(o => o.IdCcf == CCFUserLogin).ToList();
+                    using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
+                    {
+                        using (BusinessBase<RRole> objRRole = new BusinessBase<RRole>())
+                        {
+                            foreach (var item in obj)
+                            {
+                                item.RCCF = objRCCF.Get(o => o.IdCcf == item.IdCcf).FirstOrDefault();
+                                item.RRole = objRRole.Get(o => o.IdRole == item.IdRole).FirstOrDefault();
+                            }
+                        }
+                    }
+                    return Ok(obj);
+                }
+                else
+                    return Ok(HelperGeneral.resultsNull());
+            }
+            catch (Exception ex)
+            {
+                return Ok(HelperGeneral.exceptionError(ex));
+            }
+        }
+
         public IHttpActionResult GetExistUser(string user, string password)
         {
             try

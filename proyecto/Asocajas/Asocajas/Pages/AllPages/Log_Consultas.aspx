@@ -76,7 +76,7 @@
                         <th>CCF</th>
                         <th>Usuario</th>
                         <th>Id.</th>                        
-						<%--<th>Documento</th>--%>
+						<th>Documento</th>
                         <th>Vía</th>                        
                         <th>Estado</th>
                         <th>Fecha Inicia</th>

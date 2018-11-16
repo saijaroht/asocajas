@@ -216,7 +216,7 @@ namespace Asocajas.Controllers
                                                         new AppSettingsReader();
 
                                     StringBuilder sb = new StringBuilder();
-                                    sb.AppendLine("CCF, Usuario, Id., Vía, Estado, Fecha Inicia, Fecha Fin, Id Rnec, Desc Rnec");
+                                    sb.AppendLine("CCF, Usuario, Id., Documento, Vía, Estado, Fecha Inicia, Fecha Fin, Id Rnec, Desc Rnec");
                                     var datosExport = objLTLogConsultasAni.PaginadorConsultas(0, (int)settingsReader.GetValue("CountExportCSV", typeof(int)), where).ToList();
                                     var allobjRUsuario = objRUsuario.Get().ToList();
                                     var allobjRCCF = objRCCF.Get().ToList();
@@ -231,8 +231,9 @@ namespace Asocajas.Controllers
                                         item.RRptaAsocajas = rRptaAsocajas.Count() > 0 ? rRptaAsocajas.FirstOrDefault() : new RRptaAsocajas();
                                         sb.AppendLine(
                                             item.RUsuario.RCCF.Nombre + "," + 
-                                            item.RUsuario.Nombres + "," + 
+                                            item.RUsuario.Nombres + "," +
                                             item.IdConsulta + "," +
+                                            item.Nuip + "," +
                                             item.ROrigen.OrigenConsulta + "," +
                                             item.RRptaAsocajas.RptaAsocajas + "," +
                                             item.FechaInicia + "," +
@@ -266,6 +267,139 @@ namespace Asocajas.Controllers
                 }
             }
         }
+
+        public class DataTableDataLogConsultasAniByCCF
+        {
+            public int draw { get; set; }
+            public int recordsTotal { get; set; }
+            public int recordsFiltered { get; set; }
+            public List<LTLogConsultasAni> data { get; set; }
+            public string DownloadStr { get; set; }
+        }
+
+        // this ajax function is called by the client for each draw of the information on the page (i.e. when paging, ordering, searching, etc.). 
+        public IHttpActionResult AjaxGetJsonDataLTLogConsultasAniByCCF(object parameters)
+        {
+            using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())
+            {
+                using (BusinessBase<RUsuario> objRUsuario = new BusinessBase<RUsuario>())
+                {
+                    using (BusinessBase<RCCF> objRCCF = new BusinessBase<RCCF>())
+                    {
+                        using (BusinessBase<RRptaAsocajas> objRRptaAsocajas = new BusinessBase<RRptaAsocajas>())
+                        {
+                            using (BusinessBase<ROrigen> objROrigen = new BusinessBase<ROrigen>())
+                            {
+                                DataTableDataLogConsultasAniByCCF dataTableData = new DataTableDataLogConsultasAniByCCF();
+                                var input = JObject.FromObject(JObject.FromObject(parameters)["parameters"]);
+                                JsonDeserializer js = new JsonDeserializer(input["search"]["value"].ToString());
+                                List<LTLogConsultasAni> list = new List<LTLogConsultasAni>();
+                                //var timestamp = Number(Request.QueryString('ts'));
+
+                                var IdCCFstr = js.GetString("search.IdCCF");
+                                var IdUsuariostr = js.GetString("search.IdUsuario");
+                                var FechaInicialstr = js.GetString("search.FechaInicial");
+                                var FechaFinalstr = js.GetString("search.FechaFinal");
+
+                                var Usuario = HelperGeneral.GetSession();
+                                IdCCFstr = objRUsuario.Get(o => o.Usuario == Usuario).FirstOrDefault().IdCcf.ToString();
+
+                                int? IdUsuario = !string.IsNullOrEmpty(IdUsuariostr) ? (int?)Convert.ToInt32(IdUsuariostr) : null;
+                                int? IdCCF = !string.IsNullOrEmpty(IdCCFstr) ? (int?)Convert.ToInt64(IdCCFstr) : null;
+                                DateTime? FechaInicial = !string.IsNullOrEmpty(FechaInicialstr) ? (DateTime?)Convert.ToDateTime(FechaInicialstr) : null;
+                                DateTime? FechaFinal = !string.IsNullOrEmpty(FechaFinalstr) ? (DateTime?)Convert.ToDateTime(FechaFinalstr).AddDays(1) : null;
+
+                                FechaFinalstr = !string.IsNullOrEmpty(FechaFinalstr) ? Convert.ToDateTime(FechaFinal).Year.ToString() + "-" + Convert.ToDateTime(FechaFinal).Month.ToString() + "-" + Convert.ToDateTime(FechaFinal).Day.ToString() : "";
+                                string where = "";
+                                if ((!string.IsNullOrEmpty(IdUsuariostr)) || (!string.IsNullOrEmpty(IdCCFstr)) || (!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr)))
+                                {
+                                    where += "where ";
+                                    if (!string.IsNullOrEmpty(IdUsuariostr))
+                                    {
+                                        where += "IdUsuario = " + IdUsuario.ToString();
+                                    }
+                                    else if (!string.IsNullOrEmpty(IdCCFstr))
+                                    {
+                                        var IdsUsersCCF = objRUsuario.Get(o => o.IdCcf == IdCCF).Select(o => o.IdUsuario).ToList();
+                                        where += "CHARINDEX(CAST(IdUsuario AS VARCHAR),'";
+                                        foreach (var item in IdsUsersCCF)
+                                        {
+                                            where += item + ";";
+                                        }
+                                        where += "')<>0";
+                                    }
+                                    if (!string.IsNullOrEmpty(FechaInicialstr) && !string.IsNullOrEmpty(FechaFinalstr))
+                                    {
+                                        if ((!string.IsNullOrEmpty(IdUsuariostr)) || (!string.IsNullOrEmpty(IdCCFstr)))
+                                        {
+                                            where += " and ";
+                                        }
+                                        where += "FechaConsulta BETWEEN '" + FechaInicialstr + "' AND '" + FechaFinalstr + "'";
+                                    }
+                                }
+                                list = (int)input["draw"] == 1 ? new List<LTLogConsultasAni>() : objLTLogConsultasAni.PaginadorConsultas((int)input["start"], (int)input["length"], where).ToList();
+
+                                #region CSVFile
+
+                                var download = Convert.ToBoolean(input["download"]);
+                                if (download)
+                                {
+                                    System.Configuration.AppSettingsReader settingsReader =
+                                                        new AppSettingsReader();
+
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.AppendLine("CCF, Usuario, Id., Documento, Vía, Estado, Fecha Inicia, Fecha Fin, Id Rnec, Desc Rnec");
+                                    var datosExport = objLTLogConsultasAni.PaginadorConsultas(0, (int)settingsReader.GetValue("CountExportCSV", typeof(int)), where).ToList();
+                                    var allobjRUsuario = objRUsuario.Get().ToList();
+                                    var allobjRCCF = objRCCF.Get().ToList();
+                                    var allobjROrigen = objROrigen.Get().ToList();
+                                    var allobjRRptaAsocajas = objRRptaAsocajas.Get().ToList();
+                                    foreach (var item in datosExport)
+                                    {
+                                        item.RUsuario = allobjRUsuario.Where(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
+                                        item.RUsuario.RCCF = allobjRCCF.Where(o => o.IdCcf == item.RUsuario.IdCcf).FirstOrDefault();
+                                        item.ROrigen = allobjROrigen.Where(o => o.IdOrigen == item.IdOrigen).FirstOrDefault();
+                                        var rRptaAsocajas = objRRptaAsocajas.Get(o => o.IdRptaAsocajas == item.IdRptaAsocajas).ToList();
+                                        item.RRptaAsocajas = rRptaAsocajas.Count() > 0 ? rRptaAsocajas.FirstOrDefault() : new RRptaAsocajas();
+                                        sb.AppendLine(
+                                            item.RUsuario.RCCF.Nombre + "," +
+                                            item.RUsuario.Nombres + "," +
+                                            item.IdConsulta + "," +
+                                            item.Nuip + "," +
+                                            item.ROrigen.OrigenConsulta + "," +
+                                            item.RRptaAsocajas.RptaAsocajas + "," +
+                                            item.FechaInicia + "," +
+                                            item.FechaFin + "," +
+                                            item.ControlRNEC + "," +
+                                            item.DescrRNEC);
+                                    }
+                                    dataTableData.DownloadStr = sb.ToString();
+                                }
+
+                                #endregion
+
+                                dataTableData.draw = (int)input["draw"];
+                                dataTableData.recordsFiltered = (int)input["draw"] == 1 ? 0 : objLTLogConsultasAni.CountPaginadorConsultas(where);
+                                foreach (var item in list)
+                                {
+                                    item.RUsuario = objRUsuario.Get(o => o.IdUsuario == item.IdUsuario).FirstOrDefault();
+                                    item.RUsuario.RCCF = objRCCF.Get(o => o.IdCcf == item.RUsuario.IdCcf).FirstOrDefault();
+                                    item.ROrigen = objROrigen.Get(o => o.IdOrigen == item.IdOrigen).FirstOrDefault();
+                                    var rRptaAsocajas = objRRptaAsocajas.Get(o => o.IdRptaAsocajas == item.IdRptaAsocajas).ToList();
+                                    item.RRptaAsocajas = rRptaAsocajas.Count() > 0 ? rRptaAsocajas.FirstOrDefault() : new RRptaAsocajas();
+                                }
+
+                                dataTableData.data = list;
+                                dataTableData.recordsTotal = dataTableData.recordsFiltered;
+
+                                return Json(dataTableData);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
         public class DataTableDataLogConsultasProcesadas
         {
@@ -619,6 +753,32 @@ namespace Asocajas.Controllers
                 return Json(retornaC);
             }
         }
+
+
+        public IHttpActionResult GetListCedulas(List<string> Cedulas)
+        {
+            System.Configuration.AppSettingsReader settingsReader =
+                                new AppSettingsReader();
+            using (ServiceSoapClient consultaCedulasPrueba = new ServiceSoapClient())
+            {
+                List<Usuario> RetornaCedulas = new List<Usuario>();
+                ConsultaCedulasPrueba.UserAuth UserAuth = new ConsultaCedulasPrueba.UserAuth();
+                UserAuth.usuario = (string)settingsReader.GetValue("UserSoap", typeof(string));
+                UserAuth.contrasena = (string)settingsReader.GetValue("PassSoap", typeof(string));
+                UserAuth.ip = Utility.GetServerIP();
+
+                foreach (var Cedula in Cedulas)
+                {
+                    var today = DateTime.Now;
+                    var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
+                    RetornaCedulas.Add(retornaC);
+                    var datereturnSOAP = DateTime.Now;
+                    PutLTLogConsultasAni(today, datereturnSOAP, Cedula, retornaC);
+                }
+                return Json(RetornaCedulas);
+            }
+        }
+
         public void PutLTLogConsultasAni(DateTime today, DateTime datereturnSOAP, string Cedula, Usuario consultaCedulasPrueba)
         {
             using (BusinessBase<LTLogConsultasAni> objLTLogConsultasAni = new BusinessBase<LTLogConsultasAni>())

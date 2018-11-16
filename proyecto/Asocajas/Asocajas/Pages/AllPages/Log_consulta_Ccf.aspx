@@ -75,13 +75,16 @@
             <table id="tblLogConsultas_Ani" style="width: 100%">
                 <thead>
                     <tr>
+                        <%--<th>CCF</th>--%>
                         <th>Usuario</th>
                         <th>Id.</th>                        
 						<th>Documento</th>
                         <th>Vía</th>                        
-                        <th>Dirección IP</th>
-                        <th>Fecha Transacción</th>
-						<th>Resultado</th>
+                        <th>Estado</th>
+                        <th>Fecha Inicia</th>
+						<th>Fecha Fin</th>
+						<th>Id Rnec</th>
+						<th>Desc Rnec</th>
                     </tr>
                 </thead>
             </table>

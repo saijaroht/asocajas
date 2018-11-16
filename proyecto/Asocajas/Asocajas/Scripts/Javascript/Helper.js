@@ -730,20 +730,25 @@ function SessionState() {
 }
 
 $(document).ready(function () {
+    $('body').hide();
     debugger;
-    if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {// && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
-        consumirServicio(ServiceUrl + "RUsuario/GetIsLogin", null, function (data) {
-            //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
-            if (!data.Ok) {
-                window.location.href = location.origin + "/Pages/Login.aspx";
-            } else {
-                consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail", null, function (dataUsuario) {
-                    $('#UsuarioLogueado').html(dataUsuario.Nombre + " " + dataUsuario.Apellido);
-                });
-            }
-        });
-        SessionState();
-    }
+    setTimeout(function () {
+        if (location.pathname != "/Pages/Login.aspx" && location.pathname != "/Pages/Modificacion_Contrasena.aspx") {// && location.pathname != "/Pages/AllPages/Gestion_Usuarios.aspx") {
+            consumirServicio(ServiceUrl + "RUsuario/GetIsLogin", null, function (data) {
+                //PostService(location.origin + '/Services/Servicios.aspx/IsLogin', null, function (data) {
+                if (!data.Ok) {
+                    window.location.href = location.origin + "/Pages/Login.aspx";
+                } else {
+                    $('body').show();
+                    consumirServicio(ServiceUrl + "RUsuario/GetRUsuarioByMail", null, function (dataUsuario) {
+                        $('#UsuarioLogueado').html(dataUsuario.Nombre + " " + dataUsuario.Apellido);
+                    });
+                }
+            });
+            SessionState();
+        } else
+            $('body').show();
+    }, 500);
 });
 
 function SessionLogin(valueUser, functionsucess) {
