@@ -43,5 +43,6 @@ namespace Asocajas
         public DbSet<TReporte> TReporte { get; set; }
         public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
     
+        
     }
 }

@@ -67,8 +67,45 @@
                 $(trBoldBlue).on("click", "tr", function () {
                     $(this).toggleClass("bold-blue");
                 });
-
-
-
     </script>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="MyModalConsultaMasiva" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Consulta Masiva</h4>
+                </div>
+                <div style="padding:10mm">
+             <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Identificación</th>
+                <th>Particula</th>
+                 <th>Primer Apellido</th>
+                 <th>Segundo Apellido</th>
+                 <th>Primer Nombre</th>
+                 <th>Segundo Nombre</th>
+                 <th>Fecha de Nacimiento</th>
+                 <th>Municipio de Expedición</th>
+                 <th>Departamento de Expedición</th>
+                 <th>Fecha de Expedición</th>
+                 <th>Estado del documento</th>
+                 <th>Número de Resolución</th>
+                <th>Año de Resolución</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody id="dvDatos">
+            
+        </tbody>
+      
+    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

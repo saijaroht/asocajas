@@ -89,7 +89,7 @@
           <Property Name="IdRptaRnec" Type="varchar" MaxLength="5" />
           <Property Name="IdRptaAsocajas" Type="varchar" MaxLength="5" />
           <Property Name="ControlRNEC" Type="varchar" MaxLength="10" />
-          <Property Name="DescrRNEC" Type="varchar" MaxLength="50" />
+          <Property Name="DescrRNEC" Type="varchar" MaxLength="350" />
           <Property Name="CdgoRNEC" Type="varchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="LTLogEventos">
@@ -643,7 +643,7 @@
           <Property Type="String" Name="IdRptaRnec" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdRptaAsocajas" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ControlRNEC" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DescrRNEC" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DescrRNEC" MaxLength="350" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CdgoRNEC" MaxLength="5" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="RCCF" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_RCcf" FromRole="LTLogConsultasAni" ToRole="RCCF" />
           <NavigationProperty Name="ROrigen" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_ROrigen" FromRole="LTLogConsultasAni" ToRole="ROrigen" />
