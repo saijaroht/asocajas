@@ -72,14 +72,14 @@
 
     <!-- Modal -->
     <div class="modal fade" id="MyModalConsultaMasiva" role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="width:100%;">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Consulta Masiva</h4>
                 </div>
                 <div style="padding:10mm">
-             <table id="example" class="display" style="width:100%">
+             <table id="example" class="table table-striped table-responsive " >
         <thead>
             <tr>
                 <th>Identificación</th>
@@ -104,6 +104,13 @@
         </tbody>
       
     </table>
+                    </div>
+                 <div class="group">
+						<div class="col-md-5"></div>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+						</div>						
+                        <div class="col-md-2"></div>
                     </div>
             </div>
         </div>
