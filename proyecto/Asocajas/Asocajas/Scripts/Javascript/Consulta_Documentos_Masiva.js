@@ -1,9 +1,21 @@
 ﻿$(document).ready(function () {
     
-   
+    
 })
 
 function BuscarData() {
+
+    var archivo = $("#inputFile").val();
+    var extensiones = archivo.substring(archivo.lastIndexOf("."));
+
+    if (extensiones != ".txt") {
+        alert("El archivo de tipo " + extensiones + " no es válido solo se permiten archivos con extensión .txt");
+
+        $('#inputFile').filestyle("clear");
+    }
+
+    else {
+
 
     leerArchivo(function (data) {
         debugger;
@@ -40,10 +52,13 @@ function BuscarData() {
            
             $('#MyModalConsultaMasiva').modal('show');
             pintarTabla();
+         
+            $('#inputFile').filestyle("clear");
 
 
         });
     });
+}
 }
 
 function leerArchivo(functionSucces) {
@@ -97,3 +112,4 @@ function pintarTabla() {
         }
     });
 }
+
