@@ -16,8 +16,8 @@ namespace Asocajas
     {
         public RCCF()
         {
-            this.RUsuario = new HashSet<RUsuario>();
             this.LTLogConsultasAni = new HashSet<LTLogConsultasAni>();
+            this.RUsuario = new HashSet<RUsuario>();
         }
     
         public int IdCcf { get; set; }
@@ -31,7 +31,7 @@ namespace Asocajas
         public string MaquinaActualizacion { get; set; }
         public bool Activo { get; set; }
     
-        public virtual ICollection<RUsuario> RUsuario { get; set; }
         public virtual ICollection<LTLogConsultasAni> LTLogConsultasAni { get; set; }
+        public virtual ICollection<RUsuario> RUsuario { get; set; }
     }
 }

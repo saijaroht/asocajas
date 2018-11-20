@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    debugger
+    
    
 })
 
@@ -13,32 +13,37 @@ function BuscarData() {
         }
         SaveService(ServiceUrl + "Home/PostListCedulas", item, function (dataUsuario) {
             debugger;
-            //ListaData = dataUsuario;
-            //if (dataUsuario.datosCedulas.nuip)
-            //{ abrirModal(ListaData); }
-            //else
-            //{ alerta(); }
+
+            $.each(dataUsuario, function (index, val) {
+
+                debugger;
+
+                
+                $("#dvDatos").append(
+                    $(('<tr />'))
+                    .append($("<td />", { html: val.datosCedulas.nuip }))
+                    .append($("<td />", { html: val.datosCedulas.particula }))
+                    .append($("<td />", { html: val.datosCedulas.primerApellido }))
+                    .append($("<td />", { html: val.datosCedulas.segundoApellido }))
+                    .append($("<td />", { html: val.datosCedulas.primerNombre }))
+                    .append($("<td />", { html: val.datosCedulas.segundoNombre }))
+                    .append($("<td />", { html: val.datosCedulas.fechaNacimiento }))
+                     .append($("<td />", { html: val.datosCedulas.municipioExpedicion }))
+                      .append($("<td />", { html: val.datosCedulas.departamentoExpedicion }))
+                       .append($("<td />", { html: val.datosCedulas.fechaExpedicion }))
+                        .append($("<td />", { html: val.datosCedulas.estadoCedula }))
+                        .append($("<td />", { html: val.datosCedulas.numResolucion }))
+                        .append($("<td />", { html: val.datosCedulas.anoResolucion }))
+                    );
+            });
+            
+           
+            $('#MyModalConsultaMasiva').modal('show');
+            pintarTabla();
+
 
         });
     });
-    //var files = $("#inputFile").get(0).files;
-    //var data = new FormData();
-    //for (i = 0; i < files.length; i++) {
-    //    data.append("file" + i, files[i]);
-    //}
-    //$.ajax({
-    //    type: "POST",
-    //    url: "/api/file",
-    //    contentType: false,
-    //    processData: false,
-    //    data: data,
-    //    success: function (result) {
-    //        if (result) {
-    //            alert('Archivos subidos correctamente');
-    //            $("#inputFile").val('');
-    //        }
-    //    }
-    //});
 }
 
 function leerArchivo(functionSucces) {
@@ -57,3 +62,37 @@ function leerArchivo(functionSucces) {
     lector.readAsText(archivo);
 }
 
+
+function pintarTabla() {
+    $('#example').DataTable({
+        "scrollY": "400px",
+        "scrollCollapse": true,
+        "pagingType": "full_numbers",
+        language: {
+
+            "decimal": "",
+            "emptyTable": "No hay datos",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+            "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+            "infoFiltered": "(Filtro de _MAX_ total registros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "No se encontraron coincidencias",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Próximo",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": Activar orden de columna ascendente",
+                "sortDescending": ": Activar orden de columna desendente"
+            }
+
+        }
+    });
+}
