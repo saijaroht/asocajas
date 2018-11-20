@@ -23,27 +23,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="RUsuario">
-      <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
-        <MappingFragment StoreEntitySet="RUsuario">
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
-          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
-          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
-          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
-          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
-          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-          <ScalarProperty Name="CambioObligatorio" ColumnName="CambioObligatorio" />
-          <ScalarProperty Name="Intentos" ColumnName="Intentos" />
+    <EntitySetMapping Name="RMenu">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
+        <MappingFragment StoreEntitySet="RMenu">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdMenuHijo" ColumnName="IdMenuHijo" />
+          <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,6 +55,28 @@
           <ScalarProperty Name="GUID" ColumnName="GUID" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="IdLogApp" ColumnName="IdLogApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LTLogConsultasAni">
+      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
+        <MappingFragment StoreEntitySet="LTLogConsultasAni">
+          <ScalarProperty Name="CdgoRNEC" ColumnName="CdgoRNEC" />
+          <ScalarProperty Name="DescrRNEC" ColumnName="DescrRNEC" />
+          <ScalarProperty Name="ControlRNEC" ColumnName="ControlRNEC" />
+          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
+          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
+          <ScalarProperty Name="Ip" ColumnName="Ip" />
+          <ScalarProperty Name="Mac" ColumnName="Mac" />
+          <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+          <ScalarProperty Name="Nuip" ColumnName="Nuip" />
+          <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
+          <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -112,18 +122,6 @@
           <ScalarProperty Name="IdTipoDatoBasico" ColumnName="IdTipoDatoBasico" />
           <ScalarProperty Name="IdDatoBasicoPadre" ColumnName="IdDatoBasicoPadre" />
           <ScalarProperty Name="IdDatoBasico" ColumnName="IdDatoBasico" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RMenu">
-      <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
-        <MappingFragment StoreEntitySet="RMenu">
-          <ScalarProperty Name="url" ColumnName="url" />
-          <ScalarProperty Name="Orden" ColumnName="Orden" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-          <ScalarProperty Name="IdMenuHijo" ColumnName="IdMenuHijo" />
-          <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -185,6 +183,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RUsuario">
+      <EntityTypeMapping TypeName="AsocajasBDModel.RUsuario">
+        <MappingFragment StoreEntitySet="RUsuario">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="MaquinaActualizacion" ColumnName="MaquinaActualizacion" />
+          <ScalarProperty Name="UsuarioActualizacion" ColumnName="UsuarioActualizacion" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="MaquinaCreacion" ColumnName="MaquinaCreacion" />
+          <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CambioObligatorio" ColumnName="CambioObligatorio" />
+          <ScalarProperty Name="Intentos" ColumnName="Intentos" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Vigencia" ColumnName="Vigencia" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="AsocajasBDModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -201,28 +223,6 @@
         <MappingFragment StoreEntitySet="TReporte">
           <ScalarProperty Name="Excel" ColumnName="Excel" />
           <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LTLogConsultasAni">
-      <EntityTypeMapping TypeName="AsocajasBDModel.LTLogConsultasAni">
-        <MappingFragment StoreEntitySet="LTLogConsultasAni">
-          <ScalarProperty Name="CdgoRNEC" ColumnName="CdgoRNEC" />
-          <ScalarProperty Name="DescrRNEC" ColumnName="DescrRNEC" />
-          <ScalarProperty Name="ControlRNEC" ColumnName="ControlRNEC" />
-          <ScalarProperty Name="IdRptaAsocajas" ColumnName="IdRptaAsocajas" />
-          <ScalarProperty Name="IdRptaRnec" ColumnName="IdRptaRnec" />
-          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-          <ScalarProperty Name="IdCcf" ColumnName="IdCcf" />
-          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-          <ScalarProperty Name="FechaInicia" ColumnName="FechaInicia" />
-          <ScalarProperty Name="Ip" ColumnName="Ip" />
-          <ScalarProperty Name="Mac" ColumnName="Mac" />
-          <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
-          <ScalarProperty Name="Nuip" ColumnName="Nuip" />
-          <ScalarProperty Name="FechaConsulta" ColumnName="FechaConsulta" />
-          <ScalarProperty Name="IdConsulta" ColumnName="IdConsulta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

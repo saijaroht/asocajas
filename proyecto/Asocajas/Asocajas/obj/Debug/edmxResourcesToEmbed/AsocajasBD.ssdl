@@ -84,7 +84,7 @@
     <Property Name="IdRptaRnec" Type="varchar" MaxLength="5" />
     <Property Name="IdRptaAsocajas" Type="varchar" MaxLength="5" />
     <Property Name="ControlRNEC" Type="varchar" MaxLength="10" />
-    <Property Name="DescrRNEC" Type="varchar" MaxLength="350" />
+    <Property Name="DescrRNEC" Type="varchar" MaxLength="150" />
     <Property Name="CdgoRNEC" Type="varchar" MaxLength="5" />
   </EntityType>
   <EntityType Name="LTLogEventos">
