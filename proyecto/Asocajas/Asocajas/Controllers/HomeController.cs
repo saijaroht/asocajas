@@ -759,6 +759,22 @@ namespace Asocajas.Controllers
         {
             System.Configuration.AppSettingsReader settingsReader =
                                 new AppSettingsReader();
+            //using (Asocajas.ConsultaListaCedulas.ValidateInfoServiceSoapClient Consu = new ConsultaListaCedulas.ValidateInfoServiceSoapClient())
+            //{
+            //    string[] cedulass = new string[Cedulas.Cedulas.Count()];
+            //    int count = 0;
+            //    foreach (var Cedula in Cedulas.Cedulas)
+            //    {
+            //        cedulass[count] = Cedula;
+            //        count++;
+            //    }
+            //    Asocajas.ConsultaListaCedulas.ConectUser UserAuth = new ConsultaListaCedulas.ConectUser();
+            //    UserAuth.usuario = (string)settingsReader.GetValue("UserSoap", typeof(string));
+            //    UserAuth.contrasena = (string)settingsReader.GetValue("PassSoap", typeof(string));
+            //    UserAuth.ip = Utility.GetServerIP();
+            //    var consulta = Consu.ListaDataCedulas(UserAuth, cedulass);
+            //}
+
             using (ServiceSoapClient consultaCedulasPrueba = new ServiceSoapClient())
             {
                 List<Usuario> RetornaCedulas = new List<Usuario>();
@@ -777,6 +793,28 @@ namespace Asocajas.Controllers
                 }
                 return Json(RetornaCedulas);
             }
+
+            //List<string> ListaCedulas = new List<string>();
+            //ListaCedulas.Add("1045623");
+            //ListaCedulas.Add("1045623");
+            //ListaCedulas.Add("1045623");
+            //ListaCedulas.Add("1045623");
+
+            //using (ServiceSoapClient consultaCedulasPrueba = new ServiceSoapClient())
+            //{
+            //    List<Usuario> RetornaCedulas = new List<Usuario>();
+            //    ConsultaCedulasPrueba.UserAuth UserAuth = new ConsultaCedulasPrueba.UserAuth();
+            //    UserAuth.usuario = "camilo";
+            //    UserAuth.contrasena = "123";
+            //    UserAuth.ip = "1.2.3.4";
+
+            //    foreach (var Cedula in ListaCedulas)
+            //    {
+            //        var retornaC = consultaCedulasPrueba.consultarCedulas(UserAuth, Cedula);
+            //        RetornaCedulas.Add(retornaC);
+            //    }
+            //    return Json(RetornaCedulas);
+            //}
         }
 
         public void PutLTLogConsultasAni(DateTime today, DateTime datereturnSOAP, string Cedula, Usuario consultaCedulasPrueba, string Origen)

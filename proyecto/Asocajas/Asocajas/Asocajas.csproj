@@ -499,6 +499,18 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="Service References\ConsultaListaCedulas\Asocajas.ConsultaListaCedulas.ListaDataCedulasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsultaListaCedulas\Asocajas.ConsultaListaCedulas.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsultaListaCedulas\configuration91.svcinfo" />
+    <Content Include="Service References\ConsultaListaCedulas\configuration.svcinfo" />
+    <Content Include="Service References\ConsultaListaCedulas\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <Content Include="Services\Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -738,6 +750,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ConsultaListaCedulas\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\Servicios.aspx.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -780,6 +797,7 @@
     <Content Include="Pages\AllPages\pages.Master" />
     <Content Include="packages.config" />
     <Content Include="Service References\ConsultaCedulasPrueba\WSConsulta.wsdl" />
+    <Content Include="Service References\ConsultaListaCedulas\AuthenticationF.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -798,6 +816,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ConsultaCedulasPrueba\" />
+    <WCFMetadataStorage Include="Service References\ConsultaListaCedulas\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
