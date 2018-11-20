@@ -28,12 +28,12 @@ function BuscarData() {
                     .append($("<td />", { html: val.datosCedulas.primerNombre }))
                     .append($("<td />", { html: val.datosCedulas.segundoNombre }))
                     .append($("<td />", { html: val.datosCedulas.fechaNacimiento }))
-                     .append($("<td />", { html: val.datosCedulas.municipioExpedicion }))
-                      .append($("<td />", { html: val.datosCedulas.departamentoExpedicion }))
-                       .append($("<td />", { html: val.datosCedulas.fechaExpedicion }))
-                        .append($("<td />", { html: val.datosCedulas.estadoCedula }))
-                        .append($("<td />", { html: val.datosCedulas.numResolucion }))
-                        .append($("<td />", { html: val.datosCedulas.anoResolucion }))
+                    .append($("<td />", { html: val.datosCedulas.municipioExpedicion }))
+                    .append($("<td />", { html: val.datosCedulas.departamentoExpedicion }))
+                    .append($("<td />", { html: val.datosCedulas.fechaExpedicion }))
+                    .append($("<td />", { html: val.datosCedulas.estadoCedula }))
+                    .append($("<td />", { html: val.datosCedulas.numResolucion }))
+                    .append($("<td />", { html: val.datosCedulas.anoResolucion }))
                     );
             });
             
@@ -67,6 +67,7 @@ function pintarTabla() {
     $('#example').DataTable({
         "scrollY": "400px",
         "scrollCollapse": true,
+        "scrollX": true,
         "pagingType": "full_numbers",
         language: {
 

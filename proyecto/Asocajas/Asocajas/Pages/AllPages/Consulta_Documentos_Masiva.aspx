@@ -8,15 +8,13 @@
     <script src="../../Scripts/Scripts/tables/bootstrap-table-export.js"></script>
     <script src="../../Scripts/Scripts/tables/tableExport.js"></script>
     <script src="../../Scripts/Scripts/tables/bootstrap-table-filter-control.js"></script>
+   
     <script src="../../Scripts/Javascript/Consulta_Documentos_Masiva.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="TitlePage" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="bodyContent" runat="server">
-    <%--<ul class="breadcrumb">
-        <li><a href="Inicio.aspx">Administración</a></li>
-        <li class="active">Consulta Masiva Documentos</li>
-    </ul>--%>
+   
 	
 	<h4 class="text-center "><b>Consulta Masiva Documentos</b></h4>
 	
@@ -50,7 +48,10 @@
 		<li type="circle"><h4 class="text-justify "><b>Sólo se permite un máximo de cien (100) registros o líneas para ser procesadas. </b></h4></li>	  
 	</div>
 	
+
             <script>
+
+                
 
                 //exporte les données sélectionnées
                 var $table = $('#table');
@@ -79,7 +80,7 @@
                     <h4 class="modal-title">Consulta Masiva</h4>
                 </div>
                 <div style="padding:10mm">
-             <table id="example" class="table table-striped table-responsive " >
+             <table id="example" class="table-responsive" style="width:100%">
         <thead>
             <tr>
                 <th>Identificación</th>
