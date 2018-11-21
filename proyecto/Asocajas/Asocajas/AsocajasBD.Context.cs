@@ -28,13 +28,13 @@ namespace Asocajas
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<RMenu> RMenu { get; set; }
+        public DbSet<ROrigen> ROrigen { get; set; }
         public DbSet<LTLogApp> LTLogApp { get; set; }
         public DbSet<LTLogConsultasAni> LTLogConsultasAni { get; set; }
         public DbSet<LTLogEventos> LTLogEventos { get; set; }
         public DbSet<RCCF> RCCF { get; set; }
         public DbSet<RDatoBasico> RDatoBasico { get; set; }
-        public DbSet<ROrigen> ROrigen { get; set; }
+        public DbSet<RMenu> RMenu { get; set; }
         public DbSet<RRole> RRole { get; set; }
         public DbSet<RRptaAsocajas> RRptaAsocajas { get; set; }
         public DbSet<RRptaRnec> RRptaRnec { get; set; }

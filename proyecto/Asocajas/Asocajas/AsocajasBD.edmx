@@ -337,13 +337,13 @@
             <Parameter Name="Asunto" Mode="In" Type="String" />
             <Parameter Name="Html" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
+          <EntitySet Name="ROrigen" EntityType="AsocajasBDModel.ROrigen" />
           <EntitySet Name="LTLogApp" EntityType="AsocajasBDModel.LTLogApp" />
           <EntitySet Name="LTLogConsultasAni" EntityType="AsocajasBDModel.LTLogConsultasAni" />
           <EntitySet Name="LTLogEventos" EntityType="AsocajasBDModel.LTLogEventos" />
           <EntitySet Name="RCCF" EntityType="AsocajasBDModel.RCCF" />
           <EntitySet Name="RDatoBasico" EntityType="AsocajasBDModel.RDatoBasico" />
-          <EntitySet Name="ROrigen" EntityType="AsocajasBDModel.ROrigen" />
+          <EntitySet Name="RMenu" EntityType="AsocajasBDModel.RMenu" />
           <EntitySet Name="RRole" EntityType="AsocajasBDModel.RRole" />
           <EntitySet Name="RRptaAsocajas" EntityType="AsocajasBDModel.RRptaAsocajas" />
           <EntitySet Name="RRptaRnec" EntityType="AsocajasBDModel.RRptaRnec" />
@@ -398,16 +398,14 @@
           <Property Type="String" Name="MaquinaActualizacion" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="Activo" Nullable="false" />
         </ComplexType>
-        <EntityType Name="RMenu">
+        <EntityType Name="ROrigen">
           <Key>
-            <PropertyRef Name="IdMenu" />
+            <PropertyRef Name="IdOrigen" />
           </Key>
-          <Property Type="Int32" Name="IdMenu" Nullable="false" />
-          <Property Type="Int32" Name="IdMenuHijo" />
-          <Property Type="Int32" Name="IdRole" Nullable="false" />
-          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Orden" Nullable="false" />
-          <Property Type="String" Name="url" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdOrigen" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OrigenConsulta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Activo" Nullable="false" />
+          <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_ROrigen" FromRole="ROrigen" ToRole="LTLogConsultasAni" />
         </EntityType>
         <EntityType Name="LTLogApp">
           <Key>
@@ -501,14 +499,16 @@
           <Property Type="String" Name="MaquinaActualizacion" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Activo" Nullable="false" />
         </EntityType>
-        <EntityType Name="ROrigen">
+        <EntityType Name="RMenu">
           <Key>
-            <PropertyRef Name="IdOrigen" />
+            <PropertyRef Name="IdMenu" />
           </Key>
-          <Property Type="String" Name="IdOrigen" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="OrigenConsulta" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Activo" Nullable="false" />
-          <NavigationProperty Name="LTLogConsultasAni" Relationship="AsocajasBDModel.FK_LTLogConsultasAni_ROrigen" FromRole="ROrigen" ToRole="LTLogConsultasAni" />
+          <Property Type="Int32" Name="IdMenu" Nullable="false" />
+          <Property Type="Int32" Name="IdMenuHijo" />
+          <Property Type="Int32" Name="IdRole" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="String" Name="url" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RRole">
           <Key>
@@ -713,15 +713,12 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="RMenu">
-            <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
-              <MappingFragment StoreEntitySet="RMenu">
-                <ScalarProperty Name="url" ColumnName="url" />
-                <ScalarProperty Name="Orden" ColumnName="Orden" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="IdMenuHijo" ColumnName="IdMenuHijo" />
-                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+          <EntitySetMapping Name="ROrigen">
+            <EntityTypeMapping TypeName="AsocajasBDModel.ROrigen">
+              <MappingFragment StoreEntitySet="ROrigen">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="OrigenConsulta" ColumnName="OrigenConsulta" />
+                <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -815,12 +812,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ROrigen">
-            <EntityTypeMapping TypeName="AsocajasBDModel.ROrigen">
-              <MappingFragment StoreEntitySet="ROrigen">
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="OrigenConsulta" ColumnName="OrigenConsulta" />
-                <ScalarProperty Name="IdOrigen" ColumnName="IdOrigen" />
+          <EntitySetMapping Name="RMenu">
+            <EntityTypeMapping TypeName="AsocajasBDModel.RMenu">
+              <MappingFragment StoreEntitySet="RMenu">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdMenuHijo" ColumnName="IdMenuHijo" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
